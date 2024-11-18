@@ -77,6 +77,7 @@ class adminDanhMucSanPham{
             echo "CÓ LỖI:".$e->getMessage();
         } 
     }
+    public function kien(){}
     
 }
 
