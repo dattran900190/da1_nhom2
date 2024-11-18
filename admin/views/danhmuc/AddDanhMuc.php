@@ -39,10 +39,30 @@
                         <div class="h-100">
                             <div class="row mb-3 pb-1">
                                 <div class="col-12">
+                                <div class="flex-grow-1">
+                                            <h2 class="text-primary mb-4">Thêm danh mục sản phẩm</h2>
+                                        </div>
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                    
                                         <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=them-khuyen-mai' ?>" method="POST">
-                                               
+                                            <form action="<?= BASE_URL_ADMIN . '?act=them-danh-muc-san-pham' ?>" method="POST">
+                                            <div class="form-group">
+                                                        <label>Tên danh mục</label>
+                                                        <input type="text" class="form-control" name="ten_danh_muc" placeholder="Nhập tên danh mục sản phẩm"
+                                                            value="<?= isset($_SESSION['old_data']['ten_danh_muc']) ? $_SESSION['old_data']['ten_danh_muc'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['ten_danh_muc'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Mô tả danh mục</label>
+                                                        <textarea class="form-control" name="mo_ta"  placeholder="Nhập mô tả danh mục sản phẩm" 
+                                                     value="<?= isset($_SESSION['old_data']['mo_ta']) ? $_SESSION['old_data']['mo_ta'] : '' ?>"></textarea>
+                                                     <small class="text-danger"><?= $_SESSION['errors']['mo_ta'] ?? '' ?></small>
+                                                    </div>
+                                                   
+                                                    <div class="card-footer">
+                                                      <button style="margin-top: 10px;"   type="submit" class="btn btn-primary">Submit</button>
+                                             </div>
+                                         </div>
                                             
                                             </form>
                                         </div>

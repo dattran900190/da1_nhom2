@@ -39,12 +39,32 @@
                         <div class="h-100">
                             <div class="row mb-3 pb-1">
                                 <div class="col-12">
-                                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                        <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=sua-khuyen-mai' ?>" method="POST">
-                                                
-                                            </form>
+                                <div class="flex-grow-1">
+                                            <h2 class="text-primary mb-4">Sửa danh mục sản phẩm</h2>
                                         </div>
+                                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                    
+                                        <div class="flex-grow-1">
+                                        <form action="<?= BASE_URL_ADMIN . '?act=sua-danh-muc-san-pham' ?>" method="POST">
+                                        <input type="hidden" name="id" value="<?= $danhMucSanPham['id'] ?>">
+                                                
+                                                <div class="form-group">
+                                                    <label>Tên danh mục sản phẩm</label>
+                                                    <input type="text" class="form-control" value="<?= $danhMucSanPham['ten_danh_muc'] ?>" name="ten_danh_muc" placeholder="Nhập tên khuyến mãi"
+                                                        value="<?= isset($_SESSION['old_data']['ten_danh_muc']) ? $_SESSION['old_data']['ten_danh_muc'] : '' ?>">
+                                                    <small class="text-danger"><?= $_SESSION['errors']['ten_danh_muc'] ?? '' ?></small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Mã khuyến mãi</label>
+                                                    <input type="text" class="form-control" value="<?= $danhMucSanPham['mo_ta'] ?>" name="mo_ta" placeholder="Nhập mã khuyến mãi"
+                                                        value="<?= isset($_SESSION['old_data']['mo_ta']) ? $_SESSION['old_data']['mo_ta'] : '' ?>">
+                                                    <small class="text-danger"><?= $_SESSION['errors']['mo_ta'] ?? '' ?></small>
+                                                </div>
+                                                <div class="card-footer">
+                                                <button style="margin-top: 10px;"   type="submit" class="btn btn-primary">Submit</button>
+                                            
+                                            </form>
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +94,7 @@
             <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
     </div>
-
+    <?php unset($_SESSION['errors']); ?>
     <!-- JAVASCRIPT -->
     <?php
     require_once "views/layouts/libs_js.php";
