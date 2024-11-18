@@ -41,9 +41,85 @@
                                 <div class="col-12">
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                         <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=them-khuyen-mai' ?>" method="POST">
-                                               
-                                            
+                                            <form action="<?= BASE_URL_ADMIN . '?act=them-san-pham' ?>" method="POST" enctype="multipart/form-data">
+                                                <div class="card-body">
+                                                <select class="form-control" name="danh_muc_id" id="exampleFormControlSelect1">
+
+                                                    <option selected disabled>Chọn danh mục sản phẩm</option>
+
+                                                    <?php foreach ($listDanhMucSanPham as $danhmuc) : ?>
+                                                    <option value="<?= $danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></option>
+                                                    <?php endforeach ?>
+                                                    </select>
+                                                    <div class="form-group">
+                                                        <label>Tên sản phẩm</label>
+                                                        <input type="text" class="form-control" name="ten_san_pham" placeholder="Nhập tên sản phẩm"
+                                                            value="<?= isset($_SESSION['old_data']['ten_san_pham']) ? $_SESSION['old_data']['ten_san_pham'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['ten_san_pham'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Giá Sản Phẩm</label>
+                                                        <input type="text" class="form-control" name="gia_san_pham" placeholder="Nhập mã khuyến mãi"
+                                                            value="<?= isset($_SESSION['old_data']['gia_san_pham']) ? $_SESSION['old_data']['gia_san_pham'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['gia_san_pham'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Mã khuyến mãi</label>
+                                                        <input type="number" class="form-control" name="gia_khuyen_mai" placeholder="Nhập mức giảm giá"
+                                                            value="<?= isset($_SESSION['old_data']['gia_khuyen_mai']) ? $_SESSION['old_data']['gia_khuyen_mai'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['gia_khuyen_mai'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Ảnh</label>
+                                                        <input type="file" class="form-control" name="hinh_anh"
+                                                            value="<?= isset($_SESSION['old_data']['hinh_anh']) ? $_SESSION['old_data']['hinh_anh'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['hinh_anh'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Số Lượng</label>
+                                                        <input type="number" class="form-control" name="so_luong"
+                                                            value="<?= isset($_SESSION['old_data']['so_luong']) ? $_SESSION['old_data']['so_luong'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['so_luong'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Kích cỡ</label>
+                                                        <input type="text" class="form-control" name="kich_co"
+                                                            value="<?= isset($_SESSION['old_data']['kich_co']) ? $_SESSION['old_data']['kich_co'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['kich_co'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Ngày nhập</label>
+                                                        <input type="date" class="form-control" name="ngay_nhap"
+                                                            value="<?= isset($_SESSION['old_data']['ngay_nhap']) ? $_SESSION['old_data']['ngay_nhap'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['ngay_nhap'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Mô tả sản phẩm</label>
+                                                        <input type="text" class="form-control" name="mo_ta" placeholder="Mô tả sản phẩm"
+                                                            value="<?= isset($_SESSION['old_data']['mo_ta']) ? $_SESSION['old_data']['mo_ta'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['mo_ta'] ?? '' ?></small>
+                                                    </div>
+                                                    
+
+
+                                                    <div class="form-group">
+                                                        <label for="inputStatus">Trạng thái mã khuyến mãi</label>
+                                                        <select id="inputStatus" name="trang_thai" class="form-control custom-select">
+                                                            <option disabled <?= !isset($_SESSION['old_data']['trang_thai']) ? 'selected' : '' ?>>Chọn trạng thái khuyến mãi</option>
+                                                            <option value="1" <?= (isset($_SESSION['old_data']['trang_thai']) && $_SESSION['old_data']['trang_thai'] == '1') ? 'selected' : '' ?>>Còn hạn</option>
+                                                            <option value="2" <?= (isset($_SESSION['old_data']['trang_thai']) && $_SESSION['old_data']['trang_thai'] == '2') ? 'selected' : '' ?>>Hết hạn</option>
+                                                        </select>
+                                                        <small class="text-danger"><?= $_SESSION['errors']['trang_thai'] ?? '' ?></small>
+                                                    </div>
+                                                   
+                                                <?php if (isset($_SESSION['errors']['danh_muc_id'])) { ?>
+                                                    <p class="text-danger"><?= $_SESSION['errors']['danh_muc_id'] ?></p>
+                                                <?php  } ?>
+                                                </div>
+
+                                                <div class="card-footer">
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>
