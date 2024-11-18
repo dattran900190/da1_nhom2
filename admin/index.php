@@ -47,4 +47,21 @@ match ($act) {
     'sua-don-hang'                            => (new QuanLyDonHangController()) -> postEditDonHang(),
     'chi-tiet-don-hang'                            => (new QuanLyDonHangController()) -> detailDonHang(),
     // ------------- end đơn hàng --------------------
+     // -------------danh mục sản phẩm ------------------
+     'quan-ly-danh-muc-san-pham'                    => (new QuanLyDanhMucSanPhamController()) -> danhsachDanhMucSanPham(),
+     'form-them-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> formAddDanhMucSanPham(),
+     'them-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> postAddDanhMucSanPham(),
+     'form-sua-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> formEditDanhMucSanPham (),
+     'sua-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> postEditDanhMucSanPham(),
+     'xoa-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> deleteDanhMucSanPham(),
+     // ------------- end danh mục sản phẩm ------------------
+ 
+     // -------------Bộ sưu tập ------------------
+     'quan-ly-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> danhsachBoSuuTap(),
+     'form-them-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> formAddBoSuuTap(),
+     'them-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> postAddBoSuuTap(),
+     'form-sua-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> formEditBoSuuTap(),
+     'sua-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> postEditBoSuuTap(),
+     'xoa-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> deleteBoSuuTap(),
+     // ------------- end Bộ sưu tập ------------------
 };
