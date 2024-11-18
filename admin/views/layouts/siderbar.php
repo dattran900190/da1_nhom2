@@ -60,10 +60,31 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="<?php BASE_URL_ADMIN ?>?act=quan-ly-nguoi-dung">
+                <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc"  <?php BASE_URL_ADMIN ?>?act=quan-ly-nguoi-dung >
                     <i class="fa-solid fa-users"></i> <span data-key="t-dashboards">Quản lý người dùng</span>
                     </a>
+                    <div class="collapse menu-dropdown" id="sidebarDanhMuc">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="" class="nav-link" data-key="t-sweet-alerts">
+                                    Tài Khoản Quản trị viên
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link" data-key="t-nestable-list">
+                                    Tài khoản cá nhân
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link" data-key="t-nestable-list">
+                                    Tài khoản khách hàng
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
+          
+                  
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?php BASE_URL_ADMIN ?>?act=quan-ly-san-pham">
                     <i class="fa-brands fa-product-hunt"></i> <span data-key="t-dashboards">Quản lý sản phẩm</span>
