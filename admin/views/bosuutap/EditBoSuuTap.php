@@ -39,12 +39,32 @@
                         <div class="h-100">
                             <div class="row mb-3 pb-1">
                                 <div class="col-12">
-                                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                        <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=sua-khuyen-mai' ?>" method="POST">
-                                                
-                                            </form>
+                                <div class="flex-grow-1">
+                                            <h2 class="text-primary mb-4">Sửa bộ sưu tập</h2>
                                         </div>
+                                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                    
+                                        <div class="flex-grow-1">
+                                        <form action="<?= BASE_URL_ADMIN . '?act=sua-bo-suu-tap' ?>" method="POST">
+                                        <input type="hidden" name="id" value="<?= $boSuuTap['id'] ?>">
+                                                
+                                                <div class="form-group">
+                                                    <label>Tên danh mục sản phẩm</label>
+                                                    <input type="text" class="form-control" value="<?= $boSuuTap['ten_bo_suu_tap'] ?>" name="ten_bo_suu_tap" placeholder="Nhập tên bộ sưu tập"
+                                                        value="<?= isset($_SESSION['old_data']['ten_bo_suu_tap']) ? $_SESSION['old_data']['ten_bo_suu_tap'] : '' ?>">
+                                                    <small class="text-danger"><?= $_SESSION['errors']['ten_bo_suu_tap'] ?? '' ?></small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Mô tả bộ sưu tập</label>
+                                                    <input type="text" class="form-control" value="<?= $boSuuTap['mo_ta'] ?>" name="mo_ta" placeholder="Nhập mô tả bộ sưu tập "
+                                                        value="<?= isset($_SESSION['old_data']['mo_ta']) ? $_SESSION['old_data']['mo_ta'] : '' ?>">
+                                                    <small class="text-danger"><?= $_SESSION['errors']['mo_ta'] ?? '' ?></small>
+                                                </div>
+                                                <div class="card-footer">
+                                                <button style="margin-top: 10px;"   type="submit" class="btn btn-primary">Submit</button>
+                                            
+                                            </form>
+                                         </div>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +94,7 @@
             <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
     </div>
-
+    <?php unset($_SESSION['errors']); ?>
     <!-- JAVASCRIPT -->
     <?php
     require_once "views/layouts/libs_js.php";
