@@ -1,0 +1,2087 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito Sans", sans-serif;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.nav-menu .logo {
+    /* padding-top: 15px; */
+    padding-left: 40px;
+}
+
+.nav-menu .logo img {
+    width: 150px;
+}
+
+/* .nav-menu .menu ul {
+    overflow: hidden;
+} */
+
+.nav-menu .menu ul li {
+    list-style: none;
+    float: left;
+}
+
+.nav-menu .menu ul li a {
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    color: #979797;
+}
+
+.nav-menu .menu ul li a:hover {
+    color: black;
+}
+
+.dropbtn {
+    background-color: #F1F1F0;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    /* display: inline-block; */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #F1F1F0;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #f1f1f0;
+}
+
+.menu-search {
+    padding-right: 20px;
+}
+
+/* .menu-search ul {
+    overflow: hidden;
+} */
+
+.menu-search ul li {
+    list-style: none;
+    float: left;
+}
+
+.menu-search ul li a {
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    color: black;
+}
+
+.line-ngang {
+    border-top: 0.1px solid #b6afaf;
+    background-color: #F1F1F0;
+    width: 100%;
+    filter: blur(0.3px);
+}
+
+.header .t-new-collections .title {
+    font-family: "Playfair Display", serif;
+    text-align: center;
+    font-size: 80px;
+}
+
+.header .t-new-collections .content {
+    font-family: "Nunito Sans", sans-serif;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: #979797;
+}
+
+.product-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.product-header .container {
+    display: flex;
+    overflow: hidden;
+    width: 75%;
+    scroll-behavior: smooth;
+    width: 100%;
+
+}
+
+.item {
+    flex: 0 0 33.33%;
+    margin: 10px 0;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+
+}
+
+.item .title {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 10px 0;
+    padding-top: 30px;
+
+}
+
+.item .content {
+    margin: 10px 0;
+    color: #979797;
+}
+
+.item .title a {
+    text-decoration: none;
+    position: relative;
+    margin-top: 10px;
+    color: #333;
+}
+
+.item .title a:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: #141212;
+    left: 0;
+    bottom: -5px;
+    transition: 0.1s;
+}
+
+.item a:hover:after {
+    width: 100%;
+}
+
+.item a {
+    text-decoration: none;
+    position: relative;
+    margin-top: 10px;
+    color: #333;
+}
+
+.item a:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #979797;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.item a:hover:after {
+    width: 100%;
+    background-color: #272424;
+}
+
+.item img {
+    width: 90%;
+}
+
+.item:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.arrow {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+#left-arrow {
+    left: 10px;
+    top: 250px;
+}
+
+#right-arrow {
+    right: 10px;
+    top: 250px;
+}
+
+.arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* 
+.product-header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+}
+ */
+
+.chinh-sach {
+    display: flex;
+    padding: 5% 0;
+    justify-content: space-between;
+    /* margin: 0 12%; */
+}
+
+.chinh-sach .csach {
+    text-align: center;
+}
+
+.chinh-sach .csach .logo span {
+    font-size: 50px;
+    color: #979797;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+    font-size: 36px;
+    /* Adjust icon size */
+    color: #333;
+    /* Change icon color */
+}
+
+.chinh-sach .csach .title {
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+.chinh-sach .csach .content {
+    color: #979797;
+    padding: 0 15%;
+}
+
+.phan-loai {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    padding-bottom: 5%;
+
+}
+
+.phan-loai .title {
+    color: #979797;
+}
+
+.san-pham {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+    text-align: center;
+
+}
+
+.san-pham img {
+    width: 100%;
+}
+
+.phan-loai .san-pham {
+    padding: 10px;
+}
+
+.phan-loai .san-pham:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.phan-loai .san-pham .title {
+    padding-top: 25px;
+}
+
+/* 
+
+.san-pham-moi .mid .san-pham .add-to-cart a {
+    padding: 0 15px;
+}
+
+.san-pham-moi .mid .san-pham .add-to-cart {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    transition: bottom 0.3s ease;
+    background-color: #bab0b0;
+    padding: 15px 0;
+    margin: 0 10px;
+}
+
+.san-pham-moi .mid .san-pham:hover .add-to-cart {
+    bottom: 10px;
+
+}
+
+.san-pham-moi .mid .san-pham img {
+    width: 100%;
+}
+
+.san-pham-moi .mid .san-pham a {
+    text-decoration: none;
+    font-size: 15px;
+    color: #333;
+}
+
+.san-pham-moi .mid .san-pham:hover {
+    transform: scale(1.07);
+}
+
+*/
+
+
+.san-pham-moi {
+    position: relative;
+    padding-left: 8%;
+}
+
+.san-pham-moi .top {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 11%;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.san-pham-moi .top .title {
+    font-size: 1.5rem;
+}
+
+.san-pham-moi .top .xem-them {
+    font-size: 0.8rem;
+}
+
+.san-pham-moi .top a {
+    text-decoration: none;
+    color: #333;
+    position: relative;
+}
+
+.san-pham-moi .top a:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    background-color: #141212;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.1s;
+}
+
+.san-pham-moi .top a:hover:after {
+    width: 100%;
+}
+
+.san-pham-moi .mid {
+    display: flex;
+    overflow: hidden;
+    width: 91%;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.san-pham-moi .mid .san-pham {
+    flex: 0 0 25%;
+    /* Adjust this value if needed */
+    padding: 10px;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.san-pham-moi .mid .san-pham .add-to-cart a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    padding-left: 20px;
+
+}
+
+.san-pham-moi .mid .san-pham .add-to-cart a:hover {
+    color: #000;
+    font-size: 17px;
+}
+
+.san-pham-moi .mid .san-pham .add-to-cart .tim a {
+    padding: 0 15px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.san-pham-moi .mid .san-pham .add-to-cart .tim a:hover {
+    color: #000;
+    font-size: 20px;
+}
+
+.san-pham-moi .mid .san-pham img {
+    width: 100%;
+}
+
+.san-pham-moi .mid .san-pham .add-to-cart {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -80px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: bottom 0.4s ease;
+    background-color: #f1f1f0;
+    height: 50px;
+}
+
+.san-pham-moi .mid .san-pham:hover .add-to-cart {
+    bottom: 10px;
+}
+
+.san-pham-moi .mid .san-pham:hover img {
+    transform: scale(1.1);
+    transition: transfor3 0.5s ease;
+}
+
+.san-pham-moi .mid .san-pham:hover .title,
+.san-pham-moi .mid .san-pham:hover .price {
+    color: #FFFFFF;
+}
+
+.san-pham-moi .mid .san-pham .title {
+    font-size: 19px;
+}
+
+.san-pham-moi .mid .san-pham .price {
+    font-size: 15px;
+}
+
+.arrow-v2 {
+    background: #FFFFFF;
+    color: #cfb3b3;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    font-size: 2rem;
+    /* Adjust arrow size */
+    padding: 4px;
+    /* Padding for smaller arrows */
+    border: none;
+    border-style: solid;
+}
+
+#left-arrow-v2 {
+    left: 70px;
+}
+
+#right-arrow-v2 {
+    right: 73px;
+}
+
+.arrow-v2:hover {
+    border-color: #8f8f8f;
+    color: #8f8f8f;
+}
+
+.nen-bst {
+    background-color: #F1F1F0;
+    padding: 80px;
+    margin-top: 50px;
+    padding-bottom: 5%;
+}
+
+.bo-suu-tap-popular {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1070px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+
+}
+
+.bo-suu-tap-popular .anh-bo-suu-tap,
+.bo-suu-tap-popular .content {
+    flex: 1;
+    /* Làm cho mỗi phần bằng nhau */
+}
+
+.bo-suu-tap-popular .anh-bo-suu-tap img {
+    width: 100%;
+}
+
+.bo-suu-tap-popular .content {
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+.bo-suu-tap-popular .content .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-right: 20%;
+    font-family: "Playfair Display", serif;
+}
+
+.bo-suu-tap-popular .content .s-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    padding-right: 12%;
+    color: #979797;
+}
+
+.bo-suu-tap-popular .content button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.bo-suu-tap-popular .content button:hover {
+    background-color: #1f1f1f;
+}
+
+.san-pham-ban-chay {
+    position: relative;
+    padding-left: 8%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.san-pham-ban-chay .top {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 11%;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.san-pham-ban-chay .top .title {
+    font-size: 1.5rem;
+}
+
+.san-pham-ban-chay .top .xem-them {
+    font-size: 0.8rem;
+}
+
+.san-pham-ban-chay .top a {
+    text-decoration: none;
+    color: #333;
+    position: relative;
+}
+
+.san-pham-ban-chay .top a:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    background-color: #141212;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.1s;
+}
+
+.san-pham-ban-chay .top a:hover:after {
+    width: 100%;
+}
+
+.san-pham-ban-chay .mid {
+    display: flex;
+    overflow: hidden;
+    width: 91%;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.san-pham-ban-chay .mid .san-pham {
+    flex: 0 0 25%;
+    /* Adjust this value if needed */
+    padding: 10px;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.san-pham-ban-chay .mid .san-pham .add-to-cart a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    padding-left: 20px;
+
+}
+
+.san-pham-ban-chay .mid .san-pham .add-to-cart a:hover {
+    color: #000;
+    font-size: 17px;
+
+}
+
+.san-pham-ban-chay .mid .san-pham .add-to-cart .tim a {
+    padding: 0 15px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.san-pham-ban-chay .mid .san-pham .add-to-cart .tim a:hover {
+    color: #000;
+    font-size: 20px;
+
+}
+
+.san-pham-ban-chay .mid .san-pham img {
+    width: 100%;
+}
+
+.san-pham-ban-chay .mid .san-pham .add-to-cart {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -80px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: bottom 0.4s ease;
+    background-color: #f1f1f0;
+    height: 50px;
+}
+
+.san-pham-ban-chay .mid .san-pham:hover .add-to-cart {
+    bottom: 10px;
+}
+
+.san-pham-ban-chay .mid .san-pham:hover img {
+    transform: scale(1.1);
+    transition: transfor3 0.5s ease;
+}
+
+.san-pham-ban-chay .mid .san-pham:hover .title,
+.san-pham-ban-chay .mid .san-pham:hover .price {
+    color: #FFFFFF;
+}
+
+.san-pham-ban-chay .mid .san-pham .title {
+    font-size: 19px;
+}
+
+.san-pham-ban-chay .mid .san-pham .price {
+    font-size: 15px;
+}
+
+.arrow-v3 {
+    background: #FFFFFF;
+    color: #cfb3b3;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    font-size: 2rem;
+    /* Adjust arrow size */
+    padding: 4px;
+    /* Padding for smaller arrows */
+    border: none;
+    border-style: solid;
+}
+
+#left-arrow-v3 {
+    left: 70px;
+}
+
+#right-arrow-v3 {
+    right: 73px;
+}
+
+.arrow-v3:hover {
+    border-color: #8f8f8f;
+    color: #8f8f8f;
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+.video iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    /* Optional: remove border */
+}
+
+.keo-chu .title {
+    text-align: center;
+    font-size: 30px;
+    padding: 8% 0;
+}
+
+.keo-chu .all-chu {
+    display: flex;
+    text-align: center;
+    padding-bottom: 5%;
+    padding-left: 8%;
+    padding-right: 8%;
+    gap: 20px;
+}
+
+.san-pham-co-the-thich {
+    position: relative;
+    padding-left: 8%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.san-pham-co-the-thich .top {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 11%;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.san-pham-co-the-thich .top .title {
+    font-size: 1.5rem;
+}
+
+.san-pham-co-the-thich .top .xem-them {
+    font-size: 0.8rem;
+}
+
+.san-pham-co-the-thich .top a {
+    text-decoration: none;
+    color: #333;
+    position: relative;
+}
+
+.san-pham-co-the-thich .top a:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    background-color: #141212;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.1s;
+}
+
+.san-pham-co-the-thich .top a:hover:after {
+    width: 100%;
+}
+
+.san-pham-co-the-thich .mid {
+    display: flex;
+    overflow: hidden;
+    width: 91%;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.san-pham-co-the-thich .mid .san-pham {
+    flex: 0 0 25%;
+    /* Adjust this value if needed */
+    padding: 10px;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+}
+
+.san-pham-co-the-thich .mid .san-pham .add-to-cart a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    padding-left: 20px;
+
+}
+
+.san-pham-co-the-thich .mid .san-pham .add-to-cart a:hover {
+    color: #000;
+    font-size: 17px;
+
+}
+
+.san-pham-co-the-thich .mid .san-pham .add-to-cart .tim a {
+    padding: 0 15px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.san-pham-co-the-thich .mid .san-pham .add-to-cart .tim a:hover {
+    color: #000;
+    font-size: 20px;
+
+}
+
+.san-pham-co-the-thich .mid .san-pham img {
+    width: 100%;
+}
+
+.san-pham-co-the-thich .mid .san-pham .add-to-cart {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -80px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: bottom 0.4s ease;
+    background-color: #f1f1f0;
+    height: 50px;
+}
+
+.san-pham-co-the-thich .mid .san-pham:hover .add-to-cart {
+    bottom: 10px;
+}
+
+.san-pham-co-the-thich .mid .san-pham:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.san-pham-co-the-thich .mid .san-pham:hover .title,
+.san-pham-co-the-thich .mid .san-pham:hover .price {
+    color: #FFFFFF;
+}
+
+.san-pham-co-the-thich .mid .san-pham .title {
+    font-size: 19px;
+}
+
+.san-pham-co-the-thich .mid .san-pham .price {
+    font-size: 15px;
+}
+
+.arrow-v4 {
+    background: #FFFFFF;
+    color: #cfb3b3;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    font-size: 2rem;
+    /* Adjust arrow size */
+    padding: 4px;
+    /* Padding for smaller arrows */
+    border: none;
+    border-style: solid;
+}
+
+#left-arrow-v4 {
+    left: 70px;
+}
+
+#right-arrow-v4 {
+    right: 73px;
+}
+
+.arrow-v4:hover {
+    border-color: #8f8f8f;
+    color: #8f8f8f;
+}
+
+.blogs {
+    flex-direction: column;
+}
+
+.blogs .top {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 9%;
+    margin-right: 9%;
+}
+
+.blogs .top .title {
+    font-size: 1.5rem;
+}
+
+.blogs .top .xem-them {
+    font-size: 0.8rem;
+}
+
+.blogs .top a {
+    text-decoration: none;
+    position: relative;
+    color: #333;
+}
+
+.blogs .top a:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: #141212;
+    left: 0;
+    bottom: -5px;
+    transition: 0.1s;
+}
+
+.blogs .top a:hover:after {
+    width: 100%;
+}
+
+.blogs .mid {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+}
+
+.blogs .mid .blog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+    text-align: left;
+}
+
+.blogs .mid .blog img {
+    width: 100%;
+}
+
+.blogs .mid .blog a {
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.blogs .mid .blog .day {
+    font-size: 12px;
+    color: #979797;
+}
+
+.blogs .mid .blog .content {
+    font-size: 12px;
+    color: #979797;
+}
+
+.blogs .mid .blog .title {
+    font-family: "Playfair Display", serif;
+    font-size: 21px;
+}
+
+.blogs .mid .blog .day,
+.blogs .mid .blog .title {
+    align-self: flex-start;
+    /* Align to the left */
+    text-align: left;
+    /* Ensure text is left-aligned */
+}
+
+.thuong-hieu {
+    display: flex;
+    justify-content: center;
+    padding: 3% 0;
+}
+
+.thuong-hieu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.thuong-hieu ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thuong-hieu ul li img {
+    max-width: 200px;
+    height: auto;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer .contact-email {
+    padding-top: 5%;
+}
+
+.footer .contact-email .title {
+    font-size: 40px;
+    font-family: "Playfair Display", serif;
+    margin-bottom: 20px;
+}
+
+.footer .contact-email form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.footer .contact-email form input {
+    width: 200%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.footer .contact-email form button {
+    width: 200%;
+    padding: 12px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.footer .contact-email form button:hover {
+    background-color: black;
+}
+
+.footer .mid {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 20px;
+}
+
+.footer .mid .content1 img {
+    width: 190px;
+    height: 60px;
+}
+
+.footer .content1,
+.footer .content2,
+.footer .content3 {
+    flex: 1;
+    /* Làm cho mỗi phần bằng nhau */
+    padding: 10px;
+    text-align: left;
+    padding-left: 50px;
+}
+
+.footer .content2,
+.footer .content3 {
+    padding-top: 3%;
+}
+
+.footer .content1 .c-content {
+    padding-left: 7px;
+}
+
+.footer .content1 .c-content,
+.footer .content3 .list-content {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #979797;
+}
+
+.footer .content1 .social ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    padding-right: 20%;
+    margin-top: 15px;
+    color: #7d6f6f;
+}
+
+.footer .content1 .social ul li {
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.footer .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.footer .list-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .list-content ul li {
+    margin: 5px 0;
+    color: #666;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.footer .end-web {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+    padding: 30px 0;
+
+}
+
+.footer .end-web .ship {
+    display: flex;
+    gap: 20px;
+    padding-right: 30px;
+}
+
+.footer .end-web .ship img {
+    width: 60px;
+    height: 50px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.footer .end-web .ship p {
+    padding-top: 20px;
+}
+
+.footer .end-web .ship ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+}
+
+.footer .end-web .Copyright {
+    text-align: right;
+    font-size: 0.85rem;
+    color: #999;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+.footer .mid .content2 a,
+.footer .mid .content3 a {
+    text-decoration: none;
+    position: relative;
+    color: #333;
+}
+
+.footer .mid .content2 a:after,
+.footer .mid .content3 a:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: #141212;
+    left: 0;
+    bottom: -5px;
+    transition: 0.1s;
+}
+
+.footer .mid .content2 a:hover:after,
+.footer .mid .content3 a:hover:after {
+    width: 100%;
+}
+
+
+
+/* ------------------------------Sản Phẩm-------------------------------- */
+
+.main-content .title-san-pham {
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+    padding: 10px 0;
+    font-family: "Playfair Display", serif;
+    font-family: "Playfair Display", serif;
+}
+
+.main-content .banner img {
+    width: 100%;
+    padding-bottom: 3%;
+}
+
+.main-content .loc-san-pham {
+    display: flex;
+    justify-content: space-around;
+    padding: 2% 0;
+
+}
+
+.main-content .loc-san-pham .loc {
+    display: flex;
+    gap: 20px;
+}
+
+.tat-ca-san-pham {
+    display: grid;
+    grid-template-columns: repeat(4, 0fr);
+    /* 4 items per row */
+    position: relative;
+    justify-content: space-around;
+    padding-left: 10%;
+    padding-right: 10%;
+
+}
+
+.tat-ca-san-pham .san-pham {
+    flex: 0 0 25%;
+    /* Adjust this value if needed */
+    /* padding: 20x 10%; */
+    color: #333;
+    position: relative;
+    overflow: hidden;
+    padding: 30px 10px;
+    width: 300px;
+}
+
+.tat-ca-san-pham .san-pham .add-to-cart a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    padding-left: 20px;
+
+}
+
+.tat-ca-san-pham .san-pham .add-to-cart a:hover {
+    color: #000;
+    font-size: 17px;
+
+}
+
+.tat-ca-san-pham .san-pham .add-to-cart .tim a {
+    padding: 0 15px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.tat-ca-san-pham .san-pham .add-to-cart .tim a:hover {
+    color: #000;
+    font-size: 20px;
+
+}
+
+.tat-ca-san-pham .san-pham img {
+    width: 100%;
+}
+
+.tat-ca-san-pham .san-pham .add-to-cart {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -80px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: bottom 0.4s ease;
+    background-color: #f1f1f0;
+    height: 50px;
+}
+
+.tat-ca-san-pham .san-pham:hover .add-to-cart {
+    bottom: 10px;
+}
+
+
+.tat-ca-san-pham .san-pham:hover img {
+    transform: scale(1.1);
+    transition: transfor3 0.5s ease;
+}
+
+.tat-ca-san-pham .san-pham:hover .title,
+.tat-ca-san-pham .san-pham:hover .price {
+    color: #FFFFFF;
+}
+
+.tat-ca-san-pham .san-pham .title {
+    font-size: 19px;
+}
+
+.tat-ca-san-pham .san-pham .price {
+    font-size: 15px;
+}
+
+.main-content .chuyen-trang .pagination {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.main-content .chuyen-trang .pagination li {
+    margin: 0 5px;
+}
+
+.main-content .chuyen-trang .pagination a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #333;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.main-content .chuyen-trang .pagination .active a {
+    color: #fff;
+    background-color: #000;
+}
+
+.main-content .chuyen-trang .pagination a:hover {
+    background-color: #ddd;
+}
+
+
+
+/* .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination li {
+    list-style: none;
+    margin: 0 5px;
+}
+
+.pagination li a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination li.active a {
+    font-weight: bold;
+} */
+
+
+/* ------------------------------- Giới thiệu ---------------------------------- */
+
+.main-content .banner-gioi-thieu img {
+    width: 100%;
+    padding-bottom: 3%;
+    align-items: center;
+}
+
+.main-content .text-gioi-thieu {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0 10%;
+}
+
+.main-content .qua-trinh-pt,
+.main-content .he-thong-cua-hang,
+.main-content .cac-kenh-social,
+.main-content .cua-hang-hang-dau {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    padding: 10px 0;
+    margin-left: 12%;
+    margin-right: 12%;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    font-family: "Playfair Display", serif;
+}
+
+.main-content .text-qua-trinh-pt {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0 10%;
+}
+
+.main-content .co-so-he-thong {
+    display: flex;
+    padding: 0 15%;
+
+}
+
+.main-content .co-so-he-thong h3{
+    font-family: "Playfair Display", serif;
+}
+
+.main-content .co-so-p1 h3 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.main-content .kenh-social {
+    display: flex;
+    font-size: 30px;
+    font-weight: bold;
+    justify-content: space-around;
+    text-align: center;
+}
+
+/* end giới thiệu */
+
+/* liên hệ */
+
+.main-content .title-lien-he {
+    text-align: center;
+    padding-top: 5%;
+    padding-left: 25%;
+    padding-right: 25%;
+    line-height: 3;
+}
+
+.main-content h2, h4{
+    font-family: "Playfair Display", serif;
+}
+
+.main-content .lien-hes {
+    display: flex;
+    text-align: center;
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-top: 5%;
+}
+
+.main-content .email {
+    padding-top: 3%;
+    padding-bottom: 5%;
+}
+
+.main-content .email .title {
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+}
+
+.main-content .email .form-lien-he {
+    padding: 10px 25%;
+}
+
+.main-content .bo-suu-tap-lien-he {
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+.main-content .lien-hes .phone{
+    padding-left: 3%;
+}
+
+.main-content .lien-hes .chat{
+    padding-right: 3%;
+}
+
+
+.main-content .lien-hes .phone h4,
+.main-content .lien-hes .chat h4 {
+    line-height: 2;
+}
+
+.main-content .lien-hes .phone a,
+.main-content .lien-hes .chat a {
+    line-height: 4.5;
+}
+
+.main-content .lien-hes a {
+    text-decoration: none;
+    position: relative;
+    color: #333;
+    font-weight: bold;
+}
+
+.main-content .lien-hes .phone a:after,
+.main-content .lien-hes .chat a:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: #141212;
+    left: 0;
+    bottom: -5px;
+    transition: 0.1s;
+}
+
+.main-content .lien-hes .phone a:hover:after,
+.main-content .lien-hes .chat a:hover:after {
+    width: 100%;
+}
+
+/* Tin tức */
+
+.main-content .banner-tin-tuc{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5%;
+}
+
+.main-content .banner-tin-tuc img{
+    width: 800px;
+}
+
+.main-content .tin-tucs .top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-left: 14%;
+    padding-right: 14%;
+}
+
+.main-content .tin-tucs .top .title{
+    font-size: 1.5rem;
+    font-family: "Playfair Display", serif;
+}
+
+.main-content .tin-tucs .top a {
+    text-decoration: none;
+    position: relative;
+    color: #333;
+    font-size: 0.8rem;
+}
+
+.main-content .tin-tucs .top a:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: #141212;
+    left: 0;
+    bottom: -5px;
+    transition: 0.1s;
+}
+
+.main-content .tin-tucs .top a:hover:after {
+    width: 100%;
+}
+
+
+.main-content .tin-tucs .mid{
+    display: flex;
+    justify-content: center;
+    padding-left: 23px;
+
+}
+
+.main-content .tin-tucs .mid .tin-tuc{
+    width: 220px;
+    margin: 0 7px;
+}
+
+.main-content .tin-tucs .mid .tin-tuc img{
+    width: 200px;
+    height: 200px;
+}
+
+.main-content .main-tin-tuc .title-tin-tuc{
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 2.5rem;
+    font-family: "Playfair Display", serif;
+}
+
+.main-content .main-tin-tuc .bai-viets{
+    display: flex;
+}
+
+.main-content .main-tin-tuc .bai-viets .main-bai-viet{
+    padding-left: 15%;
+    padding-right: 2%;
+}
+
+.main-content .main-tin-tuc .bai-viets .main-bai-viet img{
+    width: 600px;
+    height: 700px;
+}
+
+.main-content .main-tin-tuc .bai-viets .main-bai-viet .bai-viet{
+    margin-bottom: 10%;
+}
+
+.main-content .main-tin-tuc .bai-viets .main-bai-viet .ngay-thang{
+    font-size: 0.8rem;
+    padding-top: 5%;
+}
+
+.main-content .main-tin-tuc .bai-viets .main-bai-viet .title{
+    font-size: 2.5rem;
+}
+
+.main-content .main-tin-tuc .bai-viets .main-bai-viet .content{
+    margin: 5% 0;
+}
+
+.main-content .main-tin-tuc .bai-viets .main-bai-viet a {
+    text-decoration: none;
+    position: relative;
+    margin-top: 10px;
+    color: #333;
+}
+.main-content .main-tin-tuc .bai-viets .main-bai-viet a:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: #141212;
+    left: 0;
+    bottom: -5px;
+    transition: 0.1s;
+}
+
+.main-content .main-tin-tuc .bai-viets .main-bai-viet a:hover:after {
+    width: 100%;
+}
+
+.main-content .main-tin-tuc .bai-viets .sidebar-bai-viet{
+    padding-right: 15%;
+}
+
+.main-content .main-tin-tuc .sidebar-bai-viet .bai-viet-pho-bien img{
+    width: 150px;
+}
+
+.main-content .main-tin-tuc .sidebar-bai-viet .dang-ky-email{
+    background-color: #F1F1F0;
+    text-align: center;
+    padding-bottom: 5%;
+    padding: 20% 5%;
+}
+
+.main-content .main-tin-tuc .sidebar-bai-viet .dang-ky-email a {
+    text-decoration: none;
+    position: relative;
+    /* margin-top: 10px; */
+    color: #333;
+}
+.main-content .main-tin-tuc .sidebar-bai-viet .dang-ky-email a:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: #141212;
+    left: 0;
+    bottom: 15px;
+    transition: 0.1s;
+}
+
+.main-content .main-tin-tuc .sidebar-bai-viet .dang-ky-email a:hover:after {
+    width: 100%;
+}
+
+.main-content .main-tin-tuc .sidebar-bai-viet .dang-ky-email .gui-mail .top{
+    padding-top: 20%;
+}
+
+.main-content .main-tin-tuc .sidebar-bai-viet .dang-ky-email .gui-mail form{
+    width: 100px;
+    height: 40px;
+    display: flex;
+}
+
+.main-content .main-tin-tuc .sidebar-bai-viet .search-tin-tuc .gui-search form{
+    width: 280px;
+    height: 40px;
+    display: flex;
+}
+
+.main-content .main-tin-tuc .sidebar-bai-viet .dang-ky-email .gui-mail form input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background-color: #d2d0d0;
+    padding-left: 5px;
+}
+
+.main-content .main-tin-tuc .sidebar-bai-viet .search-tin-tuc .gui-search form input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background-color: #d2d0d0;
+    padding-left: 5px;
+    /* margin-left: 20%; */
+}
+
+.main-content .main-tin-tuc .sidebar-bai-viet .dang-ky-email .gui-mail form button,
+.main-content .main-tin-tuc .sidebar-bai-viet .search-tin-tuc .gui-search form button{
+    background-color: #8f8f8f;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+
+.main-content .main-tin-tuc .sidebar-bai-viet .search-tin-tuc .gui-search .top{
+    padding-top: 30px;
+    font-size: 1.5rem;
+    font-family: "Playfair Display", serif;
+}
+
+.main-content .categories{
+    padding: 10% 0;
+}
+
+.main-content .categories .title{
+    font-size: 1.5rem;
+    font-family: "Playfair Display", serif;
+}
+
+.main-content .categories a {
+    text-decoration: none;
+    position: relative;
+    margin-top: 10px;
+    color: #333;
+}
+.main-content .categories a:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background-color: #141212;
+    left: 0;
+    bottom: -5px;
+    transition: 0.1s;
+}
+
+.main-content .categories a:hover:after {
+    width: 100%;
+}
+
+.main-content .bai-viet-pho-bien .bai-viet .thong-tins .thong-tin{
+    display: flex;
+    padding: 5% 0;
+}
+
+.main-content .bai-viet-pho-bien .bai-viet .thong-tins .thong-tin .content{
+    padding-left: 10px;
+}
+
+.main-content .kenh-tin-tuc{
+    padding-top: 10%;
+}
+
+.main-content .kenh-tin-tuc .title{
+    font-size: 1.5rem;
+    font-family: "Playfair Display", serif;
+}
+
+.main-content .kenh-tin-tuc img{
+    width: 100%;
+}
+
+.main-content .kenh-tin-tuc .kenh{
+    font-size: 1.5rem;
+    font-family: "Playfair Display", serif;
+}
+
+
+.main-content .tim-hieu-them{
+    padding-bottom: 10%;
+}
+
+.main-content .tim-hieu-them .title{
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: "Playfair Display", serif;
+}
+
+.main-content .tim-hieu-them .contents{
+    padding-left: 14%;
+}
+
+.main-content .tim-hieu-them .contents .content{
+    position: relative;
+    display: inline-block;
+    margin: 1%;
+}
+
+.main-content .tim-hieu-them .contents .content img{
+    width: 450px; 
+    height: auto;
+}
+.main-content .tim-hieu-them .contents .content .text {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    width: 100%; 
+}
+
+/* Giỏ hàng */
+
+.main-content .main-gio-hang {
+    display: flex;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.main-content .main-gio-hang .gio-hang{
+    width: 65%;
+}
+
+.main-content .main-gio-hang .gio-hang table img{
+    width: 120px;
+}
+
+.main-content .main-gio-hang .thanh-toan{
+    width: 30%;
+    padding-right: 5%;
+}
+
+.tang-giam-sl{
+    height: 40px;
+    min-width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 1px solid #7c7b7b ;
+}
+
+.tang-giam-sl span{
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.tang-giam-sl span.so{
+    font-size: 20px;
+    border-right: 2px solid #7c7b7b;
+    border-left: 2px solid #7c7b7b;
+    pointer-events: none;
+}
+
+/* Thanh toán */
+
+.main-content .contents{
+    display: flex;
+}
+
+.main-content .contents .main-thanh-toan .logo img{
+    width: 300px;
+}
+
+.main-content .main-thanh-toan{
+    width: 30%;
+    padding-left: 10%;
+}
+
+.main-content .contents .main-thanh-toan .thong-tin-nhan-hang .top a{
+    text-decoration: none;
+    color: red;
+}
+
+.main-content .main-thanh-toan2{
+    width: 35%;
+    /* padding-left: 5%; */
+    /* padding-top: 90px; */
+    margin: 5%;
+}
+
+.main-content .main-thanh-toan2 .van-chuyen{
+    padding-bottom: 5%;
+}
+
+.main-content .main-thanh-toan2 .van-chuyen .top .form-check{
+    display: flex;
+}
+
+/* .main-content .main-thanh-toan2 .van-chuyen .top .form-check label{
+    /* padding-right: 40%; */
+    /* padding-left: 2%; 
+} */
+
+.main-content .main-thanh-toan2 .thanh-toan .form-check{
+    display: flex;
+}
+/* 
+.main-content .main-thanh-toan2 .thanh-toan .form-check label{
+    padding-left: 2%;
+    padding-right: 21%;
+} */
+
+.main-content .main-thanh-toan2 .thanh-toan .form-check .icon-bank{
+    font-size: 20px;
+    
+}
+
+.main-content .don-hang{
+    width: 40%;
+    background-color: #dbe1e4;
+    padding: 5%;
+}
+
+.main-content .don-hang img{
+    width: 60px;
+}
+
+.main-content .don-hang .thong-tin-sp{
+    display: flex;
+    justify-content: space-between;
+    padding: 3% 0;
+}
+
+.main-content .ma-giam-gia{
+    display: flex;
+}
+
+.main-content .phi-tam-thoi .tam-tinh,
+.main-content .phi-tam-thoi .phi-van-chuyen{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-content .tong-cong .tong-thanh-toan{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-content .dat-hang{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-content .dat-hang a{
+    text-decoration: none;
+    color: #000;
+}
+
+/* Đăng ký đăng nhập*/
+
+.main-content .form-log-out{
+    padding-top: 5%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.main-content .gui{
+    text-align: center;
+    justify-content: space-between;
+    
+}
+
+.main-content .dang-ky{
+    padding: 2% 0;
+}
+
+.main-content .dang-ky a{
+    text-decoration: none;
+    color: #000;
+}
+
+/* chi tiết sản phẩm */
+
+.main-content .chi-tiet{
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+.main-content .chi-tiet .thong-tin{
+    padding-left: 5%;
+}
+
+.main-content .chi-tiet .thong-tin .sizes{
+    display: flex;
+}
+
+.main-content .chi-tiet .thong-tin .size{
+    padding: 5px 10px;
+    margin: 10px 10px;
+    border: 1px solid #333;
+}
+
+.main-content .chi-tiet .thong-tin .size a{
+    text-decoration: none;
+    color: #000;
+}
+
+.main-content .chi-tiet .thong-tin .mua-hang button{
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.main-content .cac-san-pham-khac{
+    text-align: center;
+    padding: 5% 0;
+}
