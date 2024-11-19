@@ -39,7 +39,7 @@
                         <div class="h-100">
                             <div class="row mb-3 pb-1">
                                 <div class="col-12">
-                                <div class="flex-grow-1">
+                                      <div class="flex-grow-1">
                                             <h2 class="text-primary mb-4">Thêm danh mục sản phẩm</h2>
                                         </div>
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
@@ -61,7 +61,7 @@
                                                    
                                                     <div class="card-footer">
                                                       <button style="margin-top: 10px;"   type="submit" class="btn btn-primary">Submit</button>
-                                             </div>
+                                                  </div>
                                          </div>
                                             
                                             </form>

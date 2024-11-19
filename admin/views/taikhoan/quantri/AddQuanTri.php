@@ -39,54 +39,34 @@
                         <div class="h-100">
                             <div class="row mb-3 pb-1">
                                 <div class="col-12">
+                                <div class="flex-grow-1">
+                                            <h2 class="text-primary mb-4">Thêm Tài Khoản Quản Trị</h2>
+                                        </div>
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                         <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=them-khuyen-mai' ?>" method="POST">
+                                            <form action="<?= BASE_URL_ADMIN . '?act=them-tai-khoan-quan-tri-vien' ?>" method="POST">
                                                 <div class="card-body">
                                                     <div class="form-group">
-                                                        <label>Tên khuyến mãi</label>
-                                                        <input type="text" class="form-control" name="ten_khuyen_mai" placeholder="Nhập tên khuyến mãi"
-                                                            value="<?= isset($_SESSION['old_data']['ten_khuyen_mai']) ? $_SESSION['old_data']['ten_khuyen_mai'] : '' ?>">
-                                                        <small class="text-danger"><?= $_SESSION['errors']['ten_khuyen_mai'] ?? '' ?></small>
+                                                        <label>Họ Và Tên</label>
+                                                        <input type="text" class="form-control" name="ho_ten" placeholder="Nhập họ và tên của bạn"
+                                                            value="<?= isset($_SESSION['old_data']['ho_ten']) ? $_SESSION['old_data']['ho_ten'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['ho_ten'] ?? '' ?></small>
                                                     </div>
+                                                    
                                                     <div class="form-group">
-                                                        <label>Mã khuyến mãi</label>
-                                                        <input type="text" class="form-control" name="ma_khuyen_mai" placeholder="Nhập mã khuyến mãi"
-                                                            value="<?= isset($_SESSION['old_data']['ma_khuyen_mai']) ? $_SESSION['old_data']['ma_khuyen_mai'] : '' ?>">
-                                                        <small class="text-danger"><?= $_SESSION['errors']['ma_khuyen_mai'] ?? '' ?></small>
+                                                        <label>Email</label>
+                                                        <input type="email" class="form-control" name="email" placeholder="Nhập email của bạn"
+                                                            value="<?= isset($_SESSION['old_data']['email']) ? $_SESSION['old_data']['email'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['email'] ?? '' ?></small>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Mức giảm giá</label>
-                                                        <input type="number" class="form-control" name="muc_giam_gia" placeholder="Nhập mức giảm giá"
-                                                            value="<?= isset($_SESSION['old_data']['muc_giam_gia']) ? $_SESSION['old_data']['muc_giam_gia'] : '' ?>">
-                                                        <small class="text-danger"><?= $_SESSION['errors']['muc_giam_gia'] ?? '' ?></small>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Ngày bắt đầu</label>
-                                                        <input type="date" class="form-control" name="ngay_bat_dau"
-                                                            value="<?= isset($_SESSION['old_data']['ngay_bat_dau']) ? $_SESSION['old_data']['ngay_bat_dau'] : '' ?>">
-                                                        <small class="text-danger"><?= $_SESSION['errors']['ngay_bat_dau'] ?? '' ?></small>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Ngày kết thúc</label>
-                                                        <input type="date" class="form-control" name="ngay_ket_thuc"
-                                                            value="<?= isset($_SESSION['old_data']['ngay_ket_thuc']) ? $_SESSION['old_data']['ngay_ket_thuc'] : '' ?>">
-                                                        <small class="text-danger"><?= $_SESSION['errors']['ngay_ket_thuc'] ?? '' ?></small>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="inputStatus">Trạng thái mã khuyến mãi</label>
-                                                        <select id="inputStatus" name="trang_thai" class="form-control custom-select">
-                                                            <option disabled <?= !isset($_SESSION['old_data']['trang_thai']) ? 'selected' : '' ?>>Chọn trạng thái khuyến mãi</option>
-                                                            <option value="1" <?= (isset($_SESSION['old_data']['trang_thai']) && $_SESSION['old_data']['trang_thai'] == '1') ? 'selected' : '' ?>>Còn hạn</option>
-                                                            <option value="2" <?= (isset($_SESSION['old_data']['trang_thai']) && $_SESSION['old_data']['trang_thai'] == '2') ? 'selected' : '' ?>>Hết hạn</option>
-                                                        </select>
-                                                        <small class="text-danger"><?= $_SESSION['errors']['trang_thai'] ?? '' ?></small>
-                                                    </div>
+                                                    
+                                                   
+                                                    <div class="card-footer">
+                                                    <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
                                                 </div>
 
-                                                <div class="card-footer">
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                </div>
+                                                
                                             </form>
                                         </div>
                                     </div>

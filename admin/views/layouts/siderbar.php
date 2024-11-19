@@ -66,7 +66,7 @@
                     <div class="collapse menu-dropdown" id="sidebarDanhMuc">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="" class="nav-link" data-key="t-sweet-alerts">
+                                <a href="<?php BASE_URL_ADMIN ?>?act=quan-ly-tai-khoan-quan-tri-vien" class="nav-link" data-key="t-sweet-alerts">
                                     Tài Khoản Quản trị viên
                                 </a>
                             </li>
