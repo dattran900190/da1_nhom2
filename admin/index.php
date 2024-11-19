@@ -47,6 +47,7 @@ match ($act) {
     'sua-don-hang'                            => (new QuanLyDonHangController()) -> postEditDonHang(),
     'chi-tiet-don-hang'                            => (new QuanLyDonHangController()) -> detailDonHang(),
     // ------------- end đơn hàng --------------------
+    
      // -------------danh mục sản phẩm ------------------
      'quan-ly-danh-muc-san-pham'                    => (new QuanLyDanhMucSanPhamController()) -> danhsachDanhMucSanPham(),
      'form-them-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> formAddDanhMucSanPham(),
