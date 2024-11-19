@@ -24,13 +24,12 @@ match ($act) {
     // Dashboards
     '/'                                     => (new DashboardController())->index(),
     // -------------danh mục sản phẩm ------------------
-    'quan-ly-danh-muc-san-pham'                    => (new QuanLyDanhMucSanPhamController()) -> danhsachDanhMucSanPham(),
-    'form-them-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> formAddDanhMucSanPham(),
-    'them-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> postAddDanhMucSanPham(),
-    'form-sua-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> formEditDanhMucSanPham (),
-    'sua-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> postEditDanhMucSanPham(),
-    'xoa-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> 
-    deleteDanhMucSanPham(),
+    // 'quan-ly-danh-muc-san-pham'                    => (new QuanLyDanhMucSanPhamController()) -> danhsachDanhMucSanPham(),
+    // 'form-them-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> formAddDanhMucSanPham(),
+    // 'them-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> postAddDanhMucSanPham(),
+    // 'form-sua-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> formEditDanhMucSanPham (),
+    // 'sua-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> postEditDanhMucSanPham(),
+    // 'xoa-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> deleteDanhMucSanPham(),
 
 
     // ------------- end danh mục sản phẩm ------------------
@@ -66,7 +65,6 @@ match ($act) {
     'xoa-san-pham'                            => (new AdminSanPhamController()) -> deleteSanPham(),
 
     // ------------- end san pham ------------------
-};  
 
     // ------------- đơn hàng --------------------
     'quan-ly-don-hang'                            => (new QuanLyDonHangController()) -> danhSachDonHang(),
@@ -93,6 +91,15 @@ match ($act) {
      'xoa-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> deleteBoSuuTap(),
      // ------------- end Bộ sưu tập ------------------
 
+     // -------------Trạng thái đơn hàng ------------------
+     'quan-ly-trang-thai-don-hang'                            => (new QuanLyTrangThaiDonHangController()) -> danhsachTrangThaiDonHang(),
+     'form-them-trang-thai-don-hang'                            => (new QuanLyTrangThaiDonHangController()) -> formAddTrangThaiDonHang(),
+     'them-trang-thai-don-hang'                            => (new QuanLyTrangThaiDonHangController()) -> postAddTrangThaiDonHang(),
+     'form-sua-trang-thai-don-hang'                            => (new QuanLyTrangThaiDonHangController()) -> formEditTrangThaiDonHang(),
+     'sua-trang-thai-don-hang'                            => (new QuanLyTrangThaiDonHangController()) -> postEditTrangThaiDonHang(),
+     'xoa-trang-thai-don-hang'                            => (new QuanLyTrangThaiDonHangController()) -> deleteTrangThaiDonHang(),
+     // ------------- end Trạng thái đơn hàng ------------------
+
 
      // -------------Quản lý tài khoản ------------------
        // QUản lý tài khoản quản trị viên
@@ -102,6 +109,7 @@ match ($act) {
     //    'form-sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> formEditTaiKhoanQuanTri(),
     //    'sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> postEditTaiKhoanQuanTri(),
     //    'xoa-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> deleteTaiKhoanQuanTri(),
+
 };
 
 };
