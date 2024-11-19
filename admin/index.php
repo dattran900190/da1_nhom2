@@ -64,4 +64,13 @@ match ($act) {
      'sua-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> postEditBoSuuTap(),
      'xoa-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> deleteBoSuuTap(),
      // ------------- end Bộ sưu tập ------------------
+
+     // -------------Quản lý tài khoản ------------------
+       // QUản lý tài khoản quản trị viên
+       'quan-ly-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> danhSachTaiKhoanQuanTri(),
+       'form-them-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> formAddTaiKhoanQuanTri(),
+       'them-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> postAddTaiKhoanQuanTri(),
+    //    'form-sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> formEditTaiKhoanQuanTri(),
+    //    'sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> postEditTaiKhoanQuanTri(),
+    //    'xoa-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> deleteTaiKhoanQuanTri(),
 };
