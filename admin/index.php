@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once './controllers/DashboardController.php';
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
@@ -22,6 +23,7 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
     // Dashboards
+    
     '/'                                     => (new DashboardController())->index(),
     // -------------danh mục sản phẩm ------------------
     'quan-ly-danh-muc-san-pham'                    => (new QuanLyDanhMucSanPhamController()) -> danhsachDanhMucSanPham(),
@@ -56,40 +58,17 @@ match ($act) {
 
 
 
-
     // -------------san pham ------------------
     'quan-ly-san-pham'                            => (new AdminSanPhamController()) -> danhSachSanPham(),
     'form-them-san-pham'                            => (new AdminSanPhamController()) -> AddSanPham(),
     'them-san-pham'                            => (new AdminSanPhamController()) -> postAddSanPham(),
     'form-sua-san-pham'                            => (new AdminSanPhamController()) -> formEditSanPham(),
     'sua-san-pham'                            => (new AdminSanPhamController()) -> postEditSanPham(),
-    'xoa-san-pham'                            => (new AdminSanPhamController()) -> deleteSanPham(),
+    // 'xoa-san-pham'                            => (new AdminSanPhamController()) -> deleteSanPham(),
+    'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham($_GET['id'] ?? null),
+    'chi-tiet-san-pham'                            => (new AdminSanPhamController()) -> detailSanPham(),
 
     // ------------- end san pham ------------------
+    
 };  
-
-    // ------------- đơn hàng --------------------
-    'quan-ly-don-hang'                            => (new QuanLyDonHangController()) -> danhSachDonHang(),
-    'form-sua-don-hang'                            => (new QuanLyDonHangController()) -> formEditDonHang(),
-    'sua-don-hang'                            => (new QuanLyDonHangController()) -> postEditDonHang(),
-    'chi-tiet-don-hang'                            => (new QuanLyDonHangController()) -> detailDonHang(),
-    // ------------- end đơn hàng --------------------
-     // -------------danh mục sản phẩm ------------------
-     'quan-ly-danh-muc-san-pham'                    => (new QuanLyDanhMucSanPhamController()) -> danhsachDanhMucSanPham(),
-     'form-them-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> formAddDanhMucSanPham(),
-     'them-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> postAddDanhMucSanPham(),
-     'form-sua-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> formEditDanhMucSanPham (),
-     'sua-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> postEditDanhMucSanPham(),
-     'xoa-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> deleteDanhMucSanPham(),
-     // ------------- end danh mục sản phẩm ------------------
- 
-     // -------------Bộ sưu tập ------------------
-     'quan-ly-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> danhsachBoSuuTap(),
-     'form-them-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> formAddBoSuuTap(),
-     'them-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> postAddBoSuuTap(),
-     'form-sua-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> formEditBoSuuTap(),
-     'sua-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> postEditBoSuuTap(),
-     'xoa-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> deleteBoSuuTap(),
-     // ------------- end Bộ sưu tập ------------------
-};
 
