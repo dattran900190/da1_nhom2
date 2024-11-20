@@ -33,6 +33,7 @@
 
     <div class="main-content">
         <div class="page-content">
+
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
@@ -128,12 +129,21 @@
                                             </form>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                    <div class="card-footer text-center">
+                        <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+                    </div>
+                </form>
             </div>
+        </div>
+    </div>
+</div>
+
         </div>
     </div>
     <!--start back-to-top-->

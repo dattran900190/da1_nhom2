@@ -45,6 +45,7 @@
                                                 <input type="hidden" name="don_hang_id" value="<?= $donHang['id'] ?>">
                                                 <div class="card-body">
                                                     <div class="form-group">
+                                                        <!-- thêm thông tin để biết đơn hàng nào -->
                                                         <label for="inputStatus">Trạng thái đơn hàng</label>
                                                         <select id="inputStatus" name="trang_thai_id" class="form-control custom-select">
                                                             <?php foreach ($listTrangThaiDonHang as $trangThai) : ?>

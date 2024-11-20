@@ -41,9 +41,44 @@
                                 <div class="col-12">
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                         <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=them-khuyen-mai' ?>" method="POST">
-                                               
-                                            
+                                            <form action="<?= BASE_URL_ADMIN . '?act=them-tin-tuc' ?>" method="POST">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label>Tiêu đề</label>
+                                                        <input type="text" class="form-control" name="tieu_de" placeholder="Nhập tiêu đề"
+                                                            value="<?= isset($_SESSION['old_data']['tieu_de']) ? $_SESSION['old_data']['tieu_de'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['tieu_de'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Nội dung</label>
+                                                        <input type="text" class="form-control" name="noi_dung" placeholder="Nhập nội dung"
+                                                            value="<?= isset($_SESSION['old_data']['noi_dung']) ? $_SESSION['old_data']['noi_dung'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['noi_dung'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>ID tác giả</label>
+                                                        <input type="number" class="form-control" name="tac_gia_id" placeholder="Nhập ID tác giả"
+                                                            value="<?= isset($_SESSION['old_data']['tac_gia_id']) ? $_SESSION['old_data']['tac_gia_id'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['tac_gia_id'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Ngày đăng</label>
+                                                        <input type="date" class="form-control" name="ngay_dang"
+                                                            value="<?= isset($_SESSION['old_data']['ngay_dang']) ? $_SESSION['old_data']['ngay_dang'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['ngay_dang'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Ngày cập nhật</label>
+                                                        <input type="date" class="form-control" name="ngay_cap_nhat"
+                                                            value="<?= isset($_SESSION['old_data']['ngay_cap_nhat']) ? $_SESSION['old_data']['ngay_cap_nhat'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['ngay_cap_nhat'] ?? '' ?></small>
+                                                    </div>
+                                                   
+                                                </div>
+
+                                                <div class="card-footer">
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
                                             </form>
                                         </div>
                                     </div>

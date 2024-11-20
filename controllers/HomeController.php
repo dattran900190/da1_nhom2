@@ -62,4 +62,9 @@ class HomeController
         $listSanPham = $this->modelSanPham->getAllProduct();
         require_once './views/ChiTietSanPham.php';
     }
+    public function chiTietTinTuc()
+    {
+        $listSanPham = $this->modelSanPham->getAllProduct();
+        require_once './views/ChiTietTinTuc.php';
+    }
 }
