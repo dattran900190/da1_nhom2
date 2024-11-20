@@ -7,12 +7,9 @@ require_once '../commons/helper.php'; // Hàm hỗ trợ
 
 // Require toàn bộ file Controllers
 require_file(PATH_CONTROLLER_ADMIN);
-require_once './controllers/AdminSanPhamController.php';
+
 // Require toàn bộ file Models
 require_file(PATH_MODEL_ADMIN);
-
-require_once './models/sanPham.php';
-require_once './models/danhMuc.php';
 
 
 // Route
