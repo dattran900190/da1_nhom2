@@ -65,6 +65,7 @@
                                                     <th>Số lượng</th>
                                                     <th>Ngày bắt đầu</th>
                                                     <th>Ngày kết thúc</th>
+                                                    <th>Loại khuyến mãi</th>
                                                     <th>Trạng thái</th>
                                                     <th>Hành động</th>
                                                 </tr>
@@ -79,6 +80,7 @@
                                                         <td><?= $khuyenmai['so_luong'] ?></td>
                                                         <td><?= $khuyenmai['ngay_bat_dau'] ?></td>
                                                         <td><?= $khuyenmai['ngay_ket_thuc'] ?></td>
+                                                        <td><?= $khuyenmai['loai_khuyen_mai'] == 1 ? 'Số tiền cố định' : 'Phần trăm'?></td>
                                                         <td>
                                                             <span class="badge <?= $khuyenmai['trang_thai'] == 1 ? 'bg-success' : 'bg-danger' ?>">
                                                                 <?= $khuyenmai['trang_thai'] == 1 ? 'Còn hạn' : 'Hết hạn' ?>

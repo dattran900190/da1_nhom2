@@ -18,11 +18,11 @@ class adminKhuyenMai
             echo "CÓ LỖI: " . $e->getMessage();
         }
     }
-    public function insertKhuyenMai($ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
+    public function insertKhuyenMai($ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai, $loai_khuyen_mai)
     {
         try {
-            $sql = "INSERT INTO khuyen_mais (ten_khuyen_mai, ma_khuyen_mai, muc_giam_gia, so_luong, ngay_bat_dau, ngay_ket_thuc, trang_thai) 
-                    VALUES (:ten_khuyen_mai, :ma_khuyen_mai, :muc_giam_gia, :so_luong, :ngay_bat_dau, :ngay_ket_thuc, :trang_thai)";
+            $sql = "INSERT INTO khuyen_mais (ten_khuyen_mai, ma_khuyen_mai, muc_giam_gia, so_luong, ngay_bat_dau, ngay_ket_thuc, trang_thai, loai_khuyen_mai) 
+                    VALUES (:ten_khuyen_mai, :ma_khuyen_mai, :muc_giam_gia, :so_luong, :ngay_bat_dau, :ngay_ket_thuc, :trang_thai, :loai_khuyen_mai)";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
                 ':ten_khuyen_mai' => $ten_khuyen_mai,
@@ -31,7 +31,8 @@ class adminKhuyenMai
                 ':so_luong' => $so_luong,
                 ':ngay_bat_dau' => $ngay_bat_dau,
                 ':ngay_ket_thuc' => $ngay_ket_thuc,
-                ':trang_thai' => $trang_thai
+                ':trang_thai' => $trang_thai,
+                ':loai_khuyen_mai' => $loai_khuyen_mai
             ]);
             return true;
         } catch (Exception $e) {
@@ -53,7 +54,7 @@ class adminKhuyenMai
         }
     }
 
-    public function updateKhuyenMai($id, $ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
+    public function updateKhuyenMai($id, $ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai, $loai_khuyen_mai)
     {
         try {
             $sql = "UPDATE khuyen_mais 
@@ -63,7 +64,8 @@ class adminKhuyenMai
              so_luong = :so_luong,
              ngay_bat_dau = :ngay_bat_dau,
              ngay_ket_thuc = :ngay_ket_thuc,
-             trang_thai = :trang_thai 
+             trang_thai = :trang_thai,
+             loai_khuyen_mai = :loai_khuyen_mai 
             WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
@@ -74,7 +76,8 @@ class adminKhuyenMai
                 'ngay_bat_dau' => $ngay_bat_dau,
                 'ngay_ket_thuc' => $ngay_ket_thuc,
                 'trang_thai' => $trang_thai,
-                ':id' => $id,
+                'loai_khuyen_mai' => $loai_khuyen_mai,
+                ':id' => $id
             ]);
             return true;
         } catch (Exception $e) {
