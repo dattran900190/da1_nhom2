@@ -11,8 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-
-    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <?php
     require_once "views/layouts/libs_css.php";
     ?>
@@ -79,33 +78,39 @@
                                                         <td><?= $sanpham['ten_san_pham'] ?></td>
                                                         <td><?= $sanpham['gia_san_pham'] ?></td>
                                                         <td><?= $sanpham['gia_khuyen_mai'] ?></td>
-                                                        <td><img src="<?= BASE_URL . $sanpham['hinh_anh'] ?>" style="width: 100px" alt="" onerror="this.onerror=null;this.src='https://bizweb.dktcdn.net/100/446/974/products/ao-thun-mlb-new-era-heavy-cotton-new-york-yankees-black-13086578-2.jpg?v=1691318322277'"></td>
+                                                        <td>
+                                                        <img src="<?= BASE_URL . $sanpham['hinh_anh'] ?>" 
+                                                            style="width: 100px" 
+                                                            alt="Hình ảnh sản phẩm" 
+                                                       
+                                                            >
+                                                    </td>
                                                         <td><?= $sanpham['so_luong'] ?></td>
                                                         <td><?= $sanpham['kich_co'] ?></td>
                                                         <td><?= $sanpham['ngay_nhap'] ?></td>
                                                         <td><?= $sanpham['mo_ta'] ?></td>
-                                                        <td><?= $sanpham['danh_muc_id'] ?></td>
-                                                        <td><?= $sanpham['trang_thai'] ?></td>
-                                                        
-
-                                                        <!-- <td>
-                                                            <span class="badge <?= $khuyenmai['trang_thai'] == 1 ? 'bg-success' : 'bg-danger' ?>">
-                                                                <?= $khuyenmai['trang_thai'] == 1 ? 'Còn hạn' : 'Hết hạn' ?>
-                                                            </span>
-                                                        </td> -->
+                                                        <td><?= $sanpham['ten_danh_muc'] ?></td>
+                                                        <td><?= $sanpham['trang_thai'] == 1 ? 'Còn hàng' : 'Hết hàng' ?></td>
+                        
                                                         <td>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=form-sua-san-pham&id-san-pham' . $sanpham['id'] ?>" class="btn btn-warning btn-sm">
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=form-sua-san-pham&id=' . $sanpham['id'] ?>" class="btn btn-warning btn-sm">
                                                                 <i class="fas fa-edit"></i> Sửa
                                                             </a>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-san-pham&id-san-pham' . $sanpham['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
-                                                                <i class="fas fa-trash"></i> Xóa
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-san-pham&id=' . $sanpham['id'] ?>" 
+                                                            class="btn btn-danger btn-sm" 
+                                                            onclick="return confirm('Bạn có đồng ý xoá hay không?')">
+                                                            <i class="fas fa-trash"></i> Xóa
                                                             </a>
+
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-san-pham&id=' . $sanpham['id'] ?>"
+                                                            class="btn btn-info btn-sm"><i class="bi bi-eye"></i>Xem</a>
+
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
-                                    </div>
+                                     </div>
                                 </div>
                             </div>
                         </div>
