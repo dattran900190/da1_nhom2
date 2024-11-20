@@ -68,18 +68,39 @@
                                     </div>
                                     <div class="col-md-6">
                                         <?php
-                                        // Correct total calculation for order
                                         $tong_chi_phi = 0;
+                                        $tong_tien_san_pham = 0;
+                                        $tong_tien = 0;
+
+                                        // Loop over products to calculate total cost and discount
                                         foreach ($sanPhamDonHang as $sanPham) {
                                             $tong_chi_phi += $sanPham['don_gia'] * $sanPham['so_luong'];
+                                            $tong_tien_san_pham += $sanPham['don_gia'] * $sanPham['so_luong'];
+
+                                            $gia_giam = 0;
+
+                                            // Loop through all promotions
+                                            foreach ($maKhuyenMai as $khuyenMai) {
+                                                // Check if promotion type is percentage
+                                                if ($khuyenMai['loai_khuyen_mai'] == 'percentage') {
+                                                    $gia_giam = ($sanPham['don_gia'] * $khuyenMai['muc_giam_gia']) / 100;
+                                                } else {
+                                                    // Fixed discount
+                                                    $gia_giam = $khuyenMai['muc_giam_gia'];
+                                                }
+
+                                                // Calculate final price per product after applying discount
+                                                $thanh_tien = ($sanPham['don_gia'] - $gia_giam) * $sanPham['so_luong'];
+                                                $tong_tien += $thanh_tien;  // Accumulate total
+                                            }
                                         }
 
-                                        // Correct total for products in the table
-                                        $tong_tien = 0;
-                                        foreach ($sanPhamDonHang as $key => $sanPham) {
-                                            $tong_tien += $sanPham['don_gia'] * $sanPham['so_luong'];
-                                        }
+                                        // Final calculation for the total amount (including shipping and promotions)
+                                        $phivanchuyen = 30000;
+                                        $khuyenmai = $gia_giam;  // This is the last calculated discount for now, you might want to handle multiple promotions if applicable.
                                         ?>
+
+
 
                                         <!-- Order Details -->
                                         <div class="card mb-4">
@@ -145,21 +166,20 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
                                                     <?php foreach ($sanPhamDonHang as $key => $sanPham) : ?>
                                                         <tr>
                                                             <td><?= $key + 1 ?></td>
                                                             <td><?= $sanPham['ten_san_pham'] ?></td>
                                                             <td><?= number_format($sanPham['don_gia'], 0, ',', '.') ?> VNĐ</td>
                                                             <td><?= $sanPham['so_luong'] ?></td>
-                                                            <td><?= number_format($sanPham['don_gia'] * $sanPham['so_luong'], 0, ',', '.') ?> VNĐ</td>
+                                                            <td><?= number_format(($sanPham['don_gia'] - $gia_giam) * $sanPham['so_luong'], 0, ',', '.') ?> VNĐ</td>
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
                                                         <th colspan="4" class="text-end">Tổng cộng:</th>
-                                                        <th><?= number_format($tong_tien, 0, ',', '.') ?> VNĐ</th>
+                                                        <th><?= number_format($tong_tien_san_pham, 0, ',', '.') ?> VNĐ</th>
                                                     </tr>
                                                 </tfoot>
                                             </table>
@@ -168,30 +188,35 @@
                                         <!-- Total Summary -->
                                         <div class="mt-4">
                                             <h4>Tổng các phí cần thanh toán</h4><br>
-                                            <h6><strong>Thành tiền:</strong> <?= number_format($tong_tien, 0, ',', '.') ?> VNĐ</h6>
+                                            <h6><strong>Thành tiền:</strong> <?= number_format($tong_tien_san_pham, 0, ',', '.') ?> VNĐ</h6>
                                             <h6><strong>Phí vận chuyển:</strong> 30.000 VNĐ</h6>
-                                            <h6><strong>Khuyến mãi:</strong> 39.000 VNĐ</h6>
+                                            <h6><strong>Khuyến mãi:</strong>
+                                                <?= $khuyenMai['loai_khuyen_mai'] == 'percentage' ? $khuyenMai['muc_giam_gia'] . '%' : number_format($khuyenMai['muc_giam_gia'], 0, ',', '.') . ' VNĐ' ?>
+                                            </h6>
                                             <hr>
-                                            <h4 class="fw-bold">Tổng tiền: <span class="text-success"><?= number_format($tong_tien + 30000 - 39000, 0, ',', '.') ?> VNĐ</span></h4>
+                                            <h4 class="fw-bold">Tổng tiền cần thanh toán:
+                                                 <span class="text-success"><?= number_format($tong_tien_san_pham + $phivanchuyen - $khuyenmai, 0, ',', '.') ?> VNĐ</span>
+                                                </h4>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Action Buttons -->
-                            <div class="card-footer text-end">
-                                <a href="<?= BASE_URL_ADMIN ?>?act=quan-ly-don-hang" class="btn btn-secondary btn-sm me-2">
-                                    <i class="fas fa-arrow-left"></i> Quay lại
-                                </a>
-                                <a href="#" class="btn btn-success btn-sm" onclick="printInvoice()">
-                                    <i class="fas fa-print"></i> In hóa đơn
-                                </a>
-                            </div>
+                        <!-- Action Buttons -->
+                        <div class="card-footer text-end">
+                            <a href="<?= BASE_URL_ADMIN ?>?act=quan-ly-don-hang" class="btn btn-secondary btn-sm me-2">
+                                <i class="fas fa-arrow-left"></i> Quay lại
+                            </a>
+                            <a href="#" class="btn btn-success btn-sm" onclick="printInvoice()">
+                                <i class="fas fa-print"></i> In hóa đơn
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -212,11 +237,6 @@
         </div>
     </div>
 
-    <div class="customizer-setting d-none d-md-block">
-        <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
-        </div>
-    </div>
     <?php unset($_SESSION['errors']); ?>
     <!-- JAVASCRIPT -->
     <script>

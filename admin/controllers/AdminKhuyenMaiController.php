@@ -31,6 +31,7 @@ class QuanLyKhuyenMaiController
             $ngay_bat_dau = $_POST['ngay_bat_dau'];
             $ngay_ket_thuc = $_POST['ngay_ket_thuc'];
             $trang_thai = $_POST['trang_thai'];
+            $loai_khuyen_mai = $_POST['loai_khuyen_mai'];
 
             // Validate 
             $errors = [];
@@ -55,12 +56,15 @@ class QuanLyKhuyenMaiController
             if (empty($trang_thai)) {
                 $errors['trang_thai'] = 'Trạng thái khuyến mãi phải chọn';
             }
+            if (empty($loai_khuyen_mai)) {
+                $errors['loai_khuyen_mai'] = 'Loại khuyến mãi phải chọn';
+            }
 
             $_SESSION['errors'] = $errors;
 
             if (empty($errors)) {
                 //Nếu ko có lỗi thì tiến hành thêm danh mục
-                $this->modleKhuyenMai->insertKhuyenMai($ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai);
+                $this->modleKhuyenMai->insertKhuyenMai($ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai, $loai_khuyen_mai);
 
                 header('Location: ' . BASE_URL_ADMIN . '?act=quan-ly-khuyen-mai');
                 exit();
@@ -96,6 +100,7 @@ class QuanLyKhuyenMaiController
             $ngay_bat_dau = $_POST['ngay_bat_dau'];
             $ngay_ket_thuc = $_POST['ngay_ket_thuc'];
             $trang_thai = $_POST['trang_thai'];
+            $loai_khuyen_mai = $_POST['loai_khuyen_mai'];
             $id = $_POST['id'];
 
             // Validate 
@@ -121,12 +126,15 @@ class QuanLyKhuyenMaiController
             if (empty($trang_thai)) {
                 $errors['trang_thai'] = 'Trạng thái khuyến mãi phải chọn';
             }
+            if (empty($loai_khuyen_mai)) {
+                $errors['loai_khuyen_mai'] = 'Loại khuyến mãi phải chọn';
+            }
 
             $_SESSION['errors'] = $errors;
 
             if (empty($errors)) {
                 //Nếu ko có lỗi thì tiến hành thêm danh mục
-                $this->modleKhuyenMai->updateKhuyenMai($id, $ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai);
+                $this->modleKhuyenMai->updateKhuyenMai($id, $ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai, $loai_khuyen_mai);
 
                 header('Location: ' . BASE_URL_ADMIN . '?act=quan-ly-khuyen-mai');
                 exit();

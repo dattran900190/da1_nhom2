@@ -2,9 +2,13 @@
 class QuanLyDonHangController
 {
     public $modleDonHang;
+    public $modelSanPham;
+    public $modleKhuyenMai;
     public function __construct()
     {
         $this->modleDonHang = new adminDonHang();
+        $this->modelSanPham = new SanPham();
+        $this->modleKhuyenMai = new adminKhuyenMai();
     }
     public function danhSachDonHang()
     {
@@ -23,6 +27,9 @@ class QuanLyDonHangController
         $sanPhamDonHang = $this->modleDonHang->getListSanPhamDonHang($don_hang_id);
         //    var_dump($sanPhamDonHang);die;
         $listTrangThaiDonHang = $this->modleDonHang->getAllTrangThaiDonHang();
+
+         // Láy khuyến mãi từ bảng khuyen_mais
+        $maKhuyenMai = $this->modleKhuyenMai->getAllKhuyenMai();
         require_once './views/donhang/detailDonHang.php';
     }
 
@@ -32,6 +39,7 @@ class QuanLyDonHangController
 
         $donHang = $this->modleDonHang->getDetailDonHang($id);
         $listTrangThaiDonHang = $this->modleDonHang->getAllTrangThaiDonHang();
+        $sanPhamDonHang = $this->modleDonHang->getListSanPhamDonHang($id);
 
         if ($donHang) {
             require_once './views/donhang/editDonHang.php';
