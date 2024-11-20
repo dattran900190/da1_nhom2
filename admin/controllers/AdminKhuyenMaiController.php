@@ -27,6 +27,7 @@ class QuanLyKhuyenMaiController
             $ten_khuyen_mai = $_POST['ten_khuyen_mai'];
             $ma_khuyen_mai = $_POST['ma_khuyen_mai'];
             $muc_giam_gia = $_POST['muc_giam_gia'];
+            $so_luong = $_POST['so_luong'];
             $ngay_bat_dau = $_POST['ngay_bat_dau'];
             $ngay_ket_thuc = $_POST['ngay_ket_thuc'];
             $trang_thai = $_POST['trang_thai'];
@@ -42,11 +43,14 @@ class QuanLyKhuyenMaiController
             if (empty($muc_giam_gia)) {
                 $errors['muc_giam_gia'] = 'Giá khuyến mãi không được để trống';
             }
+            if (empty($so_luong)) {
+                $errors['so_luong'] = 'Số lượng khuyến mãi không được để trống';
+            }
             if (empty($ngay_bat_dau)) {
-                $errors['ngay_bat_dau'] = 'Giá khuyến mãi khuyến mãi không được để trống';
+                $errors['ngay_bat_dau'] = 'Ngày bắt đầu khuyến mãi khuyến mãi không được để trống';
             }
             if (empty($ngay_ket_thuc)) {
-                $errors['ngay_ket_thuc'] = 'Số lượng khuyến mãi không được để trống';
+                $errors['ngay_ket_thuc'] = 'Ngày kết thúc khuyến mãi không được để trống';
             }
             if (empty($trang_thai)) {
                 $errors['trang_thai'] = 'Trạng thái khuyến mãi phải chọn';
@@ -56,7 +60,7 @@ class QuanLyKhuyenMaiController
 
             if (empty($errors)) {
                 //Nếu ko có lỗi thì tiến hành thêm danh mục
-                $this->modleKhuyenMai->insertKhuyenMai($ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai);
+                $this->modleKhuyenMai->insertKhuyenMai($ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai);
 
                 header('Location: ' . BASE_URL_ADMIN . '?act=quan-ly-khuyen-mai');
                 exit();
@@ -88,6 +92,7 @@ class QuanLyKhuyenMaiController
             $ten_khuyen_mai = $_POST['ten_khuyen_mai'];
             $ma_khuyen_mai = $_POST['ma_khuyen_mai'];
             $muc_giam_gia = $_POST['muc_giam_gia'];
+            $so_luong = $_POST['so_luong'];
             $ngay_bat_dau = $_POST['ngay_bat_dau'];
             $ngay_ket_thuc = $_POST['ngay_ket_thuc'];
             $trang_thai = $_POST['trang_thai'];
@@ -104,11 +109,14 @@ class QuanLyKhuyenMaiController
             if (empty($muc_giam_gia)) {
                 $errors['muc_giam_gia'] = 'Giá khuyến mãi không được để trống';
             }
+            if (empty($so_luong)) {
+                $errors['so_luong'] = 'Số lượng khuyến mãi không được để trống';
+            }
             if (empty($ngay_bat_dau)) {
-                $errors['ngay_bat_dau'] = 'Giá khuyến mãi khuyến mãi không được để trống';
+                $errors['ngay_bat_dau'] = 'Ngày bắt đầu khuyến mãi khuyến mãi không được để trống';
             }
             if (empty($ngay_ket_thuc)) {
-                $errors['ngay_ket_thuc'] = 'Số lượng khuyến mãi không được để trống';
+                $errors['ngay_ket_thuc'] = 'Ngày kết thúc khuyến mãi không được để trống';
             }
             if (empty($trang_thai)) {
                 $errors['trang_thai'] = 'Trạng thái khuyến mãi phải chọn';
@@ -118,7 +126,7 @@ class QuanLyKhuyenMaiController
 
             if (empty($errors)) {
                 //Nếu ko có lỗi thì tiến hành thêm danh mục
-                $this->modleKhuyenMai->updateKhuyenMai($id, $ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai);
+                $this->modleKhuyenMai->updateKhuyenMai($id, $ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai);
 
                 header('Location: ' . BASE_URL_ADMIN . '?act=quan-ly-khuyen-mai');
                 exit();
@@ -129,6 +137,7 @@ class QuanLyKhuyenMaiController
                     'ten_khuyen_mai' => $ten_khuyen_mai,
                     'ma_khuyen_mai' => $ma_khuyen_mai,
                     'muc_giam_gia' => $muc_giam_gia,
+                    'so_luong' => $so_luong,
                     'ngay_bat_dau' => $ngay_bat_dau,
                     'ngay_ket_thuc' => $ngay_ket_thuc,
                     'trang_thai' => $trang_thai

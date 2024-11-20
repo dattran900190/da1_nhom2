@@ -19,10 +19,10 @@ define('PATH_UPLOAD',        __DIR__.'/../');
 
 
 
-define('BASE_URL'       , 'http://localhost/da1_nhom2/');
+define('BASE_URL'       , 'http://localhost/du_an_1/');
 
 // dường dẫn vào phần admin
-define('BASE_URL_ADMIN'       , 'http://localhost/da1_nhom2/admin/');
+define('BASE_URL_ADMIN'       , 'http://localhost/du_an_1/admin/');
 
 define('DB_HOST'    , 'localhost');
 define('DB_PORT'    , 3306);

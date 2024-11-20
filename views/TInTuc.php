@@ -17,24 +17,24 @@ require_once "layout/menu.php";
         </div>
         <div class="mid">
             <div class="tin-tuc">
-                <img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt="">
-                <div class="day">11/01/2024</div>
-                <div class="title">How to look outstanding in pastel</div>
+                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt=""></a>
+                <div class="day"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">11/01/2024</a></div>
+                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">How to look outstanding in pastel</a> </div>
             </div>
             <div class="tin-tuc">
-                <img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt="">
-                <div class="day">11/01/2024</div>
-                <div class="title">Top 10 fashion trend for summer</div>
+                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt=""></a>
+                <div class="day"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">11/01/2024</a></div>
+                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Top 10 fashion trend for summer</a> </div>
             </div>
             <div class="tin-tuc">
-                <img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt="">
-                <div class="day">11/01/2024</div>
-                <div class="title">Crazy fashion with unique moment</div>
+                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt=""></a>
+                <div class="day"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">11/01/2024</a></div>
+                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Crazy fashion with unique moment</a></div>
             </div>
             <div class="tin-tuc">
-                <img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt="">
-                <div class="day">11/01/2024</div>
-                <div class="title">Crazy fashion with unique moment</div>
+                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt=""></a>
+                <div class="day"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">11/01/2024</a></div>
+                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Crazy fashion with unique moment</a></div>
             </div>
         </div>
     </div>
@@ -47,32 +47,44 @@ require_once "layout/menu.php";
         <div class="bai-viets">
             <div class="main-bai-viet">
                 <div class="bai-viet">
-                    <img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt="">
+                    <div class="anh-bai-viet">
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
+                    </div>
                     <div class="ngay-thang">
-                        Ngày đăng: 11/11/2024
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
                     </div>
                     <div class="title">
-                        Filming from different angles and positions
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Filming from different angles and positions</a>
                     </div>
                     <div class="content">
-                        Eu sem integer vitae justo eget magna fermentum iaculis. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus.
-                        Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. A condimentum vitae sapien pellentesque habitant morbi.
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">
+                            Eu sem integer vitae justo eget magna fermentum iaculis. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus.
+                            Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. A condimentum vitae sapien pellentesque habitant morbi.
+                        </a>
                     </div>
-                    <a href="">ĐỌC THÊM <i class="fa-solid fa-angles-right"></i></a>
+                    <div class="doc-them">
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">ĐỌC THÊM <i class="fa-solid fa-angles-right"></i></a>
+                    </div>
                 </div>
                 <div class="bai-viet">
-                    <img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt="">
+                    <div class="anh-bai-viet">
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
+                    </div>
                     <div class="ngay-thang">
-                        Ngày đăng: 11/11/2024
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
                     </div>
                     <div class="title">
-                        Filming from different angles and positions
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Filming from different angles and positions</a>
                     </div>
                     <div class="content">
-                        Eu sem integer vitae justo eget magna fermentum iaculis. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus.
-                        Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. A condimentum vitae sapien pellentesque habitant morbi.
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">
+                            Eu sem integer vitae justo eget magna fermentum iaculis. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus.
+                            Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. A condimentum vitae sapien pellentesque habitant morbi.
+                        </a>
                     </div>
-                    <a href="">ĐỌC THÊM <i class="fa-solid fa-angles-right"></i></a>
+                    <div class="doc-them">
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">ĐỌC THÊM <i class="fa-solid fa-angles-right"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="sidebar-bai-viet">
@@ -81,7 +93,7 @@ require_once "layout/menu.php";
                     <div class="gui-mail">
                         <div class="top" style="display: flex;">
                             <p>Recive news via email </p>
-                            <!-- <a href="">Gửi</a> -->
+                            <!-- <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Gửi</a> -->
                         </div>
                         <div class="mid">
                             <form action="">
@@ -97,7 +109,7 @@ require_once "layout/menu.php";
                     <div class="gui-search">
                         <div class="top" style="display: flex;">
                             <p>Tìm kiếm</p>
-                            <!-- <a href=""><i class="fa-solid fa-magnifying-glass"></i></a> -->
+                            <!-- <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><i class="fa-solid fa-magnifying-glass"></i></a> -->
                         </div>
                         <div class="mid">
                             <form action="">
@@ -113,27 +125,27 @@ require_once "layout/menu.php";
                     <div class="title">
                         Cagetoty
                     </div>
-                    <a href="">Beauty</a>
-                    <a href="">Collections</a>
-                    <a href="">Creative</a>
-                    <a href="">Culture</a>
-                    <a href="">Editorial</a>
-                    <a href="">Furniture</a>
-                    <a href="">Health</a>
-                    <a href="">Life</a>
-                    <a href="">Lifestyle</a>
-                    <a href="">Long reads</a>
-                    <a href="">News</a>
-                    <a href="">Organic</a>
-                    <a href="">Pastel</a>
-                    <a href="">Remedies</a>
-                    <a href="">Sculpture</a>
-                    <a href="">Smart</a>
-                    <a href="">Spring</a>
-                    <a href="">Story</a>
-                    <a href="">Studio</a>
-                    <a href="">Videos</a>
-                    <a href="">Vintage</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Beauty</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Collections</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Creative</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Culture</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Editorial</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Furniture</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Health</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Life</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Lifestyle</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Long reads</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">News</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Organic</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Pastel</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Remedies</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Sculpture</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Smart</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Spring</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Story</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Studio</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Videos</a>
+                    <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Vintage</a>
                 </div>
 
                 <div class="bai-viet-pho-bien">
@@ -144,46 +156,46 @@ require_once "layout/menu.php";
 
                         <div class="thong-tins">
                             <div class="thong-tin">
-                                <img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt="">
+                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
                                 <div class="content">
                                     <div class="ngay-thang">
-                                        Ngày đăng: 11/11/2024
+                                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
                                     </div>
                                     <div class="title">
-                                        We Know The Secret Of Perfect Balance
+                                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">We Know The Secret Of Perfect Balance</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="thong-tin">
-                                <img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt="">
+                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
                                 <div class="content">
                                     <div class="ngay-thang">
-                                        Ngày đăng: 11/11/2024
+                                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
                                     </div>
                                     <div class="title">
-                                        We Know The Secret Of Perfect Balance
+                                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">We Know The Secret Of Perfect Balance</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="thong-tin">
-                                <img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt="">
+                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
                                 <div class="content">
                                     <div class="ngay-thang">
-                                        Ngày đăng: 11/11/2024
+                                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
                                     </div>
                                     <div class="title">
-                                        We Know The Secret Of Perfect Balance
+                                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">We Know The Secret Of Perfect Balance</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="thong-tin">
-                                <img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt="">
+                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
                                 <div class="content">
                                     <div class="ngay-thang">
-                                        Ngày đăng: 11/11/2024
+                                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
                                     </div>
                                     <div class="title">
-                                        We Know The Secret Of Perfect Balance
+                                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">We Know The Secret Of Perfect Balance</a>
                                     </div>
                                 </div>
                             </div>

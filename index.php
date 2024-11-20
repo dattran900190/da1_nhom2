@@ -29,6 +29,7 @@ match ($act) {
     'dang-nhap'=>(new HomeController())->dangNhap(),
     'dang-ky'=>(new HomeController())->dangKy(),
     'chi-tiet-san-pham'=>(new HomeController())->chiTietSanPham(),
+    'chi-tiet-tin-tuc'=>(new HomeController())->chiTietTinTuc(),
 
 
 };

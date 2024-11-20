@@ -62,6 +62,7 @@
                                                     <th>Mã khuyến mãi</th>
                                                     <th>Tên khuyến mãi</th>
                                                     <th>Mức giảm giá</th>
+                                                    <th>Số lượng</th>
                                                     <th>Ngày bắt đầu</th>
                                                     <th>Ngày kết thúc</th>
                                                     <th>Trạng thái</th>
@@ -75,6 +76,7 @@
                                                         <td><?= $khuyenmai['ma_khuyen_mai'] ?></td>
                                                         <td><?= $khuyenmai['ten_khuyen_mai'] ?></td>
                                                         <td><?= $khuyenmai['muc_giam_gia'] ?></td>
+                                                        <td><?= $khuyenmai['so_luong'] ?></td>
                                                         <td><?= $khuyenmai['ngay_bat_dau'] ?></td>
                                                         <td><?= $khuyenmai['ngay_ket_thuc'] ?></td>
                                                         <td>
