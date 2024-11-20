@@ -1638,6 +1638,11 @@ body {
     margin: 0 7px;
 }
 
+.main-content .tin-tucs .mid .tin-tuc a{
+    color: #000;
+    text-decoration: none;
+}
+
 .main-content .tin-tucs .mid .tin-tuc img{
     width: 200px;
     height: 200px;
@@ -1681,13 +1686,13 @@ body {
     margin: 5% 0;
 }
 
-.main-content .main-tin-tuc .bai-viets .main-bai-viet a {
+.main-content .main-tin-tuc .bai-viets .main-bai-viet .bai-viet .doc-them a {
     text-decoration: none;
     position: relative;
     margin-top: 10px;
     color: #333;
 }
-.main-content .main-tin-tuc .bai-viets .main-bai-viet a:after {
+.main-content .main-tin-tuc .bai-viets .main-bai-viet .bai-viet .doc-them a:after {
     content: "";
     position: absolute;
     height: 2px;
@@ -1697,9 +1702,24 @@ body {
     bottom: -5px;
     transition: 0.1s;
 }
+.main-content .main-tin-tuc .bai-viets .main-bai-viet .bai-viet a{
+    color: #000;
+    text-decoration: none;
+}
 
-.main-content .main-tin-tuc .bai-viets .main-bai-viet a:hover:after {
+.main-content .main-tin-tuc .bai-viets .main-bai-viet .bai-viet .doc-them a:hover:after {
     width: 100%;
+}
+
+.main-content .main-tin-tuc .bai-viets .main-bai-viet .bai-viet-con .anh-bai-viet{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+
+.main-content .main-tin-tuc .bai-viets .main-bai-viet .bai-viet-con .anh-bai-viet img{
+    width: 290px;
+    height: 340px;
 }
 
 .main-content .main-tin-tuc .bai-viets .sidebar-bai-viet{
@@ -1783,7 +1803,6 @@ body {
 
 
 .main-content .main-tin-tuc .sidebar-bai-viet .search-tin-tuc .gui-search .top{
-    padding-top: 30px;
     font-size: 1.5rem;
     font-family: "Playfair Display", serif;
 }
@@ -1823,12 +1842,23 @@ body {
     padding: 5% 0;
 }
 
+.main-content .bai-viet-pho-bien .bai-viet .thong-tins .thong-tin a{
+    color: #000;
+    text-decoration: none;
+}
+
+.main-content .bai-viet-pho-bien .bai-viet .thong-tins .thong-tin .ngay-thang{
+    font-size: 10px;
+    padding-bottom: 20px;
+}
+
 .main-content .bai-viet-pho-bien .bai-viet .thong-tins .thong-tin .content{
     padding-left: 10px;
 }
 
 .main-content .kenh-tin-tuc{
     padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 .main-content .kenh-tin-tuc .title{

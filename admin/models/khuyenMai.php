@@ -18,16 +18,17 @@ class adminKhuyenMai
             echo "CÓ LỖI: " . $e->getMessage();
         }
     }
-    public function insertKhuyenMai($ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
+    public function insertKhuyenMai($ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
     {
         try {
-            $sql = "INSERT INTO khuyen_mais (ten_khuyen_mai, ma_khuyen_mai, muc_giam_gia, ngay_bat_dau, ngay_ket_thuc, trang_thai) 
-                    VALUES (:ten_khuyen_mai, :ma_khuyen_mai, :muc_giam_gia, :ngay_bat_dau, :ngay_ket_thuc, :trang_thai)";
+            $sql = "INSERT INTO khuyen_mais (ten_khuyen_mai, ma_khuyen_mai, muc_giam_gia, so_luong, ngay_bat_dau, ngay_ket_thuc, trang_thai) 
+                    VALUES (:ten_khuyen_mai, :ma_khuyen_mai, :muc_giam_gia, :so_luong, :ngay_bat_dau, :ngay_ket_thuc, :trang_thai)";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
                 ':ten_khuyen_mai' => $ten_khuyen_mai,
                 ':ma_khuyen_mai' => $ma_khuyen_mai,
                 ':muc_giam_gia' => $muc_giam_gia,
+                ':so_luong' => $so_luong,
                 ':ngay_bat_dau' => $ngay_bat_dau,
                 ':ngay_ket_thuc' => $ngay_ket_thuc,
                 ':trang_thai' => $trang_thai
@@ -52,13 +53,14 @@ class adminKhuyenMai
         }
     }
 
-    public function updateKhuyenMai($id, $ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
+    public function updateKhuyenMai($id, $ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai)
     {
         try {
             $sql = "UPDATE khuyen_mais 
             SET ten_khuyen_mai = :ten_khuyen_mai,
              ma_khuyen_mai = :ma_khuyen_mai,
              muc_giam_gia = :muc_giam_gia,
+             so_luong = :so_luong,
              ngay_bat_dau = :ngay_bat_dau,
              ngay_ket_thuc = :ngay_ket_thuc,
              trang_thai = :trang_thai 
@@ -68,6 +70,7 @@ class adminKhuyenMai
                 'ten_khuyen_mai' => $ten_khuyen_mai,
                 'ma_khuyen_mai' => $ma_khuyen_mai,
                 'muc_giam_gia' => $muc_giam_gia,
+                'so_luong' => $so_luong,
                 'ngay_bat_dau' => $ngay_bat_dau,
                 'ngay_ket_thuc' => $ngay_ket_thuc,
                 'trang_thai' => $trang_thai,

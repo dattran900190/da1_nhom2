@@ -62,6 +62,12 @@
                                                         <small class="text-danger"><?= $_SESSION['errors']['muc_giam_gia'] ?? '' ?></small>
                                                     </div>
                                                     <div class="form-group">
+                                                        <label>Số lượng</label>
+                                                        <input type="number" class="form-control" name="so_luong" placeholder="Nhập mức giảm giá"
+                                                            value="<?= isset($_SESSION['old_data']['so_luong']) ? $_SESSION['old_data']['so_luong'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['so_luong'] ?? '' ?></small>
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label>Ngày bắt đầu</label>
                                                         <input type="date" class="form-control" name="ngay_bat_dau"
                                                             value="<?= isset($_SESSION['old_data']['ngay_bat_dau']) ? $_SESSION['old_data']['ngay_bat_dau'] : '' ?>">
