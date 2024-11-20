@@ -110,6 +110,30 @@ match ($act) {
     //    'sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> postEditTaiKhoanQuanTri(),
     //    'xoa-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> deleteTaiKhoanQuanTri(),
 
+    // -------------Bình Luận ------------------
+    'quan-ly-binh-luan'                            => (new QuanLyBinhLuanController()) -> danhSachBinhLuan(),
+    // ------------- end bình luận ------------------
+
+    
+    // -------------Tin tức------------------
+    'quan-ly-tin-tuc'                            => (new QuanLyTinTucController()) -> danhSachTinTuc(),
+    'form-them-tin-tuc'                            => (new QuanLyTinTucController()) -> formAddTinTuc(),
+    'them-tin-tuc'                            => (new QuanLyTinTucController()) -> postAddTinTuc(),
+    'form-sua-tin-tuc'                            => (new QuanLyTinTucController()) -> formEditTinTuc(),
+    'sua-tin-tuc'                            => (new QuanLyTinTucController()) -> postEditTinTuc(),
+    'xoa-tin-tuc'                            => (new QuanLyTinTucController()) -> deleteTinTuc(),
+    // ------------- end tin tức ------------------
+
+
+    // -------------Banner------------------
+    'quan-ly-banner'                            => (new QuanLyBannerController()) -> danhSachBanner(),
+    'form-them-banner'                            => (new QuanLyBannerController()) -> formAddBanner(),
+    'them-banner'                            => (new QuanLyBannerController()) -> postAddBanner(),
+    'form-sua-banner'                            => (new QuanLyBannerController()) -> formEditBanner(),
+    'sua-banner'                            => (new QuanLyBannerController()) -> postEditBanner(),
+    'xoa-banner'                            => (new QuanLyBannerController()) -> deleteBanner(),
+    // ------------- end banner ------------------
+
 };
 
 

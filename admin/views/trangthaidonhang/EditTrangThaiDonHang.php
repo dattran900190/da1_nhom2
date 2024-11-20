@@ -39,15 +39,54 @@
                         <div class="h-100">
                             <div class="row mb-3 pb-1">
                                 <div class="col-12">
-                                <div class="flex-grow-1">
-                                            <h2 class="text-primary mb-4">Sửa trạng thái đơn hàng</h2>
-                                        </div>
+                                    <div class="flex-grow-1">
+                                        <h2 class="text-primary mb-4">Sửa trạng thái đơn hàng</h2>
+                                    </div>
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                    
+
                                         <div class="flex-grow-1">
-                                        <form action="<?= BASE_URL_ADMIN . '?act=sua-trang-thai-don-hang' ?>" method="POST">
-                                        <input type="hidden" name="id" value="<?= $trangThaiDonHang['id'] ?>">
-                                                
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered table-hover table-striped text-center">
+                                                    <thead class="table-primary">
+                                                        <tr>
+                                                            <th>STT</th>
+                                                            <th>Tên bộ sưu tập</th>
+                                                            <th>Mô tả</th>
+                                                            <th>Hành động</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="promoTableBody">
+                                                        <?php foreach ($listTrangThaiDonHang as $index => $trangThaiDonHang): ?>
+                                                            <tr>
+                                                                <td><?= $index + 1 ?></td>
+                                                                <td><?= $trangThaiDonHang['ten_trang_thai'] ?></td>
+                                                                <td><?= $trangThaiDonHang['mo_ta'] ?></td>
+                                                                <td>
+                                                                    <a href="<?= BASE_URL_ADMIN . '?act=form-sua-trang-thai-don-hang&id=' . $trangThaiDonHang['id'] ?>" class="btn btn-warning btn-sm">
+                                                                        <i class="fas fa-edit"></i> Sửa
+                                                                    </a>
+                                                                    <a href="<?= BASE_URL_ADMIN . '?act=xoa-trang-thai-don-hang&id=' . $trangThaiDonHang['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
+                                                                        <i class="fas fa-trash"></i> Xóa
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endforeach; ?>
+                                                        <?php if (!empty($_SESSION['success'])): ?>
+                                                            <div id="success-message" class=" alert-success">
+                                                                <?php echo $_SESSION['success']; ?>
+                                                            </div>
+                                                            <?php unset($_SESSION['success']); // Xóa session sau khi hiển thị 
+                                                            ?>
+                                                        <?php endif; ?>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <form action="<?= BASE_URL_ADMIN . '?act=sua-trang-thai-don-hang' ?>" method="POST">
+                                                <input type="hidden" name="id" value="<?= $trangThaiDonHang['id'] ?>">
+
                                                 <div class="form-group">
                                                     <label>Tên trạng thái đơn hàng</label>
                                                     <input type="text" class="form-control" value="<?= $trangThaiDonHang['ten_trang_thai'] ?>" name="ten_trang_thai" placeholder="Nhập tên trạng thái đơn hàng"
@@ -59,10 +98,10 @@
                                                     <input type="text" class="form-control" value="<?= $trangThaiDonHang['mo_ta'] ?>" name="mo_ta" placeholder="Nhập mô tả trạng thái đơn hàng ">
                                                 </div>
                                                 <div class="card-footer">
-                                                <button style="margin-top: 10px;"   type="submit" class="btn btn-primary">Submit</button>
-                                            
+                                                    <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
+
                                             </form>
-                                         </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
