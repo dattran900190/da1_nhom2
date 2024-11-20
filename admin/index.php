@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once './controllers/DashboardController.php';
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
@@ -19,6 +20,7 @@ $act = $_GET['act'] ?? '/';
 
 match ($act) {
     // Dashboards
+    
     '/'                                     => (new DashboardController())->index(),
     // -------------danh mục sản phẩm ------------------
     // 'quan-ly-danh-muc-san-pham'                    => (new QuanLyDanhMucSanPhamController()) -> danhsachDanhMucSanPham(),
@@ -51,15 +53,15 @@ match ($act) {
     // ------------- end khuyến mãi ------------------
 
 
-
-
     // -------------san pham ------------------
     'quan-ly-san-pham'                            => (new AdminSanPhamController()) -> danhSachSanPham(),
     'form-them-san-pham'                            => (new AdminSanPhamController()) -> AddSanPham(),
     'them-san-pham'                            => (new AdminSanPhamController()) -> postAddSanPham(),
     'form-sua-san-pham'                            => (new AdminSanPhamController()) -> formEditSanPham(),
     'sua-san-pham'                            => (new AdminSanPhamController()) -> postEditSanPham(),
-    'xoa-san-pham'                            => (new AdminSanPhamController()) -> deleteSanPham(),
+    // 'xoa-san-pham'                            => (new AdminSanPhamController()) -> deleteSanPham(),
+    'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham($_GET['id'] ?? null),
+    'chi-tiet-san-pham'                            => (new AdminSanPhamController()) -> detailSanPham(),
 
     // ------------- end san pham ------------------
 
@@ -132,6 +134,7 @@ match ($act) {
     // ------------- end banner ------------------
 
 };
+
 
 
 
