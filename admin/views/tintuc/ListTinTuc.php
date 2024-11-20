@@ -41,17 +41,17 @@
                                 <div class="col-12">
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column mb-4">
                                         <div class="flex-grow-1">
-                                            <h2 class="text-primary mb-4">Quản lý khuyến mãi</h2>
+                                            <h2 class="text-primary mb-4">Quản lý tin tức</h2>
                                         </div>
                                         <div class="flex-shrink-0">
-                                            <a href="<?= BASE_URL_ADMIN ?>?act=form-them-khuyen-mai" class="btn btn-success">
+                                            <a href="<?= BASE_URL_ADMIN ?>?act=form-them-tin-tuc" class="btn btn-success">
                                                 <i class="fas fa-plus"></i> Thêm mới
                                             </a>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-md-6">
-                                            <input type="text" id="searchBar" class="form-control" placeholder="Tìm kiếm khuyến mãi...">
+                                            <input type="text" id="searchBar" class="form-control" placeholder="Tìm kiếm tin tức...">
                                         </div>
                                     </div>
                                     <div class="table-responsive">
@@ -59,34 +59,29 @@
                                             <thead class="table-primary">
                                                 <tr>
                                                     <th>STT</th>
-                                                    <th>Mã khuyến mãi</th>
-                                                    <th>Tên khuyến mãi</th>
-                                                    <th>Mức giảm giá</th>
-                                                    <th>Ngày bắt đầu</th>
-                                                    <th>Ngày kết thúc</th>
-                                                    <th>Trạng thái</th>
+                                                    <th>Tiêu đề</th>
+                                                    <th>Nội dung</th>
+                                                    <th>Tác giả</th>
+                                                    <th>Ngày đăng</th>
+                                                    <th>Ngày cập nhật</th>
                                                     <th>Hành động</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="promoTableBody">
-                                                <?php foreach ($listKhuyenMai as $key => $khuyenmai): ?>
+                                                <?php foreach ($listTinTuc as $key => $tinTuc): ?>
                                                     <tr>
                                                         <td><?= $key + 1 ?></td>
-                                                        <td><?= $khuyenmai['ma_khuyen_mai'] ?></td>
-                                                        <td><?= $khuyenmai['ten_khuyen_mai'] ?></td>
-                                                        <td><?= $khuyenmai['muc_giam_gia'] ?></td>
-                                                        <td><?= $khuyenmai['ngay_bat_dau'] ?></td>
-                                                        <td><?= $khuyenmai['ngay_ket_thuc'] ?></td>
+                                                        <td><?= $tinTuc['tieu_de'] ?></td>
+                                                        <td><?= $tinTuc['noi_dung'] ?></td>
+                                                        <td><?= $tinTuc['tac_gia_id'] ?></td>
+                                                        <td><?= $tinTuc['ngay_dang'] ?></td>
+                                                        <td><?= $tinTuc['ngay_cap_nhat'] ?></td>
+                                                        
                                                         <td>
-                                                            <span class="badge <?= $khuyenmai['trang_thai'] == 1 ? 'bg-success' : 'bg-danger' ?>">
-                                                                <?= $khuyenmai['trang_thai'] == 1 ? 'Còn hạn' : 'Hết hạn' ?>
-                                                            </span>
-                                                        </td>
-                                                        <td>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=form-sua-khuyen-mai&id=' . $khuyenmai['id'] ?>" class="btn btn-warning btn-sm">
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=form-sua-tin-tuc&id=' . $tinTuc['id'] ?>" class="btn btn-warning btn-sm">
                                                                 <i class="fas fa-edit"></i> Sửa
                                                             </a>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-khuyen-mai&id=' . $khuyenmai['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-tin-tuc&id=' . $tinTuc['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
                                                                 <i class="fas fa-trash"></i> Xóa
                                                             </a>
                                                         </td>
