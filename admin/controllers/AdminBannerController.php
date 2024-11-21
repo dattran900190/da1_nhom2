@@ -24,7 +24,6 @@ class QuanLyBannerController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Lấy dữ liệu từ form
-            $link_anh = $_POST['link_anh'];
             $trang_thai = $_POST['trang_thai'];
     
             // Xử lý upload hình ảnh
@@ -59,9 +58,6 @@ class QuanLyBannerController
     
             // Validate các trường khác
             $errors = [];
-            if (empty($link_anh)) {
-                $errors['link_anh'] = 'Liên kết ảnh không được để trống!';
-            }
             if (!in_array($trang_thai, ['0', '1'])) {
                 $errors['trang_thai'] = 'Trạng thái không hợp lệ!';
             }
@@ -70,7 +66,7 @@ class QuanLyBannerController
     
             if (empty($errors) && $banner_img) {
                 // Nếu không có lỗi, tiến hành thêm mới
-                $this->modleBanner->insertBanner( $banner_img, $link_anh, $trang_thai);
+                $this->modleBanner->insertBanner( $banner_img, $trang_thai);
                 header('Location: ' . BASE_URL_ADMIN . '?act=quan-ly-banner');
                 exit();
             } else {
@@ -100,7 +96,6 @@ class QuanLyBannerController
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Lấy dữ liệu từ form
         $id = $_POST['id'];
-        $link_anh = $_POST['link_anh'];
         $trang_thai = $_POST['trang_thai'];
 
         // Xử lý upload hình ảnh (nếu có)
@@ -123,9 +118,7 @@ class QuanLyBannerController
 
         // Validate các trường khác
         $errors = [];
-        if (empty($link_anh)) {
-            $errors['link_anh'] = 'Liên kết ảnh không được để trống!';
-        }
+       
         if (!in_array($trang_thai, ['0', '1'])) {
             $errors['trang_thai'] = 'Trạng thái không hợp lệ!';
         }
@@ -134,7 +127,7 @@ class QuanLyBannerController
 
         if (empty($errors)) {
             // Nếu có ảnh mới, cập nhật ảnh. Nếu không, giữ nguyên ảnh cũ.
-            $this->modleBanner->updateBanner($id, $banner_img, $link_anh, $trang_thai);
+            $this->modleBanner->updateBanner($id, $banner_img, $trang_thai);
             header('Location: ' . BASE_URL_ADMIN . '?act=quan-ly-banner');
             exit();
         } else {

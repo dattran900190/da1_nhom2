@@ -47,15 +47,14 @@
                                     <!-- Order Status -->
                                     <?php
                                     $colorAlert = '';
-                                    switch ($donHang['trang_thai_id']) {
-                                        case 1:
-                                            $colorAlert = 'primary';
-                                            break;
-                                        case 10:
-                                            $colorAlert = 'success';
-                                            break;
-                                        default:
-                                            $colorAlert = 'warning';
+                                    if ($donHang['trang_thai_id'] == 1) {
+                                        $colorAlert = 'primary';
+                                    } elseif ($donHang['trang_thai_id'] >= 2 && $donHang['trang_thai_id'] <= 9) {
+                                        $colorAlert = 'warning';
+                                    } elseif ($donHang['trang_thai_id'] == 10) {
+                                        $colorAlert = 'success';
+                                    } else {
+                                        $colorAlert = 'danger';
                                     }
                                     ?>
                                     <div class="alert alert-<?= $colorAlert ?> py-4 shadow-sm" style="display: flex; justify-content: space-around;">

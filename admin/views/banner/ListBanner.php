@@ -57,7 +57,6 @@
                                                 <tr>
                                                     <th>STT</th>
                                                     <th>Ảnh Banner</th>
-                                                    <th>Link Ảnh</th>
                                                     <th>Trạng thái</th>
                                                     <th>Hành động</th>
                                                 </tr>
@@ -67,13 +66,9 @@
                                                     <tr>
                                                         <td><?= $key + 1 ?></td>
                                                         <td><img src="<?= BASE_URL . 'uploads/banner/' . $banner['banner_img']; ?>" alt="Banner" width="100px"></td>
-                                                        
-
-                                                        <td><?= $banner['link_anh'] ?></td>
-                                                        
                                                         <td>
-                                                            <span class="badge <?= $banner['trang_thai'] == 0 ? 'bg-success' : 'bg-danger' ?>">
-                                                                <?= $banner['trang_thai'] == 0 ? 'Hiển thị' : 'Bị ẩn' ?>
+                                                            <span class="badge <?= $banner['trang_thai'] == 1 ? 'bg-success' : 'bg-danger' ?>">
+                                                                <?= $banner['trang_thai'] == 1 ? 'Hiển thị' : 'Bị ẩn' ?>
                                                             </span>
                                                         </td>
                                                         <td>

@@ -25,10 +25,10 @@ class AdminSanPhamController
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Lấy dữ liệu
-            $ten_san_pham = $_POST['ten_san_pham'] ?? '';
-            $gia_san_pham = $_POST['gia_san_pham'] ?? '';
-            $gia_khuyen_mai = $_POST['gia_khuyen_mai'] ?? '';
-            $hinh_anh = $_FILES['hinh_anh'] ?? null;
+            $ten_san_pham = $_POST['ten_san_pham'];
+            $gia_san_pham = $_POST['gia_san_pham'];
+            $gia_khuyen_mai = $_POST['gia_khuyen_mai'];
+            $hinh_anh = $_FILES['hinh_anh'];
             //mảng hình ảnh
             //lưu hình ảnh
             
@@ -36,12 +36,12 @@ class AdminSanPhamController
 
             $img_array = $_FILES['img_array'];
 
-            $so_luong = $_POST['so_luong'] ?? '';
-            $kich_co = $_POST['kich_co'] ?? '';
-            $ngay_nhap = $_POST['ngay_nhap'] ?? '';
-            $mo_ta = $_POST['mo_ta'] ?? '';
-            $danh_muc_id = $_POST['danh_muc_id'] ?? '';
-            $trang_thai = $_POST['trang_thai'] ?? '';
+            $so_luong = $_POST['so_luong'] ;
+            $kich_co = $_POST['kich_co'];
+            $ngay_nhap = $_POST['ngay_nhap'];
+            $mo_ta = $_POST['mo_ta'];
+            $danh_muc_id = $_POST['danh_muc_id'];
+            $trang_thai = $_POST['trang_thai'];
             
 
             // Validate 
@@ -91,7 +91,7 @@ class AdminSanPhamController
                             'size' => $img_array['size'][$key]
                         ];
                         $link_hinh_anh = uploadFile($file, './admin/uploads/anhsp/');
-                        $this->modelSanPham->insertAmlbumAnhSanPham($san_pham_id, $link_hinh_anh);
+                        $this->modelSanPham->insertAlbumAnhSanPham($san_pham_id, $link_hinh_anh);
                     }
                 }
 

@@ -18,15 +18,14 @@ class adminBanner
             echo "CÓ LỖI: " . $e->getMessage();
         }
     }
-    public function insertBanner( $banner_img, $link_anh, $trang_thai)
+    public function insertBanner( $banner_img, $trang_thai)
     {
         try {
-            $sql = "INSERT INTO banners ( banner_img, link_anh, trang_thai)
-                    VALUES ( :banner_img, :link_anh, :trang_thai)";
+            $sql = "INSERT INTO banners ( banner_img, trang_thai)
+                    VALUES ( :banner_img,:trang_thai)";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
                 ':banner_img' => $banner_img,
-                ':link_anh' => $link_anh,
                 ':trang_thai' => $trang_thai,
             ]);
             return true;
@@ -48,19 +47,17 @@ class adminBanner
         } 
     }
 
-    public function updateBanner($id, $banner_img, $link_anh, $trang_thai)
+    public function updateBanner($id, $banner_img, $trang_thai)
 {
     try {
         $sql = "UPDATE banners
                 SET banner_img = COALESCE(:banner_img, banner_img), 
-                    link_anh = :link_anh, 
                     trang_thai = :trang_thai 
                 WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             ':id' => $id,
             ':banner_img' => $banner_img,
-            ':link_anh' => $link_anh,
             ':trang_thai' => $trang_thai,
         ]);
         return true;

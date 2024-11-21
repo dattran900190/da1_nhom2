@@ -1,5 +1,5 @@
 <?php 
-session_start();
+// session_start();
 require_once './controllers/DashboardController.php';
 // Require file Common
 require_once '../commons/env.php'; // Khai báo biến môi trường
@@ -132,6 +132,13 @@ match ($act) {
     'sua-banner'                            => (new QuanLyBannerController()) -> postEditBanner(),
     'xoa-banner'                            => (new QuanLyBannerController()) -> deleteBanner(),
     // ------------- end banner ------------------
+
+    // liên hệ
+    'quan-ly-lien-he'                            => (new QuanLyLienHeController()) -> danhSachLienHe(),
+    'form-sua-lien-he'                            => (new QuanLyLienHeController()) -> formEditLienHe(),
+    'sua-lien-he'                            => (new QuanLyLienHeController()) -> postEditLienHe(),
+    'xoa-lien-he'                            => (new QuanLyLienHeController()) -> deleteLienHe(),
+
 
 };
 
