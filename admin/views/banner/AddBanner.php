@@ -50,12 +50,6 @@
                                                         <small class="text-danger"><?= $_SESSION['errors']['banner_img'] ?? '' ?></small>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Link Ảnh</label>
-                                                        <input type="text" class="form-control" name="link_anh" placeholder="Nhập link ảnh"
-                                                            value="<?= isset($_SESSION['old_data']['link_anh']) ? $_SESSION['old_data']['link_anh'] : '' ?>">
-                                                        <small class="text-danger"><?= $_SESSION['errors']['link_anh'] ?? '' ?></small>
-                                                    </div>
-                                                    <div class="form-group">
                                                         <label for="inputStatus">Trạng thái mã khuyến mãi</label>
                                                         <select id="inputStatus" name="trang_thai" class="form-control custom-select">
                                                             <option disabled <?= !isset($_SESSION['old_data']['trang_thai']) ? 'selected' : '' ?>>Chọn trạng thái banner</option>

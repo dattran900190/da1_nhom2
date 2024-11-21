@@ -39,32 +39,27 @@
                         <div class="h-100">
                             <div class="row mb-3 pb-1">
                                 <div class="col-12">
+                                    <div class="flex-grow-1">
+                                        <h2 class="text-primary mb-4">Sửa trạng thái liên hệ</h2>
+                                    </div>
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                        <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=sua-banner' ?>" method="POST" enctype="multipart/form-data">
-                                                <input type="hidden" name="id" value="<?= $banner['id'] ?>">
-                                                <div class="card-body">
-                                                    <div class="form-group">
-                                                        <label>Ảnh banner</label>
-                                                        <input type="file" class="form-control" value="<?= $banner['banner_img'] ?>" name="banner_img" placeholder="Nhập ảnh banner"
-                                                            value="<?= isset($_SESSION['old_data']['banner_img']) ? $_SESSION['old_data']['banner_img'] : '' ?>">
 
-                                                        <small class="text-danger"><?= $_SESSION['errors']['banner_img'] ?? '' ?></small>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="inputStatus">Trạng thái banner</label>
-                                                        <select id="inputStatus" name="trang_thai" class="form-control custom-select">
-                                                            <option selected disabled>Chọn trạng thái banner</option>
-                                                            <option <?= $banner['trang_thai'] == 1 ? 'selected' : '' ?> value="1">hiển thị</option>
-                                                            <option <?= $banner['trang_thai'] == 2 ? 'selected' : '' ?> value="2">bị ẩn</option>
-                                                        </select>
-                                                        <small class="text-danger"><?= $_SESSION['errors']['trang_thai'] ?? '' ?></small>
-                                                    </div>
+                                        <div class="flex-grow-1">
+                                            <form action="<?= BASE_URL_ADMIN . '?act=sua-lien-he' ?>" method="POST">
+                                                <input type="hidden" name="lien_he_id" value="<?= $lienHe['id'] ?>">
+
+                                                <div class="form-group">
+                                                    <select id="inputStatus" name="trang_thai_lien_he" class="form-control custom-select">
+                                                        <option selected disabled>Chọn trạng thái liên hệ</option>
+                                                        <option <?= $lienHe['trang_thai_lien_he'] == 1 ? 'selected' : '' ?> value="1">Chưa xử lý</option>
+                                                        <option <?= $lienHe['trang_thai_lien_he'] == 2 ? 'selected' : '' ?> value="2">Đã xử lý</option>
+                                                    </select>
+                                                    <small class="text-danger"><?= $_SESSION['errors']['trang_thai_lien_he'] ?? '' ?></small>
                                                 </div>
 
                                                 <div class="card-footer">
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                </div>
+                                                    <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
+
                                             </form>
                                         </div>
                                     </div>
@@ -96,7 +91,7 @@
             <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
     </div>
-
+    <?php unset($_SESSION['errors']); ?>
     <!-- JAVASCRIPT -->
     <?php
     require_once "views/layouts/libs_js.php";

@@ -57,10 +57,10 @@
                                             <thead class="table-primary">
                                                 <tr>
                                                     <th>STT</th>
-                                                    <th>Mã Sản Phẩm</th>
-                                                    <th>Mã Người DÙng</th>
+                                                    <th>Mã sản phẩm</th>
+                                                    <th>Mã người dùng</th>
                                                     <th>Nọi dung</th>
-                                                    <th>Ngày Đăng</th>
+                                                    <th>Ngày đăng</th>
                                                     <th>Trạng thái</th>
                                                     <th>Hành động</th>
                                                 </tr>
