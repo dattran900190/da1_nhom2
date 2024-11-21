@@ -35,46 +35,50 @@
         <div class="page-content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col">
-                        <div class="h-100">
-                            <div class="row mb-3 pb-1">
-                                <div class="col-12">
-                                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                        <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=them-banner' ?>" method="POST" enctype="multipart/form-data">
-                                                <div class="card-body">
-                                                    <div class="form-group">
-                                                        <label>Ảnh Banner</label>
-                                                        <input type="file" class="form-control" name="banner_img" placeholder="Nhập ảnh banner"
-                                                            value="<?= isset($_SESSION['old_data']['banner_img']) ? $_SESSION['old_data']['banner_img'] : '' ?>">
-                                                        <small class="text-danger"><?= $_SESSION['errors']['banner_img'] ?? '' ?></small>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="inputStatus">Trạng thái mã khuyến mãi</label>
-                                                        <select id="inputStatus" name="trang_thai" class="form-control custom-select">
-                                                            <option disabled <?= !isset($_SESSION['old_data']['trang_thai']) ? 'selected' : '' ?>>Chọn trạng thái banner</option>
-                                                            <option value="1" <?= (isset($_SESSION['old_data']['trang_thai']) && $_SESSION['old_data']['trang_thai'] == '0') ? 'selected' : '' ?>>hiển thị</option>
-                                                            <option value="2" <?= (isset($_SESSION['old_data']['trang_thai']) && $_SESSION['old_data']['trang_thai'] == '1') ? 'selected' : '' ?>>bị ẩn</option>
-                                                        </select>
-                                                        <small class="text-danger"><?= $_SESSION['errors']['trang_thai'] ?? '' ?></small>
-                                                    </div>
-                                                   
-                                                </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="flex-grow-1">
+                                <h2 class="text-primary mb-4">Thêm ảnh banner</h2>
+                            </div>
+                            <form action="<?= BASE_URL_ADMIN . '?act=them-banner' ?>" method="POST" enctype="multipart/form-data">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- Left Column -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Ảnh Banner</label>
+                                                <input type="file" class="form-control" name="banner_img" placeholder="Nhập ảnh banner"
+                                                    value="<?= isset($_SESSION['old_data']['banner_img']) ? $_SESSION['old_data']['banner_img'] : '' ?>">
+                                                <small class="text-danger"><?= $_SESSION['errors']['banner_img'] ?? '' ?></small>
+                                            </div>
+                                        </div>
 
-                                                <div class="card-footer">
-                                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                                </div>
-                                            </form>
+                                        <!-- Right Column -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="inputStatus">Trạng thái mã khuyến mãi</label>
+                                                <select id="inputStatus" name="trang_thai" class="form-control custom-select">
+                                                    <option disabled <?= !isset($_SESSION['old_data']['trang_thai']) ? 'selected' : '' ?>>Chọn trạng thái banner</option>
+                                                    <option value="1" <?= (isset($_SESSION['old_data']['trang_thai']) && $_SESSION['old_data']['trang_thai'] == '0') ? 'selected' : '' ?>>hiển thị</option>
+                                                    <option value="2" <?= (isset($_SESSION['old_data']['trang_thai']) && $_SESSION['old_data']['trang_thai'] == '1') ? 'selected' : '' ?>>bị ẩn</option>
+                                                </select>
+                                                <small class="text-danger"><?= $_SESSION['errors']['trang_thai'] ?? '' ?></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+
+                                <div class="card-footer">
+                                    <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>

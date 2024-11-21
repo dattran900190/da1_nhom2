@@ -94,7 +94,7 @@ require_once "layout/menu.php";
         </div>
         <div class="san-pham">
             <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
+            <div class="title">áo thun mới</div>
             <div class="price">100.000 VND</div>
             <div class="add-to-cart">
                 <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>

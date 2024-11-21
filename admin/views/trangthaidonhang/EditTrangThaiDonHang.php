@@ -32,46 +32,51 @@
     </div>
 
     <div class="main-content">
-        <div class="page-content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col">
-                        <div class="h-100">
-                            <div class="row mb-3 pb-1">
-                                <div class="col-12">
-                                    <div class="flex-grow-1">
-                                        <h2 class="text-primary mb-4">Sửa trạng thái đơn hàng</h2>
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="flex-grow-1">
+                            <h2 class="text-primary mb-4">Sửa trạng thái đơn hàng</h2>
+                        </div>
+                        <form action="<?= BASE_URL_ADMIN . '?act=sua-trang-thai-don-hang' ?>" method="POST">
+                            <input type="hidden" name="id" value="<?= $trangThaiDonHang['id'] ?>">
+                            <div class="card-body">
+                                <div class="row">
+                                    <!-- Left Column -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Tên trạng thái đơn hàng</label>
+                                            <input type="text" class="form-control" value="<?= $trangThaiDonHang['ten_trang_thai'] ?>" name="ten_trang_thai" placeholder="Nhập tên trạng thái đơn hàng">
+                                            <small class="text-danger"><?= $_SESSION['errors']['ten_trang_thai'] ?? '' ?></small>
+                                        </div>
                                     </div>
-                                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
 
-                                        <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=sua-trang-thai-don-hang' ?>" method="POST">
-                                                <input type="hidden" name="id" value="<?= $trangThaiDonHang['id'] ?>">
-
-                                                <div class="form-group">
-                                                    <label>Tên trạng thái đơn hàng</label>
-                                                    <input type="text" class="form-control" value="<?= $trangThaiDonHang['ten_trang_thai'] ?>" name="ten_trang_thai" placeholder="Nhập tên trạng thái đơn hàng"
-                                                        value="<?= isset($_SESSION['old_data']['ten_trang_thai']) ? $_SESSION['old_data']['ten_trang_thai'] : '' ?>">
-                                                    <small class="text-danger"><?= $_SESSION['errors']['ten_trang_thai'] ?? '' ?></small>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Mô tả trạng thái đơn hàng</label>
-                                                    <input type="text" class="form-control" value="<?= $trangThaiDonHang['mo_ta'] ?>" name="mo_ta" placeholder="Nhập mô tả trạng thái đơn hàng ">
-                                                </div>
-                                                <div class="card-footer">
-                                                    <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
-                                                </div>
-                                            </form>
+                                    <!-- Right Column -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Mô tả trạng thái đơn hàng</label>
+                                            <textarea class="form-control" name="mo_ta" placeholder="Nhập mô tả trạng thái đơn hàng"><?= $trangThaiDonHang['mo_ta'] ?></textarea>
+                                            <small class="text-danger"><?= $_SESSION['errors']['mo_ta'] ?? '' ?></small>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+
+                            <div class="card-footer">
+                                <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>

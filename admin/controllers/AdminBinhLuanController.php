@@ -54,7 +54,7 @@ class QuanLyBinhLuanController
 
             if (empty($errors)) {
                 //Nếu ko có lỗi thì tiến hành thêm danh mục
-                $this->modleBinhLuan->insertBinhLuan($ten_binh_luan, $ma_binh_luan, $muc_giam_gia, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai);
+                $this->modleBinhLuan->insertBinhLuan($id, $san_pham_id, $tai_khoan_id, $ngay_dang, $noi_dung, $trang_thai);
 
                 header('Location: ' . BASE_URL_ADMIN . '?act=quan-ly-binh-luan');
                 exit();
