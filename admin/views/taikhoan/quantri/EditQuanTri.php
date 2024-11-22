@@ -35,61 +35,83 @@
         <div class="page-content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col">
-                        <div class="h-100">
-                            <div class="row mb-3 pb-1">
-                                <div class="col-12">
-                                <div class="flex-grow-1">
-                                            <h2 class="text-primary mb-4">Sửa tài khoản quản trị viên</h2>
+                    <div class="col-12">
+                        <div class="card">
+                            <!-- Form Header -->
+                            <div class="card-header">
+                                <h2 class="text-primary mb-4">Sửa Tài Khoản Quản Trị Viên</h2>
+                            </div>
+
+                            <!-- Form Body -->
+                            <form action="<?= BASE_URL_ADMIN . '?act=sua-tai-khoan-quan-tri-vien' ?>" method="POST">
+                                <input type="hidden" name="id" value="<?= $taiKhoanQuanTri['id'] ?>">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- Admin Name and Email -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="hoTen">Tên Tài Khoản Quản Trị Viên</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="hoTen"
+                                                    name="ho_ten"
+                                                    placeholder="Nhập tên quản trị viên"
+                                                    value="<?= $_SESSION['old_data']['ho_ten'] ?? $taiKhoanQuanTri['ho_ten'] ?>">
+                                                <small class="text-danger"><?= $_SESSION['errors']['ho_ten'] ?? '' ?></small>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="email">Email Tài Khoản Quản Trị Viên</label>
+                                                <input
+                                                    type="email"
+                                                    class="form-control"
+                                                    id="email"
+                                                    name="email"
+                                                    placeholder="Nhập email quản trị viên"
+                                                    value="<?= $_SESSION['old_data']['email'] ?? $taiKhoanQuanTri['email'] ?>">
+                                                <small class="text-danger"><?= $_SESSION['errors']['email'] ?? '' ?></small>
+                                            </div>
                                         </div>
-                                        
-                                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                    
-                                        <div class="flex-grow-1">
-                                        <form action="<?= BASE_URL_ADMIN . '?act=sua-tai-khoan-quan-tri-vien' ?>" method="POST">
-                                        <input type="hidden" name="id" value="<?= $taiKhoanQuanTri['id'] ?>">
-                                                
-                                                <div class="form-group">
-                                                    <label>Tên Tài Khoản Quản Trị Viên</label>
-                                                    <input type="text" class="form-control" value="<?=  $taiKhoanQuanTri['ho_ten'] ?>" name="ho_ten" placeholder="Nhập tên khuyến mãi"
-                                                        value="<?= isset($_SESSION['old_data']['ho_ten']) ? $_SESSION['old_data']['ho_ten'] : '' ?>">
-                                                    <small class="text-danger"><?= $_SESSION['errors']['ho_ten'] ?? '' ?></small>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Email tài khoản quản trị viên</label>
-                                                    <input type="email" class="form-control" value="<?= $taiKhoanQuanTri['email'] ?>" name="email" placeholder="Nhập mã khuyến mãi"
-                                                        value="<?= isset($_SESSION['old_data']['email']) ? $_SESSION['old_data']['email'] : '' ?>">
-                                                    <small class="text-danger"><?= $_SESSION['errors']['email'] ?? '' ?></small>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Số Điện Thoại</label>
-                                                    <input type="text" class="form-control" value="<?= $taiKhoanQuanTri['so_dien_thoai'] ?>" name="so_dien_thoai" placeholder="Nhập mã khuyến mãi"
-                                                        value="<?= isset($_SESSION['old_data']['so_dien_thoai']) ? $_SESSION['old_data']['so_dien_thoai'] : '' ?>">
-                                                    <small class="text-danger"><?= $_SESSION['errors']['so_dien_thoai'] ?? '' ?></small>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Trạng Thái</label>
-                                                   <select name="trang_thai" class="form-control">
-                                                   <option value="1" <?=  $taiKhoanQuanTri['trang_thai'] == 1 ? 'selected' : '' ?>>Hoạt Động</option>
-                                                   <option value="2" <?=  $taiKhoanQuanTri['trang_thai'] !== 1  ? 'selected' : '' ?>>Chưa Kích Hoạt</option>
-                                                   </select>
-                                                     
-                                                    <small class="text-danger"><?= $_SESSION['errors']['trang_thai'] ?? '' ?></small>
-                                                </div>
-                                                <div class="card-footer">
-                                                <button style="margin-top: 10px;"   type="submit" class="btn btn-primary">Submit</button>
-                                            
-                                            </form>
-                                         </div>
+
+                                        <!-- Admin Phone and Status -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="soDienThoai">Số Điện Thoại</label>
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    id="soDienThoai"
+                                                    name="so_dien_thoai"
+                                                    placeholder="Nhập số điện thoại"
+                                                    value="<?= $_SESSION['old_data']['so_dien_thoai'] ?? $taiKhoanQuanTri['so_dien_thoai'] ?>">
+                                                <small class="text-danger"><?= $_SESSION['errors']['so_dien_thoai'] ?? '' ?></small>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="trangThai">Trạng Thái</label>
+                                                <select id="trangThai" name="trang_thai" class="form-control">
+                                                    <option value="1" <?= $taiKhoanQuanTri['trang_thai'] == 1 ? 'selected' : '' ?>>Hoạt Động</option>
+                                                    <option value="2" <?= $taiKhoanQuanTri['trang_thai'] == 2 ? 'selected' : '' ?>>Chưa Kích Hoạt</option>
+                                                </select>
+                                                <small class="text-danger"><?= $_SESSION['errors']['trang_thai'] ?? '' ?></small>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+
+                                <!-- Form Footer -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>

@@ -131,6 +131,7 @@ match ($act) {
     'form-sua-tin-tuc'                            => (new QuanLyTinTucController()) -> formEditTinTuc(),
     'sua-tin-tuc'                            => (new QuanLyTinTucController()) -> postEditTinTuc(),
     'xoa-tin-tuc'                            => (new QuanLyTinTucController()) -> deleteTinTuc(),
+   'chi-tiet-tin-tuc'                            => (new QuanLyTinTucController()) -> showTinTuc($_GET['id']),
     // ------------- end tin tức ------------------
 
 

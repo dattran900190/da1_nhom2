@@ -60,7 +60,7 @@
                                                 <tr>
                                                     <th>STT</th>
                                                     <th>Tiêu đề</th>
-                                                    <th>Nội dung</th>
+                                                    <th>Mô Tả</th>
                                                     <th>Tác giả</th>
                                                     <th>Ngày đăng</th>
                                                     <th>Ngày cập nhật</th>
@@ -72,12 +72,15 @@
                                                     <tr>
                                                         <td><?= $key + 1 ?></td>
                                                         <td><?= $tinTuc['tieu_de'] ?></td>
-                                                        <td><?= $tinTuc['noi_dung'] ?></td>
+                                                        <td><?= $tinTuc['mo_ta']  ?></td>
                                                         <td><?= $tinTuc['tac_gia_id'] ?></td>
                                                         <td><?= $tinTuc['ngay_dang'] ?></td>
                                                         <td><?= $tinTuc['ngay_cap_nhat'] ?></td>
                                                         
                                                         <td>
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-tin-tuc&id=' . $tinTuc['id'] ?>" class="btn btn-success">
+                                                                <i class="fas fa-edit"></i> Chi tiết
+                                                            </a>
                                                             <a href="<?= BASE_URL_ADMIN . '?act=form-sua-tin-tuc&id=' . $tinTuc['id'] ?>" class="btn btn-warning btn-sm">
                                                                 <i class="fas fa-edit"></i> Sửa
                                                             </a>
@@ -111,6 +114,7 @@
             });
         });
     </script>
+    
 
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">

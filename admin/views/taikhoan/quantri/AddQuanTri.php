@@ -32,52 +32,60 @@
     </div>
 
     <div class="main-content">
-        <div class="page-content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col">
-                        <div class="h-100">
-                            <div class="row mb-3 pb-1">
-                                <div class="col-12">
-                                <div class="flex-grow-1">
-                                            <h2 class="text-primary mb-4">Thêm Tài Khoản Quản Trị</h2>
-                                        </div>
-                                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
-                                        <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=them-tai-khoan-quan-tri-vien' ?>" method="POST">
-                                                <div class="card-body">
-                                                    <div class="form-group">
-                                                        <label>Họ Và Tên</label>
-                                                        <input type="text" class="form-control" name="ho_ten" placeholder="Nhập họ và tên của bạn"
-                                                            value="<?= isset($_SESSION['old_data']['ho_ten']) ? $_SESSION['old_data']['ho_ten'] : '' ?>">
-                                                        <small class="text-danger"><?= $_SESSION['errors']['ho_ten'] ?? '' ?></small>
-                                                    </div>
-                                                    
-                                                    <div class="form-group">
-                                                        <label>Email</label>
-                                                        <input type="email" class="form-control" name="email" placeholder="Nhập email của bạn"
-                                                            value="<?= isset($_SESSION['old_data']['email']) ? $_SESSION['old_data']['email'] : '' ?>">
-                                                        <small class="text-danger"><?= $_SESSION['errors']['email'] ?? '' ?></small>
-                                                    </div>
-                                                    
-                                                   
-                                                    <div class="card-footer">
-                                                    <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
-                                                </div>
-                                                </div>
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <!-- Form Header -->
+                        <div class="card-header">
+                            <h2 class="text-primary mb-4">Thêm Tài Khoản Quản Trị</h2>
+                        </div>
 
-                                                
-                                            </form>
-                                        </div>
-                                    </div>
+                        <!-- Form Body -->
+                        <form action="<?= BASE_URL_ADMIN . '?act=them-tai-khoan-quan-tri-vien' ?>" method="POST">
+                            <div class="card-body">
+                                <!-- Full Name -->
+                                <div class="form-group">
+                                    <label for="hoTen">Họ Và Tên</label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="hoTen" 
+                                        name="ho_ten" 
+                                        placeholder="Nhập họ và tên của bạn"
+                                        value="<?= $_SESSION['old_data']['ho_ten'] ?? '' ?>"
+                                    >
+                                    <small class="text-danger"><?= $_SESSION['errors']['ho_ten'] ?? '' ?></small>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input 
+                                        type="email" 
+                                        class="form-control" 
+                                        id="email" 
+                                        name="email" 
+                                        placeholder="Nhập email của bạn"
+                                        value="<?= $_SESSION['old_data']['email'] ?? '' ?>"
+                                    >
+                                    <small class="text-danger"><?= $_SESSION['errors']['email'] ?? '' ?></small>
                                 </div>
                             </div>
-                        </div>
+
+                            <!-- Form Footer -->
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Thêm Tài Khoản</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>
