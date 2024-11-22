@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         
         .alert-success {
@@ -65,7 +66,7 @@
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-md-6">
-                                            <input type="text" id="searchBar" class="form-control" placeholder="Tìm kiếm khuyến mãi...">
+                                            <input type="text" id="searchBar" class="form-control" placeholder="Tìm kiếm tài khoản...">
                                         </div>
                                     </div>
                                     <div class="table-responsive">
@@ -92,15 +93,18 @@
                                                         
                                                         <td>
                                                             <span class="badge <?= $taiKhoanQuanTri['trang_thai'] == 1 ? 'bg-success' : 'bg-danger' ?>">
-                                                                <?= $taiKhoanQuanTri['trang_thai'] == 1 ? 'Hoạt Động' : 'Không Hoạt Động' ?>
+                                                                <?= $taiKhoanQuanTri['trang_thai'] == 1 ? 'Hoạt Động' : 'Chưa kích hoạt' ?>
                                                             </span>
                                                         </td>
                                                         <td>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=form-sua-khuyen-mai&id=' . $khuyenmai['id'] ?>" class="btn btn-warning btn-sm">
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=form-sua-tai-khoan-quan-tri-vien&id=' . $taiKhoanQuanTri['id'] ?>" class="btn btn-warning btn-sm">
                                                                 <i class="fas fa-edit"></i> Sửa
                                                             </a>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-khuyen-mai&id=' . $khuyenmai['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-tai-khoan-quan-tri-vien&id=' . $taiKhoanQuanTri['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
                                                                 <i class="fas fa-trash"></i> Xóa
+                                                            </a>
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=reset-password&id=' . $taiKhoanQuanTri['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý reset password hay không?')">
+                                                            <i class="bi bi-x-octagon"></i> Reset
                                                             </a>
                                                         </td>
                                                     </tr>

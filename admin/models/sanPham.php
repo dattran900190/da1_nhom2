@@ -204,5 +204,5 @@ function updateSanPham($san_pham_id,$ten_san_pham, $gia_san_pham, $gia_khuyen_ma
         }
     }
 }
-       
+
 ?>

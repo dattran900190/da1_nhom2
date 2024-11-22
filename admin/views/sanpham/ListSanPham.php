@@ -2,9 +2,13 @@
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable" data-theme="default" data-theme-colors="default">
 
 
+
+
 <!-- Mirrored from themesbrand.com/velzon/html/master/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Oct 2024 07:29:52 GMT -->
 
+
 <head>
+
 
     <meta charset="utf-8" />
     <title>Dashboard | T-shirt Store</title>
@@ -16,19 +20,24 @@
     require_once "views/layouts/libs_css.php";
     ?>
 
+
 </head>
+
 
 <body>
     <!-- Begin page -->
     <div id="layout-wrapper">
 
+
         <!-- HEADER -->
         <?php
         require_once "views/layouts/header.php";
 
+
         require_once "views/layouts/siderbar.php";
         ?>
     </div>
+
 
     <div class="main-content">
         <div class="page-content">
@@ -120,11 +129,13 @@
         </div>
     </div>
 
+
     <script>
         // JavaScript for Search Bar Functionality
         document.getElementById('searchBar').addEventListener('input', function() {
             const query = this.value.toLowerCase();
             const rows = document.querySelectorAll('#promoTableBody tr');
+
 
             rows.forEach(row => {
                 const text = row.textContent.toLowerCase();
@@ -133,11 +144,13 @@
         });
     </script>
 
+
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>
     </button>
     <!--end back-to-top-->
+
 
     <!--preloader-->
     <div id="preloader">
@@ -148,11 +161,13 @@
         </div>
     </div>
 
+
     <div class="customizer-setting d-none d-md-block">
         <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
             <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
     </div>
+
 
     <footer class="footer">
         <div class="container-fluid">
@@ -171,11 +186,15 @@
         </div>
     </footer>
 
+
     <!-- JAVASCRIPT -->
     <?php
     require_once "views/layouts/libs_js.php";
     ?>
 
+
 </body>
 
+
 </html>
+
