@@ -53,17 +53,21 @@ match ($act) {
     // ------------- end khuyến mãi ------------------
 
 
-    // -------------san pham ------------------
-    'quan-ly-san-pham'                            => (new AdminSanPhamController()) -> danhSachSanPham(),
-    'form-them-san-pham'                            => (new AdminSanPhamController()) -> AddSanPham(),
-    'them-san-pham'                            => (new AdminSanPhamController()) -> postAddSanPham(),
-    'form-sua-san-pham'                            => (new AdminSanPhamController()) -> formEditSanPham(),
-    'sua-san-pham'                            => (new AdminSanPhamController()) -> postEditSanPham(),
-    // 'xoa-san-pham'                            => (new AdminSanPhamController()) -> deleteSanPham(),
-    'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham($_GET['id'] ?? null),
-    'chi-tiet-san-pham'                            => (new AdminSanPhamController()) -> detailSanPham(),
-
-    // ------------- end san pham ------------------
+      // -------------san pham ------------------
+      'quan-ly-san-pham'                            => (new AdminSanPhamController()) -> danhSachSanPham(),
+      'form-them-san-pham'                            => (new AdminSanPhamController()) -> AddSanPham(),
+      'them-san-pham'                            => (new AdminSanPhamController()) -> postAddSanPham(),
+      'sua-san-pham'                            => (new AdminSanPhamController()) -> postEditSanPham(),
+      'form-sua-san-pham'                            => (new AdminSanPhamController()) -> formEditSanPham(),
+      'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham($_GET['id'] ?? null),
+      'chi-tiet-san-pham'                            => (new AdminSanPhamController()) -> detailSanPham(),
+  
+      // ------------- end san pham ------------------
+      
+  // liên hệ
+      'quan-ly-lien-he'                            => (new QuanLyLienHeController()) -> danhSachLienHe(),
+      'xoa-lien-he'                            => (new QuanLyLienHeController()) -> deleteLienHe(),
+  
 
     // ------------- đơn hàng --------------------
     'quan-ly-don-hang'                            => (new QuanLyDonHangController()) -> danhSachDonHang(),
