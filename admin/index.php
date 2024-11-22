@@ -109,11 +109,17 @@ match ($act) {
        'quan-ly-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> danhSachTaiKhoanQuanTri(),
        'form-them-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> formAddTaiKhoanQuanTri(),
        'them-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> postAddTaiKhoanQuanTri(),
-    //    'form-sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> formEditTaiKhoanQuanTri(),
-    //    'sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> postEditTaiKhoanQuanTri(),
-    //    'xoa-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> deleteTaiKhoanQuanTri(),
+       'form-sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> formEditTaiKhoanQuanTri(),
+       'sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> postEditTaiKhoanQuanTri(),
+       'xoa-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> deleteTaiKhoanQuanTri(),
 
-    // -------------Bình Luận ------------------
+       'reset-password'                            => (new QuanLyTaiKhoanController()) -> resetPassword(),
+       // Quản lý tài khoản khách hàng
+        'quan-ly-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController()) -> danhSachTaiKhoanKhachHang(),
+        'form-sua-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController()) -> formEditTaiKhoanKhachHang(),
+        'sua-tai-khoan-quan-khach-hang'                            => (new QuanLyTaiKhoanController()) -> postEditTaiKhoanKhachHang(),
+    
+        // -------------Bình Luận ------------------
     'quan-ly-binh-luan'                            => (new QuanLyBinhLuanController()) -> danhSachBinhLuan(),
     // ------------- end bình luận ------------------
 
