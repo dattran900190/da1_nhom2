@@ -1,6 +1,7 @@
 <?php
 
 class QuanLyLienHeController {
+
     public $modelLienHe;
      public function __construct()
     {
@@ -62,3 +63,4 @@ class QuanLyLienHeController {
     }
 }
 ?>
+
