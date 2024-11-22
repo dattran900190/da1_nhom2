@@ -61,6 +61,7 @@ class QuanLyLienHeController {
         header('Location: '. BASE_URL_ADMIN .'?act=quan-ly-lien-he');
         exit();
     }
+    
 }
 ?>
 
