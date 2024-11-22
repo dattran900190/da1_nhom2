@@ -53,7 +53,7 @@
                             </div>
 
                             <!-- Form -->
-                            <form action="<?= BASE_URL_ADMIN . '?act=form-sua-banner' ?>" method="POST" enctype="multipart/form-data">
+                            <form action="<?= BASE_URL_ADMIN . '?act=them-banner' ?>" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="id" value="<?= $banner['id'] ?>">
 
                                 <!-- Card Body -->
