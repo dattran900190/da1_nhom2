@@ -58,7 +58,7 @@ class adminBanner
         $stmt->execute([
             ':id' => $id,
             ':banner_img' => $banner_img,
-            ':trang_thai' => $trang_thai
+            ':trang_thai' => $trang_thai,
         ]);
         return true;
     } catch (Exception $e) {

@@ -101,7 +101,7 @@ class QuanLyBannerController
         // Xử lý upload hình ảnh (nếu có)
         $banner_img = null;
         if (isset($_FILES['banner_img']) && $_FILES['banner_img']['error'] == 0) {
-            $uploadDir = './uploads/banner/';
+            $uploadDir = '../uploads/banner/';
             $fileName = time() . '_' . $_FILES['banner_img']['name'];
             $uploadPath = $uploadDir . $fileName;
 
@@ -118,8 +118,7 @@ class QuanLyBannerController
 
         // Validate các trường khác
         $errors = [];
-       
-        if (!in_array($trang_thai, ['0', '1'])) {
+        if (!in_array($trang_thai, ['1', '2'])) {
             $errors['trang_thai'] = 'Trạng thái không hợp lệ!';
         }
 
