@@ -70,7 +70,30 @@ match ($act) {
        'quan-ly-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> danhSachTaiKhoanQuanTri(),
        'form-them-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> formAddTaiKhoanQuanTri(),
        'them-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> postAddTaiKhoanQuanTri(),
-    //    'form-sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> formEditTaiKhoanQuanTri(),
-    //    'sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> postEditTaiKhoanQuanTri(),
-    //    'xoa-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> deleteTaiKhoanQuanTri(),
+       'form-sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> formEditTaiKhoanQuanTri(),
+       'sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> postEditTaiKhoanQuanTri(),
+       'xoa-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController()) -> deleteTaiKhoanQuanTri(),
+
+       'reset-password'                            => (new QuanLyTaiKhoanController()) -> resetPassword(),
+      // Quản lý tài khoản khách hàng
+       'quan-ly-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController()) -> danhSachTaiKhoanKhachHang(),
+       'form-sua-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController()) -> formEditTaiKhoanKhachHang(),
+       'sua-tai-khoan-quan-khach-hang'                            => (new QuanLyTaiKhoanController()) -> postEditTaiKhoanKhachHang(),
+      //  'chi-tiet-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController()) -> viewsTaiKhoanKhachHang(),
+                                   
+       // Quản lý liên hệ
+      
+       
+     // ------------- end Quản lý tài khoản ------------------
+
+     // -------------san pham ------------------
+    'quan-ly-san-pham'                            => (new AdminSanPhamController()) -> danhSachSanPham(),
+    'form-them-san-pham'                            => (new AdminSanPhamController()) -> AddSanPham(),
+    'them-san-pham'                            => (new AdminSanPhamController()) -> postAddSanPham(),
+    'sua-san-pham'                            => (new AdminSanPhamController()) -> postEditSanPham(),
+    'form-sua-san-pham'                            => (new AdminSanPhamController()) -> formEditSanPham(),
+    'xoa-san-pham' => (new AdminSanPhamController())->deleteSanPham($_GET['id'] ?? null),
+    'chi-tiet-san-pham'                            => (new AdminSanPhamController()) -> detailSanPham(),
+
+    // ------------- end san pham ------------------
 };

@@ -60,7 +60,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc"  <?php BASE_URL_ADMIN ?>?act=quan-ly-nguoi-dung >
+                <a class="nav-link menu-link" href="#sidebarDanhMuc" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDanhMuc"  <?php BASE_URL_ADMIN ?>?act=quan-ly-tai-khoan-quan-tri-vien >
                     <i class="fa-solid fa-users"></i> <span data-key="t-dashboards">Quản lý người dùng</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarDanhMuc">
@@ -70,13 +70,9 @@
                                     Tài Khoản Quản trị viên
                                 </a>
                             </li>
+                            
                             <li class="nav-item">
-                                <a href="" class="nav-link" data-key="t-nestable-list">
-                                    Tài khoản cá nhân
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link" data-key="t-nestable-list">
+                                <a href="<?php BASE_URL_ADMIN ?>?act=quan-ly-tai-khoan-khach-hang"  class="nav-link" data-key="t-nestable-list">
                                     Tài khoản khách hàng
                                 </a>
                             </li>
