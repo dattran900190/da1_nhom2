@@ -88,9 +88,9 @@
                                                         <td><?= $sanpham['gia_san_pham'] ?></td>
                                                         <td><?= $sanpham['gia_khuyen_mai'] ?></td>
                                                         <td>
-                                                        <img src="<?= BASE_URL . $sanpham['hinh_anh'] ?>"
-                                                            style="width: 100px"
-                                                            alt="Hình ảnh sản phẩm"
+                                                        <img src="<?= BASE_URL . $sanpham['hinh_anh'] ?>" 
+                                                            style="width: 100px" 
+                                                            alt="Hình ảnh sản phẩm" 
                                                        
                                                             >
                                                     </td>
@@ -100,21 +100,19 @@
                                                         <td><?= $sanpham['mo_ta'] ?></td>
                                                         <td><?= $sanpham['ten_danh_muc'] ?></td>
                                                         <td><?= $sanpham['trang_thai'] == 1 ? 'Còn hàng' : 'Hết hàng' ?></td>
-                       
+                        
                                                         <td>
                                                             <a href="<?= BASE_URL_ADMIN . '?act=form-sua-san-pham&id=' . $sanpham['id'] ?>" class="btn btn-warning btn-sm">
                                                                 <i class="fas fa-edit"></i> Sửa
                                                             </a>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-san-pham&id=' . $sanpham['id'] ?>"
-                                                            class="btn btn-danger btn-sm"
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-san-pham&id=' . $sanpham['id'] ?>" 
+                                                            class="btn btn-danger btn-sm" 
                                                             onclick="return confirm('Bạn có đồng ý xoá hay không?')">
                                                             <i class="fas fa-trash"></i> Xóa
                                                             </a>
 
-
                                                             <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-san-pham&id=' . $sanpham['id'] ?>"
                                                             class="btn btn-info btn-sm"><i class="bi bi-eye"></i>Xem</a>
-
 
                                                         </td>
                                                     </tr>

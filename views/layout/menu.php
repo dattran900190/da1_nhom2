@@ -51,14 +51,21 @@
 
                 <div class="menu-search">
                     <ul>
-                        <li class="dropdown">
+                        <li><a href="<?= BASE_URL ?>?act=gio-hang"><i class="fas fa-cart-plus"></i></a></li>
+                        <li class="dropdown" style="padding-top: 6px;">
                             <button class="dropbtn"><a href="<?= BASE_URL ?>?act=dang-nhap"><span class="material-symbols-outlined">account_circle</span></a></button>
                             <div class="dropdown-content">
                                 <a href="<?= BASE_URL ?>?act=dang-nhap">ĐĂNG NHẬP</a>
                                 <a href="<?= BASE_URL ?>?act=dang-ky">ĐĂNG KÝ</a>
                         </li>
-                        <li><a href="<?= BASE_URL ?>?act=gio-hang"><i class="fas fa-cart-plus"></i></a></li>
-                        <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                        <li>
+                            <div class="form-group has-search">
+                                <span class="fa fa-search form-control-feedback"></span>
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                        </li>
+
+                        <!-- <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li> -->
                     </ul>
                 </div>
             </nav>

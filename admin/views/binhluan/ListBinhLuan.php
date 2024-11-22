@@ -39,12 +39,55 @@
                         <div class="h-100">
                             <div class="row mb-3 pb-1">
                                 <div class="col-12">
-                                    <div class="d-flex align-items-lg-center flex-lg-row flex-column">
+                                    <div class="d-flex align-items-lg-center flex-lg-row flex-column mb-4">
                                         <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=sua-khuyen-mai' ?>" method="POST">
-                                                
-                                            </form>
+                                            <h2 class="text-primary mb-4">Quản lý khuyến mãi</h2>
                                         </div>
+                                        <div class="flex-shrink-0">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <input type="text" id="searchBar" class="form-control" placeholder="Tìm kiếm bình luận...">
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped text-center">
+                                            <thead class="table-primary">
+                                                <tr>
+                                                    <th>STT</th>
+                                                    <th>Mã sản phẩm</th>
+                                                    <th>Mã người dùng</th>
+                                                    <th>Nọi dung</th>
+                                                    <th>Ngày đăng</th>
+                                                    <th>Trạng thái</th>
+                                                    <th>Hành động</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="promoTableBody">
+                                                <?php foreach ($listBinhLuan as $key => $binhluan): ?>
+                                                    <tr>
+                                                        <td><?= $key + 1 ?></td>
+                                                        <td><?= $binhluan['san_pham_id'] ?></td>
+                                                        <td><?= $binhluan['tai_khoan_id'] ?></td>
+                                                        <td><?= $binhluan['noi_dung'] ?></td>
+                                                        <td><?= $binhluan['ngay_dang'] ?></td>
+                                                        <td>
+                                                            <span class="badge <?= $binhluan['trang_thai'] == 1 ? 'bg-success' : 'bg-danger' ?>">
+                                                                <?= $binhluan['trang_thai'] == 1 ? 'Hiện Bình luận' : 'Ẩn Bình luận' ?>
+                                                            </span>
+                                                        </td>
+                                                        <td>
+                                                           
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-binh-luan&id=' . $binhluan['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
+                                                                <i class="fas fa-trash"></i> Xóa
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -54,6 +97,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // JavaScript for Search Bar Functionality
+        document.getElementById('searchBar').addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#promoTableBody tr');
+
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    </script>
+
     <!--start back-to-top-->
     <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
         <i class="ri-arrow-up-line"></i>
@@ -74,6 +131,23 @@
             <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6">
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> © Velzon.
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end d-none d-sm-block">
+                        Design & Develop by Themesbrand
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- JAVASCRIPT -->
     <?php

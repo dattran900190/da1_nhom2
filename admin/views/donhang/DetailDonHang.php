@@ -47,15 +47,14 @@
                                     <!-- Order Status -->
                                     <?php
                                     $colorAlert = '';
-                                    switch ($donHang['trang_thai_id']) {
-                                        case 1:
-                                            $colorAlert = 'primary';
-                                            break;
-                                        case 10:
-                                            $colorAlert = 'success';
-                                            break;
-                                        default:
-                                            $colorAlert = 'warning';
+                                    if ($donHang['trang_thai_id'] == 1) {
+                                        $colorAlert = 'primary';
+                                    } elseif ($donHang['trang_thai_id'] >= 2 && $donHang['trang_thai_id'] <= 9) {
+                                        $colorAlert = 'warning';
+                                    } elseif ($donHang['trang_thai_id'] == 10) {
+                                        $colorAlert = 'success';
+                                    } else {
+                                        $colorAlert = 'danger';
                                     }
                                     ?>
                                     <div class="alert alert-<?= $colorAlert ?> py-4 shadow-sm" style="display: flex; justify-content: space-around;">
@@ -68,71 +67,57 @@
                                     </div>
                                     <div class="col-md-6">
                                         <?php
-                                        // Correct total calculation for order
-                                        $tong_chi_phi = 0;
+                                        $tong_tien_san_pham = 0;
+                                        $gia_giam = 0;
+
                                         foreach ($sanPhamDonHang as $sanPham) {
-                                            $tong_chi_phi += $sanPham['don_gia'] * $sanPham['so_luong'];
+                                            $product_total = $sanPham['don_gia'] * $sanPham['so_luong'];
+                                            $tong_tien_san_pham += $product_total;
+
+                                            foreach ($maKhuyenMai as $khuyenMai) {
+                                                if ($khuyenMai['loai_khuyen_mai'] == 2) { // Percentage
+                                                    $gia_giam += ($sanPham['don_gia'] * $khuyenMai['muc_giam_gia'] / 100) * $sanPham['so_luong'];
+                                                } else { // Fixed discount
+                                                    $gia_giam += $khuyenMai['muc_giam_gia'] * $sanPham['so_luong'];
+                                                }
+                                            }
                                         }
 
-                                        // Correct total for products in the table
-                                        $tong_tien = 0;
-                                        foreach ($sanPhamDonHang as $key => $sanPham) {
-                                            $tong_tien += $sanPham['don_gia'] * $sanPham['so_luong'];
-                                        }
+                                        $phivanchuyen = 30000;
+                                        $tong_chi_phi = $tong_tien_san_pham + $phivanchuyen - $gia_giam;
                                         ?>
 
-                                        <!-- Order Details -->
+                                        <!-- Recipient Info -->
                                         <div class="card mb-4">
                                             <div class="card-header bg-dark text-white">
                                                 <h5 class="card-title">Thông tin người nhận</h5>
                                             </div>
                                             <div class="card-body">
                                                 <p><strong>Họ và tên:</strong> <?= $donHang['ten_nguoi_nhan'] ?></p>
-                                                <hr>
                                                 <p><strong>Email:</strong> <?= $donHang['email_nguoi_nhan'] ?></p>
-                                                <hr>
                                                 <p><strong>Số điện thoại:</strong> <?= $donHang['sdt_nguoi_nhan'] ?></p>
-                                                <hr>
                                                 <p><strong>Địa chỉ:</strong> <?= $donHang['dia_chi_nguoi_nhan'] ?></p>
                                             </div>
                                         </div>
 
-                                        <div class="card mb-4">
-                                            <div class="card-header bg-dark text-white">
-                                                <h5 class="card-title">Thông tin người đặt</h5>
-                                            </div>
-                                            <div class="card-body">
-                                                <p><strong>Họ và tên</strong>: <?= $donHang['ho_ten'] ?></p>
-                                                <hr>
-                                                <p><strong>Email:</strong> <?= $donHang['email'] ?></p>
-                                                <hr>
-                                                <p><strong>Số điện thoại:</strong> <?= $donHang['so_dien_thoai'] ?></p>
-                                                <hr>
-                                                <p><strong>Ngày đặt:</strong> <?= formatDate($donHang['ngay_dat']) ?></p>
-                                            </div>
-                                        </div>
-
+                                        <!-- Order Info -->
                                         <div class="card mb-4">
                                             <div class="card-header bg-dark text-white">
                                                 <h5 class="card-title">Thông tin đơn hàng</h5>
                                             </div>
-
                                             <div class="card-body">
                                                 <p><strong>Mã đơn hàng:</strong> <?= $donHang['ma_don_hang'] ?></p>
-                                                <hr>
-                                                <p><strong>Tổng tiền:</strong> <?= number_format($tong_chi_phi, 0, ',', '.') ?> VNĐ </p>
-                                                <hr>
-                                                <p><strong>Ghi chú:</strong> <?= isset($donHang['ghi_chu']) ? $donHang['ghi_chu'] : 'Không có ghi chú' ?></p>
-                                                <hr>
+                                                <p><strong>Tổng tiền:</strong> <?= number_format($tong_tien_san_pham, 0, ',', '.') ?> VNĐ</p>
+                                                <p><strong>Ghi chú:</strong> <?= $donHang['ghi_chu'] ?? 'Không có ghi chú' ?></p>
                                                 <p><strong>Thanh toán:</strong> <?= $donHang['ten_phuong_thuc'] ?></p>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <!-- Right Side: Product Table and Total Summary -->
+                                    <!-- Right Section -->
                                     <div class="col-md-6">
                                         <!-- Product Table -->
-                                        <h4>Bảng thông tin sản phẩm</h4><br>
+                                        <h4>Bảng thông tin sản phẩm</h4>
                                         <div class="table-responsive">
                                             <table class="table table-hover text-center align-middle">
                                                 <thead class="table-dark">
@@ -145,53 +130,49 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
                                                     <?php foreach ($sanPhamDonHang as $key => $sanPham) : ?>
                                                         <tr>
                                                             <td><?= $key + 1 ?></td>
                                                             <td><?= $sanPham['ten_san_pham'] ?></td>
                                                             <td><?= number_format($sanPham['don_gia'], 0, ',', '.') ?> VNĐ</td>
                                                             <td><?= $sanPham['so_luong'] ?></td>
-                                                            <td><?= number_format($sanPham['don_gia'] * $sanPham['so_luong'], 0, ',', '.') ?> VNĐ</td>
+                                                            <td><?= number_format(($sanPham['don_gia'] * $sanPham['so_luong']), 0, ',', '.') ?> VNĐ</td>
                                                         </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th colspan="4" class="text-end">Tổng cộng:</th>
-                                                        <th><?= number_format($tong_tien, 0, ',', '.') ?> VNĐ</th>
-                                                    </tr>
-                                                </tfoot>
                                             </table>
                                         </div>
 
                                         <!-- Total Summary -->
-                                        <div class="mt-4">
-                                            <h4>Tổng các phí cần thanh toán</h4><br>
-                                            <h6><strong>Thành tiền:</strong> <?= number_format($tong_tien, 0, ',', '.') ?> VNĐ</h6>
-                                            <h6><strong>Phí vận chuyển:</strong> 30.000 VNĐ</h6>
-                                            <h6><strong>Khuyến mãi:</strong> 39.000 VNĐ</h6>
-                                            <hr>
-                                            <h4 class="fw-bold">Tổng tiền: <span class="text-success"><?= number_format($tong_tien + 30000 - 39000, 0, ',', '.') ?> VNĐ</span></h4>
-                                        </div>
+                                        <h4>Tổng các phí cần thanh toán</h4>
+                                        <p><strong>Thành tiền:</strong> <?= number_format($tong_tien_san_pham, 0, ',', '.') ?> VNĐ</p>
+                                        <p><strong>Phí vận chuyển:</strong> <?= number_format($phivanchuyen, 0, ',', '.') ?> VNĐ</p>
+                                        <p><strong>Khuyến mãi:</strong> <?= number_format($gia_giam, 0, ',', '.') ?> VNĐ</p>
+                                        <hr>
+                                        <h4 class="fw-bold">Tổng tiền cần thanh toán:
+                                            <span class="text-success"><?= number_format($tong_chi_phi, 0, ',', '.') ?> VNĐ</span>
+                                        </h4>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Action Buttons -->
-                            <div class="card-footer text-end">
-                                <a href="<?= BASE_URL_ADMIN ?>?act=quan-ly-don-hang" class="btn btn-secondary btn-sm me-2">
-                                    <i class="fas fa-arrow-left"></i> Quay lại
-                                </a>
-                                <a href="#" class="btn btn-success btn-sm" onclick="printInvoice()">
-                                    <i class="fas fa-print"></i> In hóa đơn
-                                </a>
-                            </div>
                         </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="card-footer text-end">
+                        <a href="<?= BASE_URL_ADMIN ?>?act=quan-ly-don-hang" class="btn btn-secondary btn-sm me-2">
+                            <i class="fas fa-arrow-left"></i> Quay lại
+                        </a>
+                        <a href="#" class="btn btn-success btn-sm" onclick="printInvoice()">
+                            <i class="fas fa-print"></i> In hóa đơn
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 
 
@@ -212,11 +193,6 @@
         </div>
     </div>
 
-    <div class="customizer-setting d-none d-md-block">
-        <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
-        </div>
-    </div>
     <?php unset($_SESSION['errors']); ?>
     <!-- JAVASCRIPT -->
     <script>

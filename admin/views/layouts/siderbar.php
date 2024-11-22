@@ -102,7 +102,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="<?php BASE_URL_ADMIN ?>?act=quan-ly-danh-gia-trang-thai-don-hang">
+                    <a class="nav-link menu-link" href="<?php BASE_URL_ADMIN ?>?act=quan-ly-trang-thai-don-hang">
                     <i class="fa-brands fa-medium"></i> <span data-key="t-dashboards">Quản lý đánh giá trạng thái đơn hàng</span>
                     </a>
                 </li>

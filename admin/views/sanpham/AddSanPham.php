@@ -55,79 +55,74 @@
                                                 <div class="card-body">
                                                 <select class="form-control" name="danh_muc_id" id="exampleFormControlSelect1">
 
-
                                                     <option selected disabled>Chọn danh mục sản phẩm</option>
-
 
                                                     <?php foreach ($listDanhMucSanPham as $danhmuc) : ?>
                                                     <option value="<?= $danhmuc['id'] ?>"><?= $danhmuc['ten_danh_muc'] ?></option>
                                                     <?php endforeach ?>
                                                     </select>
                                                     <div class="form-group">
-                                                <label>Tên sản phẩm</label>
-                                                <input type="text" class="form-control" name="ten_san_pham" placeholder="Nhập tên sản phẩm"required>
-                                                <?php if (isset($_SESSION['errors']['ten_san_pham'])) { ?>
-                                                <small class="text-danger"><?= $_SESSION['errors']['ten_san_pham']  ?></small><?php } ?>
-
-
+                                                        <label>Tên sản phẩm</label>
+                                                        <input type="text" class="form-control" name="ten_san_pham" placeholder="Nhập tên sản phẩm"
+                                                            value="<?= isset($_SESSION['error']['ten_san_pham']) ? $_SESSION['error']['ten_san_pham'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['ten_san_pham'] ?? '' ?></small>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Giá Sản Phẩm</label>
-                                                        <input type="number" class="form-control" name="gia_san_pham" placeholder="Nhập mã khuyến mãi">
-                                                        <?php if (isset($_SESSION['errors']['gia_san_pham'])) { ?>
-                                                            <small class="text-danger"><?= $_SESSION['errors']['gia_san_pham']  ?></small><?php } ?>
+                                                        <input type="text" class="form-control" name="gia_san_pham" placeholder="Nhập mã khuyến mãi"
+                                                            value="<?= isset($_SESSION['error']['gia_san_pham']) ? $_SESSION['error']['gia_san_pham'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['gia_san_pham'] ?? '' ?></small>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Mã khuyến mãi</label>
-                                                        <input type="number" class="form-control" name="gia_khuyen_mai" placeholder="Nhập mức giảm giá">
-                                                        <?php if (isset($_SESSION['errors']['gia_khuyen_mai'])) { ?>
-                                                            <small class="text-danger"><?= $_SESSION['errors']['gia_khuyen_mai']  ?></small><?php } ?>
+                                                        <input type="number" class="form-control" name="gia_khuyen_mai" placeholder="Nhập mức giảm giá"
+                                                            value="<?= isset($_SESSION['error']['gia_khuyen_mai']) ? $_SESSION['error']['gia_khuyen_mai'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['gia_khuyen_mai'] ?? '' ?></small>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label>Ảnh</label>
-                                                        <input type="file" class="form-control" name="hinh_anh">
+                                                        <input type="file" class="form-control" name="hinh_anh"
+                                                            value="<?= isset($_SESSION['error']['hinh_anh']) ? $_SESSION['error']['hinh_anh'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['hinh_anh'] ?? '' ?></small>
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label>Album ảnh</label>
                                                         <input type="file" class="form-control" name="img_array[]" multiple>
-                                                       
+                                                        
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Số Lượng</label>
-                                                        <input type="number" class="form-control" name="so_luong" placeholder="Nhập số luơng sản phẩm">
-                                                        <?php if (isset($_SESSION['errors']['so_luong'])) { ?>
-                                                            <small class="text-danger"><?= $_SESSION['errors']['so_luong']  ?></small><?php } ?>
+                                                        <input type="number" class="form-control" name="so_luong" placeholder="Nhập số luơng sản phẩm"
+                                                            value="<?= isset($_SESSION['error']['so_luong']) ? $_SESSION['error']['so_luong'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['so_luong'] ?? '' ?></small>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Kích cỡ</label>
-                                                        <input type="text" class="form-control" name="kich_co"placeholder="Nhập kích cỡ sản phẩm">
-                                                        <?php if (isset($_SESSION['errors']['kich_co'])) { ?>
-                                                            <small class="text-danger"><?= $_SESSION['errors']['kich_co']  ?></small><?php } ?>
+                                                        <input type="text" class="form-control" name="kich_co"placeholder="Nhập kích cỡ sản phẩm"
+                                                            value="<?= isset($_SESSION['error']['kich_co']) ? $_SESSION['error']['kich_co'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['kich_co'] ?? '' ?></small>
                                                     </div>
-                                                    <div class="form-group col-md-3">
+                                                    <div class="form-group">
                                                         <label>Ngày nhập</label>
-                                                        <input type="date" class="form-control" name="ngay_nhap">
-                                                        <?php if (isset($_SESSION['errors']['ngay_nhap'])) { ?>
-                                                            <small class="text-danger"><?= $_SESSION['errors']['ngay_nhap']  ?></small><?php } ?>
+                                                        <input type="date" class="form-control" name="ngay_nhap"
+                                                            value="<?= isset($_SESSION['error']['ngay_nhap']) ? $_SESSION['error']['ngay_nhap'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['ngay_nhap'] ?? '' ?></small>
                                                     </div>
-                                                    <div class="form-group col-md-12">
+                                                    <div class="form-group">
                                                         <label>Mô tả sản phẩm</label>
-                                                        <textarea name="mo_ta" id="" class="form-control" cols="30" rows="10" placeholder="Nhập mô tả sản phẩm">
-                                                        <?php if (isset($_SESSION['errors']['mo_ta'])) { ?>
-                                                            <small class="text-danger"><?= $_SESSION['errors']['mo_ta']  ?></small><?php } ?>
-                                                        </textarea>
+                                                        <input type="text" class="form-control" name="mo_ta" placeholder="Mô tả sản phẩm"
+                                                            value="<?= isset($_SESSION['error']['mo_ta']) ? $_SESSION['error']['mo_ta'] : '' ?>">
+                                                        <small class="text-danger"><?= $_SESSION['errors']['mo_ta'] ?? '' ?></small>
                                                     </div>
-                                                   
-
-
+                                                    
 
 
                                                     <div class="form-group">
                                                         <label for="inputStatus">Trạng thái mã khuyến mãi</label>
-                                                        <select id="inputStatus" name="trang_thai" class="form-control custom-select" >
-                                                            <option selected disabled>Chọn trạng thái</option>
-                                                            <option value = "1">Còn bán</option>
-                                                            <option value = "1">dừng bán</option>
+                                                        <select id="inputStatus" name="trang_thai" class="form-control custom-select">
+                                                            <option disabled <?= !isset($_SESSION['error']['trang_thai']) ? 'selected' : '' ?>>Chọn trạng thái khuyến mãi</option>
+                                                            <option value="1" <?= (isset($_SESSION['error']['trang_thai']) && $_SESSION['error']['trang_thai'] == '1') ? 'selected' : '' ?>>Còn hạn</option>
+                                                            <option value="2" <?= (isset($_SESSION['error']['trang_thai']) && $_SESSION['error']['trang_thai'] == '2') ? 'selected' : '' ?>>Hết hạn</option>
                                                         </select>
                                                         <small class="text-danger"><?= $_SESSION['errors']['trang_thai'] ?? '' ?></small>
                                                     </div>
@@ -137,9 +132,8 @@
                                                 <?php  } ?>
                                                 </div>
 
-
                                                 <div class="card-footer">
-                                                <button style = "margin-top: 30px" type="submit" class="btn btn-primary">Submit</button>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
                                                 </div>
                                             </form>
                                         </div>
