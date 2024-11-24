@@ -25,7 +25,7 @@ class QuanLyDonHangController
 
         // Láy danh sách đơn hàng đã đặt của đơn hàng từ bảng chi_tiet_don_hangs
         $sanPhamDonHang = $this->modleDonHang->getListSanPhamDonHang($don_hang_id);
-        //    var_dump($sanPhamDonHang);die;
+        // var_dump($sanPhamDonHang);die;
         $listTrangThaiDonHang = $this->modleDonHang->getAllTrangThaiDonHang();
 
          // Láy khuyến mãi từ bảng khuyen_mais

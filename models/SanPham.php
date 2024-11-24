@@ -32,6 +32,22 @@ class SanPham
             echo "CÓ LỖI:".$e->getMessage();
         } 
     }
+    public function getDetailSanPham($id)
+    {
+        try {
+            $sql = "SELECT  san_phams.*, danh_mucs.ten_danh_muc
+            FROM san_phams
+            INNER JOIN danh_mucs ON san_phams.danh_muc_id = danh_mucs.id
+            WHERE san_phams.id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
+    }
     public function getListAnhSanPham($id){
         try {
             $sql = "SELECT * FROM hinh_anh_san_phams WHERE san_pham_id = :id";
@@ -69,6 +85,30 @@ class SanPham
             return $stmt->fetchAll();
         } catch (Exception $e) {
             echo "CÓ LỖI:".$e->getMessage();
+        }
+    }
+    public function getAllDanhMucSanPham()
+    {
+        try {
+            $sql = "SELECT * FROM danh_mucs";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+    public function getAllBoSuuTap()
+    {
+        try {
+            $sql = "SELECT * FROM bo_suu_tap";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
         }
     }
 }

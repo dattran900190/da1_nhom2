@@ -41,7 +41,7 @@
                                 <div class="col-12">
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column mb-4">
                                         <div class="flex-grow-1">
-                                            <h2 class="text-primary mb-4">Quản lý khuyến mãi</h2>
+                                            <h2 class="text-primary mb-4">Quản lý bình luận</h2>
                                         </div>
                                         <div class="flex-shrink-0">
                                             
