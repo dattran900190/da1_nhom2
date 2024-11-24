@@ -13,7 +13,7 @@ require_once "layout/header.php";
             </div>
             <div class="title">Nhận Ưu Đãi 20%</div>
             <div class="content">
-                At imperdiet dui accumsan sit amet nulla risus est ultricies quis.
+            Tận hưởng ngay giảm giá 20% cho tất cả các sản phẩm khi mua sắm tại cửa hàng chúng tôi. Đừng bỏ lỡ cơ hội này!
             </div>
         </div>
         <div class="csach">
@@ -22,7 +22,7 @@ require_once "layout/header.php";
             </div>
             <div class="title">Miễn Phí Trả Hàng</div>
             <div class="content">
-                At imperdiet dui accumsan sit amet nulla risus est ultricies quis.
+            Bạn có thể yên tâm với dịch vụ trả hàng miễn phí trong vòng 30 ngày nếu sản phẩm không như mong đợi.
             </div>
         </div>
         <div class="csach">
@@ -33,7 +33,7 @@ require_once "layout/header.php";
             </div>
             <div class="title">Bao Bì Đặc Biệt</div>
             <div class="content">
-                At imperdiet dui accumsan sit amet nulla risus est ultricies quis.
+            Tất cả sản phẩm đều được đóng gói cẩn thận với bao bì đẹp mắt và an toàn, đảm bảo hàng đến tay bạn trong tình trạng tốt nhất.
             </div>
         </div>
         <div class="csach">
@@ -42,7 +42,7 @@ require_once "layout/header.php";
             </div>
             <div class="title">Hỗ Trợ 24/24</div>
             <div class="content">
-                At imperdiet dui accumsan sit amet nulla risus est ultricies quis.
+            Chúng tôi luôn sẵn sàng hỗ trợ bạn mọi lúc, mọi nơi, với đội ngũ chăm sóc khách hàng hoạt động 24 giờ mỗi ngày.
             </div>
         </div>
 
@@ -50,15 +50,15 @@ require_once "layout/header.php";
 
     <div class="phan-loai">
         <div class="san-pham">
-            <img src="https://themewagon.github.io/kaira/images/cat-item1.jpg" alt="">
+            <a href="<?= BASE_URL . '?act=san-pham' ?>"><img src="<?= BASE_URL ?>/assets/img/danh-cho-nam.jpg"" alt=""></a>
             <div class="title">SẢN PHẨM CHO NAM</div>
         </div>
         <div class="san-pham">
-            <img src="https://themewagon.github.io/kaira/images/cat-item1.jpg" alt="">
+            <a href="<?= BASE_URL . '?act=san-pham' ?>"><img src="<?= BASE_URL ?>/assets/img/danh-cho-nu.jpg"" alt=""></a>
             <div class="title">SẢN PHẨM CHO NỮ</div>
         </div>
         <div class="san-pham">
-            <img src="https://themewagon.github.io/kaira/images/cat-item1.jpg" alt="">
+            <a href="<?= BASE_URL . '?act=san-pham' ?>"><img src="<?= BASE_URL ?>/assets/img/danh-cho-phu-kien.jpg"" alt=""></a>
             <div class="title">SẢN PHẨM PHỤ KIỆN</div>
         </div>
     </div>
@@ -169,11 +169,11 @@ require_once "layout/header.php";
                 <img src="https://themewagon.github.io/kaira/images/single-image-2.jpg" alt="">
             </div>
             <div class="content">
-                <div class="title">Classic winter collection</div>
+                <div class="title">Bộ sưu tập mùa đông cổ điển 2024</div>
                 <div class="s-content">
-                    Dignissim lacus, turpis ut suspendisse vel tellus. Turpis purus, gravida orci, fringilla a. Ac sed eu fringilla odio mi.
-                    Consequat pharetra at magna imperdiet cursus ac faucibus sit libero. Ultricies quam nunc, lorem sit lorem urna, pretium aliquam ut.
-                    In vel, quis donec dolor id in. Pulvinar commodo mollis diam sed facilisis at cursus imperdiet cursus ac faucibus sit faucibus sit libero.
+                Khám phá bộ sưu tập mùa đông cổ điển, nơi giao thoa giữa sự ấm áp và phong cách vượt thời gian. Với những thiết kế tinh tế, 
+                chất liệu cao cấp và màu sắc ấm áp, bộ sưu tập này mang đến vẻ đẹp sang trọng và thanh lịch cho mỗi ngày lạnh giá. Những chiếc áo khoác dày dặn,
+                 khăn choàng mềm mại, và những đôi giày thời trang sẽ là người bạn đồng hành lý tưởng, giúp bạn giữ ấm mà vẫn nổi bật trong mọi dịp.
                 </div>
                 <button>SẢN PHẨM BỘ SỨU TẬP</button>
             </div>
@@ -285,20 +285,24 @@ require_once "layout/header.php";
 
     <div class="keo-chu" style="background-color: #F1F1F0;">
         <div class="title">
-            WE LOVE GOOD COMPLIMENT
+        Chúng Tôi Yêu Thích Những Lời Khen Tốt.
         </div>
         <div class="all-chu">
             <div class="chu">
-                Your CSS code for the footer links looks mostly fine, but there are a few issues and improvements that you might want to consider. Here’s a breakdown of your current code, along with corrections and optimizations:
+            Tạo trải nghiệm mua sắm dễ dàng và nhanh chóng Đảm bảo giao diện website thân thiện và dễ điều hướng.
+             Các khách hàng cần có thể tìm kiếm, xem sản phẩm và thanh toán một cách nhanh chóng và tiện lợi.
             </div>
             <div class="chu">
-                Your CSS code for the footer links looks mostly fine, but there are a few issues and improvements that you might want to consider. Here’s a breakdown of your current code, along with corrections and optimizations:
+            Hình ảnh sản phẩm chất lượng cao Sử dụng hình ảnh sắc nét và rõ ràng để người
+             mua có thể xem chi tiết từng sản phẩm. Hình ảnh đẹp giúp khách hàng dễ dàng hình dung về sản phẩm trước khi mua.
             </div>
             <div class="chu">
-                Your CSS code for the footer links looks mostly fine, but there are a few issues and improvements that you might want to consider. Here’s a breakdown of your current code, along with corrections and optimizations:
+            Cung cấp mô tả chi tiết cho sản phẩm Thêm các thông tin về chất liệu, kích thước, màu sắc,
+             và hướng dẫn bảo quản giúp khách hàng quyết định mua sắm dễ dàng hơn và giảm thiểu sự không hài lòng.
             </div>
             <div class="chu">
-                Your CSS code for the footer links looks mostly fine, but there are a few issues and improvements that you might want to consider. Here’s a breakdown of your current code, along with corrections and optimizations:
+            Chính sách giao hàng và đổi trả rõ ràng Đảm bảo các chính sách về giao hàng,
+             đổi trả sản phẩm được trình bày rõ ràng để khách hàng cảm thấy yên tâm khi mua hàng.
             </div>
         </div>
     </div>

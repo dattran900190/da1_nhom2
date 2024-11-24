@@ -81,10 +81,13 @@ require_once "layout/menu.php";
     </div>
 
     <div class="tat-ca-san-pham">
+        <?php foreach ($listSanPham as $sanPham): ?>
+            
+       
         <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
+            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id=' . $sanPham['id'] ?>"><img src="<?= $sanPham['hinh_anh'] ?>" alt=""></a>
+            <div class="title"><?= $sanPham['ten_san_pham'] ?></div>
+            <div class="price"><?= $sanPham['gia_san_pham'] ?> VNĐ</div>
             <div class="add-to-cart">
                 <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
                 <div class="tim">
@@ -92,172 +95,8 @@ require_once "layout/menu.php";
                 </div>
             </div>
         </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">áo thun mới</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
+        <?php endforeach ?>
         
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="san-pham">
-            <a href="<?= BASE_URL . '?act=chi-tiet-san-pham' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
-            <div class="title">Dark florish onepiece</div>
-            <div class="price">100.000 VND</div>
-            <div class="add-to-cart">
-                <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                <div class="tim">
-                    <a href="#"><i class="fa-regular fa-heart"></i></a>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="chuyen-trang">

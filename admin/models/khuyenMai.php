@@ -54,6 +54,18 @@ class adminKhuyenMai
         }
     }
 
+    public function getDetailKhuyenMai($id) {
+        try {
+            $sql = "SELECT * FROM khuyen_mais WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':id' => $id]);
+            return $stmt->fetch();  
+        } catch (Exception $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+    
+
     public function updateKhuyenMai($id, $ten_khuyen_mai, $ma_khuyen_mai, $muc_giam_gia, $so_luong, $ngay_bat_dau, $ngay_ket_thuc, $trang_thai, $loai_khuyen_mai)
     {
         try {

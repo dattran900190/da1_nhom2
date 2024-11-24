@@ -6,11 +6,16 @@ require_once "layout/menu.php";
 <div class="main-content">
     <div class="chi-tiet container">
         <div class="hinh-anh-chi-tiet">
-            <img src="https://product.hstatic.net/1000351433/product/snz_7011r_df098e4d8e2a47c6a02e7ac6904481fa_master.jpg" alt="" style="width: 450px;">
+            <img src="<?= $detailSanPham['hinh_anh'] ?>" alt="" style="width: 550px; ">
+            <div class="anh-nho">
+                <?php foreach ($listAnhSanPham as $anhSP): ?>
+                    <img src="<?= BASE_URL . $anhSP['link_hinh_anh'] ?>" alt="">
+                <?php endforeach ?>
+            </div>
         </div>
         <div class="thong-tin">
-            <h2>áo đẹp 2024</h2>
-            <div class="gia">255.000 VNĐ</div>
+            <h2><?= $detailSanPham['ten_san_pham'] ?></h2>
+            <div class="gia"><?= formatPrice($detailSanPham['gia_san_pham']) ?> VND</div>
             <div class="sizes">
                 <div class="size">
                     <a href="">Size M</a>
@@ -30,6 +35,7 @@ require_once "layout/menu.php";
             <div class="chi-tiet-san-pham">
                 <h5>Chi tiết sản phẩm: </h5>
                 <br>
+                <p>Mô tả sản phẩm: <?= $detailSanPham['mo_ta'] ?></p>
                 <p>Kích thước: M - L - XL</p>
                 <p>Chất liệu: Polyester, Relaxed Fit.</p>
                 <p>Artwork mặt trước và sau 2 bên cánh tay được in kéo lụa</p>
@@ -39,9 +45,56 @@ require_once "layout/menu.php";
                 <h5>Size chat: </h5>
                 <br>
                 <img src="https://bizweb.dktcdn.net/100/369/010/files/sc-relaxed-t-shirt-2024-c2607c1d-b4a6-41c5-90bb-6967de24addd.png?v=1728447693089" alt="" width="300px">
+
             </div>
         </div>
     </div>
+
+    <div class="comment-rating-form">
+        <div class="comment-section" style="background-color: #f9f9f9; ">
+            <h5 class="comment-reply-title" style="padding-left: 20px;">ĐÁNH GIÁ SẢN PHẨM</h5>
+            <div class="khach-hang">
+                <div class="comment-header">
+                    <div class="user-info">
+                        <img src="user-avatar.jpg" alt="User Avatar" class="user-avatar">
+                        <span class="username">Trần Đật</span>
+                        <span class="comment-time">11-11-2024</span>
+                    </div>
+                    <div class="rating">
+                        <span class="star-rating">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+                <div class="comment-body">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                </div>
+            </div>
+            <div class="product-rating">
+                <label>Đánh giá:</label>
+                <div class="stars">
+                    <input type="radio" id="star5" name="rating" value="5">
+                    <label for="star5">⭐</label>
+                    <input type="radio" id="star4" name="rating" value="4">
+                    <label for="star4">⭐</label>
+                    <input type="radio" id="star3" name="rating" value="3">
+                    <label for="star3">⭐</label>
+                    <input type="radio" id="star2" name="rating" value="2">
+                    <label for="star2">⭐</label>
+                    <input type="radio" id="star1" name="rating" value="1">
+                    <label for="star1">⭐</label>
+                </div>
+            </div>
+            <form id="commentform" class="comment-form">
+                <div class="comment-form-comment">
+                    <textarea textarea="" placeholder="Bình luận *" id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea>
+                    <label for="comment" data-help="Escribe algo! Lo primero que se te ocurra">Comment</label>
+                </div>
+                <div class="form-submit">
+                    <input name="submit" type="submit" id="submit" class="submit" value=" Gửi ">
+                </div>
+            </form>
+        </div>
+    </div>
+
 
     <div class="cac-san-pham-khac">
         <h3>Các sản phẩm khác</h3>
@@ -138,6 +191,8 @@ require_once "layout/menu.php";
             </div>
         </div>
     </div>
+
+
 </div>
 
 

@@ -145,7 +145,7 @@
 
                                         <!-- Total Summary -->
                                         <h4>Tổng các phí cần thanh toán</h4>
-                                        <p><strong>Thành tiền:</strong> <?= number_format($tong_tien_san_pham, 0, ',', '.') ?> VNĐ</p>
+                                        <p><strong>Thành tiền sản phẩm:</strong> <?= number_format($tong_tien_san_pham, 0, ',', '.') ?> VNĐ</p>
                                         <p><strong>Phí vận chuyển:</strong> <?= number_format($phivanchuyen, 0, ',', '.') ?> VNĐ</p>
                                         <p><strong>Khuyến mãi:</strong> <?= number_format($gia_giam, 0, ',', '.') ?> VNĐ</p>
                                         <hr>

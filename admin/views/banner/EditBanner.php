@@ -59,8 +59,10 @@
                                                 id="bannerImage" 
                                                 name="banner_img"
                                             >
+                                            
                                             <small class="text-danger"><?= $_SESSION['errors']['banner_img'] ?? '' ?></small>
                                         </div>
+                                        <img src="<?= BASE_URL . $banner['banner_img'] ?>" alt="" width="100px">
                                     </div>
 
                                     <!-- Banner Status -->

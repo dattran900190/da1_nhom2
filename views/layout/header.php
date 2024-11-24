@@ -2,64 +2,28 @@
     <div class="line-ngang"></div>
     <div class="t-new-collections">
         <div class="title">
-            New Collections
+            Bộ Sưu Tập Mới
         </div>
         <div class="content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe voluptas ut dolorum consequuntur, adipisci repellat! Eveniet commodi voluptatem voluptate, eum minima, in suscipit explicabo voluptatibus harum, quibusdam ex repellat eaque!
+        Khám phá ngay bộ sưu tập mới nhất với các sản phẩm độc đáo, mang phong cách hiện đại và sang trọng. Mỗi bộ sưu tập được thiết kế tỉ mỉ, 
+        phù hợp với xu hướng thời trang và nhu cầu của mọi khách hàng. Hãy đến và lựa chọn những món đồ mới nhất để làm mới phong cách của bạn!
         </div>
     </div>
  
     <div class="product-header">
         <button id="left-arrow" class="arrow">&#9664;</button>
         <div class="container" id="items-container">
+            <?php foreach($listBoSuuTap as $suTap): ?>
             <div class="item">
-                <img src="https://themewagon.github.io/kaira/images/banner-image-6.jpg" alt="">
-                <div class="title"><a href="">SOFT LEATHER JACKETS</a></div>
+                <img src="<?= $suTap['hinh_anh'] ?>" alt="">
+                <div class="title"><a href=""><?= $suTap['ten_bo_suu_tap'] ?></a></div>
                 <div class="content">
-                    Scelerisque duis aliquam qui lorem ipsum dolor amet, consectetur adipiscing elit.
+                <?= $suTap['mo_ta'] ?>
                 </div>
                 <a href="#">KHÁM PHÁ NGAY</a>
             </div>
-            <div class="item">
-                <img src="https://themewagon.github.io/kaira/images/banner-image-6.jpg" alt="">
-                <div class="title"><a href="">SOFT LEATHER JACKETS</a></div>
-                <div class="content">
-                    Scelerisque duis aliquam qui lorem ipsum dolor amet, consectetur adipiscing elit.
-                </div>
-                <a href="#">KHÁM PHÁ NGAY</a>
-            </div>
-            <div class="item">
-                <img src="https://themewagon.github.io/kaira/images/banner-image-6.jpg" alt="">
-                <div class="title"><a href="">SOFT LEATHER JACKETS</a></div>
-                <div class="content">
-                    Scelerisque duis aliquam qui lorem ipsum dolor amet, consectetur adipiscing elit.
-                </div>
-                <a href="#">KHÁM PHÁ NGAY</a>
-            </div>
-            <div class="item">
-                <img src="https://themewagon.github.io/kaira/images/banner-image-6.jpg" alt="">
-                <div class="title"><a href="">SOFT LEATHER JACKETS</a></div>
-                <div class="content">
-                    Scelerisque duis aliquam qui lorem ipsum dolor amet, consectetur adipiscing elit.
-                </div>
-                <a href="#">KHÁM PHÁ NGAY</a>
-            </div>
-            <div class="item">
-                <img src="https://themewagon.github.io/kaira/images/banner-image-6.jpg" alt="">
-                <div class="title"><a href="">SOFT LEATHER JACKETS</a></div>
-                <div class="content">
-                    Scelerisque duis aliquam qui lorem ipsum dolor amet, consectetur adipiscing elit.
-                </div>
-                <a href="#">KHÁM PHÁ NGAY</a>
-            </div>
-            <div class="item">
-                <img src="https://themewagon.github.io/kaira/images/banner-image-6.jpg" alt="">
-                <div class="title"><a href="">SOFT LEATHER JACKETS</a></div>
-                <div class="content">
-                    Scelerisque duis aliquam qui lorem ipsum dolor amet, consectetur adipiscing elit.
-                </div>
-                <a href="#">KHÁM PHÁ NGAY</a>
-            </div>
+            <?php endforeach ?>
+            
         </div>
         <button id="right-arrow" class="arrow">&#9654;</button>
     </div>

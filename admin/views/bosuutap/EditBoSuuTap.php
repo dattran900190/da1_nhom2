@@ -40,28 +40,33 @@
                             <div class="flex-grow-1">
                                 <h2 class="text-primary mb-4">Sửa bộ sưu tập sản phẩm</h2>
                             </div>
-                            <form action="<?= BASE_URL_ADMIN . '?act=sua-bo-suu-tap' ?>" method="POST">
-                            <input type="hidden" name="id" value="<?= $boSuuTap['id'] ?>">
+                            <form action="<?= BASE_URL_ADMIN . '?act=sua-bo-suu-tap' ?>" method="POST"  enctype="multipart/form-data">
+                                <input type="hidden" name="id" value="<?= $boSuuTap['id'] ?>">
                                 <div class="card-body">
                                     <div class="row">
                                         <!-- Left Column -->
                                         <div class="col-md-6">
-                                        <div class="form-group">
-                                                    <label>Tên danh mục sản phẩm</label>
-                                                    <input type="text" class="form-control" value="<?= $boSuuTap['ten_bo_suu_tap'] ?>" name="ten_bo_suu_tap" placeholder="Nhập tên bộ sưu tập"
-                                                        value="<?= isset($_SESSION['old_data']['ten_bo_suu_tap']) ? $_SESSION['old_data']['ten_bo_suu_tap'] : '' ?>">
-                                                    <small class="text-danger"><?= $_SESSION['errors']['ten_bo_suu_tap'] ?? '' ?></small>
-                                                </div>
+                                            <div class="form-group">
+                                                <label>Tên danh mục sản phẩm</label>
+                                                <input type="text" class="form-control" value="<?= $boSuuTap['ten_bo_suu_tap'] ?>" name="ten_bo_suu_tap" placeholder="Nhập tên bộ sưu tập"
+                                                    value="<?= isset($_SESSION['old_data']['ten_bo_suu_tap']) ? $_SESSION['old_data']['ten_bo_suu_tap'] : '' ?>">
+                                                <small class="text-danger"><?= $_SESSION['errors']['ten_bo_suu_tap'] ?? '' ?></small>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="hinh_anh" class="form-label">Hình ảnh</label>
+                                                <input type="file" class="form-control" name="hinh_anh" value="<?= $boSuuTap['hinh_anh'] ?>">
+                                                <img src="<?= BASE_URL . $boSuuTap['hinh_anh'] ?>" alt="" width="100px">
+                                            </div>
                                         </div>
 
                                         <!-- Right Column -->
                                         <div class="col-md-6">
-                                        <div class="form-group">
-                                                    <label>Mô tả bộ sưu tập</label>
-                                                    <input type="text" class="form-control" value="<?= $boSuuTap['mo_ta'] ?>" name="mo_ta" placeholder="Nhập mô tả bộ sưu tập "
-                                                        value="<?= isset($_SESSION['old_data']['mo_ta']) ? $_SESSION['old_data']['mo_ta'] : '' ?>">
-                                                    <small class="text-danger"><?= $_SESSION['errors']['mo_ta'] ?? '' ?></small>
-                                                </div>
+                                            <div class="form-group">
+                                                <label>Mô tả bộ sưu tập</label>
+                                                <input type="text" class="form-control" value="<?= $boSuuTap['mo_ta'] ?>" name="mo_ta" placeholder="Nhập mô tả bộ sưu tập "
+                                                    value="<?= isset($_SESSION['old_data']['mo_ta']) ? $_SESSION['old_data']['mo_ta'] : '' ?>">
+                                                <small class="text-danger"><?= $_SESSION['errors']['mo_ta'] ?? '' ?></small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
