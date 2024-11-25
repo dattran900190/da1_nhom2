@@ -15,12 +15,12 @@
         <div class="container" id="items-container">
             <?php foreach($listBoSuuTap as $suTap): ?>
             <div class="item">
-                <img src="<?= $suTap['hinh_anh'] ?>" alt="">
-                <div class="title"><a href=""><?= $suTap['ten_bo_suu_tap'] ?></a></div>
-                <div class="content">
+                <img src="<?= $suTap['hinh_anh'] ?>" alt="" width="300px" height="400px">
+                <div class="title"><a href="<?= BASE_URL .'?act=bo-suu-tap&bo-suu-tap=' . urlencode($suTap['ten_bo_suu_tap']) ?>"><?= $suTap['ten_bo_suu_tap'] ?></a></div>
+                <div class="content" style="padding: 0 20px;">
                 <?= $suTap['mo_ta'] ?>
                 </div>
-                <a href="#">KHÁM PHÁ NGAY</a>
+                <a href="<?= BASE_URL .'?act=bo-suu-tap&bo-suu-tap=' . urlencode($suTap['ten_bo_suu_tap']) ?>">KHÁM PHÁ NGAY</a>
             </div>
             <?php endforeach ?>
             

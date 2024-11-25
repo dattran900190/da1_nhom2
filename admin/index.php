@@ -16,6 +16,10 @@ require_file(PATH_MODEL_ADMIN);
 // Route
 $act = $_GET['act'] ?? '/';
 
+if ($act !== 'login-admin' && $act !== 'check-login-admin' && $act !== 'logout') {
+  checkLoginAdmin();
+}
+
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 
 match ($act) {
@@ -120,6 +124,7 @@ match ($act) {
   'quan-ly-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController())->danhSachTaiKhoanKhachHang(),
   'form-sua-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController())->formEditTaiKhoanKhachHang(),
   'sua-tai-khoan-quan-khach-hang'                            => (new QuanLyTaiKhoanController())->postEditTaiKhoanKhachHang(),
+  'chi-tiet-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController()) -> viewsTaiKhoanKhachHang(),
 
   // -------------Bình Luận ------------------
   'quan-ly-binh-luan'                            => (new QuanLyBinhLuanController())->danhSachBinhLuan(),
@@ -147,9 +152,15 @@ match ($act) {
   'xoa-banner'                            => (new QuanLyBannerController())->deleteBanner(),
   // ------------- end banner ------------------
 
-  // liên hệ
+  // -------------------liên hệ---------------
   'quan-ly-lien-he'                            => (new QuanLyLienHeController())->danhSachLienHe(),
   'form-sua-lien-he'                            => (new QuanLyLienHeController())->formEditLienHe(),
   'sua-lien-he'                            => (new QuanLyLienHeController())->postEditLienHe(),
   'xoa-lien-he'                            => (new QuanLyLienHeController())->deleteLienHe(),
+  // ------------------- end liên hệ ---------------
+ 
+
+  'login-admin' => (new QuanLyTaiKhoanController())->formLogin(),
+    'check-login-admin' => (new QuanLyTaiKhoanController())->login(),
+    'logout' => (new QuanLyTaiKhoanController())->logout(),
 };
