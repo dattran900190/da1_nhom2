@@ -74,9 +74,9 @@
                                                     <th>Họ Tên</th>
                                                     <th>Ảnh Đại Diện</th>
                                                     <th>Email</th>
-                                                    <th>Ngày Sinh</th>
+                                                    <th >Ngày Sinh</th>
                                                     <th>Số Điện Thoại</th>
-                                                    <th>Địa Chí</th>
+                                                    <th style="width: 200px">Địa Chỉ</th>
                                                     <th>Trạng thái</th>
                                                     <th>Hành động</th>
                                                 </tr>
@@ -107,10 +107,10 @@
                                                             <a href="<?= BASE_URL_ADMIN . '?act=form-sua-tai-khoan-khach-hang&id=' . $taiKhoanKhachHang['id'] ?>" class="btn btn-warning btn-sm">
                                                                 <i class="fas fa-edit"></i> Sửa
                                                             </a>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-tai-khoan-khach-hang&id=' . $taiKhoanKhachHang['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
+                                                            <a   style="margin-top: 10px;"   href="<?= BASE_URL_ADMIN . '?act=xoa-tai-khoan-khach-hang&id=' . $taiKhoanKhachHang['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')" >
                                                                 <i class="fas fa-trash"></i> Xóa
                                                             </a>
-                                                             <a href="<?= BASE_URL_ADMIN . '?act=reset-password&id=' . $taiKhoanKhachHang['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý reset password hay không?')">
+                                                             <a    style="margin-top: 10px;" href="<?= BASE_URL_ADMIN . '?act=reset-password&id=' . $taiKhoanKhachHang['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý reset password hay không?')">
                                                             <i class="bi bi-x-octagon"></i> Reset
                                                             </a>
                                                         </td>

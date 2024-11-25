@@ -4,11 +4,13 @@ class QuanLyDonHangController
     public $modleDonHang;
     public $modelSanPham;
     public $modleKhuyenMai;
+    public $modleTaiKhoan;
     public function __construct()
     {
         $this->modleDonHang = new adminDonHang();
         $this->modelSanPham = new SanPham();
         $this->modleKhuyenMai = new adminKhuyenMai();
+        $this->modleTaiKhoan = new adminTaiKhoan();
     }
     public function danhSachDonHang()
     {

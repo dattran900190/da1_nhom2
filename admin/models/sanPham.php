@@ -26,11 +26,11 @@ class SanPham {
             echo "CÓ LỖI: " . $e->getMessage();
         }
     }
-    public function insertSanPham($ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $hinh_anh, $so_luong, $kich_co, $ngay_nhap, $mo_ta, $danh_muc_id, $trang_thai)
+    public function insertSanPham($ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $hinh_anh, $so_luong, $kich_co, $ngay_nhap, $mo_ta, $danh_muc_id, $bo_suu_tap_id, $trang_thai)
     {
         try {
-            $sql = "INSERT INTO san_phams (ten_san_pham, gia_san_pham, gia_khuyen_mai, hinh_anh, so_luong, kich_co, ngay_nhap, mo_ta, danh_muc_id, trang_thai) 
-                VALUES (:ten_san_pham, :gia_san_pham , :gia_khuyen_mai, :hinh_anh, :so_luong, :kich_co, :ngay_nhap, :mo_ta, :danh_muc_id, :trang_thai)";
+            $sql = "INSERT INTO san_phams (ten_san_pham, gia_san_pham, gia_khuyen_mai, hinh_anh, so_luong, kich_co, ngay_nhap, mo_ta, danh_muc_id, bo_suu_tap_id, trang_thai) 
+                VALUES (:ten_san_pham, :gia_san_pham , :gia_khuyen_mai, :hinh_anh, :so_luong, :kich_co, :ngay_nhap, :mo_ta, :danh_muc_id, :bo_suu_tap_id , :trang_thai)";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
                 ':ten_san_pham' => $ten_san_pham,
@@ -42,6 +42,7 @@ class SanPham {
                 ':ngay_nhap' => $ngay_nhap,
                 ':mo_ta' => $mo_ta,
                 ':danh_muc_id' => $danh_muc_id,
+                'bo_suu_tap_id' => $bo_suu_tap_id,
                 ':trang_thai' => $trang_thai,
                 
 

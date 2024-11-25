@@ -76,6 +76,11 @@
                                     Tài khoản khách hàng
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="<?php BASE_URL_ADMIN ?>?act=quan-ly-tai-khoan-ca-nhan"  class="nav-link" data-key="t-nestable-list">
+                                    Tài khoản cá nhân
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

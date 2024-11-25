@@ -41,9 +41,9 @@ class AdminSanPhamController
             $ngay_nhap = $_POST['ngay_nhap'];
             $mo_ta = $_POST['mo_ta'];
             $danh_muc_id = $_POST['danh_muc_id'];
+            $bo_suu_tap_id = $_POST['bo_suu_tap_id'];
             $trang_thai = $_POST['trang_thai'];
-            
-
+            var_dump('lồn');
             // Validate 
             $errors = [];
             if (empty($ten_san_pham)) {
@@ -64,6 +64,7 @@ class AdminSanPhamController
             if (empty($kich_co)) {
                 $errors['kich_co'] = 'Kích cỡ  phải có';
             }
+            var_dump('nhon nhặc');
             if (empty($ngay_nhap)) {
                 $errors['ngay_nhap'] = 'Hãy cho ngày tháng vào';
             }
@@ -75,12 +76,11 @@ class AdminSanPhamController
             }
 
             $_SESSION['errors'] = $errors;
-
+            var_dump($errors);
+            die;
             if(empty($errors)){
                 // Upload hình ảnh
-               $san_pham_id = $this->modelSanPham->insertSanPham(
-                    $ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $file_thumb, $so_luong, $kich_co, $ngay_nhap, $mo_ta, $danh_muc_id, $trang_thai
-                );
+               $san_pham_id = $this->modelSanPham->insertSanPham($ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $hinh_anh, $so_luong, $kich_co, $ngay_nhap, $mo_ta, $danh_muc_id, $bo_suu_tap_id, $trang_thai);
                 if (empty($img_array['name'])) {
                     foreach ($img_array['name'] as $key => $value) {
                         $file = [
