@@ -29,16 +29,12 @@ class SanPham
     public function getAllBoSuuTap()
     {
         try {
-
-            $sql = "SELECT * FROM bo_suu_tap;";
+            $sql = "SELECT * FROM bo_suu_tap";
 
             $stmt = $this->conn->prepare($sql);
-
             $stmt->execute();
-
             return $stmt->fetchAll();
-        } catch (Exception $e) {
-
+        } catch (PDOException $e) {
             echo "CÓ LỖI: " . $e->getMessage();
         }
     }
@@ -135,7 +131,7 @@ class SanPham
         }
     }
 
-    function updateSanPham($san_pham_id, $ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $hinh_anh, $so_luong, $kich_co, $ngay_nhap, $mo_ta, $danh_muc_id, $trang_thai)
+    function updateSanPham($san_pham_id, $ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $hinh_anh, $so_luong, $kich_co, $ngay_nhap, $mo_ta, $danh_muc_id, $bo_suu_tap_id, $trang_thai)
     {
         try {
             $sql = "UPDATE san_phams SET 
@@ -148,6 +144,7 @@ class SanPham
             ngay_nhap = :ngay_nhap,
             mo_ta = :mo_ta,
             danh_muc_id = :danh_muc_id,
+            bo_suu_tap_id = :bo_suu_tap_id,
             trang_thai = :trang_thai
             WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
@@ -162,6 +159,7 @@ class SanPham
                 ':ngay_nhap' => $ngay_nhap,
                 ':mo_ta' => $mo_ta,
                 ':danh_muc_id' => $danh_muc_id,
+                ':bo_suu_tap_id' => $bo_suu_tap_id,
                 ':trang_thai' => $trang_thai,
                 ':id' => $san_pham_id
             ]);
@@ -198,47 +196,44 @@ class SanPham
             echo "CÓ LỖI:".$e->getMessage();
         } 
     }
-    public function getDetailAnhSanPham($id){
-        try {
-            $sql = "SELECT * FROM hinh_anh_san_phams WHERE id = :id";
-
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute([':id'=> $id]);
-            return $stmt->fetch();
-        } catch (Exception $e) {
-            echo "CÓ LỖI:".$e->getMessage();
-        } 
+    public function getDetailAnhSanPham($id)
+{
+    try {
+        $sql = "SELECT * FROM hinh_anh_san_phams WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return $stmt->fetch();
+    } catch (Exception $e) {
+        echo "CÓ LỖI: " . $e->getMessage();
     }
-    public function updateAnhSanPham($id, $new_file) {
-        try {
-            $sql = "UPDATE hinh_anh_san_phams 
-            SET 
-            link_hinh_anh = :new_file
-         
-            WHERE id = :id ";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute([
-                ':new_file' => $new_file,         
-                ':id' => $id
-            ]);
+}
 
-            // Lấy id sp vừa thêm
-            return true;
-        } catch (Exception $e) {
-            echo "CÓ LỖI:".$e->getMessage();
-        } 
+public function updateAnhSanPham($id, $new_file)
+{
+    try {
+        $sql = "UPDATE hinh_anh_san_phams 
+                SET link_hinh_anh = :new_file 
+                WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            ':new_file' => $new_file,
+            ':id' => $id
+        ]);
+        return true;
+    } catch (Exception $e) {
+        echo "CÓ LỖI: " . $e->getMessage();
     }
+}
 
-    public function destroyAnhSanPham($id) {
-        try {
-            $sql = "DELETE FROM hinh_anh_san_phams WHERE id = :id";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute([
-                ':id' => $id
-            ]);
-            return true;
-        } catch (Exception $e) {
-            echo "CÓ LỖI:".$e->getMessage();
-        } 
+public function destroyAnhSanPham($id)
+{
+    try {
+        $sql = "DELETE FROM hinh_anh_san_phams WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        return true;
+    } catch (Exception $e) {
+        echo "CÓ LỖI: " . $e->getMessage();
     }
+}
 }

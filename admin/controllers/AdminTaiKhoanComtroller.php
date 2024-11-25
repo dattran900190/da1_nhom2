@@ -3,10 +3,13 @@
 class QuanLyTaiKhoanController {
 
     public $modelTaiKhoan;
-
+    public $modelDonHang;
+    public $modleBinhLuan;
     public function __construct()
     {
         $this->modelTaiKhoan = new adminTaiKhoan();
+        $this->modelDonHang = new adminDonHang();
+        $this->modleBinhLuan = new adminBinhLuan();
     }
     public function danhSachTaiKhoanQuanTri() {
         $listTaiKhoanQuanTri = $this->modelTaiKhoan->getAllTaiKhoanQuanTri(1);
@@ -37,14 +40,15 @@ class QuanLyTaiKhoanController {
 
             if (empty($errors)) {
                 //Nếu ko có lỗi thì tiến hành thêm danh mục
+
+                // đặt pass mặc định 
+                $password = password_hash('123456', PASSWORD_BCRYPT); // mã hoá password_hash
+
                 // Khai báo chức vụ
                 $chuc_vu_id = 1;
                 //Đặt password mặc định cho quản trị viên
-                
-                 $mat_khau = 'thanhviennhom2';
-                 $so_dien_thoai = '0123456789';
               
-                    $this->modelTaiKhoan->postAddTaiKhoanQuanTri($ho_ten, $email, $so_dien_thoai, $mat_khau, $chuc_vu_id);
+                    $this->modelTaiKhoan->postAddTaiKhoanQuanTri($ho_ten, $email, $password, $chuc_vu_id);
                  // Thêm thông báo thành công vào session
                  $_SESSION['success'] = 'Thêm tài khoản quản trị thành công!';
 
@@ -62,7 +66,6 @@ class QuanLyTaiKhoanController {
         $id = $_GET['id'];
         $taiKhoanQuanTri = $this->modelTaiKhoan->formEditTaiKhoanQuanTri($id);
         if ($taiKhoanQuanTri) {
-            # code...
             require_once './views/taikhoan/quantri/EditQuanTri.php';
         } else {
             header('Location: ' . BASE_URL_ADMIN . '?act=quan-ly-danh-muc-san-pham');
@@ -215,4 +218,63 @@ class QuanLyTaiKhoanController {
             }
         }
     }
+    public function viewsTaiKhoanKhachHang()
+    {
+        $id = $_GET['id'];
+        $taiKhoanKhachHang = $this->modelTaiKhoan->viewsTaiKhoanKhachHang($id);
+
+
+        $listDonHang = $this->modelDonHang->getDonHangFromKhachHang($id);
+
+
+        $listBinhLuan = $this->modleBinhLuan->getBinhLuanFromKhachHang($id);
+        require_once './views/taikhoan/khachhang/ViewsKhachHang.php';
+    }
+
+
+    
+    public function formLogin(){
+        require_once './views/auth/formLogin.php';
+
+        deleteSessionError();
+        exit();
+    }
+
+    public function login(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            // var_dump($email);die;
+
+            // Xử lý kiểm tra thông tin đăng nhập
+
+            $user = $this->modelTaiKhoan->checkLogin($email,$password);
+
+            // var_dump($user);die;
+            if ($user == $email) { // Trường hợp đăng nhập thành công
+                // Lưu thông tin vào session
+                $_SESSION['user_admin'] = $user;
+                header("Location: ". BASE_URL_ADMIN );
+                exit();
+            }else{
+                // Lỗi thì lưu vào session 
+                $_SESSION['erorrs'] = $user;
+                // var_dump($_SESSION['erorrs']);die();
+                $_SESSION['flash'] = true;
+
+                header("Location: ". BASE_URL_ADMIN . '?act=login-admin');
+                exit();
+            }
+        }
+    }
+
+    public function logout(){
+        if (isset($_SESSION['user_admin'])) {
+            unset($_SESSION['user_admin']);
+            header("Location: ". BASE_URL_ADMIN . "?act=login-admin");
+        }
+    }
+    
+    
 }

@@ -181,7 +181,7 @@
     const rightArrowV4 = document.getElementById("right-arrow-v4");
 
     function scrollToNextSet4() {
-        const itemWidthV4 = containerV4.querySelector(".san-pham").offsetWidth;
+        const itemWidthV4 = containerV4.querySelector(".san-pham").offsetWidth; // Sửa thành ".san-pham"
         if (containerV4.scrollLeft + containerV4.clientWidth >= containerV4.scrollWidth - itemWidthV4) {
             containerV4.scrollLeft = 0;
         } else {
@@ -190,7 +190,7 @@
     }
 
     function scrollToPrevSet4() {
-        const itemWidthV4 = containerV4.querySelector(".san-pham").offsetWidth;
+        const itemWidthV4 = containerV4.querySelector(".san-pham").offsetWidth; // Sửa thành ".san-pham"
         if (containerV4.scrollLeft <= itemWidthV4) {
             containerV4.scrollLeft = containerV4.scrollWidth;
         } else {
@@ -200,6 +200,7 @@
 
     rightArrowV4.addEventListener("click", scrollToNextSet4);
     leftArrowV4.addEventListener("click", scrollToPrevSet4);
+
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function(e) {
@@ -213,6 +214,13 @@
         });
     });
 
+    function changeQuantity(delta) {
+        const quantityInput = document.getElementById('so_luong');
+        let currentQuantity = parseInt(quantityInput.value) || 1; // Lấy giá trị hiện tại hoặc mặc định là 1
+        currentQuantity += delta;
+        if (currentQuantity < 1) currentQuantity = 1; // Không cho phép số lượng < 1
+        quantityInput.value = currentQuantity;
+    }
     // chuyển trang
 
     //     const products = document.querySelectorAll('.san-pham');

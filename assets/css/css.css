@@ -388,49 +388,11 @@ body {
     padding-top: 25px;
 }
 
-/* 
-
-.san-pham-moi .mid .san-pham .add-to-cart a {
-    padding: 0 15px;
-}
-
-.san-pham-moi .mid .san-pham .add-to-cart {
-    position: absolute;
-    bottom: -60px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    transition: bottom 0.3s ease;
-    background-color: #bab0b0;
-    padding: 15px 0;
-    margin: 0 10px;
-}
-
-.san-pham-moi .mid .san-pham:hover .add-to-cart {
-    bottom: 10px;
-
-}
-
-.san-pham-moi .mid .san-pham img {
-    width: 100%;
-}
-
-.san-pham-moi .mid .san-pham a {
-    text-decoration: none;
-    font-size: 15px;
-    color: #333;
-}
-
-.san-pham-moi .mid .san-pham:hover {
-    transform: scale(1.07);
-}
-
-*/
-
-
 .san-pham-moi {
     position: relative;
     padding-left: 8%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 .san-pham-moi .top {
@@ -498,6 +460,7 @@ body {
 .san-pham-moi .mid .san-pham .add-to-cart a:hover {
     color: #000;
     font-size: 17px;
+
 }
 
 .san-pham-moi .mid .san-pham .add-to-cart .tim a {
@@ -509,6 +472,7 @@ body {
 .san-pham-moi .mid .san-pham .add-to-cart .tim a:hover {
     color: #000;
     font-size: 20px;
+
 }
 
 .san-pham-moi .mid .san-pham img {
@@ -517,7 +481,7 @@ body {
 
 .san-pham-moi .mid .san-pham .add-to-cart {
     display: flex;
-    gap: 10px;
+    /* gap: 10px; */
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -526,7 +490,7 @@ body {
     box-sizing: border-box;
     transition: bottom 0.4s ease;
     background-color: #f1f1f0;
-    height: 50px;
+    height: 27px;
 }
 
 .san-pham-moi .mid .san-pham:hover .add-to-cart {
@@ -540,7 +504,7 @@ body {
 
 .san-pham-moi .mid .san-pham:hover .title,
 .san-pham-moi .mid .san-pham:hover .price {
-    color: #FFFFFF;
+    color: #000;
 }
 
 .san-pham-moi .mid .san-pham .title {
@@ -550,7 +514,6 @@ body {
 .san-pham-moi .mid .san-pham .price {
     font-size: 15px;
 }
-
 .arrow-v2 {
     background: #FFFFFF;
     color: #cfb3b3;
@@ -735,7 +698,7 @@ body {
 
 .san-pham-ban-chay .mid .san-pham .add-to-cart {
     display: flex;
-    gap: 10px;
+    /* gap: 10px; */
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -744,7 +707,7 @@ body {
     box-sizing: border-box;
     transition: bottom 0.4s ease;
     background-color: #f1f1f0;
-    height: 50px;
+    height: 27px;
 }
 
 .san-pham-ban-chay .mid .san-pham:hover .add-to-cart {
@@ -758,7 +721,7 @@ body {
 
 .san-pham-ban-chay .mid .san-pham:hover .title,
 .san-pham-ban-chay .mid .san-pham:hover .price {
-    color: #FFFFFF;
+    color: #000;
 }
 
 .san-pham-ban-chay .mid .san-pham .title {
@@ -924,7 +887,7 @@ body {
 
 .san-pham-co-the-thich .mid .san-pham .add-to-cart {
     display: flex;
-    gap: 10px;
+    /* gap: 10px; */
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -933,7 +896,7 @@ body {
     box-sizing: border-box;
     transition: bottom 0.4s ease;
     background-color: #f1f1f0;
-    height: 50px;
+    height: 27px;
 }
 
 .san-pham-co-the-thich .mid .san-pham:hover .add-to-cart {
@@ -942,12 +905,12 @@ body {
 
 .san-pham-co-the-thich .mid .san-pham:hover img {
     transform: scale(1.1);
-    transition: transform 0.3s ease;
+    transition: transfor3 0.5s ease;
 }
 
 .san-pham-co-the-thich .mid .san-pham:hover .title,
 .san-pham-co-the-thich .mid .san-pham:hover .price {
-    color: #FFFFFF;
+    color: #000;
 }
 
 .san-pham-co-the-thich .mid .san-pham .title {
@@ -1374,7 +1337,7 @@ body {
 
 .tat-ca-san-pham .san-pham .add-to-cart {
     display: flex;
-    gap: 10px;
+    /* gap: 10px; */
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -1383,7 +1346,7 @@ body {
     box-sizing: border-box;
     transition: bottom 0.4s ease;
     background-color: #f1f1f0;
-    height: 50px;
+    height: 27px;
 }
 
 .tat-ca-san-pham .san-pham:hover .add-to-cart {

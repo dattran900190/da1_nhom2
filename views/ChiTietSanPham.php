@@ -14,9 +14,10 @@ require_once "layout/menu.php";
             </div>
         </div>
         <div class="thong-tin">
-            <h2><?= $detailSanPham['ten_san_pham'] ?></h2>
-            <div class="gia"><?= formatPrice($detailSanPham['gia_san_pham']) ?> VND</div>
-            <div class="sizes">
+            <h2 class="text-center"><?= $detailSanPham['ten_san_pham'] ?></h2>
+            <div class="gia text-center"><?= formatPrice($detailSanPham['gia_san_pham']) ?> VND</div>
+            <div class="gia text-center">Số lượng sản phẩm: <?= $detailSanPham['so_luong'] . ' trong kho' ?> </div>
+            <div class="sizes d-flex justify-content-center">
                 <div class="size">
                     <a href="">Size M</a>
                 </div>
@@ -27,9 +28,22 @@ require_once "layout/menu.php";
                     <a href="">Size XL</a>
                 </div>
             </div>
+            <form action="<?= BASE_URL . '?act=them-gio-hang' ?>" method="post" class="">
+                <div class="mb-3">
+                    
+                Số lượng: <input type="hidden" name="san_pham_id" value="<?= $detailSanPham['id'] ?>">
+
+                    <div class="input-group" style="max-width: 200px;">
+                        <button class="btn btn-outline-secondary" type="button" onclick="changeQuantity(-1)">-</button>
+                        <input type="number" id="so_luong" name="so_luong" value="1" min="1" class="form-control text-center">
+                        <button class="btn btn-outline-secondary" type="button" onclick="changeQuantity(1)">+</button>
+                    </div>
+                </div>
+                <div class="mua-hang d-grid">
+                    <button type="submit" style="background-color: white; color: black;">Thêm vào giỏ</button>
+                </div>
+            </form>
             <div class="mua-hang">
-                <a href=""><button style="background-color: white; color: black;">Thêm vào giỏ</button></a>
-                <br>
                 <a href=""><button>Mua ngay</button></a>
             </div>
             <div class="chi-tiet-san-pham">
@@ -44,9 +58,16 @@ require_once "layout/menu.php";
             <div class="size-chat">
                 <h5>Size chat: </h5>
                 <br>
-                <img src="https://bizweb.dktcdn.net/100/369/010/files/sc-relaxed-t-shirt-2024-c2607c1d-b4a6-41c5-90bb-6967de24addd.png?v=1728447693089" alt="" width="300px">
+                <?php
 
+                // Kiểm tra tên danh mục và hiển thị ảnh size tương ứng
+                if ($detailSanPham['ten_danh_muc'] == 'Áo thun') { ?>
+                    <img src="https://bizweb.dktcdn.net/100/369/010/files/sc-relaxed-t-shirt-2024-c2607c1d-b4a6-41c5-90bb-6967de24addd.png?v=1728447693089" alt="Size áo thun" width="300px">
+                <?php } elseif ($detailSanPham['ten_danh_muc'] == 'Hoodie') { ?>
+                    <img src="https://bizweb.dktcdn.net/100/369/010/files/sc-relaxed-hoodie-2024-daad13e2-783b-40a1-a9f6-7ea72b524340.png?v=1708065583424" alt="Size áo hoodie" width="300px">
+                <?php } ?>
             </div>
+
         </div>
     </div>
 
