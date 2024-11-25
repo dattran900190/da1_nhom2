@@ -77,6 +77,7 @@
                                                     <th>STT</th>
                                                     <th>Tên bộ sưu tập</th>
                                                     <th>Mô tả bộ sưu tập</th>
+                                                    <th>Hình ảnh</th>
                                                     <th>Hành động</th>
                                                    
                                                 </tr>
@@ -87,6 +88,7 @@
                                                         <td><?= $index + 1 ?></td>
                                                         <td><?= $boSuuTap['ten_bo_suu_tap'] ?></td>
                                                         <td><?= $boSuuTap['mo_ta'] ?></td>
+                                                        <td><img src="<?= BASE_URL . $boSuuTap['hinh_anh'] ?>" alt="" width="100px"></td>
                                                         
                                                         
                                                         <td>

@@ -38,7 +38,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Sửa Khuyến Mãi</h4>
+                            <h2 class="text-primary mb-4">Sửa khuyến mãi</h2>
                             </div>
                             <form action="<?= BASE_URL_ADMIN . '?act=sua-khuyen-mai' ?>" method="POST">
                                 <input type="hidden" name="id" value="<?= $khuyenmai['id'] ?? ($_POST['id'] ?? '') ?>">

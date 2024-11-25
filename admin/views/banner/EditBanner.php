@@ -37,30 +37,42 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="flex-grow-1">
+                        <!-- Header -->
+                        <div class="card-header">
                             <h2 class="text-primary mb-4">Sửa ảnh banner</h2>
                         </div>
+
+                        <!-- Form -->
                         <form action="<?= BASE_URL_ADMIN . '?act=sua-banner' ?>" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="id" value="<?= $banner['id'] ?>">
+
+                            <!-- Card Body -->
                             <div class="card-body">
                                 <div class="row">
-                                    <!-- Left Column -->
+                                    <!-- Banner Image Upload -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Ảnh banner</label>
-                                            <input type="file" class="form-control" name="banner_img" placeholder="Nhập ảnh banner">
+                                            <label for="bannerImage">Ảnh banner</label>
+                                            <input 
+                                                type="file" 
+                                                class="form-control" 
+                                                id="bannerImage" 
+                                                name="banner_img"
+                                            >
+                                            
                                             <small class="text-danger"><?= $_SESSION['errors']['banner_img'] ?? '' ?></small>
                                         </div>
+                                        <img src="<?= BASE_URL . $banner['banner_img'] ?>" alt="" width="100px">
                                     </div>
 
-                                    <!-- Right Column -->
+                                    <!-- Banner Status -->
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="inputStatus">Trạng thái banner</label>
-                                            <select id="inputStatus" name="trang_thai" class="form-control custom-select">
+                                            <label for="bannerStatus">Trạng thái banner</label>
+                                            <select id="bannerStatus" name="trang_thai" class="form-control custom-select">
                                                 <option selected disabled>Chọn trạng thái banner</option>
-                                                <option <?= $banner['trang_thai'] == 1 ? 'selected' : '' ?> value="1">hiển thị</option>
-                                                <option <?= $banner['trang_thai'] == 2 ? 'selected' : '' ?> value="2">bị ẩn</option>
+                                                <option <?= $banner['trang_thai'] == 1 ? 'selected' : '' ?> value="1">Hiển thị</option>
+                                                <option <?= $banner['trang_thai'] == 2 ? 'selected' : '' ?> value="2">Bị ẩn</option>
                                             </select>
                                             <small class="text-danger"><?= $_SESSION['errors']['trang_thai'] ?? '' ?></small>
                                         </div>
@@ -68,8 +80,9 @@
                                 </div>
                             </div>
 
+                            <!-- Card Footer -->
                             <div class="card-footer">
-                                <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
                             </div>
                         </form>
                     </div>
@@ -78,6 +91,7 @@
         </div>
     </div>
 </div>
+
 
 
     <!--start back-to-top-->

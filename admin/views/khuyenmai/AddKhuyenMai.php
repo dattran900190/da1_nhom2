@@ -42,7 +42,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Thêm Khuyến Mãi</h4>
+                                <h2 class="text-primary mb-4">Thêm khuyến mãi</h2>
                             </div>
                             <form action="<?= BASE_URL_ADMIN . '?act=them-khuyen-mai' ?>" method="POST">
                                 <div class="card-body">
@@ -111,7 +111,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Thêm</button>
                                 </div>
                             </form>
                         </div>

@@ -65,7 +65,7 @@
                             </div>
 
                             <div class="card-footer">
-                                <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Submit</button>
+                                <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
                             </div>
                         </form>
                     </div>

@@ -1,6 +1,6 @@
 <div class="footer" style="background-color: #F1F1F0;">
     <div class="contact-email">
-        <div class="title">Sign Up for our newsletter</div>
+        <div class="title">Đăng ký nhận bản tin của chúng tôi</div>
         <form action="">
             <input type="text" placeholder="Địa Chỉ Email Của Bạn">
             <button>ĐĂNG KÝ</button>
@@ -13,8 +13,8 @@
                 <img src="<?= BASE_URL ?>/assets/img/logo.png" alt="">
             </div>
             <div class="c-content">
-                Gravida massa volutpat aenean odio. Amet, turpis erat nullam fringilla elementum diam in.
-                Nisi, purus vitae, ultrices nunc. Sit ac sit suscipit hendrerit.
+                Chúng tôi mang đến những bộ sưu tập thời trang tinh tế, giúp bạn thể hiện phong cách cá nhân với sự kết hợp
+                hoàn hảo giữa chất liệu cao cấp và thiết kế hiện đại, tạo nên vẻ đẹp tự tin và nổi bật cho mỗi bước đi của bạn.
             </div>
             <div class="social">
                 <ul>
@@ -43,48 +43,52 @@
             <div class="title">Help & Info</div>
             <div class="list-content">
                 <ul>
-                    <li><a href="#">Track Your Order</a></li>
-                    <li><a href="#">Returns + Exchanges</a></li>
-                    <li><a href="#">Shipping + Delivery</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Find us easy</a></li>
-                    <li><a href="#">Faqs</a></li>
+                    <li><a href="#">Theo Dõi Đơn Hàng</a></li>
+                    <li><a href="#">Đổi Trả + Hoàn Tiền</a></li>
+                    <li><a href="#">Vận Chuyển + Giao Hàng</a></li>
+                    <li><a href="#">Liên Hệ Với Chúng Tôi</a></li>
+                    <li><a href="#">Tìm Chúng Tôi Dễ Dàng</a></li>
+                    <li><a href="#">Câu Hỏi Thường Gặp</a></li>
                 </ul>
+
             </div>
         </div>
         <div class="content3">
-            <div class="title">Contact Us</div>
+            <div class="title">Liên Hệ Với Chúng Tôi</div>
             <div class="list-content">
-                Do you have any questions or suggestions?
-                <a href="">contact@yourcompany.com</a>
+                Bạn có câu hỏi hoặc đề xuất nào không?
+                <a href="">dattlph49133@gmail.com</a>
                 <br>
                 <br>
-                Do you need support? Give us a call.
+                Bạn cần hỗ trợ? Hãy gọi cho chúng tôi.
                 <br>
-                <a href="">+43 720 11 52 78</a>
+                <a href="">03324385872</a>
             </div>
         </div>
+
     </div>
     <div class="line-ngang"></div>
     <div class="end-web">
         <div class="ship">
-            <p>We ship with:</p>
+            <p>Chúng tôi vận chuyển với:</p>
             <ul>
                 <li><img src="<?= BASE_URL ?>/assets/img/logo_ship-removebg-preview.png" alt=""></li>
                 <li><img src="<?= BASE_URL ?>/assets/img/logo_ship1-removebg-preview.png" alt=""></li>
             </ul>
-            <p>Payment Option: </p>
+            <p>Phương thức thanh toán:</p>
             <ul>
                 <li><img src="<?= BASE_URL ?>/assets/img/zaloPay.png" alt=""></li>
                 <li><img src="<?= BASE_URL ?>/assets/img/momo.png" alt=""></li>
                 <li><img src="<?= BASE_URL ?>/assets/img/visa-removebg-preview.png" alt=""></li>
             </ul>
         </div>
+
         <div class="Copyright">
-            © Copyright 2022 Kaira. All rights reserved. Design by TemplatesJungle
+            © Bản quyền 2022 Ralph Lauren. Tất cả quyền lợi được bảo vệ. Thiết kế bởi datlph49133
             <br>
-            Distribution By ThemeWagon
+            Phân phối bởi cao đẳng FPT Polytechnic
         </div>
+
     </div>
 </div>
 </div>
@@ -211,45 +215,44 @@
 
     // chuyển trang
 
-//     const products = document.querySelectorAll('.san-pham');
-// const itemsPerPage = 20; // 4 columns x 5 rows
-// const totalPages = Math.ceil(products.length / itemsPerPage);
-// let currentPage = 1;
+    //     const products = document.querySelectorAll('.san-pham');
+    // const itemsPerPage = 20; // 4 columns x 5 rows
+    // const totalPages = Math.ceil(products.length / itemsPerPage);
+    // let currentPage = 1;
 
-// // Function to show products for the current page
-// function showPage(page) {
-//     products.forEach((product, index) => {
-//         if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
-//             product.style.display = 'block';
-//         } else {
-//             product.style.display = 'none';
-//         }
-//     });
-// }
+    // // Function to show products for the current page
+    // function showPage(page) {
+    //     products.forEach((product, index) => {
+    //         if (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) {
+    //             product.style.display = 'block';
+    //         } else {
+    //             product.style.display = 'none';
+    //         }
+    //     });
+    // }
 
-// // Function to update pagination buttons
-// function updatePagination() {
-//     const pagination = document.querySelector('.pagination');
-//     pagination.innerHTML = '';
+    // // Function to update pagination buttons
+    // function updatePagination() {
+    //     const pagination = document.querySelector('.pagination');
+    //     pagination.innerHTML = '';
 
-//     for (let i = 1; i <= totalPages; i++) {
-//         const li = document.createElement('li');
-//         li.classList.add(i === currentPage ? 'active' : '');
-//         li.innerHTML = `<a href="#">${i}</a>`;
-//         li.addEventListener('click', (e) => {
-//             e.preventDefault();
-//             currentPage = i;
-//             showPage(currentPage);
-//             updatePagination();
-//         });
-//         pagination.appendChild(li);
-//     }
-// }
+    //     for (let i = 1; i <= totalPages; i++) {
+    //         const li = document.createElement('li');
+    //         li.classList.add(i === currentPage ? 'active' : '');
+    //         li.innerHTML = `<a href="#">${i}</a>`;
+    //         li.addEventListener('click', (e) => {
+    //             e.preventDefault();
+    //             currentPage = i;
+    //             showPage(currentPage);
+    //             updatePagination();
+    //         });
+    //         pagination.appendChild(li);
+    //     }
+    // }
 
-// // Initialize the pagination
-// showPage(currentPage);
-// updatePagination();
-
+    // // Initialize the pagination
+    // showPage(currentPage);
+    // updatePagination();
 </script>
 
 </html>

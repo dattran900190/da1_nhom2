@@ -29,19 +29,24 @@
                         <li><a href="<?= BASE_URL ?>?act=/">TRANG CHỦ</a></li>
                         <li class="dropdown">
                             <button class="dropbtn"><a href="<?= BASE_URL ?>?act=san-pham">SẢN PHẨM
-                                    <i class="fa-solid fa-angle-down"></i></a></button>
+                                    <i class="fa-solid fa-angle-down"></i></a>
+                            </button>
                             <div class="dropdown-content">
-                                <a href="#">Link 1</a>
-                                <a href="#">Link 2</a>
-                                <a href="#">Link 3</a>
+                                <?php foreach ($listDanhMuc as $danhMuc): ?>
+                                    <a href=""><?= $danhMuc['ten_danh_muc'] ?></a>
+
+                                <?php endforeach ?>
+                            </div>
                         </li>
                         <li class="dropdown">
                             <button class="dropbtn"><a href="<?= BASE_URL ?>?act=bo-suu-tap">BỘ SƯU TẬP
                                     <i class="fa-solid fa-angle-down"></i></a></button>
                             <div class="dropdown-content">
-                                <a href="#">Link 1</a>
-                                <a href="#">Link 2</a>
-                                <a href="#">Link 3</a>
+                                <?php foreach ($listBoSuuTap as $boSuuTap): ?>
+                                    <a href=""><?= $boSuuTap['ten_bo_suu_tap'] ?></a>
+
+                                <?php endforeach ?>
+                            </div>
                         </li>
                         <li><a href="<?= BASE_URL ?>?act=gioi-thieu">GIỚI THIỆU</a></li>
                         <li><a href="<?= BASE_URL ?>?act=tin-tuc">TIN TỨC</a></li>

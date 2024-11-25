@@ -14,6 +14,16 @@ class QuanLyTinTucController
         require_once "./views/tinTuc/ListTinTuc.php";
     }
 
+
+    function showTinTuc($id)
+    {
+        $tinTuc = $this->modleTinTuc->showTinTuc($id);
+
+
+
+        require_once "./views/tinTuc/ShowTinTuc.php";
+    }
+
     public function formAddTinTuc()
     {
         require_once './views/tinTuc/AddTinTuc.php';
@@ -26,6 +36,7 @@ class QuanLyTinTucController
             // Lấy dữ liệu
             $id = $_POST['id'];
             $tieu_de = $_POST['tieu_de'];
+            $mo_ta = $_POST['mo_ta'];
             $noi_dung = $_POST['noi_dung'];
             $tac_gia_id = $_POST['tac_gia_id'];
             $ngay_dang = $_POST['ngay_dang'];
@@ -35,6 +46,9 @@ class QuanLyTinTucController
             $errors = [];
             if (empty($tieu_de)) {
                 $errors['tieu_de'] = 'Tiêu đề không được để trống';
+            }
+            if (empty($mo_ta)) {
+                $errors['mo_ta'] = 'Tiêu đề không được để trống';
             }
             if (empty($noi_dung)) {
                 $errors['noi_dung'] = 'Nội dung không được để trống';
@@ -48,13 +62,13 @@ class QuanLyTinTucController
             if (empty($ngay_cap_nhat)) {
                 $errors['ngay_cap_nhat'] = 'Ngày cập nhật không được để trống';
             }
-            
+
 
             $_SESSION['errors'] = $errors;
 
             if (empty($errors)) {
                 //Nếu ko có lỗi thì tiến hành thêm danh mục
-                $this->modleTinTuc->insertTinTuc($id,$tieu_de, $noi_dung, $tac_gia_id, $ngay_dang, $ngay_cap_nhat);
+                $this->modleTinTuc->insertTinTuc($id, $tieu_de, $mo_ta, $noi_dung, $tac_gia_id, $ngay_dang, $ngay_cap_nhat);
 
                 header('Location: ' . BASE_URL_ADMIN . '?act=quan-ly-tin-tuc');
                 exit();
@@ -85,6 +99,7 @@ class QuanLyTinTucController
             // Lấy dữ liệu
             $id = $_POST['id'];
             $tieu_de = $_POST['tieu_de'];
+            $mo_ta = $_POST['mo_ta'];
             $noi_dung = $_POST['noi_dung'];
             $tac_gia_id = $_POST['tac_gia_id'];
             $ngay_dang = $_POST['ngay_dang'];
@@ -94,6 +109,9 @@ class QuanLyTinTucController
             $errors = [];
             if (empty($tieu_de)) {
                 $errors['tieu_de'] = 'Tiêu đề không được để trống';
+            }
+            if (empty($mo_ta)) {
+                $errors['mo_ta'] = 'Mô tả không được để trống';
             }
             if (empty($noi_dung)) {
                 $errors['noi_dung'] = 'Nội dung không được để trống';
@@ -112,7 +130,7 @@ class QuanLyTinTucController
 
             if (empty($errors)) {
                 //Nếu ko có lỗi thì tiến hành thêm danh mục
-                $this->modleTinTuc->updateTinTuc($id, $tieu_de, $noi_dung, $tac_gia_id, $ngay_dang, $ngay_cap_nhat);
+                $this->modleTinTuc->updateTinTuc($id, $tieu_de, $mo_ta, $noi_dung, $tac_gia_id, $ngay_dang, $ngay_cap_nhat);
 
                 header('Location: ' . BASE_URL_ADMIN . '?act=quan-ly-tin-tuc');
                 exit();
@@ -121,6 +139,7 @@ class QuanLyTinTucController
                 $tintuc = [
                     'id' => $id,
                     'tieu_de' => $tieu_de,
+                    'mo_ta' => $mo_ta,
                     'noi_dung' => $noi_dung,
                     'tac_gia_id' => $tac_gia_id,
                     'ngay_dang' => $ngay_dang,
@@ -132,15 +151,27 @@ class QuanLyTinTucController
         }
     }
 
-    public function deleteTinTuc(){
+    public function deleteTinTuc()
+    {
         $id = $_GET['id'];
         $TinTuc = $this->modleTinTuc->getIdTinTuc($id);
-       
+
         if (isset($TinTuc)) {
             $this->modleTinTuc->deleteTinTuc($id);
         }
-        header('Location: '. BASE_URL_ADMIN .'?act=quan-ly-tin-tuc');
+        header('Location: ' . BASE_URL_ADMIN . '?act=quan-ly-tin-tuc');
         exit();
-        
     }
+
+
+    // public function store(Request $request)
+    // {
+    //     $data = $request->validate([
+    //         'title' => 'required|string',
+    //         'content' => 'required|string',
+    //     ]);
+
+    //     Article::create($data);
+    //     return redirect()->route('articles.index')->with('success', 'Bài viết được thêm thành công!');
+    // }
 }
