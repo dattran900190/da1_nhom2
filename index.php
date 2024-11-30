@@ -8,6 +8,11 @@ require_once './controllers/HomeController.php';
 
 // Require toàn bộ file Models
 require_once './models/SanPham.php';
+require_once './models/GioHang.php';
+require_once './models/TaiKhoan.php';
+require_once './models/DonHang.php';
+require_once './models/LienHe.php';
+require_once './models/Banner.php';
 
 // Route
 $act = $_GET['act'] ?? '/';
@@ -26,20 +31,40 @@ match ($act) {
     'san-pham'=>(new HomeController())->sanPham(),
     'bo-suu-tap'=>(new HomeController())->boSuuTap(),
     'gioi-thieu'=>(new HomeController())->gioiThieu(),
-    'lien-he'=>(new HomeController())->lienHe(),
+    'lien-he' =>(new HomeController())->lienHe(),
+    'them-lien-he'=>(new HomeController())->postAddlienHe(),
     'tin-tuc'=>(new HomeController())->tinTuc(),
-    // 'gio-hang'=>(new HomeController())->gioHang(),
-    'thanh-toan'=>(new HomeController())->thanhToan(),
-    'dang-nhap'=>(new HomeController())->dangNhap(),
-    'dang-ky'=>(new HomeController())->dangKy(),
     'chi-tiet-san-pham'=>(new HomeController())->chiTietSanPham(),
     'chi-tiet-tin-tuc'=>(new HomeController())->chiTietTinTuc(),
+    'tim-kiem' => (new HomeController())->timKiem(),
+
+    // 'loc-san-pham' => (new HomeController())->locSanPham(),
+    
+
+    // -------- giỏ hàng -------
+    'gio-hang'=>(new HomeController())->gioHang(),
+    'them-gio-hang'=>(new HomeController())->addGioHang(),
+    // 'cap-nhat-so-luong'=>(new HomeController())->capNhatSoLuong(),
+    'xoa-gio-hang'=>(new HomeController())->deleteGioHang(),
+    // -------- end giỏ hàng -------
+
+    // -------- thanh toán ---------
+    'thanh-toan'=>(new HomeController())->thanhToan(),
+    'xu-ly-thanh-toan'=>(new HomeController())->postThanhToan(),
+    'lich-su-mua-hang'=>(new HomeController())->lichSuMuaHang(),
+    'chi-tiet-mua-hang'=>(new HomeController())->chiTietMuaHang(),
+    'huy-don-hang'=>(new HomeController())->huyDonHang(),
+
+
 
     // // ----- login  -----
     'login' => (new HomeController())->formLogin(),
     'check-login' => (new HomeController())->postLogin(),
     'logout' => (new HomeController())->logout(),
-    // // ------ end  -----
+    // // ------ end login & logout -----
+
+    'dang-ky' => (new HomeController())->dangKy(),
+    'check-dang-ky' => (new HomeController())->postDangKy(),
 
 
 };

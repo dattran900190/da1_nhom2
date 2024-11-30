@@ -54,6 +54,69 @@ class adminDonHang
         } 
     }
 
+    public function getAllDetailDonHang(){
+        try {
+            $sql = "SELECT chi_tiet_don_hangs.*,  
+                    san_phams.ten_san_pham, san_phams.hinh_anh, san_phams.gia_san_pham, san_phams.gia_khuyen_mai, san_phams.so_luong
+            FROM chi_tiet_don_hangs
+            INNER JOIN san_phams ON chi_tiet_don_hangs.san_pham_id = san_phams.id "
+            ;
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "CÓ LỖI:".$e->getMessage();
+        } 
+    }
+
+    public function getAllDetailDonHangSanPhamBanChay()
+    {
+        try {
+            $sql = "SELECT 
+                    chi_tiet_don_hangs.san_pham_id,
+                    san_phams.ten_san_pham,
+                    san_phams.hinh_anh,
+                    san_phams.gia_san_pham,
+                    san_phams.gia_khuyen_mai,
+                    COUNT(chi_tiet_don_hangs.don_hang_id) AS so_don_dat,
+                    SUM(chi_tiet_don_hangs.so_luong) AS tong_so_luong
+            FROM chi_tiet_don_hangs
+            INNER JOIN san_phams ON chi_tiet_don_hangs.san_pham_id = san_phams.id 
+             GROUP BY 
+             chi_tiet_don_hangs.san_pham_id
+             ORDER BY 
+             so_don_dat DESC";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
+    }
+
+    public function getDetailDonHangByID($donHangId){
+        try {
+            $sql = "SELECT
+                        chi_tiet_don_hangs.*,
+                        san_phams.ten_san_pham,
+                        san_phams.hinh_anh
+                    FROM 
+                        chi_tiet_don_hangs 
+                    JOIN 
+                        san_phams ON chi_tiet_don_hangs.san_pham_id = san_phams.id
+                    WHERE chi_tiet_don_hangs.don_hang_id = :don_hang_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt -> execute([
+                ':don_hang_id' => $donHangId 
+            ]);
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "CÓ LỖI:".$e->getMessage();
+        } 
+    }
+
     public function getAllTrangThaiDonHang() {
         try {
             $sql = "SELECT * FROM trang_thai_don_hangs";

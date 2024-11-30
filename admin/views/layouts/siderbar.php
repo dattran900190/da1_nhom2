@@ -51,7 +51,7 @@
                 <li class="menu-title"><span data-key="t-menu">Quản lý</span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?php BASE_URL_ADMIN ?>?act=/">
-                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Dashboards</span>
+                        <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Thống kê</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -67,7 +67,7 @@
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a href="<?php BASE_URL_ADMIN ?>?act=quan-ly-tai-khoan-quan-tri-vien" class="nav-link" data-key="t-sweet-alerts">
-                                    Tài Khoản Quản trị viên
+                                    Tài Khoản quản trị viên
                                 </a>
                             </li>
                             
@@ -88,7 +88,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?php BASE_URL_ADMIN ?>?act=quan-ly-bo-suu-tap">
-                    <i class="fa-regular fa-barcode"></i> <span data-key="t-dashboards">Quản lý Bộ Sưu Tập</span>
+                    <i class="fa-regular fa-barcode"></i> <span data-key="t-dashboards">Quản lý bộ sưu tập</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -123,7 +123,17 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?php BASE_URL_ADMIN ?>?act=quan-ly-tin-tuc">
-                        <i class="fa-solid fa-passport"></i> <span data-key="t-dashboards">Quản lý Tin tức</span>
+                        <i class="fa-solid fa-passport"></i> <span data-key="t-dashboards">Quản lý tin tức</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="<?php BASE_URL_ADMIN ?>?act=quan-ly-kich-co">
+                        <i class="fa-solid fa-passport"></i> <span data-key="t-dashboards">Quản lý kích cỡ</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="<?php BASE_URL_ADMIN ?>?act=quan-ly-mau-sac">
+                        <i class="fa-solid fa-passport"></i> <span data-key="t-dashboards">Quản lý màu sắc</span>
                     </a>
                 </li>
                 

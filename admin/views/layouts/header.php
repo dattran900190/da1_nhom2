@@ -49,9 +49,9 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <h6 class="dropdown-header">Welcome to Dashboard</h6>
-                        <a class="dropdown-item" href="pages-profile.html"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Profile</span></a>
-                        <a class="dropdown-item" href="<?= BASE_URL_ADMIN . '?act=logout' ?>"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Logout</span></a>
+                        <h6 class="dropdown-header">Chào mừng đến trang Admin</h6>
+                        <a class="dropdown-item" href="<?= BASE_URL_ADMIN. '?act=form-sua-tai-khoan-ca-nhan'?>"><i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span class="align-middle">Thông tin cá nhân</span></a>
+                        <a class="dropdown-item" href="<?= BASE_URL_ADMIN . '?act=logout' ?>"><i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span class="align-middle" data-key="t-logout">Đăng xuất</span></a>
                     </div>
                 </div>
             </div>

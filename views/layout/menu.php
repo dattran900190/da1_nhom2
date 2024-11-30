@@ -22,7 +22,7 @@
         <div class="all-container">
             <nav class="nav-menu" style="background-color: #F1F1F0;">
                 <div class="logo">
-                    <img src="<?= BASE_URL ?>/assets/img/logo.png" alt="">
+                    <a href="<?= BASE_URL ?>"><img src="<?= BASE_URL ?>/assets/img/logo.png" alt=""></a>
                 </div>
                 <div class="menu">
                     <ul>
@@ -63,34 +63,51 @@
 
                 <div class="menu-search">
                     <ul>
-                        <li>
-                            <a href="<?= BASE_URL ?>?act=gio-hang">
-                                <i class="fas fa-cart-plus"></i>
-                            </a>
-                        </li>
+
+
                         <li class="dropdown" style="padding-top: 6px;">
-                            
+
                             <button class="dropbtn">
-                                <a href="<?= BASE_URL ?>?act=dang-nhap">
+
+                                <a href="<?= BASE_URL ?>?act=login">
                                     <span class="material-symbols-outlined">account_circle</span>
+                                </a>
+                                <a for="" style="font-size: 10px; color: black;">
+                                    <?php if (isset($_SESSION['user_client'])) {
+                                        echo $_SESSION['user_client'];
+                                    } ?>
                                 </a>
                             </button>
                             <div class="dropdown-content">
+
                                 <?php if (!isset($_SESSION['user_client'])) { ?>
-                                    <a href="<?= BASE_URL . '?act=login' ?>">Đăng nhập</a>
-                                    <a href="<?= BASE_URL . '?act=dang-ky' ?>">Đăng ký</a>
+                                    <a href="<?= BASE_URL . '?act=login' ?>" style="font-size: 10px; padding: 10px;">ĐĂNG NHẬP</a>
+                                    <a href="<?= BASE_URL . '?act=dang-ky' ?>" style="font-size: 10px; padding-bottom: 10px;">ĐĂNG KÝ</a>
                                 <?php } else { ?>
-                                    <a href="my-account.html">Tài khoản</a>
-                                    <a href="<?= BASE_URL . '?act=logout' ?>">Đăng xuất</a>
+                                    <a href="my-account.html" style="font-size: 10px; padding: 10px 0;">Tài khoản</a>
+                                    <a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>" style="font-size: 10px; padding-bottom: 10px;">Đơn hàng</a>
+                                    <a href="<?= BASE_URL . '?act=logout' ?>" style="font-size: 10px; padding-bottom: 10px;">Đăng xuất</a>
                                 <?php } ?>
                             </div>
                         </li>
-                        
+                        <li>
+                            <a href="<?= BASE_URL ?>?act=gio-hang">
+                                <i class="fas fa-cart-plus"></i>(<?= isset($tongDonHang) ? $tongDonHang : 0 ?>)
+                            </a>
+                        </li>
                         <li>
                             <div class="form-group has-search">
-                                <span class="fa fa-search form-control-feedback"></span>
-                                <input type="text" class="form-control" placeholder="Search">
+                                <form method="GET" action="<?= BASE_URL ?>?act=tim-kiem" style="display: flex;">
+                                    <span class="fa fa-search form-control-feedback"></span>
+                                    <input type="hidden" name="act" value="tim-kiem">
+                                    <input type="text" class="form-control" placeholder="Search" name="query"
+                                        value=""
+
+                                        required>
+                                    <button type="submit" class="btn btn-dark" style="margin-left: 5px;">Tìm kiếm</button>
+                                </form>
                             </div>
+
                         </li>
                     </ul>
 

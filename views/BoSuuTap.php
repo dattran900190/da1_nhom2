@@ -104,18 +104,18 @@ require_once "layout/menu.php";
             <?php foreach ($ketQuaTK as $sanPham): ?>
                 <div class="san-pham">
                     <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id=' . $sanPham['id'] ?>">
-                        <img src="<?= $sanPham['hinh_anh'] ?>" alt="">
+                        <img src="<?= $sanPham['hinh_anh'] ?>" alt="" style="padding-bottom: 50px;">
                     </a>
                     <div class="title"><?= $sanPham['ten_san_pham'] ?></div>
-                    <div class="price"><?= number_format($sanPham['gia_san_pham']) ?> VNĐ</div>
-                    <div class="add-to-cart">
-                        <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                        <div class="tim">
-                            <a href="#"><i class="fa-regular fa-heart"></i></a>
-                        </div>
+                    <div class="price"><?= formatPrice($sanPham['gia_khuyen_mai']) == 0 ? formatPrice($sanPham['gia_san_pham']) : formatPrice($sanPham['gia_khuyen_mai']) ?>
+                        <strike style="font-size: 11px;"><?= $sanPham['gia_khuyen_mai'] == 0 ?  '' : formatPrice($sanPham['gia_san_pham']) ?></strike>
+                        VND
                     </div>
+
                 </div>
             <?php endforeach; ?>
+
+
         <?php else: ?>
             <p>Không tìm thấy sản phẩm nào trong bộ sưu tập này này.</p>
         <?php endif; ?>

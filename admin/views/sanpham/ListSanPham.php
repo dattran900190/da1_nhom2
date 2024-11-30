@@ -63,7 +63,7 @@
                                                     <th>Mức giảm giá</th>
                                                     <th>Hình ảnh</th>
                                                     <th>Số Lượng</th>
-                                                    <th>Kích Cỡ</th>
+                                                    <th>Màu sắc</th>
                                                     <th>Ngày Nhập</th>
                                                     <th>Mô Tả</th>
                                                     <th>Danh mục sản phẩm</th>
@@ -85,7 +85,7 @@
                                                                 alt="Hình ảnh sản phẩm">
                                                         </td>
                                                         <td><?= $sanpham['so_luong'] ?></td>
-                                                        <td><?= $sanpham['kich_co'] ?></td>
+                                                        <td><?= $sanpham['ten_mau'] ?></td>
                                                         <td><?= $sanpham['ngay_nhap'] ?></td>
                                                         <td><?= $sanpham['mo_ta'] ?></td>
                                                         <td><?= $sanpham['ten_danh_muc'] ?></td>

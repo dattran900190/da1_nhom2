@@ -93,13 +93,14 @@
                                                             <?php } ?>
                                                         </div>
 
-                                                        <!-- Size -->
                                                         <div class="form-group">
-                                                            <label for="kich_co">Kích cỡ</label>
-                                                            <input type="text" class="form-control" name="kich_co" id="kich_co" placeholder="Nhập kích cỡ sản phẩm">
-                                                            <?php if (isset($_SESSION['errors']['kich_co'])) { ?>
-                                                                <small class="text-danger"><?= $_SESSION['errors']['kich_co'] ?></small>
-                                                            <?php } ?>
+                                                            <label for="mau_id">Màu sản phẩm</label>
+                                                            <select class="form-control" name="mau_id" id="mau_id">
+                                                                <option selected disabled>Chọn màu sản phẩm</option>
+                                                                <?php foreach ($listMauSanPham as $mau) : ?>
+                                                                    <option value="<?= $mau['id'] ?>"><?= $mau['ten_mau'] ?></option>
+                                                                <?php endforeach ?>
+                                                            </select>
                                                         </div>
 
                                                         <!-- Product Date -->
