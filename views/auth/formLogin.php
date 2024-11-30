@@ -267,8 +267,15 @@
 <body>
 
     <div class="container" id="container">
+            <?php 
+            if (isset($_SESSION['message'])) {
+                echo "<script>alert('" . $_SESSION['message'] . "');</script>";
+                unset($_SESSION['message']); // Clear the message after it's displayed
+            }
+            ?>
+        
         <div class="form-container sign-up-container">
-            <form action="#">
+        <form action="<?= BASE_URL . '?act=check-dang-ky' ?>" method="post">
                 <h1>Tạo tài khoản</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -276,11 +283,12 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>hoặc sử dụng email của bạn để đăng ký</span>
-                <input type="text" placeholder="Name" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
-                <button>Đăng ký</button>
+                <input type="text" name="ho_ten" placeholder="Họ tên" required />
+                <input type="email" name="email" placeholder="Email" required />
+                <input type="password" name="mat_khau" placeholder="Mật khẩu" required />
+                <button type="submit">Đăng ký</button>
             </form>
+
         </div>
         <div class="form-container sign-in-container">
 
@@ -292,8 +300,8 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>hoặc sử dụng tài khoản của bạn</span>
-                <input type="email" name="email" placeholder="Email" />
-                <input type="password" name="password" placeholder="password" />
+                <input type="email" name="email" placeholder="Email" required/>
+                <input type="password" name="password" placeholder="Mật khẩu" required/>
                
                 <?php if (isset($_SESSION['erorrs'])) { ?>
                     <p class="text-danger"><?= $_SESSION['erorrs'] ?></p>
@@ -311,13 +319,22 @@
                     <h1>Chào mừng trở lại!</h1>
                     <p> Để duy trì kết nối với chúng tôi vui lòng đăng nhập bằng thông tin cá nhân của bạn</p>
                     <button class="ghost" id="signIn">Đăng nhập</button>
+                    <p>
+                        <a href="<?= BASE_URL ?>" style="color: white;">
+                            <i class="fas fa-arrow-left"></i> Quay lại client
+                        </a>
+                    </p>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Chào bạn!</h1>
                     <p>Nhập thông tin cá nhân của bạn và bắt đầu hành trình với chúng tôi</p>
                     <button class="ghost" id="signUp">Đăng ký</button>
+                    <p>
+                        <a href="<?= BASE_URL ?>" style="color: white;">
+                            <i class="fas fa-arrow-left"></i> Quay lại client
+                        </a>
+                    </p>
                 </div>
-            </div>
         </div>
     </div>
 

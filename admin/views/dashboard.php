@@ -51,24 +51,10 @@
                                     <div class="col-12">
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                             <div class="flex-grow-1">
-                                                <h4 class="fs-16 mb-1">Xin chào, Ahihi</h4>
-                                                <p class="text-muted mb-0">Đây là trang thống kê.</p>
+                                                <!-- <h4 class="fs-16 mb-1">Xin chào, Ahihi</h4> -->
+                                                <h3 class="text-muted mb-0">Đây là trang thống kê.</h3>
                                             </div>
-                                            <div class="mt-3 mt-lg-0">
-                                                <form action="javascript:void(0);">
-                                                    <div class="row g-3 mb-0 align-items-center">
-                                                        <div class="col-auto">
-                                                            <!-- <button type="button" class="btn btn-soft-success material-shadow-none"><i class="ri-add-circle-line align-middle me-1"></i> Add Product</button> -->
-                                                        </div>
-                                                        <!--end col-->
-                                                        <div class="col-auto">
-                                                            <button type="button" class="btn btn-soft-info btn-icon waves-effect material-shadow-none waves-light layout-rightside-btn"><i class="ri-pulse-line"></i></button>
-                                                        </div>
-                                                        <!--end col-->
-                                                    </div>
-                                                    <!--end row-->
-                                                </form>
-                                            </div>
+
                                         </div><!-- end card header -->
                                     </div>
                                     <!--end col-->
@@ -92,7 +78,15 @@
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="559.25">0</span>k </h4>
+                                                        <?php
+                                                        $tongThuNhap = 0;
+                                                        foreach ($listDonHang as $tongDonHang):
+                                                            $tongThuNhap += $tongDonHang['don_gia'];
+                                                        endforeach;
+                                                        ?>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span>
+                                                                <?= number_format($tongThuNhap, 0, '.', '.') ?>
+                                                            </span>VNĐ </h4>
                                                         <a href="#" class="text-decoration-underline">Xem tổng thu nhập</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
@@ -121,7 +115,12 @@
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="36894">0</span></h4>
+                                                        <?php
+                                                        $tongAllDonHang = count($listDonHang);
+                                                        ?>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span>
+                                                                <?= $tongAllDonHang ?>
+                                                            </span>ĐƠN HÀNG </h4>
                                                         <a href="#" class="text-decoration-underline">Tất cả đơn đặt hàng</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
@@ -150,7 +149,17 @@
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span class="counter-value" data-target="183.35">0</span>M </h4>
+                                                        <?php
+                                                        $tongKhachHang = 0;
+                                                        foreach ($listTaiKhoan as $khachHang):
+                                                            if ($khachHang['chuc_vu_id'] == 2) {
+                                                                $tongKhachHang++;
+                                                            }
+                                                        endforeach;
+                                                        ?>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span>
+                                                                <?= $tongKhachHang ?>
+                                                            </span>NGƯỜI </h4>
                                                         <a href="#" class="text-decoration-underline">Xem chi tiết khác hàng</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
@@ -179,7 +188,21 @@
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span class="counter-value" data-target="165.89">0</span>k </h4>
+                                                        <?php
+                                                        $tongThuNhap = 0;
+
+
+                                                        foreach ($listDonHang as $donHang) {
+                                                            $tongThuNhap += $donHang['don_gia'];
+                                                        }
+
+
+
+                                                        $soDu = $tongThuNhap * 0.6;
+                                                        ?>
+                                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span>
+                                                                <?= number_format($soDu, 0, ',', '.') ?>
+                                                            </span> VNĐ</h4>
                                                         <a href="#" class="text-decoration-underline">Rút tiền</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
@@ -199,173 +222,40 @@
                                         <div class="card">
                                             <div class="card-header align-items-center d-flex">
                                                 <h4 class="card-title mb-0 flex-grow-1">Sản phẩm bán chạy</h4>
-                                                <div class="flex-shrink-0">
-                                                    <div class="dropdown card-header-dropdown">
-                                                        <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <span class="fw-semibold text-uppercase fs-12">Sắp sếp:
-                                                            </span><span class="text-muted">Hôm nay<i class="mdi mdi-chevron-down ms-1"></i></span>
-                                                        </a>
-                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                            <a class="dropdown-item" href="#">Hôm nay</a>
-                                                            <a class="dropdown-item" href="#">Hôm qua</a>
-                                                            <a class="dropdown-item" href="#">7 ngày trước</a>
-                                                            <a class="dropdown-item" href="#">30 ngày trước</a>
-                                                            <a class="dropdown-item" href="#">Tháng này</a>
-                                                            <a class="dropdown-item" href="#">Tháng trước</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                             </div><!-- end card header -->
 
                                             <div class="card-body">
                                                 <div class="table-responsive table-card">
                                                     <table class="table table-hover table-centered align-middle table-nowrap mb-0">
                                                         <tbody>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                                            <img src="assets/images/products/img-1.png" alt="" class="img-fluid d-block" />
+                                                            <?php foreach ($listDetailDonHang as $sanPham): ?>
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="d-flex align-items-center">
+                                                                            <div class="avatar-sm bg-light rounded p-1 me-2">
+                                                                                <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" class="img-fluid d-block" />
+                                                                            </div>
+                                                                            <div>
+                                                                                <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
+                                                                                <span class="text-muted">24 Apr 2021</span>
+                                                                            </div>
                                                                         </div>
-                                                                        <div>
-                                                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                                            <span class="text-muted">24 Apr 2021</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                                    <span class="text-muted">Giá</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">62</h5>
-                                                                    <span class="text-muted">Đơn đặt</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                                    <span class="text-muted">Stock</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$1,798</h5>
-                                                                    <span class="text-muted">Số lượng</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                                            <img src="assets/images/products/img-1.png" alt="" class="img-fluid d-block" />
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                                            <span class="text-muted">24 Apr 2021</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                                    <span class="text-muted">Giá</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">62</h5>
-                                                                    <span class="text-muted">Đơn đặt</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                                    <span class="text-muted">Stock</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$1,798</h5>
-                                                                    <span class="text-muted">Số lượng</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                                            <img src="assets/images/products/img-1.png" alt="" class="img-fluid d-block" />
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                                            <span class="text-muted">24 Apr 2021</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                                    <span class="text-muted">Giá</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">62</h5>
-                                                                    <span class="text-muted">Đơn đặt</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                                    <span class="text-muted">Stock</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$1,798</h5>
-                                                                    <span class="text-muted">Số lượng</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                                            <img src="assets/images/products/img-1.png" alt="" class="img-fluid d-block" />
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                                            <span class="text-muted">24 Apr 2021</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                                    <span class="text-muted">Giá</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">62</h5>
-                                                                    <span class="text-muted">Đơn đặt</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                                    <span class="text-muted">Stock</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$1,798</h5>
-                                                                    <span class="text-muted">Số lượng</span>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <div class="avatar-sm bg-light rounded p-1 me-2">
-                                                                            <img src="assets/images/products/img-1.png" alt="" class="img-fluid d-block" />
-                                                                        </div>
-                                                                        <div>
-                                                                            <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                                            <span class="text-muted">24 Apr 2021</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$29.00</h5>
-                                                                    <span class="text-muted">Giá</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">62</h5>
-                                                                    <span class="text-muted">Đơn đặt</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">510</h5>
-                                                                    <span class="text-muted">Stock</span>
-                                                                </td>
-                                                                <td>
-                                                                    <h5 class="fs-14 my-1 fw-normal">$1,798</h5>
-                                                                    <span class="text-muted">Số lượng</span>
-                                                                </td>
-                                                            </tr>
+                                                                    </td>
+                                                                    <td>
+                                                                        <h5 class="fs-14 my-1 fw-normal"><?= number_format($sanPham['gia_khuyen_mai'], 0, ',', '.') == 0 ?  number_format($sanPham['gia_san_pham'], 0, ',', '.') :  number_format($sanPham['gia_khuyen_mai'], 0, ',', '.') ?> VNĐ</h5>
+                                                                        <span class="text-muted">Giá</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <h5 class="fs-14 my-1 fw-normal"><?= $sanPham['so_don_dat'] ?></h5>
+                                                                        <span class="text-muted">Đơn đặt</span>
+                                                                    </td>
+                                                                    <td>
+                                                                        <h5 class="fs-14 my-1 fw-normal"><?= $sanPham['tong_so_luong'] ?></h5>
+                                                                        <span class="text-muted">Số lượng</span>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php endforeach ?>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -373,274 +263,136 @@
                                                 <div class="align-items-center mt-4 pt-2 justify-content-between row text-center text-sm-start">
                                                     <div class="col-sm">
                                                         <div class="text-muted">
-                                                            Showing <span class="fw-semibold">5</span> of <span class="fw-semibold">25</span> Results
+                                                            Hiển thị <span class="fw-semibold">5</span> Kết quả
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-auto  mt-3 mt-sm-0">
-                                                        <ul class="pagination pagination-separated pagination-sm mb-0 justify-content-center">
-                                                            <li class="page-item disabled">
-                                                                <a href="#" class="page-link">←</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a href="#" class="page-link">1</a>
-                                                            </li>
-                                                            <li class="page-item active">
-                                                                <a href="#" class="page-link">2</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a href="#" class="page-link">3</a>
-                                                            </li>
-                                                            <li class="page-item">
-                                                                <a href="#" class="page-link">→</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+
                                                 </div>
 
                                             </div>
                                         </div>
                                     </div>
 
-
-
-                                    <!-- <div class="row"> -->
-                                        <!-- <div class="col-xl-4">
-                                            <div class="card card-height-100">
-                                                <div class="card-header align-items-center d-flex">
-                                                    <h4 class="card-title mb-0 flex-grow-1">Lượt ghé qua các nguồn</h4>
-                                                    <div class="flex-shrink-0">
-                                                        <div class="dropdown card-header-dropdown">
-                                                            <a class="text-reset dropdown-btn" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <span class="text-muted">Report<i class="mdi mdi-chevron-down ms-1"></i></span>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <a class="dropdown-item" href="#">Download Report</a>
-                                                                <a class="dropdown-item" href="#">Export</a>
-                                                                <a class="dropdown-item" href="#">Import</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                    <!-- <div class="col-xl-12">
+                                        <div class="card">
+                                            <div class="card-header align-items-center d-flex">
+                                                <h4 class="card-title mb-0 flex-grow-1">Đơn đặt hàng gần đây</h4>
+                                                <div class="flex-shrink-0">
+                                                    <button type="button" class="btn btn-soft-info btn-sm material-shadow-none">
+                                                        <i class="ri-file-list-3-line align-middle"></i> Generate Report
+                                                    </button>
                                                 </div>
+                                            </div>
 
-                                                <div class="card-body">
-                                                    <div id="store-visits-source" data-colors='["--vz-primary", "--vz-success", "--vz-warning", "--vz-danger", "--vz-info"]' data-colors-minimal='["--vz-primary", "--vz-primary-rgb, 0.85", "--vz-primary-rgb, 0.70", "--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.45"]' data-colors-interactive='["--vz-primary", "--vz-primary-rgb, 0.85", "--vz-primary-rgb, 0.70", "--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.45"]' data-colors-galaxy='["--vz-primary", "--vz-primary-rgb, 0.85", "--vz-primary-rgb, 0.70", "--vz-primary-rgb, 0.60", "--vz-primary-rgb, 0.45"]' class="apex-charts" dir="ltr"></div>
+                                            <div class="card-body">
+                                                <div class="table-responsive table-card">
+                                                    <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
+                                                        <thead class="text-muted table-light">
+                                                            <tr>
+                                                                <th scope="col">ID đơn hàng</th>
+                                                                <th scope="col">Khách hàng</th>
+                                                                <th scope="col">Sản phẩm</th>
+                                                                <th scope="col">Số lượng</th>
+                                                                <th scope="col">Trạng thái</th>
+                                                                <th scope="col">Đánh giá</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php foreach ($listTaiKhoanKhachHang as $khachHang): ?>
+                                                                <?php foreach ($listDetailDonHang as $donHang): ?>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2112</a>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="d-flex align-items-center">
+                                                                                <div class="flex-shrink-0 me-2">
+                                                                                    <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-xs rounded-circle material-shadow" />
+                                                                                </div>
+                                                                                <div class="flex-grow-1"><?= $khachHang['ho_ten'] ?></div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>Clothes</td>
+                                                                        <td>
+                                                                            <span class="text-success"><?= $donHang['tong_so_luong'] ?></span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <span class="badge bg-success-subtle text-success"><?= $donHang['trang_thai_id'] ?></span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <h5 class="fs-14 fw-medium mb-0">5.0<span class="text-muted fs-11 ms-1">(61 votes)</span></h5>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php endforeach ?>
+                                                            <?php endforeach ?>
+
+                                                        </tbody>
+                                                    </table>
                                                 </div>
-                                            </div> 
-                                        </div>  -->
-
-                                        <div class="col-xl-12">
-                                            <div class="card">
-                                                <div class="card-header align-items-center d-flex">
-                                                    <h4 class="card-title mb-0 flex-grow-1">Đơn đặt hàng gần đây</h4>
-                                                    <div class="flex-shrink-0">
-                                                        <button type="button" class="btn btn-soft-info btn-sm material-shadow-none">
-                                                            <i class="ri-file-list-3-line align-middle"></i> Generate Report
-                                                        </button>
-                                                    </div>
-                                                </div><!-- end card header -->
-
-                                                <div class="card-body">
-                                                    <div class="table-responsive table-card">
-                                                        <table class="table table-borderless table-centered align-middle table-nowrap mb-0">
-                                                            <thead class="text-muted table-light">
-                                                                <tr>
-                                                                    <th scope="col">ID đơn hàng</th>
-                                                                    <th scope="col">Khách hàng</th>
-                                                                    <th scope="col">Sản phẩm</th>
-                                                                    <th scope="col">Số lượng</th>
-                                                                    <th scope="col">Vendor</th>
-                                                                    <th scope="col">Trạng thái</th>
-                                                                    <th scope="col">Đánh giá</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2112</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="d-flex align-items-center">
-                                                                            <div class="flex-shrink-0 me-2">
-                                                                                <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-xs rounded-circle material-shadow" />
-                                                                            </div>
-                                                                            <div class="flex-grow-1">Alex Smith</div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>Clothes</td>
-                                                                    <td>
-                                                                        <span class="text-success">$109.00</span>
-                                                                    </td>
-                                                                    <td>Zoetic Fashion</td>
-                                                                    <td>
-                                                                        <span class="badge bg-success-subtle text-success">Paid</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <h5 class="fs-14 fw-medium mb-0">5.0<span class="text-muted fs-11 ms-1">(61 votes)</span></h5>
-                                                                    </td>
-                                                                </tr><!-- end tr -->
-                                                                <tr>
-                                                                    <td>
-                                                                        <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2111</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="d-flex align-items-center">
-                                                                            <div class="flex-shrink-0 me-2">
-                                                                                <img src="assets/images/users/avatar-2.jpg" alt="" class="avatar-xs rounded-circle material-shadow" />
-                                                                            </div>
-                                                                            <div class="flex-grow-1">Jansh Brown</div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>Kitchen Storage</td>
-                                                                    <td>
-                                                                        <span class="text-success">$149.00</span>
-                                                                    </td>
-                                                                    <td>Micro Design</td>
-                                                                    <td>
-                                                                        <span class="badge bg-warning-subtle text-warning">Pending</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <h5 class="fs-14 fw-medium mb-0">4.5<span class="text-muted fs-11 ms-1">(61 votes)</span></h5>
-                                                                    </td>
-                                                                </tr><!-- end tr -->
-                                                                <tr>
-                                                                    <td>
-                                                                        <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2109</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="d-flex align-items-center">
-                                                                            <div class="flex-shrink-0 me-2">
-                                                                                <img src="assets/images/users/avatar-3.jpg" alt="" class="avatar-xs rounded-circle material-shadow" />
-                                                                            </div>
-                                                                            <div class="flex-grow-1">Ayaan Bowen</div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>Bike Accessories</td>
-                                                                    <td>
-                                                                        <span class="text-success">$215.00</span>
-                                                                    </td>
-                                                                    <td>Nesta Technologies</td>
-                                                                    <td>
-                                                                        <span class="badge bg-success-subtle text-success">Paid</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <h5 class="fs-14 fw-medium mb-0">4.9<span class="text-muted fs-11 ms-1">(89 votes)</span></h5>
-                                                                    </td>
-                                                                </tr><!-- end tr -->
-                                                                <tr>
-                                                                    <td>
-                                                                        <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2108</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="d-flex align-items-center">
-                                                                            <div class="flex-shrink-0 me-2">
-                                                                                <img src="assets/images/users/avatar-4.jpg" alt="" class="avatar-xs rounded-circle material-shadow" />
-                                                                            </div>
-                                                                            <div class="flex-grow-1">Prezy Mark</div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>Furniture</td>
-                                                                    <td>
-                                                                        <span class="text-success">$199.00</span>
-                                                                    </td>
-                                                                    <td>Syntyce Solutions</td>
-                                                                    <td>
-                                                                        <span class="badge bg-danger-subtle text-danger">Unpaid</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <h5 class="fs-14 fw-medium mb-0">4.3<span class="text-muted fs-11 ms-1">(47 votes)</span></h5>
-                                                                    </td>
-                                                                </tr><!-- end tr -->
-                                                                <tr>
-                                                                    <td>
-                                                                        <a href="apps-ecommerce-order-details.html" class="fw-medium link-primary">#VZ2107</a>
-                                                                    </td>
-                                                                    <td>
-                                                                        <div class="d-flex align-items-center">
-                                                                            <div class="flex-shrink-0 me-2">
-                                                                                <img src="assets/images/users/avatar-6.jpg" alt="" class="avatar-xs rounded-circle material-shadow" />
-                                                                            </div>
-                                                                            <div class="flex-grow-1">Vihan Hudda</div>
-                                                                        </div>
-                                                                    </td>
-                                                                    <td>Bags and Wallets</td>
-                                                                    <td>
-                                                                        <span class="text-success">$330.00</span>
-                                                                    </td>
-                                                                    <td>iTest Factory</td>
-                                                                    <td>
-                                                                        <span class="badge bg-success-subtle text-success">Paid</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <h5 class="fs-14 fw-medium mb-0">4.7<span class="text-muted fs-11 ms-1">(161 votes)</span></h5>
-                                                                    </td>
-                                                                </tr><!-- end tr -->
-                                                            </tbody><!-- end tbody -->
-                                                        </table><!-- end table -->
-                                                    </div>
-                                                </div>
-                                            </div> <!-- .card-->
-                                        </div> <!-- .col-->
-                                    <!-- </div> end row -->
-
-                                </div> <!-- end .h-100-->
-
-                            </div> <!-- end col -->
-                        </div>
-
-                    </div>
-                    <!-- container-fluid -->
-                </div>
-                <!-- End Page-content -->
-
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script> © Velzon.
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="text-sm-end d-none d-sm-block">
-                                    Design & Develop by Themesbrand
+                                            </div>
+                                        </div>
+                                    </div> -->
                                 </div>
+
+                            </div> <!-- end .h-100-->
+
+                        </div> <!-- end col -->
+                    </div>
+
+                </div>
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script> © Velzon.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by Themesbrand
                             </div>
                         </div>
                     </div>
-                </footer>
-            </div>
-            <!-- end main content-->
-
-        </div>
-        <!-- END layout-wrapper -->
-
-
-
-        <!--start back-to-top-->
-        <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-            <i class="ri-arrow-up-line"></i>
-        </button>
-        <!--end back-to-top-->
-
-        <!--preloader-->
-        <div id="preloader">
-            <div id="status">
-                <div class="spinner-border text-primary avatar-sm" role="status">
-                    <span class="visually-hidden">Loading...</span>
                 </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+
+
+    <!--start back-to-top-->
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
+    <!--end back-to-top-->
+
+    <!--preloader-->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner-border text-primary avatar-sm" role="status">
+                <span class="visually-hidden">Loading...</span>
             </div>
         </div>
+    </div>
 
-        <div class="customizer-setting d-none d-md-block">
-            <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-                <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
-            </div>
+    <div class="customizer-setting d-none d-md-block">
+        <div class="btn-info rounded-pill shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
+            <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
         </div>
+    </div>
 
-        <!-- JAVASCRIPT -->
-        <?php
-        require_once "layouts/libs_js.php";
-        ?>
+    <!-- JAVASCRIPT -->
+    <?php
+    require_once "layouts/libs_js.php";
+    ?>
 
 </body>
 

@@ -73,8 +73,15 @@
                                         <input type="number" class="form-control" name="so_luong" value="<?= $sanPham['so_luong'] ?>" placeholder="Nhập số lượng sản phẩm">
                                     </div>
                                     <div class="form-group">
-                                        <label>Kích cỡ</label>
-                                        <input type="text" class="form-control" name="kich_co" value="<?= $sanPham['kich_co'] ?>" placeholder="Nhập kích cỡ">
+                                        <label for="mau_id">Màu sản phẩm</label>
+                                        <select class="form-control" name="mau_id" id="mau_id">
+                                            <option selected disabled>Chọn màu sản phẩm</option>
+                                            <?php foreach ($listMauSanPham as $mau) : ?>
+                                                <option value="<?= $mau['id'] ?>" <?= $sanPham['mau_id'] == $mau['id'] ? 'selected' : '' ?>>
+                                                    <?= $mau['ten_mau'] ?>
+                                                </option>
+                                            <?php endforeach ?>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Ngày nhập</label>

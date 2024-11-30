@@ -7,6 +7,19 @@ class adminTaiKhoan
         $this->conn = connectDB();
     }
 
+    public function getAllTaiKhoan()
+    {
+        try {
+            $sql = "SELECT * FROM tai_khoans";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+
     public function getAllTaiKhoanQuanTri($chuc_vu_id)
     {
         try {
@@ -102,6 +115,18 @@ class adminTaiKhoan
         }
     }
     // Khách hàng
+    public function getTaiKhoanKhachHang($chuc_vu_id)
+    {
+        try {
+            $sql = "SELECT * FROM tai_khoans WHERE chuc_vu_id = :chuc_vu_id";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':chuc_vu_id' => $chuc_vu_id]);
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
     public function getAllTaiKhoanKhachHang($chuc_vu_id)
     {
         try {
@@ -165,7 +190,6 @@ class adminTaiKhoan
         }
     }
 
-    
 
     public function checkLogin($email, $mat_khau) {
         try {

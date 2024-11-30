@@ -2,14 +2,54 @@
 require_once "layout/menu.php";
 
 ?>
+<style>
+/* Slides container */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng lướt mượt */
+}
+
+/* Mỗi slide */
+.slide {
+    flex: 0 0 100%;
+    height: 600px;
+}
+
+.slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+
+
+
+</style>
+
 
 
 <div class="main-content">
-    <div class="banner-tin-tuc">
-        <img src="<?= BASE_URL ?>/assets/img/bannerTT2.jpg" alt="">
-        <img src="<?= BASE_URL ?>/assets/img/bannerTT.jpg" alt="">
-        <img src="<?= BASE_URL ?>/assets/img/bannerTT3.jpg" alt="">
+    
+<div class="slideshow-container" >
+    <div class="slides">
+        <?php foreach ($listBanner as $banner): ?>
+            <?php if ($banner['trang_thai'] == 1): ?>
+                <div class="slide">
+                    <img src="<?= 'uploads/banner/' . $banner['banner_img']; ?>" />
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        <!-- Slide giả (lặp lại slide đầu tiên) -->
+        <div class="slide">
+            <img src="<?= 'uploads/banner/' . $listBanner[0]['banner_img']; ?>" alt="Banner" />
+        </div>
     </div>
+</div>
+
+
+
+
+    
     <div class="tin-tucs">
         <div class="top container">
             <div class="title">TIN TỨC NỔI BẬT</div>
@@ -239,7 +279,39 @@ require_once "layout/menu.php";
     </div>
 
 </div>
+<script>
+   
+   document.addEventListener("DOMContentLoaded", () => {
+    const slidesContainer = document.querySelector(".slides");
+    const slides = document.querySelectorAll(".slide");
+    const totalSlides = slides.length;
+    const slideWidth = 100; // Mỗi slide chiếm 100% chiều rộng
+    let currentIndex = 0; // Chỉ số slide hiện tại
 
+    // Hàm chuyển sang slide tiếp theo
+    function nextSlide() {
+        currentIndex++;
+        slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+
+        // Nếu đến slide giả, reset về slide đầu tiên
+        if (currentIndex === totalSlides - 1) {
+            setTimeout(() => {
+                slidesContainer.style.transition = "none"; // Tắt hiệu ứng chuyển động
+                currentIndex = 0; // Reset về slide đầu tiên
+                slidesContainer.style.transform = `translateX(0)`;
+                setTimeout(() => {
+                    slidesContainer.style.transition = "transform 0.5s ease-in-out"; // Bật lại hiệu ứng
+                }, 50);
+            }, 500); // Đợi hiệu ứng chạy xong trước khi reset
+        }
+    }
+
+    // Tự động chuyển slide mỗi 3 giây
+    setInterval(nextSlide, 3000);
+});
+
+</script>
+  
 
 <?php
 require_once "layout/footer.php"

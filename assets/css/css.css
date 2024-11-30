@@ -31,9 +31,40 @@ body {
     width: 150px;
 }
 
-/* .nav-menu .menu ul {
-    overflow: hidden;
-} */
+.pro-quantity {
+    gap: 5px; 
+}
+
+.qty-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.qty-btn:hover {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+}
+
+.quantity-input {
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 60px;
+}
+
 
 .nav-menu .menu ul li {
     list-style: none;
@@ -68,7 +99,7 @@ body {
     display: none;
     position: absolute;
     background-color: #F1F1F0;
-    min-width: 160px;
+    min-width: 120px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -111,7 +142,7 @@ body {
 
 .menu-search ul li a {
     text-decoration: none;
-    padding: 10px;
+    /* padding: 10px; */
     display: block;
     text-align: center;
     color: black;
@@ -500,6 +531,7 @@ body {
 .san-pham-moi .mid .san-pham:hover img {
     transform: scale(1.1);
     transition: transfor3 0.5s ease;
+    padding-bottom: 20px;
 }
 
 .san-pham-moi .mid .san-pham:hover .title,
@@ -717,6 +749,7 @@ body {
 .san-pham-ban-chay .mid .san-pham:hover img {
     transform: scale(1.1);
     transition: transfor3 0.5s ease;
+    padding-bottom: 20px;
 }
 
 .san-pham-ban-chay .mid .san-pham:hover .title,
@@ -906,6 +939,7 @@ body {
 .san-pham-co-the-thich .mid .san-pham:hover img {
     transform: scale(1.1);
     transition: transfor3 0.5s ease;
+    padding-bottom: 20px;
 }
 
 .san-pham-co-the-thich .mid .san-pham:hover .title,
@@ -1284,84 +1318,26 @@ body {
 }
 
 .tat-ca-san-pham {
-    display: grid;
-    grid-template-columns: repeat(4, 0fr);
-    /* 4 items per row */
-    position: relative;
-    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các phần tử con chuyển sang dòng mới khi hết không gian */
     padding-left: 10%;
     padding-right: 10%;
-
 }
 
 .tat-ca-san-pham .san-pham {
-    flex: 0 0 25%;
-    /* Adjust this value if needed */
-    /* padding: 20x 10%; */
-    color: #333;
-    position: relative;
-    overflow: hidden;
-    padding: 30px 10px;
-    width: 300px;
-}
-
-.tat-ca-san-pham .san-pham .add-to-cart a {
-    text-decoration: none;
-    color: #333;
-    font-size: 15px;
-    padding-left: 20px;
-
-}
-
-.tat-ca-san-pham .san-pham .add-to-cart a:hover {
-    color: #000;
-    font-size: 17px;
-
-}
-
-.tat-ca-san-pham .san-pham .add-to-cart .tim a {
-    padding: 0 15px;
-    margin-left: 10px;
-    font-size: 18px;
-}
-
-.tat-ca-san-pham .san-pham .add-to-cart .tim a:hover {
-    color: #000;
-    font-size: 20px;
-
+        width: 25%; /* Mỗi sản phẩm chiếm 23% chiều rộng của phần tử cha, để có 4 sản phẩm trong 1 hàng */
+        margin-bottom: 20px; /* Khoảng cách giữa các sản phẩm theo chiều dọc */
+        box-sizing: border-box; /* Đảm bảo padding và border không ảnh hưởng đến kích thước */
 }
 
 .tat-ca-san-pham .san-pham img {
     width: 100%;
 }
 
-.tat-ca-san-pham .san-pham .add-to-cart {
-    display: flex;
-    /* gap: 10px; */
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: -80px;
-    width: 100%;
-    box-sizing: border-box;
-    transition: bottom 0.4s ease;
-    background-color: #f1f1f0;
-    height: 27px;
-}
-
-.tat-ca-san-pham .san-pham:hover .add-to-cart {
-    bottom: 10px;
-}
-
 
 .tat-ca-san-pham .san-pham:hover img {
     transform: scale(1.1);
     transition: transfor3 0.5s ease;
-}
-
-.tat-ca-san-pham .san-pham:hover .title,
-.tat-ca-san-pham .san-pham:hover .price {
-    color: #FFFFFF;
 }
 
 .tat-ca-san-pham .san-pham .title {
@@ -1371,6 +1347,7 @@ body {
 .tat-ca-san-pham .san-pham .price {
     font-size: 15px;
 }
+
 
 .main-content .chuyen-trang .pagination {
     display: flex;
@@ -1925,7 +1902,7 @@ h4 {
 }
 
 .main-content .main-gio-hang .gio-hang {
-    width: 65%;
+    width: 80%;
 }
 
 .main-content .main-gio-hang .gio-hang table img {
@@ -1933,9 +1910,10 @@ h4 {
 }
 
 .main-content .main-gio-hang .thanh-toan {
-    width: 30%;
+    width: 35%;
     padding-right: 5%;
 }
+
 
 .tang-giam-sl {
     height: 40px;
@@ -2029,8 +2007,10 @@ h4 {
 
 .main-content .don-hang .thong-tin-sp {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     padding: 3% 0;
+    
+    
 }
 
 .main-content .ma-giam-gia {
@@ -2101,7 +2081,7 @@ h4 {
 }
 
 .main-content .chi-tiet .thong-tin {
-    padding-left: 5%;
+    padding-left: 15%;
 }
 
 .main-content .chi-tiet .thong-tin .sizes {

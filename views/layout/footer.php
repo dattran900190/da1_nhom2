@@ -202,25 +202,28 @@
     leftArrowV4.addEventListener("click", scrollToPrevSet4);
 
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function(e) {
-            e.preventDefault();
+    // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    //     anchor.addEventListener("click", function(e) {
+    //         e.preventDefault();
 
-            const target = document.querySelector(this.getAttribute("href"));
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        });
-    });
+    //         const target = document.querySelector(this.getAttribute("href"));
+    //         target.scrollIntoView({
+    //             behavior: "smooth",
+    //             block: "start"
+    //         });
+    //     });
+    // });
 
-    function changeQuantity(delta) {
-        const quantityInput = document.getElementById('so_luong');
-        let currentQuantity = parseInt(quantityInput.value) || 1; // Lấy giá trị hiện tại hoặc mặc định là 1
-        currentQuantity += delta;
-        if (currentQuantity < 1) currentQuantity = 1; // Không cho phép số lượng < 1
-        quantityInput.value = currentQuantity;
-    }
+    // function changeQuantity(delta) {
+    //     const quantityInput = document.getElementById('so_luong');
+    //     let currentQuantity = parseInt(quantityInput.value) || 1; // Lấy giá trị hiện tại hoặc mặc định là 1
+    //     currentQuantity += delta;
+    //     if (currentQuantity < 1) currentQuantity = 1; // Không cho phép số lượng < 1
+    //     quantityInput.value = currentQuantity;
+    // }
+
+
+
     // chuyển trang
 
     //     const products = document.querySelectorAll('.san-pham');

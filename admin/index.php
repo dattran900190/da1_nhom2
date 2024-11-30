@@ -26,27 +26,7 @@ match ($act) {
   // Dashboards
 
   '/'                                     => (new DashboardController())->index(),
-  // -------------danh mục sản phẩm ------------------
-  // 'quan-ly-danh-muc-san-pham'                    => (new QuanLyDanhMucSanPhamController()) -> danhsachDanhMucSanPham(),
-  // 'form-them-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> formAddDanhMucSanPham(),
-  // 'them-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> postAddDanhMucSanPham(),
-  // 'form-sua-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> formEditDanhMucSanPham (),
-  // 'sua-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> postEditDanhMucSanPham(),
-  // 'xoa-danh-muc-san-pham'                            => (new QuanLyDanhMucSanPhamController()) -> deleteDanhMucSanPham(),
-
-
-  // ------------- end danh mục sản phẩm ------------------
-  // 'quan-ly-danh-muc-san-pham'                    => (new AdminDanhMucSanPhamController()) -> danhSachDanhMuc(),
-  // 'quan-ly-nguoi-dung'                            => (new QuanLyNguoiDungController()) -> quanLyNguoiDung(),
-  // 'quan-ly-san-pham'                            => (new QuanLySanPhanController()) -> quanLySanPham(),
-  // 'quan-ly-banner'                            => (new QuanLyBannerController()) -> quanLyBanner(),
-  // 'quan-ly-binh-luan'                            => (new QuanLyBinhLuanController()) -> quanLyBinhLuan(),
-  // 'quan-ly-bo-suu-tap'                            => (new QuanLyBoSuuTapController()) -> quanLyBoSuuTap(),
-  // 'quan-ly-danh-gia-trang-thai-don-hang'      => (new QuanLyDanhGiaTrangThaiDonHangController()) -> quanLyDanhGiaTrangThaiDonHang(),
-  // 'quan-ly-don-hang'                            => (new QuanLyDonHangController()) -> quanLyDonHang(),
-  // 'quan-ly-lien-he'                            => (new QuanLyLienHeController()) -> quanLyLienHe(),
-  // 'quan-ly-tin-tuc'                            => (new QuanLyTinTucController()) -> quanLyTinTuc(),
-
+  
   // -------------khuyến mãi ------------------
   'quan-ly-khuyen-mai'                            => (new QuanLyKhuyenMaiController())->danhSachKhuyenMai(),
   'form-them-khuyen-mai'                            => (new QuanLyKhuyenMaiController())->formAddKhuyenMai(),
@@ -118,13 +98,16 @@ match ($act) {
   'form-sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController())->formEditTaiKhoanQuanTri(),
   'sua-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController())->postEditTaiKhoanQuanTri(),
   'xoa-tai-khoan-quan-tri-vien'                            => (new QuanLyTaiKhoanController())->deleteTaiKhoanQuanTri(),
+  
+  'form-sua-tai-khoan-ca-nhan'                              => (new QuanLyTaiKhoanController()) -> formEditTaiKhoanCaNhan(),
+  'sua-mat-khau-tai-khoan-ca-nhan'                              => (new QuanLyTaiKhoanController()) -> postEditMatKhauTaiKhoanCaNhan(),
 
   'reset-password'                            => (new QuanLyTaiKhoanController())->resetPassword(),
   // Quản lý tài khoản khách hàng
   'quan-ly-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController())->danhSachTaiKhoanKhachHang(),
   'form-sua-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController())->formEditTaiKhoanKhachHang(),
   'sua-tai-khoan-quan-khach-hang'                            => (new QuanLyTaiKhoanController())->postEditTaiKhoanKhachHang(),
-  'chi-tiet-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController()) -> viewsTaiKhoanKhachHang(),
+  'chi-tiet-tai-khoan-khach-hang'                            => (new QuanLyTaiKhoanController())->viewsTaiKhoanKhachHang(),
 
   // -------------Bình Luận ------------------
   'quan-ly-binh-luan'                            => (new QuanLyBinhLuanController())->danhSachBinhLuan(),
@@ -158,9 +141,22 @@ match ($act) {
   'sua-lien-he'                            => (new QuanLyLienHeController())->postEditLienHe(),
   'xoa-lien-he'                            => (new QuanLyLienHeController())->deleteLienHe(),
   // ------------------- end liên hệ ---------------
- 
+
+  // ------------- Quản lý size ------------------
+  'quan-ly-kich-co'                            => (new QuanLyKichCoController())->danhSachKichCo(),
+  'form-them-kich-co'                            => (new QuanLyKichCoController())->formAddKichCo(),
+  'them-kich-co'                            => (new QuanLyKichCoController())->postAddKichCo(),
+  'xoa-kich-co'                            => (new QuanLyKichCoController())->deleteKichCo(),
+  // ------------- end size ------------------
+
+  // ------------- Quản lý màu sắc ------------------
+  'quan-ly-mau-sac'                            => (new QuanLyMauSacController())->danhSachMauSac(),
+  'form-them-mau-sac'                            => (new QuanLyMauSacController())->formAddMauSac(),
+  'them-mau-sac'                            => (new QuanLyMauSacController())->postAddMauSac(),
+  'xoa-mau-sac'                            => (new QuanLyMauSacController())->deleteMauSac(),
+  // ------------- end màu sắc -----------------
 
   'login-admin' => (new QuanLyTaiKhoanController())->formLogin(),
-    'check-login-admin' => (new QuanLyTaiKhoanController())->login(),
-    'logout' => (new QuanLyTaiKhoanController())->logout(),
+  'check-login-admin' => (new QuanLyTaiKhoanController())->login(),
+  'logout' => (new QuanLyTaiKhoanController())->logout(),
 };

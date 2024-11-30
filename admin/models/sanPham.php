@@ -9,23 +9,42 @@ class SanPham
         $this->conn = connectDB();
     }
 
-
     public function getAllSanPham()
     {
         try {
-
-            $sql = "SELECT sp.*, bst.ten_bo_suu_tap AS ten_bo_suu_tap, dm.ten_danh_muc AS ten_danh_muc FROM san_phams sp LEFT JOIN bo_suu_tap bst ON sp.bo_suu_tap_id = bst.id LEFT JOIN danh_mucs dm ON sp.danh_muc_id = dm.id;";
+            // Modify SQL query to include `maus` table join
+            $sql = "SELECT sp.*, 
+                            bst.ten_bo_suu_tap AS ten_bo_suu_tap, 
+                            dm.ten_danh_muc AS ten_danh_muc,
+                            maus.ten_mau AS ten_mau
+                    FROM san_phams sp
+                    LEFT JOIN bo_suu_tap bst ON sp.bo_suu_tap_id = bst.id
+                    LEFT JOIN danh_mucs dm ON sp.danh_muc_id = dm.id
+                    LEFT JOIN maus ON sp.mau_id = maus.id;";  
 
             $stmt = $this->conn->prepare($sql);
-
             $stmt->execute();
-
+    
             return $stmt->fetchAll();
         } catch (Exception $e) {
-
             echo "CÓ LỖI: " . $e->getMessage();
         }
     }
+    
+
+   public function getAllMauSanPham()
+    {
+        try {
+            $sql = "SELECT * FROM maus";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+
     public function getAllBoSuuTap()
     {
         try {
@@ -39,11 +58,11 @@ class SanPham
         }
     }
 
-    function insertSanPham($ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $hinh_anh, $so_luong, $kich_co, $ngay_nhap, $mo_ta, $danh_muc_id, $bo_suu_tap_id, $trang_thai)
+    function insertSanPham($ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $hinh_anh, $so_luong, $mau_id, $ngay_nhap, $mo_ta, $danh_muc_id, $bo_suu_tap_id, $trang_thai)
     {
         try {
-            $sql = "INSERT INTO san_phams (ten_san_pham, gia_san_pham, gia_khuyen_mai, hinh_anh, so_luong, kich_co, ngay_nhap, mo_ta, danh_muc_id, bo_suu_tap_id, trang_thai) 
-                VALUES (:ten_san_pham, :gia_san_pham , :gia_khuyen_mai, :hinh_anh, :so_luong, :kich_co, :ngay_nhap, :mo_ta, :danh_muc_id, :bo_suu_tap_id, :trang_thai)";
+            $sql = "INSERT INTO san_phams (ten_san_pham, gia_san_pham, gia_khuyen_mai, hinh_anh, so_luong, mau_id, ngay_nhap, mo_ta, danh_muc_id, bo_suu_tap_id, trang_thai) 
+                VALUES (:ten_san_pham, :gia_san_pham , :gia_khuyen_mai, :hinh_anh, :so_luong, :mau_id, :ngay_nhap, :mo_ta, :danh_muc_id, :bo_suu_tap_id, :trang_thai)";
 
             $stmt = $this->conn->prepare($sql);
 
@@ -53,7 +72,7 @@ class SanPham
                 ':gia_khuyen_mai' => $gia_khuyen_mai,
                 ':hinh_anh' => $hinh_anh,
                 ':so_luong' => $so_luong,
-                ':kich_co' => $kich_co,
+                ':mau_id' => $mau_id,
                 ':ngay_nhap' => $ngay_nhap,
                 ':mo_ta' => $mo_ta,
                 ':danh_muc_id' => $danh_muc_id,
@@ -131,7 +150,7 @@ class SanPham
         }
     }
 
-    function updateSanPham($san_pham_id, $ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $hinh_anh, $so_luong, $kich_co, $ngay_nhap, $mo_ta, $danh_muc_id, $bo_suu_tap_id, $trang_thai)
+    function updateSanPham($san_pham_id, $ten_san_pham, $gia_san_pham, $gia_khuyen_mai, $hinh_anh, $so_luong, $mau_id, $ngay_nhap, $mo_ta, $danh_muc_id, $bo_suu_tap_id, $trang_thai)
     {
         try {
             $sql = "UPDATE san_phams SET 
@@ -140,7 +159,7 @@ class SanPham
             gia_khuyen_mai = :gia_khuyen_mai,
             hinh_anh = :hinh_anh,
             so_luong = :so_luong,
-            kich_co = :kich_co,
+            mau_id = :mau_id,
             ngay_nhap = :ngay_nhap,
             mo_ta = :mo_ta,
             danh_muc_id = :danh_muc_id,
@@ -155,7 +174,7 @@ class SanPham
                 ':gia_khuyen_mai' => $gia_khuyen_mai,
                 ':hinh_anh' => $hinh_anh,
                 ':so_luong' => $so_luong,
-                ':kich_co' => $kich_co,
+                ':mau_id' => $mau_id,
                 ':ngay_nhap' => $ngay_nhap,
                 ':mo_ta' => $mo_ta,
                 ':danh_muc_id' => $danh_muc_id,

@@ -218,6 +218,70 @@ class QuanLyTaiKhoanController {
             }
         }
     }
+
+    public function formEditTaiKhoanCaNhan(){
+        $email = $_SESSION['user_admin'];
+        $thongTinCaNhan = $this->modelTaiKhoan->getTaiKhoanFormEmail($email);
+        require_once './views/taikhoan/canhan/EditCaNhan.php';
+        deleteSessionError();
+      }
+    
+      public function postEditMatKhauTaiKhoanCaNhan() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $mat_khau_cu = $_POST['mat_khau_cu'] ?? '';
+            $mat_khau_moi = $_POST['mat_khau_moi'] ?? '';
+            $xac_nhan_mat_khau_moi = $_POST['xac_nhan_mat_khau_moi'] ?? '';
+    
+            // Lấy thông tin tài khoản từ email trong session
+            $user = $this->modelTaiKhoan->getTaiKhoanFormEmail($_SESSION['user_admin']);
+            $errors = [];
+    
+            // Kiểm tra mật khẩu cũ
+            if (!password_verify($mat_khau_cu, $user['mat_khau'])) {
+                $errors['mat_khau_cu'] = 'Mật khẩu cũ không đúng';
+            }
+    
+            // Kiểm tra các trường trống
+            if (empty($mat_khau_cu)) {
+                $errors['mat_khau_cu'] = 'Vui lòng nhập mật khẩu cũ';
+            }
+            if (empty($mat_khau_moi)) {
+                $errors['mat_khau_moi'] = 'Vui lòng nhập mật khẩu mới';
+            }
+            if (empty($xac_nhan_mat_khau_moi)) {
+                $errors['xac_nhan_mat_khau_moi'] = 'Vui lòng xác nhận mật khẩu mới';
+            }
+    
+            // Kiểm tra khớp mật khẩu mới và xác nhận mật khẩu
+            if ($mat_khau_moi !== $xac_nhan_mat_khau_moi) {
+                $errors['xac_nhan_mat_khau_moi'] = 'Mật khẩu nhập lại không đúng';
+            }
+    
+            // Lưu lỗi vào session nếu có
+            $_SESSION['errors'] = $errors;
+    
+            // Nếu không có lỗi, tiến hành đổi mật khẩu
+            if (empty($errors)) {
+                $hashPass = password_hash($mat_khau_moi, PASSWORD_BCRYPT);
+                $status = $this->modelTaiKhoan->resetPassword($user['id'], $hashPass);
+    
+                if ($status) {
+                    $_SESSION['success'] = "Đã đổi mật khẩu thành công";
+                    header("Location: " . BASE_URL_ADMIN . '?act=form-sua-tai-khoan-ca-nhan');
+                    exit;
+                } else {
+                    $_SESSION['errors'] = ['Đổi mật khẩu thất bại. Vui lòng thử lại.'];
+                    header("Location: " . BASE_URL_ADMIN . '?act=form-sua-tai-khoan-ca-nhan');
+                    exit;
+                }
+            } else {
+                // Quay lại form nếu có lỗi
+                header("Location: " . BASE_URL_ADMIN . '?act=form-sua-tai-khoan-ca-nhan');
+                exit;
+            }
+        }
+    }
+    
     public function viewsTaiKhoanKhachHang()
     {
         $id = $_GET['id'];

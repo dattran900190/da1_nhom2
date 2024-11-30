@@ -60,7 +60,7 @@ require_once "layout/header.php";
     </div>
 </div>
 <div class="san-pham">
-    <a href="<?= BASE_URL . '?act=san-pham' ?>"><img src="<?= BASE_URL ?>/assets/img/danh-cho-phu-kien.jpg"" alt=""></a>
+    <a href="<?= BASE_URL . '?act=san-pham&danh-muc=3' ?>"><img src="<?= BASE_URL ?>/assets/img/danh-cho-phu-kien.jpg"" alt=""></a>
             <div class=" title">SẢN PHẨM PHỤ KIỆN
 </div>
 </div>
@@ -69,7 +69,7 @@ require_once "layout/header.php";
 <div class="san-pham-moi">
     <div class="top">
         <div class="title">SẢN PHẨM MỚI</div>
-        <div class="xem-them"><a href="#">XEM TẤT CẢ SẢN PHẨM</a></div>
+        <div class="xem-them"><a href="<?= BASE_URL . '?act=san-pham' ?>">XEM TẤT CẢ SẢN PHẨM</a></div>
     </div>
     <button id="left-arrow-v2" class="arrow-v2">&#9664;</button>
     <div class="mid" id="items-container-v2">
@@ -84,13 +84,11 @@ require_once "layout/header.php";
                 <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id=' . $sanPham['id'] ?>">
                     <img src="<?= $sanPham['hinh_anh'] ?>" alt="" style="padding-bottom: 50px;"></a>
                 <div class="title"><?= $sanPham['ten_san_pham'] ?></div>
-                <div class="price"><?= formatPrice($sanPham['gia_san_pham']) ?> VND</div>
-                <div class="add-to-cart">
-                    <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                    <div class="tim">
-                        <a href="#"><i class="fa-regular fa-heart"></i></a>
-                    </div>
+                <div class="price"><?= formatPrice($sanPham['gia_khuyen_mai']) == 0 ? formatPrice($sanPham['gia_san_pham']) : formatPrice($sanPham['gia_khuyen_mai']) ?>
+                    <strike style="font-size: 11px;"><?= $sanPham['gia_khuyen_mai'] == 0 ?  '' : formatPrice($sanPham['gia_san_pham']) ?></strike>
+                    VND
                 </div>
+
             </div>
         <?php
             $count++;
@@ -120,37 +118,36 @@ require_once "layout/header.php";
 <div class="san-pham-ban-chay">
     <div class="top">
         <div class="title">SẢN PHẨM BÁN CHẠY</div>
-        <div class="xem-them"><a href="#">XEM TẤT CẢ SẢN PHẨM</a></div>
+        <div class="xem-them"><a href="<?= BASE_URL . '?act=san-pham' ?>">XEM TẤT CẢ SẢN PHẨM</a></div>
     </div>
     <button id="left-arrow-v3" class="arrow-v3">&#9664;</button>
     <div class="mid" id="items-container-v3">
-    <?php
-        $maxProducts = 6; 
+        <?php
+        $maxProducts = 6;
         $count = 0;
-        
+
         foreach ($listSanPham as $sanPham) {
             // Bỏ qua sản phẩm có id <=  6
             if ($sanPham['id'] <= 6) {
                 continue;
             }
-        
+
             // Kiểm tra nếu đã đạt đủ số lượng sản phẩm
             if ($count >= $maxProducts) {
                 break;
             }
         ?>
+
             <div class="san-pham">
                 <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id=' . $sanPham['id'] ?>">
                     <img src="<?= $sanPham['hinh_anh'] ?>" alt="" style="padding-bottom: 50px;">
                 </a>
                 <div class="title"><?= $sanPham['ten_san_pham'] ?></div>
-                <div class="price"><?= formatPrice($sanPham['gia_san_pham']) ?> VND</div>
-                <div class="add-to-cart">
-                    <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                    <div class="tim">
-                        <a href="#"><i class="fa-regular fa-heart"></i></a>
-                    </div>
+                <div class="price"><?= formatPrice($sanPham['gia_khuyen_mai']) == 0 ? formatPrice($sanPham['gia_san_pham']) : formatPrice($sanPham['gia_khuyen_mai']) ?>
+                    <strike style="font-size: 11px;"><?= $sanPham['gia_khuyen_mai'] == 0 ?  '' : formatPrice($sanPham['gia_san_pham']) ?></strike>
+                    VND
                 </div>
+
             </div>
         <?php
             $count++; // Tăng bộ đếm số lượng sản phẩm đã hiển thị
@@ -192,12 +189,12 @@ require_once "layout/header.php";
 <div class="san-pham-co-the-thich">
     <div class="top">
         <div class="title">SẢN PHẨM CÓ THỂ BẠN SẼ THÍCH</div>
-        <div class="xem-them"><a href="#">XEM TẤT CẢ SẢN PHẨM</a></div>
+        <div class="xem-them"><a href="<?= BASE_URL . '?act=san-pham' ?>">XEM TẤT CẢ SẢN PHẨM</a></div>
     </div>
     <button id="left-arrow-v4" class="arrow-v4">&#9664;</button>
     <div class="mid" id="items-container-v4">
         <?php
-        $maxProducts = 6; 
+        $maxProducts = 6;
         $count = 0;
 
         foreach ($listSanPham as $sanPham) {
@@ -216,13 +213,16 @@ require_once "layout/header.php";
                     <img src="<?= $sanPham['hinh_anh'] ?>" alt="" style="padding-bottom: 50px;">
                 </a>
                 <div class="title"><?= $sanPham['ten_san_pham'] ?></div>
-                <div class="price"><?= formatPrice($sanPham['gia_san_pham']) ?> VND</div>
-                <div class="add-to-cart">
+                <div class="price"><?= formatPrice($sanPham['gia_khuyen_mai']) == 0 ? formatPrice($sanPham['gia_san_pham']) : formatPrice($sanPham['gia_khuyen_mai']) ?>
+                    <strike style="font-size: 11px;"><?= $sanPham['gia_khuyen_mai'] == 0 ?  '' : formatPrice($sanPham['gia_san_pham']) ?></strike>
+                    VND
+                </div>
+                <!-- <div class="add-to-cart">
                     <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
                     <div class="tim">
                         <a href="#"><i class="fa-regular fa-heart"></i></a>
                     </div>
-                </div>
+                </div> -->
             </div>
         <?php
             $count++; // Tăng bộ đếm số lượng sản phẩm đã hiển thị

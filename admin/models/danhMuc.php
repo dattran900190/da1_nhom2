@@ -17,6 +17,7 @@ class adminDanhMucSanPham{
             echo "CÓ LỖI: " . $e->getMessage();
         }
     }
+    
     public function postAddDanhMucSanPham($ten_danh_muc, $mo_ta)
     {
         try {

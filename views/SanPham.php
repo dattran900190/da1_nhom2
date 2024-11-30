@@ -51,16 +51,28 @@ require_once "layout/menu.php";
                 </ul>
             </div>
 
+            <!-- <div class="dropdown-content">
+                <?php foreach ($listMauSanPham as $listMauSanPham): ?>
+                    <a href="<?= BASE_URL . '?act=san-pham&mau-sac=' . urlencode($mau['id']) ?>">
+                        <?= $listMauSanPham['ten_mau'] ?>
+                    </a>
+                <?php endforeach; ?>
+            </div> -->
             <div class="dropdown">
-                <a class="btn btn-outline-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    MÀU SẮC
-                </a>
-
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                <form action="<?= BASE_URL . '?act=loc-san-pham' ?>" method="post">
+                    <a class="btn btn-outline-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        MÀU SẮC
+                    </a>
+                    <ul class="dropdown-menu">
+                        <?php foreach ($listMauSanPham as $mau): ?>
+                            <li>
+                                <a class="dropdown-item" href="<?= BASE_URL . '?act=san-pham&mau-sac=' . urlencode($mau['id']) ?>">
+                                    <?= $mau['ten_mau'] ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </form>
             </div>
         </div>
 
@@ -79,6 +91,7 @@ require_once "layout/menu.php";
         </div>
 
     </div>
+
 
     <div class="tat-ca-san-pham">
         <?php
@@ -105,23 +118,22 @@ require_once "layout/menu.php";
             <?php foreach ($ketQuaTK as $sanPham): ?>
                 <div class="san-pham">
                     <a href="<?= BASE_URL . '?act=chi-tiet-san-pham&id=' . $sanPham['id'] ?>">
-                        <img src="<?= $sanPham['hinh_anh'] ?>" alt="">
+                        <img src="<?= $sanPham['hinh_anh'] ?>" alt="" style="padding-bottom: 50px;">
                     </a>
                     <div class="title"><?= $sanPham['ten_san_pham'] ?></div>
-                    <div class="price"><?= number_format($sanPham['gia_san_pham']) ?> VNĐ</div>
-                    <div class="add-to-cart">
-                        <a href="#"><i class="fa-solid fa-cart-plus"></i> THÊM GIỎ HÀNG</a>
-                        <div class="tim">
-                            <a href="#"><i class="fa-regular fa-heart"></i></a>
-                        </div>
+                    <div class="price"><?= formatPrice($sanPham['gia_khuyen_mai']) == 0 ? formatPrice($sanPham['gia_san_pham']) : formatPrice($sanPham['gia_khuyen_mai']) ?>
+                        <strike style="font-size: 11px;"><?= $sanPham['gia_khuyen_mai'] == 0 ?  '' : formatPrice($sanPham['gia_san_pham']) ?></strike>
+                        VND
                     </div>
+
                 </div>
             <?php endforeach; ?>
+
+
         <?php else: ?>
             <p>Không tìm thấy sản phẩm nào trong danh mục này.</p>
         <?php endif; ?>
     </div>
-
 
     <div class="chuyen-trang">
         <ul class="pagination" id="pagination">
