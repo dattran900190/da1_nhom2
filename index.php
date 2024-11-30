@@ -37,8 +37,11 @@ match ($act) {
     'chi-tiet-san-pham'=>(new HomeController())->chiTietSanPham(),
     'chi-tiet-tin-tuc'=>(new HomeController())->chiTietTinTuc(),
     'tim-kiem' => (new HomeController())->timKiem(),
-
+    
     // 'loc-san-pham' => (new HomeController())->locSanPham(),
+    'chi-tiet-khach-hang'=>(new HomeController())->chiTietKhachHang(),
+    'doi-mat-khau-khach-hang'=>(new HomeController())->doiMatKhauKhachHang(),
+    'xoa-tai-khoan-khach-hang'=>(new HomeController())->xoaTaiKhoanKhachHang(),
     
 
     // -------- giỏ hàng -------

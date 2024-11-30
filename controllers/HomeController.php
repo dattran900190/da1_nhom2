@@ -139,6 +139,20 @@ class HomeController
         require_once "./views/{$view}.php"; // Load view
     }
 
+    public function chiTietKhachHang(){
+
+        require_once './views/ChiTietKhachHang.php';
+    }
+
+    public function doiMatKhauKhachHang(){
+
+        require_once './views/SuaMatKhauKhachHang.php';
+    }
+
+    public function xoaTaiKhoanKhachHang(){
+
+        require_once './views/XoaTaiKhoanKhachHang.php';
+    }
 
     public function dangKy()
     {
