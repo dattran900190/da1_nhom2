@@ -84,7 +84,7 @@
                                     <a href="<?= BASE_URL . '?act=login' ?>" style="font-size: 10px; padding: 10px;">ĐĂNG NHẬP</a>
                                     <a href="<?= BASE_URL . '?act=dang-ky' ?>" style="font-size: 10px; padding-bottom: 10px;">ĐĂNG KÝ</a>
                                 <?php } else { ?>
-                                    <a href="my-account.html" style="font-size: 10px; padding: 10px 0;">Tài khoản</a>
+                                    <a href="<?= BASE_URL . '?act=chi-tiet-khach-hang' ?>" style="font-size: 10px; padding: 10px 0;">Tài khoản</a>
                                     <a href="<?= BASE_URL . '?act=lich-su-mua-hang' ?>" style="font-size: 10px; padding-bottom: 10px;">Đơn hàng</a>
                                     <a href="<?= BASE_URL . '?act=logout' ?>" style="font-size: 10px; padding-bottom: 10px;">Đăng xuất</a>
                                 <?php } ?>
