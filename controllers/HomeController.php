@@ -479,7 +479,7 @@ class HomeController
                     if ($result) {
                         // Thành công, chuyển hướng
                         // $_SESSION['flash'] = 'Thêm liên hệ thành công!';
-                        $_SESSION['success_message'] = 'Thêm liên hệ thành công!';
+                        $_SESSION['success_message'] = 'Gửi liên hệ thành công!';
                         header('Location: ' . BASE_URL . '?act=lien-he');
                         exit();
                     } else {

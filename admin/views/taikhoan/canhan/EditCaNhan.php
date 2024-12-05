@@ -179,48 +179,83 @@
                                     <div class="flex-grow-1">
                                         <h2 class="text-primary mb-4">Quản lý tài khoản cá nhân </h2>
                                     </div>
-                                    <form action="<?= BASE_URL_ADMIN . '?act=sua-tai-khoan-ca-nhan' ?>" method="POST">
+                                    <form action="<?= BASE_URL_ADMIN . '?act=sua-mat-khau-tai-khoan-ca-nhan' ?>" method="POST" enctype="multipart/form-data">
                                         <div class="container">
-
                                             <div class="profile-card">
                                                 <h2>Ảnh đại diện</h2>
                                                 <div class="avatar-wrapper">
-                                                    <img src="<?= BASE_URL . $thongTinCaNhan['anh_dai_dien']; ?>" alt="Avatar">
+                                                    <img src="<?= BASE_URL_ADMIN . $thongTinCaNhan['anh_dai_dien']; ?>" alt="Avatar">
                                                     <p class="admin-name"><?= $thongTinCaNhan['ho_ten']; ?></p>
-
-
-
                                                 </div>
+                                                <input type="file" name="anh_dai_dien" accept="image/*" class="">
                                             </div>
                                             <div class="details-card">
                                                 <h2>Thông tin cá nhân</h2>
+                                                <?php if (isset($_SESSION['success_message'])): ?>
+                                                    <div class="alert alert-success">
+                                                        <?= $_SESSION['success_message']; ?>
+                                                        <?php unset($_SESSION['success_message']); ?>
+                                                    </div>
+                                                <?php endif; ?>
 
+
+                                                <?php if (isset($_SESSION['error_message'])): ?>
+                                                    <div class="alert alert-danger">
+                                                        <?= $_SESSION['error_message']; ?>
+                                                        <?php unset($_SESSION['error_message']); ?>
+                                                    </div>
+                                                <?php endif; ?>
+
+
+                                                <?php if (isset($_SESSION['errors'])): ?>
+                                                    <?php $errors = $_SESSION['errors'];
+                                                    unset($_SESSION['errors']); ?>
+                                                <?php endif; ?>
+                                                <input type="hidden" name="id" value="<?= $thongTinCaNhan['id']; ?>">
                                                 <div class="form-row">
                                                     <div class="form-group">
                                                         <label>Họ Tên</label>
-                                                        <input type="text" placeholder="Nhập họ tên" value="<?= $thongTinCaNhan['ho_ten']; ?>">
+                                                        <input type="text" name="ho_ten" placeholder="Nhập họ tên" value="<?= $thongTinCaNhan['ho_ten']; ?>">
+                                                        <?php if (isset($errors['ho_ten'])): ?>
+                                                            <small class="error"><?= $errors['ho_ten']; ?></small>
+                                                        <?php endif; ?>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Email</label>
-                                                        <input type="text" placeholder="Nhập email" value="<?= $thongTinCaNhan['email']; ?>">
+                                                        <input type="email" name="email" placeholder="Nhập email" value="<?= $thongTinCaNhan['email']; ?>">
+                                                        <?php if (isset($errors['email'])): ?>
+                                                            <small class="error"><?= $errors['email']; ?></small>
+                                                        <?php endif; ?>
                                                     </div>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="form-group">
                                                         <label>Ngày sinh</label>
-                                                        <input type="date" placeholder="Nhập ngày sinh" value="<?= $thongTinCaNhan['ngay_sinh']; ?>">
+                                                        <input type="date" name="ngay_sinh" placeholder="Nhập ngày sinh" value="<?= $thongTinCaNhan['ngay_sinh']; ?>">
+                                                        <?php if (isset($errors['ngay_sinh'])): ?>
+                                                            <small class="error"><?= $errors['ngay_sinh']; ?></small>
+                                                        <?php endif; ?>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Số điện thoại</label>
-                                                        <input type="number" placeholder="Nhập số điện thoại" value="<?= $thongTinCaNhan['so_dien_thoai']; ?>">
+                                                        <input type="number" name="so_dien_thoai" placeholder="Nhập số điện thoại" value="<?= $thongTinCaNhan['so_dien_thoai']; ?>">
+                                                        <?php if (isset($errors['so_dien_thoai'])): ?>
+                                                            <small class="error"><?= $errors['so_dien_thoai']; ?></small>
+                                                        <?php endif; ?>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Địa chỉ</label>
-                                                    <input type="email" placeholder="Vui lòng nhập địa chỉ" value="<?= $thongTinCaNhan['dia_chi']; ?>">
+                                                    <input type="text" name="dia_chi" placeholder="Vui lòng nhập địa chỉ" value="<?= $thongTinCaNhan['dia_chi']; ?>">
+                                                    <?php if (isset($errors['dia_chi'])): ?>
+                                                        <small class="error"><?= $errors['dia_chi']; ?></small>
+                                                    <?php endif; ?>
                                                 </div>
+                                                <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Cập Nhật Thông Tin Cá Nhân</button>
+
 
                                     </form>
+
                                     <h3>Đổi Mật Khẩu</h3>
 
                                     <?php if (isset($_SESSION['success'])): ?>
@@ -236,7 +271,7 @@
                                         </div>
                                     <?php endif; ?>
 
-                                    <form action="<?= BASE_URL_ADMIN . '?act=sua-mat-khau-tai-khoan-ca-nhan' ?>" method="POST">
+                                    <form action="<?= BASE_URL_ADMIN . '?act=sua-mat-khau-ca-nhan' ?>" method="POST">
                                         <div class="form-row">
                                             <!-- Mật khẩu cũ -->
                                             <div class="form-group">

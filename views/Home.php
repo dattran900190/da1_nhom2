@@ -242,20 +242,20 @@ require_once "layout/header.php";
         <div class="blog">
             <img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt="">
             <div class="day">11/01/2024</div>
-            <div class="title">How to look outstanding in pastel</div>
-            <div class="content">Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</div>
+            <div class="title">Làm sao để trông thật nổi bật với tông màu pastel</div>
+            <div class="content">Bí quyết mix đồ pastel để thu hút mọi ánh nhìn. Tìm hiểu cách kết hợp màu sắc nhẹ nhàng để tạo phong cách thanh lịch.</div>
         </div>
         <div class="blog">
             <img src="https://themewagon.github.io/kaira/images/post-image2.jpg" alt="">
             <div class="day">11/01/2024</div>
-            <div class="title">Top 10 fashion trend for summer</div>
-            <div class="content">Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</div>
+            <div class="title">Top 10 xu hướng thời trang cho mùa hè năm 2024</div>
+            <div class="content">Điểm qua 10 xu hướng hot nhất mùa hè này. Hãy sẵn sàng làm mới tủ đồ của bạn với những phong cách cực kỳ thời thượng.</div>
         </div>
         <div class="blog">
             <img src="https://themewagon.github.io/kaira/images/post-image3.jpg" alt="">
             <div class="day">11/01/2024</div>
-            <div class="title">Crazy fashion with unique moment</div>
-            <div class="content">Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</div>
+            <div class="title">Thời trang điên rồ với khoảnh khắc độc đáo</div>
+            <div class="content">Thời trang phá cách với phong cách độc lạ, mới mẻ. Khám phá những bộ trang phục giúp bạn trở nên khác biệt và cá tính.</div>
         </div>
     </div>
 </div>
