@@ -101,6 +101,8 @@ match ($act) {
   
   'form-sua-tai-khoan-ca-nhan'                              => (new QuanLyTaiKhoanController()) -> formEditTaiKhoanCaNhan(),
   'sua-mat-khau-tai-khoan-ca-nhan'                              => (new QuanLyTaiKhoanController()) -> postEditMatKhauTaiKhoanCaNhan(),
+  'sua-mat-khau-ca-nhan'                              => (new QuanLyTaiKhoanController()) -> postEditMatKhauCaNhan(),
+
 
   'reset-password'                            => (new QuanLyTaiKhoanController())->resetPassword(),
   // Quản lý tài khoản khách hàng

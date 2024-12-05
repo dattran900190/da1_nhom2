@@ -226,7 +226,7 @@ class QuanLyTaiKhoanController {
         deleteSessionError();
       }
     
-      public function postEditMatKhauTaiKhoanCaNhan() {
+      public function postEditMatKhauCaNhan() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mat_khau_cu = $_POST['mat_khau_cu'] ?? '';
             $mat_khau_moi = $_POST['mat_khau_moi'] ?? '';
@@ -281,7 +281,56 @@ class QuanLyTaiKhoanController {
             }
         }
     }
-    
+    public function postEditMatKhauTaiKhoanCaNhan() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $errors = [];
+            $id = $_POST['id'];
+            $ho_ten = trim($_POST['ho_ten']);
+            $email = trim($_POST['email']);
+            $so_dien_thoai = trim($_POST['so_dien_thoai']);
+            $ngay_sinh = trim($_POST['ngay_sinh']);
+            $dia_chi = trim($_POST['dia_chi']);
+            $filePath = null; // Khởi tạo giá trị mặc định cho ảnh đại diện
+       
+            // Kiểm tra dữ liệu nhập
+            if (empty($ho_ten)) $errors['ho_ten'] = "Họ tên không được để trống.";
+            if (empty($email)) $errors['email'] = "Email không được để trống.";
+            if (empty($so_dien_thoai)) $errors['so_dien_thoai'] = "Số điện thoại không được để trống.";
+            if (empty($ngay_sinh)) $errors['ngay_sinh'] = "Ngày sinh không được để trống.";
+            if (empty($dia_chi)) $errors['dia_chi'] = "Địa chỉ không được để trống.";
+       
+            // Kiểm tra và xử lý file upload
+            if (isset($_FILES['anh_dai_dien']) && $_FILES['anh_dai_dien']['error'] == UPLOAD_ERR_OK) {
+                $uploadDir = "uploads/avatars/";
+                $fileName = time() . "_" . basename($_FILES['anh_dai_dien']['name']);
+                $filePath = $uploadDir . $fileName;
+       
+                // Kiểm tra định dạng file
+                $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                if (!in_array($_FILES['anh_dai_dien']['type'], $allowedTypes)) {
+                    $errors['anh_dai_dien'] = "Chỉ chấp nhận các tệp JPG, PNG hoặc GIF.";
+                } else {
+                    move_uploaded_file($_FILES['anh_dai_dien']['tmp_name'], $filePath);
+                }
+            }
+       
+            // Nếu không có lỗi, tiến hành cập nhật dữ liệu
+            if (empty($errors)) {
+                $success = $this->modelTaiKhoan->postEditTaiKhoanCaNhan($id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $dia_chi, $filePath);
+                if ($success) {
+                    $_SESSION['success_message'] = "Cập nhật thông tin cá nhân thành công!";
+                } else {
+                    $_SESSION['error_message'] = "Đã xảy ra lỗi khi cập nhật. Vui lòng thử lại.";
+                }
+                header('Location: ' . BASE_URL_ADMIN . '?act=form-sua-tai-khoan-ca-nhan');
+                exit();
+            } else {
+                $_SESSION['errors'] = $errors;
+                header('Location: ' . BASE_URL_ADMIN . '?act=form-sua-tai-khoan-ca-nhan');
+                exit();
+            }
+        }
+    }
     public function viewsTaiKhoanKhachHang()
     {
         $id = $_GET['id'];

@@ -189,6 +189,38 @@ class adminTaiKhoan
             echo "CÓ LỖI:" . $e->getMessage();
         }
     }
+    public function postEditTaiKhoanCaNhan($id, $ho_ten, $email, $so_dien_thoai, $ngay_sinh, $dia_chi, $anh_dai_dien = null) {
+        try {
+            $sql = "UPDATE tai_khoans
+                    SET ho_ten = :ho_ten,
+                        email = :email,
+                        so_dien_thoai = :so_dien_thoai,
+                        ngay_sinh = :ngay_sinh,
+                        dia_chi = :dia_chi";
+            if ($anh_dai_dien) {
+                $sql .= ", anh_dai_dien = :anh_dai_dien";
+            }
+            $sql .= " WHERE id = :id";
+   
+            $params = [
+                ':ho_ten' => $ho_ten,
+                ':email' => $email,
+                ':so_dien_thoai' => $so_dien_thoai,
+                ':ngay_sinh' => $ngay_sinh,
+                ':dia_chi' => $dia_chi,
+                ':id' => $id,
+            ];
+            if ($anh_dai_dien) {
+                $params[':anh_dai_dien'] = $anh_dai_dien;
+            }
+   
+            $stmt = $this->conn->prepare($sql);
+            return $stmt->execute($params);
+        } catch (Exception $e) {
+            error_log("Error updating profile: " . $e->getMessage());
+            return false;
+        }
+    }
 
 
     public function checkLogin($email, $mat_khau) {
