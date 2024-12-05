@@ -274,7 +274,7 @@
             }
             ?>
         
-        <div class="form-container sign-up-container">
+        <div class="form-container sign-in-container">
         <form action="<?= BASE_URL . '?act=check-dang-ky' ?>" method="post">
                 <h1>Tạo tài khoản</h1>
                 <div class="social-container">
@@ -290,7 +290,7 @@
             </form>
 
         </div>
-        <div class="form-container sign-in-container">
+        <div class="form-container sign-up-container">
 
             <form action="<?= BASE_URL . '?act=check-login' ?>" method="post">
                 <h1>Đăng nhập</h1>

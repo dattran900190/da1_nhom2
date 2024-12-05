@@ -7,7 +7,7 @@ require_once "layout/menu.php";
         <!-- Cart Details Section -->
         <div class="gio-hang mb-5">
             <br>
-            <h2 class="text-center mb-4">CHI TIẾT GIỎ HÀNG</h2>
+            <h2 class="text-center mb-4">CHI TIẾT ĐƠN HÀNG</h2>
             <table class="table table-bordered table-hover">
                 <thead class="thead-light">
                     <tr class="text-center">

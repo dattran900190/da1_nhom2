@@ -191,13 +191,7 @@ class HomeController
         require_once './views/XoaTaiKhoanKhachHangThongBao.php';
     }
 
-    public function dangKy()
-    {
 
-        require_once './views/auth/formLogin.php';
-        deleteSessionError();
-        exit();
-    }
 
     public function chiTietSanPham()
     {
@@ -313,8 +307,8 @@ class HomeController
 
             $_SESSION['errors'] = $errors;
 
-            $boSuuTapOld = $this->modelTaiKhoan->getIdTaiKhoan($id);
-            $old_file = $boSuuTapOld['anh_dai_dien'];
+            $taiKhoanOld = $this->modelTaiKhoan->getIdTaiKhoan($id);
+            $old_file = $taiKhoanOld['anh_dai_dien'];
 
             if (isset($anh_dai_dien) && $anh_dai_dien['error'] == UPLOAD_ERR_OK) {
                 $new_file = uploadFile($anh_dai_dien, './uploads/anhkhachhang/');
@@ -556,6 +550,41 @@ class HomeController
     }
 
 
+    // public function postDangKy()
+    // {
+    //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //         $ho_ten = $_POST['ho_ten'];
+    //         $email = $_POST['email'];
+    //         $mat_khau = $_POST['mat_khau'];
+
+
+    //         // Kiểm tra nếu email đã tồn tại
+    //         $existingUser = $this->modelTaiKhoan->getTaiKhoanFromEmail($email);
+    //         if ($existingUser) {
+    //             echo "<script>alert('Email đã tồn tại! Vui lòng thử lại.');</script>";
+    //             header("Location: " . BASE_URL . "?act=dang-ky");
+    //             exit();
+    //         }
+
+
+    //         // Thêm tài khoản mới
+    //         $userId = $this->modelTaiKhoan->addTaiKhoan($ho_ten, $email, $mat_khau);
+    //         if ($userId) {
+    //             echo "<script>alert('Đăng ký thành công! Vui lòng đăng nhập.');</script>";
+    //             header("Location: " . BASE_URL . "?act=login");
+    //         } else {
+    //             echo "<script>alert('Có lỗi xảy ra. Vui lòng thử lại sau.');</script>";
+    //         }
+    //     }
+    // }
+    public function dangKy()
+    {
+
+        require_once './views/auth/formRegister.php';
+        deleteSessionError();
+        exit();
+    }
+    
     public function postDangKy()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -564,25 +593,32 @@ class HomeController
             $mat_khau = $_POST['mat_khau'];
 
 
-            // Kiểm tra nếu email đã tồn tại
             $existingUser = $this->modelTaiKhoan->getTaiKhoanFromEmail($email);
             if ($existingUser) {
-                echo "<script>alert('Email đã tồn tại! Vui lòng thử lại.');</script>";
-                header("Location: " . BASE_URL . "?act=dang-ky");
+                echo "<script>
+                alert('Email đã tồn tại! Vui lòng thử lại.');
+                window.history.back();
+            </script>";
                 exit();
             }
 
 
-            // Thêm tài khoản mới
+
             $userId = $this->modelTaiKhoan->addTaiKhoan($ho_ten, $email, $mat_khau);
             if ($userId) {
+
+                $_SESSION['user_client'] = true;
+                $_SESSION['user_client_id'] = $userId;
+
                 echo "<script>alert('Đăng ký thành công! Vui lòng đăng nhập.');</script>";
                 header("Location: " . BASE_URL . "?act=login");
+                exit();
             } else {
                 echo "<script>alert('Có lỗi xảy ra. Vui lòng thử lại sau.');</script>";
             }
         }
     }
+
 
     public function logout()
     {
