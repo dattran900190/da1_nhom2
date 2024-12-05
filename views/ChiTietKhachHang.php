@@ -29,13 +29,14 @@ require_once "layout/menu.php";
     }
 
     .save-btn {
-      background-color: #f53d2d;
-      color: white;
-      border: none;
-      padding: 10px 20px;
+        background-color: #f53d2d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
     }
+
     .save-btn:hover {
-      background-color: #d73227;
+        background-color: #d73227;
     }
 </style>
 
@@ -46,9 +47,9 @@ require_once "layout/menu.php";
             <div class="col-md-3">
                 <div class="profile-sidebar">
                     <div class="d-flex align-items-center">
-                        <img src="https://via.placeholder.com/100" alt="Profile" class="profile-photo">
+                        <img src="<?= $listTaiKhoan['anh_dai_dien'] ?>" alt="Profile" class="profile-photo">
                         <div class="ms-3">
-                            <h5>dattran9029</h5>
+                            <h5><?= $listTaiKhoan['ho_ten'] ?></h5>
                         </div>
                     </div>
                     <hr>
@@ -65,49 +66,53 @@ require_once "layout/menu.php";
                     <h4>Hồ Sơ Của Tôi</h4>
                     <p class="text-muted">Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
                     <hr>
-                    <form>
+                    <h3 class="text-center">
+                    <?php if (isset($_SESSION['success'])) {
+                        echo $_SESSION['success'];
+                    }?>
+                    </h3>
+                    <form action="<?= BASE_URL . '?act=sua-khach-hang' ?>" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?= $listTaiKhoan['id'] ?>">
                         <div class="mb-3">
-                            <label for="username" class="form-label">Tên đăng nhập: (in ra tên đnhap ở đây)</label> 
+                            <label for="username" class="form-label">Tên đăng nhập: <?= $listTaiKhoan['email'] ?></label>
                         </div>
                         <div class="mb-3">
                             <label for="name" class="form-label">Họ và tên</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control" id="name" name="ho_ten" value="<?= $listTaiKhoan['ho_ten'] ?>">
+                            <small class="text-danger"><?= $_SESSION['errors']['ho_ten'] ?? '' ?></small>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="email" class="form-control" id="email" name="email" value="<?= $listTaiKhoan['email'] ?>">
+                            <small class="text-danger"><?= $_SESSION['errors']['email'] ?? '' ?></small>
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Số điện thoại</label>
-                            <input type="text" class="form-control" id="phone">
+                            <input type="text" class="form-control" id="phone" name="so_dien_thoai" value="<?= $listTaiKhoan['so_dien_thoai'] ?>">
+                            <small class="text-danger"><?= $_SESSION['errors']['so_dien_thoai'] ?? '' ?></small>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Giới tính</label>
                             <div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
-                                    <label class="form-check-label" for="male">Nam</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                                    <label class="form-check-label" for="female">Nữ</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="other" value="other">
-                                    <label class="form-check-label" for="other">Khác</label>
-                                </div>
+                                <select id="trangThai" name="gioi_tinh" class="form-control">
+                                    <option value="1" <?= $listTaiKhoan['gioi_tinh'] == 1 ? 'selected' : '' ?>>Nam</option>
+                                    <option value="2" <?= $listTaiKhoan['gioi_tinh'] == 2 ? 'selected' : '' ?>>Nữ</option>
+                                </select>
                             </div>
+                            <small class="text-danger"><?= $_SESSION['errors']['gioi_tinh'] ?? '' ?></small>
                         </div>
                         <div class="mb-3">
                             <label for="dob" class="form-label">Ngày sinh</label>
-                            <input type="date" class="form-control" id="dob">
+                            <input type="date" class="form-control" id="dob" name="ngay_sinh" value="<?= $listTaiKhoan['ngay_sinh'] ?>">
+                            <small class="text-danger"><?= $_SESSION['errors']['ngay_sinh'] ?? '' ?></small>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Ảnh đại diện</label>
                             <div>
-                                <input type="file" class="form-control">
+                                <input type="file" class="form-control" name="anh_dai_dien" value="<?= $listTaiKhoan['anh_dai_dien'] ?>">
                                 <small class="text-muted">Dùng lượng file tối đa 1 MB. Định dạng: .JPEG, .PNG</small>
                             </div>
+                            <small class="text-danger"><?= $_SESSION['errors']['anh_dai_dien'] ?? '' ?></small>
                         </div>
                         <button type="submit" class="save-btn">Lưu</button>
                     </form>
@@ -119,6 +124,7 @@ require_once "layout/menu.php";
 <br>
 <br>
 
+<?php unset($_SESSION['errors'], $_SESSION['success'])?>
 
 <?php
 require_once "layout/footer.php"

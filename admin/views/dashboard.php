@@ -7,7 +7,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | NN Shop</title>
+    <title>Dashboard | T-shirt Store</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -52,7 +52,7 @@
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                             <div class="flex-grow-1">
                                                 <!-- <h4 class="fs-16 mb-1">Xin chào, Ahihi</h4> -->
-                                                <h3 class="text-muted mb-0">Đây là trang thống kê.</h3>
+                                                <h3 class="text-muted mb-0">Trang thống kê</h3>
                                             </div>
 
                                         </div><!-- end card header -->
@@ -61,7 +61,7 @@
                                 </div>
                                 <!--end row-->
 
-                                <div class="row">
+                                <div class="row d-flex justify-content-center">
                                     <div class="col-xl-3 col-md-6">
                                         <!-- card -->
                                         <div class="card card-animate">
@@ -78,16 +78,10 @@
                                                 </div>
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
-                                                        <?php
-                                                        $tongThuNhap = 0;
-                                                        foreach ($listDonHang as $tongDonHang):
-                                                            $tongThuNhap += $tongDonHang['don_gia'];
-                                                        endforeach;
-                                                        ?>
+                                  
                                                         <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span>
                                                                 <?= number_format($tongThuNhap, 0, '.', '.') ?>
                                                             </span>VNĐ </h4>
-                                                        <a href="#" class="text-decoration-underline">Xem tổng thu nhập</a>
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-success-subtle rounded fs-3">
@@ -116,12 +110,12 @@
                                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                                     <div>
                                                         <?php
-                                                        $tongAllDonHang = count($listDonHang);
+                                                        $tongAllDonHang = count($listAllDonHang);
                                                         ?>
                                                         <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span>
                                                                 <?= $tongAllDonHang ?>
                                                             </span>ĐƠN HÀNG </h4>
-                                                        <a href="#" class="text-decoration-underline">Tất cả đơn đặt hàng</a>
+                                                        <!-- <a href="#" class="text-decoration-underline">Tất cả đơn đặt hàng</a> -->
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-info-subtle rounded fs-3">
@@ -160,7 +154,7 @@
                                                         <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span>
                                                                 <?= $tongKhachHang ?>
                                                             </span>NGƯỜI </h4>
-                                                        <a href="#" class="text-decoration-underline">Xem chi tiết khác hàng</a>
+                                                        <!-- <a href="#" class="text-decoration-underline">Xem chi tiết khác hàng</a> -->
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-warning-subtle rounded fs-3">
@@ -172,8 +166,8 @@
                                         </div><!-- end card -->
                                     </div><!-- end col -->
 
-                                    <div class="col-xl-3 col-md-6">
-                                        <!-- card -->
+                                    <!-- <div class="col-xl-3 col-md-6">
+                                       
                                         <div class="card card-animate">
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center">
@@ -203,7 +197,7 @@
                                                         <h4 class="fs-22 fw-semibold ff-secondary mb-4"><span>
                                                                 <?= number_format($soDu, 0, ',', '.') ?>
                                                             </span> VNĐ</h4>
-                                                        <a href="#" class="text-decoration-underline">Rút tiền</a>
+                                                       
                                                     </div>
                                                     <div class="avatar-sm flex-shrink-0">
                                                         <span class="avatar-title bg-primary-subtle rounded fs-3">
@@ -211,10 +205,10 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                            </div><!-- end card body -->
-                                        </div><!-- end card -->
-                                    </div><!-- end col -->
-                                </div> <!-- end row-->
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
 
 
                                 <div class="row">
@@ -229,7 +223,12 @@
                                                 <div class="table-responsive table-card">
                                                     <table class="table table-hover table-centered align-middle table-nowrap mb-0">
                                                         <tbody>
-                                                            <?php foreach ($listDetailDonHang as $sanPham): ?>
+                                                            <?php
+                                                            $maxProducts = 5;
+                                                            $count = 0;
+                                                            foreach ($listDetailDonHang as $sanPham) {
+                                                                if ($count >= $maxProducts) break;
+                                                            ?>
                                                                 <tr>
                                                                     <td>
                                                                         <div class="d-flex align-items-center">
@@ -237,8 +236,8 @@
                                                                                 <img src="<?= BASE_URL . $sanPham['hinh_anh'] ?>" alt="" class="img-fluid d-block" />
                                                                             </div>
                                                                             <div>
-                                                                                <h5 class="fs-14 my-1"><a href="apps-ecommerce-product-details.html" class="text-reset">Branded T-Shirts</a></h5>
-                                                                                <span class="text-muted">24 Apr 2021</span>
+                                                                                <h5 class="fs-14 my-1"><a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-san-pham&id=' . $sanPham['san_pham_id'] ?> " class="text-reset"><?= $sanPham['ten_san_pham'] ?></a></h5>
+                                                                                <span class="text-muted"><?= formatDate($sanPham['ngay_dat']) ?></span>
                                                                             </div>
                                                                         </div>
                                                                     </td>
@@ -255,7 +254,9 @@
                                                                         <span class="text-muted">Số lượng</span>
                                                                     </td>
                                                                 </tr>
-                                                            <?php endforeach ?>
+                                                            <?php
+                                                                $count++;
+                                                            } ?>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -263,7 +264,7 @@
                                                 <div class="align-items-center mt-4 pt-2 justify-content-between row text-center text-sm-start">
                                                     <div class="col-sm">
                                                         <div class="text-muted">
-                                                            Hiển thị <span class="fw-semibold">5</span> Kết quả
+                                                            Hiển thị <span class="fw-semibold">5</span> Kết quả bán chạy nhất trong tháng <?= date('m') ?>
                                                         </div>
                                                     </div>
 
@@ -344,22 +345,10 @@
             </div>
             <!-- End Page-content -->
 
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> © Velzon.
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="text-sm-end d-none d-sm-block">
-                                Design & Develop by Themesbrand
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <?php
+            require_once "layouts/footer.php";
+            ?>
+
         </div>
         <!-- end main content-->
 

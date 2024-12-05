@@ -346,7 +346,7 @@
             <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
         </p>
     </footer> -->
-    
+
 </body>
 <script>
     const signUpButton = document.getElementById('signUp');

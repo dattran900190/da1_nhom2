@@ -20,7 +20,7 @@
                 <div class="content" style="padding: 0 20px;">
                 <?= $suTap['mo_ta'] ?>
                 </div>
-                <a href="<?= BASE_URL .'?act=bo-suu-tap&bo-suu-tap=' . urlencode($suTap['ten_bo_suu_tap']) ?>">KHÁM PHÁ NGAY</a>
+                <a href="<?= BASE_URL . '?act=bo-suu-tap&bo-suu-tap=' . urlencode($suTap['id']) ?>">KHÁM PHÁ NGAY</a>
             </div>
             <?php endforeach ?>
             

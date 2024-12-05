@@ -27,17 +27,19 @@ require_once "layout/menu.php";
         border-radius: 50%;
         object-fit: cover;
     }
+
     .save-btn {
-      background-color: #f53d2d;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-    }
-    .save-btn:hover {
-      background-color: #d73227;
+        background-color: #f53d2d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
     }
 
-     /* .save-btn {
+    .save-btn:hover {
+        background-color: #d73227;
+    }
+
+    /* .save-btn {
         background-color: #f53d2d;
         color: white;
         border: none;
@@ -60,9 +62,9 @@ require_once "layout/menu.php";
             <div class="col-md-3">
                 <div class="profile-sidebar">
                     <div class="d-flex align-items-center">
-                        <img src="https://via.placeholder.com/100" alt="Profile" class="profile-photo">
+                        <img src="<?= $listTaiKhoan['anh_dai_dien'] ?>" alt="Profile" class="profile-photo">
                         <div class="ms-3">
-                            <h5>dattran9029</h5>
+                            <h5><?= $listTaiKhoan['ho_ten'] ?></h5>
                         </div>
                     </div>
                     <hr>
@@ -79,23 +81,31 @@ require_once "layout/menu.php";
                     <h4>Hồ Sơ Của Tôi</h4>
                     <p class="text-muted">Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
                     <hr>
-                    <form>
-                       
+                    <h3 class="text-center">
+                    <?php if (isset($_SESSION['success'])) {
+                        echo $_SESSION['success'];
+                    }?>
+                    </h3>
+                    <form action="<?= BASE_URL . '?act=doi-mat-khau-khach-hang' ?>" method="POST">
+                        <input type="hidden" name="id" value="<?= $listTaiKhoan['id'] ?>">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Mật khẩu cũ</label>
-                            <input type="email" class="form-control" id="email">
+                            <label for="mat_khau" class="form-label">Mật khẩu cũ</label>
+                            <input type="password" class="form-control" id="mat_khau" name="mat_khau" value="">
+                            <small class="text-danger"><?= $_SESSION['errors']['mat_khau'] ?? '' ?></small>
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Mật khẩu mới</label>
-                            <input type="text" class="form-control" id="phone">
+                            <label for="mat_khau_moi" class="form-label">Mật khẩu mới</label>
+                            <input type="password" class="form-control" id="mat_khau_moi" name="mat_khau_moi" value="">
+                            <small class="text-danger"><?= $_SESSION['errors']['mat_khau_moi'] ?? '' ?></small>
                         </div>
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Nhập lại mật khẩu mới</label>
-                            <input type="text" class="form-control" id="phone">
+                            <label for="nhap_lai_mat_khau" class="form-label">Nhập lại mật khẩu mới</label>
+                            <input type="password" class="form-control" id="nhap_lai_mat_khau" name="nhap_lai_mat_khau" value="">
+                            <small class="text-danger"><?= $_SESSION['errors']['nhap_lai_mat_khau'] ?? '' ?></small>
                         </div>
-                       
-                        <button type="submit" class=" save-btn">Lưu</button>
+                        <button type="submit" class="save-btn">Lưu</button>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -103,7 +113,7 @@ require_once "layout/menu.php";
 </div>
 <br>
 <br>
-
+<?php unset($_SESSION['errors'], $_SESSION['success'])?>
 
 <?php
 require_once "layout/footer.php"

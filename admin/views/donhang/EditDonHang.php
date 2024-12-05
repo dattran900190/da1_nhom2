@@ -42,36 +42,31 @@
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column">
 
                                         <div class="flex-grow-1">
-                                            <form action="<?= BASE_URL_ADMIN . '?act=sua-don-hang' ?>" method="POST">
-                                                <input type="hidden" name="don_hang_id" value="<?= $donHang['id'] ?>">
-                                                <div class="card-body">
-                                                    <div class="form-group">
-                                                        <h4>Sửa trạng thái đơn hàng</h4>
 
-                                                        <!-- <label for="inputStatus">Trạng thái đơn hàng</label> -->
-                                                        <select id="inputStatus" name="trang_thai_id" class="form-control custom-select">
-                                                            <?php foreach ($listTrangThaiDonHang as $trangThai) : ?>
-                                                                <option
-                                                                    <?php if ($donHang['trang_thai_id'] > $trangThai['id'] || in_array($donHang['trang_thai_id'], [9, 10, 11])) {
-                                                                        echo 'disabled';
-                                                                    } ?>
-                                                                    <?= $trangThai['id'] == $donHang['trang_thai_id'] ? 'selected' : '' ?>
-                                                                    value="<?= $trangThai['id'] ?>">
-                                                                    <?= $trangThai['ten_trang_thai'] ?>
-                                                                </option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    </div>
-                                                    <br>
-                                                    <div class="card-footer">
-                                                        <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
-                                                    </div>
-                                                </div>
-                                            </form>
                                             <br>
 
                                             <div class="col-lg-12 col-xl-20">
                                                 <h4>Thông tin đơn hàng</h4>
+                                                <?php
+                                                $colorAlert = '';
+                                                if ($donHang['trang_thai_id'] == 1) {
+                                                    $colorAlert = 'primary';
+                                                } elseif ($donHang['trang_thai_id'] >= 2 && $donHang['trang_thai_id'] <= 9) {
+                                                    $colorAlert = 'warning';
+                                                } elseif ($donHang['trang_thai_id'] == 10) {
+                                                    $colorAlert = 'success';
+                                                } else {
+                                                    $colorAlert = 'danger';
+                                                }
+                                                ?>
+                                                <div class="alert alert-<?= $colorAlert ?> py-4 shadow-sm" style="display: flex; justify-content: space-around;">
+                                                    <p class="mb-0">
+                                                        Ngày đặt: <strong><?= formatDate($donHang['ngay_dat']) ?></strong>
+                                                    </p>
+                                                    <p class="mb-0">
+                                                        Trạng thái: <strong><?= $donHang['ten_trang_thai'] ?></strong>
+                                                    </p>
+                                                </div>
                                                 <div class="card shadow-lg mb-5 rounded-3">
                                                     <div class="card-body" id="print-area">
                                                         <div class="row">
@@ -180,14 +175,54 @@
                                                             <h4>Tổng các phí cần thanh toán</h4><br>
                                                             <h6><strong>Thành tiền:</strong> <?= number_format($tong_tien, 0, ',', '.') ?> VNĐ</h6>
                                                             <h6><strong>Phí vận chuyển:</strong> 30.000 VNĐ</h6>
-                                                            <h6><strong>Khuyến mãi:</strong> 39.000 VNĐ</h6>
+                                                            <h6><strong>Khuyến mãi:</strong> 0 VNĐ</h6>
                                                             <hr>
-                                                            <h4 class="fw-bold">Tổng tiền: <span class="text-success"><?= number_format($tong_tien + 30000 - 39000, 0, ',', '.') ?> VNĐ</span></h4>
+                                                            <div class="d-flex justify-content-between">
+                                                                <div>
+                                                                    <h4 class="fw-bold">Tổng tiền: <span class="text-success"><?= number_format($tong_tien + 30000, 0, ',', '.') ?> VNĐ</span></h4>
+                                                                </div>
+                                                                <div class="">
+                                                                    <a href="<?= BASE_URL_ADMIN ?>?act=quan-ly-don-hang" class="btn btn-secondary btn-sm me-2">
+                                                                        <i class="fas fa-arrow-left"></i> Quay lại
+                                                                    </a>
+                                                                    <a href="#" class="btn btn-success btn-sm" onclick="printInvoice()">
+                                                                        <i class="fas fa-print"></i> In hóa đơn
+                                                                    </a>
+                                                                </div>
+                                                            </div>
                                                         </div>
+                                                        <hr>
+                                                    </div>
+                                                    <div>
+                                                        <form action="<?= BASE_URL_ADMIN . '?act=sua-don-hang' ?>" method="POST">
+                                                            <input type="hidden" name="don_hang_id" value="<?= $donHang['id'] ?>">
+                                                            <div class="card-body">
+                                                                <div class="form-group">
+                                                                    <h4>Sửa trạng thái đơn hàng</h4>
+
+                                                                    <!-- <label for="inputStatus">Trạng thái đơn hàng</label> -->
+                                                                    <select id="inputStatus" name="trang_thai_id" class="form-control custom-select">
+                                                                        <?php foreach ($listTrangThaiDonHang as $trangThai) : ?>
+                                                                            <option
+                                                                                <?php if ($donHang['trang_thai_id'] > $trangThai['id'] || in_array($donHang['trang_thai_id'], [9, 10, 11])) {
+                                                                                    echo 'disabled';
+                                                                                } ?>
+                                                                                <?= $trangThai['id'] == $donHang['trang_thai_id'] ? 'selected' : '' ?>
+                                                                                value="<?= $trangThai['id'] ?>">
+                                                                                <?= $trangThai['ten_trang_thai'] ?>
+                                                                            </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                                <br>
+                                                                <div class="">
+                                                                    <button type="submit" class="btn btn-primary">Lưu Thay Đổi</button>
+                                                                </div>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>

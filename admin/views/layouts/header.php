@@ -42,7 +42,11 @@
                         <span class="d-flex align-items-center">
                             <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
                             <span class="text-start ms-xl-2">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Phan Khanh</span>
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">
+                                    <?php if (isset($_SESSION['user_admin'])) {
+                                        echo $_SESSION['user_admin'];
+                                    }?>
+                                </span>
                                 <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">Founder</span>
                             </span>
                         </span>

@@ -128,12 +128,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?php BASE_URL_ADMIN ?>?act=quan-ly-kich-co">
-                        <i class="fa-solid fa-passport"></i> <span data-key="t-dashboards">Quản lý kích cỡ</span>
+                    <i class="fa-brands fa-sitrox"></i> <span data-key="t-dashboards">Quản lý kích cỡ</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="<?php BASE_URL_ADMIN ?>?act=quan-ly-mau-sac">
-                        <i class="fa-solid fa-passport"></i> <span data-key="t-dashboards">Quản lý màu sắc</span>
+                    <i class="fa-solid fa-brush"></i> <span data-key="t-dashboards">Quản lý màu sắc</span>
                     </a>
                 </li>
                 

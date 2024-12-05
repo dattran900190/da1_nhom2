@@ -44,7 +44,7 @@
                                             <h2 class="text-primary mb-4">Quản lý bình luận</h2>
                                         </div>
                                         <div class="flex-shrink-0">
-                                            
+
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -58,10 +58,7 @@
                                                 <tr>
                                                     <th>STT</th>
                                                     <th>Mã sản phẩm</th>
-                                                    <th>Mã người dùng</th>
-                                                    <th>Nọi dung</th>
-                                                    <th>Ngày đăng</th>
-                                                    <th>Trạng thái</th>
+                                                    <th>Tên sản phẩm</th>
                                                     <th>Hành động</th>
                                                 </tr>
                                             </thead>
@@ -70,22 +67,28 @@
                                                     <tr>
                                                         <td><?= $key + 1 ?></td>
                                                         <td><?= $binhluan['san_pham_id'] ?></td>
-                                                        <td><?= $binhluan['tai_khoan_id'] ?></td>
-                                                        <td><?= $binhluan['noi_dung'] ?></td>
-                                                        <td><?= $binhluan['ngay_dang'] ?></td>
-                                                        <td>
-                                                            <span class="badge <?= $binhluan['trang_thai'] == 1 ? 'bg-success' : 'bg-danger' ?>">
-                                                                <?= $binhluan['trang_thai'] == 1 ? 'Hiện Bình luận' : 'Ẩn Bình luận' ?>
+                                                        <td><?= $binhluan['ten_san_pham'] ?></td>
+
+
+                                                        <!-- <td>
+                                                            <span class="badge <?= isset($binhluan['trang_thai']) && $binhluan['trang_thai'] == 1 ? 'bg-success' : 'bg-danger' ?>">
+                                                                <?= isset($binhluan['trang_thai']) && $binhluan['trang_thai'] == 1 ? 'Hiện Bình luận' : 'Ẩn Bình luận' ?>
                                                             </span>
-                                                        </td>
+                                                        </td> -->
                                                         <td>
-                                                           
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-binh-luan&id=' . $binhluan['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
-                                                                <i class="fas fa-trash"></i> Xóa
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=danh-sach-binh-luan&id=' . $binhluan['san_pham_id'] ?>">
+                                                                <button class="btn btn-info btn-sm" data-toggle="collapse" data-target="#comments-<?= $binhluan['san_pham_id'] ?>">
+                                                                    Xem Bình luận (<?= $binhluan['comment_count'] ?>)
+                                                                </button>
                                                             </a>
+                                                            <!-- <a href="<?= BASE_URL_ADMIN . '?act=xoa-binh-luan&id=' . $binhluan['san_pham_id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
+                                                                <i class="fas fa-trash"></i> Xóa
+                                                            </a> -->
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
+
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -99,6 +102,13 @@
     </div>
 
     <script>
+        $(document).ready(function() {
+            $('[data-toggle="collapse"]').click(function() {
+                var target = $(this).data('target');
+                $(target).collapse('toggle');
+            });
+        });
+
         // JavaScript for Search Bar Functionality
         document.getElementById('searchBar').addEventListener('input', function() {
             const query = this.value.toLowerCase();
@@ -132,22 +142,9 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> © Velzon.
-                </div>
-                <div class="col-sm-6">
-                    <div class="text-sm-end d-none d-sm-block">
-                        Design & Develop by Themesbrand
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php
+    require_once "views/layouts/footer.php";
+    ?>
 
     <!-- JAVASCRIPT -->
     <?php

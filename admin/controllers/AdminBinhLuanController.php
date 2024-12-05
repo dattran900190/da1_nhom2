@@ -14,6 +14,11 @@ class QuanLyBinhLuanController
         require_once "./views/binhLuan/ListBinhLuan.php";
     }
 
+    public function danhSachDetailBinhLuan(){
+        $id = $_GET['id'];
+        $listBinhLuan = $this->modleBinhLuan->getAllDetailBinhLuan($id);
+        require_once "./views/binhLuan/ListDetailBinhLuan.php";
+    }
     public function formAddBinhLuan()
     {
         require_once './views/binhLuan/AddBinhLuan.php';

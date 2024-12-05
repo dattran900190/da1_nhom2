@@ -19,6 +19,19 @@ class GioHang
             echo "CÓ LỖI:" . $e->getMessage();
         }
     }
+    public function getSanPhamFromUser($id)
+    {
+        try {
+            $sql = "SELECT * FROM san_phams WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id' => $id
+            ]);
+            return $stmt->fetch();
+        } catch (Exception $e) {
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
+    }
     public function getDetailGioHang($id)
     {
         try {
@@ -30,6 +43,23 @@ class GioHang
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
                 ':gio_hang_id' => $id
+            ]);
+            return $stmt->fetchAll();
+        } catch (Exception $e) {
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
+    }
+    public function getDetailSanPhamMuaNgay($san_pham_id)
+    {
+        try {
+            $sql = "SELECT chi_tiet_gio_hangs.*, san_phams.ten_san_pham, san_phams.hinh_anh, san_phams.gia_san_pham, san_phams.gia_khuyen_mai, kich_cos.ten_kich_co 
+            FROM chi_tiet_gio_hangs
+            INNER JOIN san_phams ON chi_tiet_gio_hangs.san_pham_id = san_phams.id
+            INNER JOIN kich_cos ON chi_tiet_gio_hangs.kich_co = kich_cos.id
+            WHERE chi_tiet_gio_hangs.san_pham_id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':id' => $san_pham_id
             ]);
             return $stmt->fetchAll();
         } catch (Exception $e) {

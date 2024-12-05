@@ -20,40 +20,15 @@ require_once "layout/menu.php";
                 <?= formatPrice($detailSanPham['gia_khuyen_mai']) == 0 ? formatPrice($detailSanPham['gia_san_pham']) : formatPrice($detailSanPham['gia_khuyen_mai']) ?>
                 VND
             </div>
-            <!-- <form action="<?= BASE_URL . '?act=them-gio-hang' ?>" method="POTS">
-                <div class="sizes d-flex justify-content-center">
-                    <?php foreach ($listKichCo as $kichCo) : ?>
-                        <div class="size">
-                            <a href=""><?= $kichCo['ten_kich_co'] ?></a>
-                        </div>
-
-                    <?php endforeach ?>
-                </div>
-            </form>
-           
-            <form action="<?= BASE_URL . '?act=them-gio-hang' ?>" method="post">
-                <div class="mb-3">
-                    Số lượng: <input type="hidden" name="san_pham_id" value="<?= $detailSanPham['id'] ?>">
-                  
-                    <div class="quantity d-flex align-items-center">
-                        <button type="button" class="btn btn-outline-secondary" id="decrease">-</button>
-                        <input type="text" class="form-control text-center mx-2" id="cart_quantity" value="1" min="0" name="so_luong" style="width: 60px;">
-                        <button type="button" class="btn btn-outline-secondary" id="increase">+</button>
-                    </div>
-                </div>
-                <div class="mua-hang d-grid">
-                    <button type="submit" style="background-color: white; color: black;">Thêm vào giỏ</button>
-                </div>
-            </form> -->
             <form action="<?= BASE_URL . '?act=them-gio-hang' ?>" method="POST" id="add-to-cart-form">
                 <div class="sizes d-flex justify-content-center flex-wrap mb-3">
                     <?php foreach ($listKichCo as $kichCo) : ?>
-                            <div class="size px-2">
-                                <input type="radio" id="size_<?= $kichCo['id'] ?>" name="kich_co" value="<?= $kichCo['id'] ?>" class="btn-check" required>
-                                <label class="btn btn-outline-secondary" for="size_<?= $kichCo['id'] ?>">
-                                    <?= $kichCo['ten_kich_co'] ?>
-                                </label>
-                            </div>
+                        <div class="size px-2">
+                            <input type="radio" id="size_<?= $kichCo['id'] ?>" name="kich_co" value="<?= $kichCo['id'] ?>" class="btn-check" required>
+                            <label class="btn btn-outline-secondary" for="size_<?= $kichCo['id'] ?>">
+                                <?= $kichCo['ten_kich_co'] ?>
+                            </label>
+                        </div>
                     <?php endforeach; ?>
                 </div>
 
@@ -65,7 +40,7 @@ require_once "layout/menu.php";
                     <label for="cart_quantity" class="form-label">Số lượng:</label>
                     <div class="quantity d-flex align-items-center">
                         <button type="button" class="btn btn-outline-secondary" id="decrease">-</button>
-                        <input type="number" class="form-control text-center mx-2" id="cart_quantity" name="so_luong" value="1" min="1" style="width: 60px;" required>
+                        <input type="number" class="form-control text-center mx-2" id="cart_quantity" name="so_luong" value="1" min="1" max="<?= $detailSanPham['so_luong'] ?>" style="width: 60px;" required>
                         <button type="button" class="btn btn-outline-secondary" id="increase">+</button>
                     </div>
                 </div>
@@ -73,18 +48,26 @@ require_once "layout/menu.php";
                 <div class="mua-hang d-grid">
                     <button type="submit" style="background-color: white; color: black;">Thêm vào giỏ</button>
                 </div>
-                
+
             </form>
             <div class="mua-hang">
-                <input type="hidden" name="mua_ngay" value="<?= $detailSanPham['id'] ?>">
-                <a href="<?= BASE_URL . '?act=thanh-toan' ?>"><button>Mua ngay</button></a>
+                <!-- <form action="<?= BASE_URL . '?act=thanh-toan-mua-ngay' ?>" method="post">
+                    <input type="hidden" name="id_san_pham" value="<?= $detailSanPham['id'] ?>">
+                    <input type="hidden" name="gia_san_pham"
+                        value="<?= $detailSanPham['gia_khuyen_mai'] == 0 ? $detailSanPham['gia_san_pham'] : $detailSanPham['gia_khuyen_mai'] ?>">
+                        <input type="hidden" name="kich_co" value="">
+                    <input type="hidden" name="so_luong" id="hidden_quantity"> -->
+
+                <button type="submit">Mua ngay</button>
+                <!-- </form> -->
             </div>
+
             <div class="chi-tiet-san-pham">
                 <h5>Chi tiết sản phẩm: </h5>
                 <br>
                 <p>Mô tả sản phẩm: <?= $detailSanPham['mo_ta'] ?></p>
                 <p>Kích thước: S - M - L - XL</p>
-                
+
             </div>
             <?php
             // Kiểm tra tên danh mục và hiển thị ảnh size tương ứng
@@ -106,46 +89,58 @@ require_once "layout/menu.php";
 
     <div class="comment-rating-form">
         <div class="comment-section" style="background-color: #f9f9f9; ">
-            <h5 class="comment-reply-title" style="padding-left: 20px;">ĐÁNH GIÁ SẢN PHẨM</h5>
-            <div class="khach-hang">
-                <div class="comment-header">
-                    <div class="user-info">
-                        <img src="user-avatar.jpg" alt="User Avatar" class="user-avatar">
-                        <span class="username">Trần Đật</span>
-                        <span class="comment-time">11-11-2024</span>
+            <br>
+            <h5 class="comment-reply-title" style="padding-left: 20px;">BÌNH LUẬN SẢN PHẨM</h5>
+            <?php foreach ($listBinhLuan as $binhLuan) { ?>
+                <div class="khach-hang">
+                    <div class="comment-header">
+                        <div class="user-info">
+                            <img src="<?= BASE_URL . $binhLuan['anh_dai_dien'] ?>" alt="User Avatar" class="user-avatar">
+                            <span class="username"><?= $binhLuan['ho_ten'] ?></span>
+                            <span class="comment-time"><?= $binhLuan['ngay_dang'] ?></span>
+                        </div>
+
                     </div>
-                    <div class="rating">
-                        <span class="star-rating">⭐⭐⭐⭐⭐</span>
+                    <div class="comment-body">
+                        <p><?= $binhLuan['noi_dung'] ?></p>
                     </div>
                 </div>
-                <div class="comment-body">
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                </div>
-            </div>
+            <?php  } ?>
             <div class="product-rating">
-                <label>Đánh giá:</label>
-                <div class="stars">
-                    <input type="radio" id="star5" name="rating" value="5">
-                    <label for="star5">⭐</label>
-                    <input type="radio" id="star4" name="rating" value="4">
-                    <label for="star4">⭐</label>
-                    <input type="radio" id="star3" name="rating" value="3">
-                    <label for="star3">⭐</label>
-                    <input type="radio" id="star2" name="rating" value="2">
-                    <label for="star2">⭐</label>
-                    <input type="radio" id="star1" name="rating" value="1">
-                    <label for="star1">⭐</label>
-                </div>
+                <?php if (isset($_SESSION['success_message'])): ?>
+                    <div class="alert alert-success">
+                        <?= $_SESSION['success_message'] ?>
+                    </div>
+                    <?php unset($_SESSION['success_message']); ?>
+                <?php endif; ?>
+
+                <?php if (isset($_SESSION['error_message'])): ?>
+                    <div class="alert alert-danger">
+                        <?= $_SESSION['error_message'] ?>
+                    </div>
+                    <?php unset($_SESSION['error_message']); ?>
+                <?php endif; ?>
+
+                <label>Bình luận:</label>
+
             </div>
-            <form id="commentform" class="comment-form">
-                <div class="comment-form-comment">
-                    <textarea textarea="" placeholder="Bình luận *" id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea>
-                    <label for="comment" data-help="Escribe algo! Lo primero que se te ocurra">Comment</label>
-                </div>
-                <div class="form-submit">
-                    <input name="submit" type="submit" id="submit" class="submit" value=" Gửi ">
-                </div>
-            </form>
+            <?php if (!isset($_SESSION['user_client'])) { ?>
+                <p class="text-danger text-center">Vui lòng đăng nhập để gửi bình luận</p><br>
+            <?php } else { ?>
+                <form id="commentform" class="comment-form" action="<?= BASE_URL . '?act=gui-binh-luan' ?>" method="POST">
+                    <div class="comment-form-comment">
+                        <input type="hidden" name="tai_khoan_id" value="<?= $_SESSION['user_client_id'] ?>">
+
+                        <input type="hidden" name="san_pham_id" value="<?= $detailSanPham['id'] ?>">
+                        <textarea textarea="" placeholder="Bình luận *" id="noi_dung" name="noi_dung" cols="45" rows="8" maxlength="65525" required></textarea>
+
+                    </div>
+                    <div class="form-submit">
+                        <input type="submit" id="submit" class="submit" value=" Gửi ">
+                    </div>
+                </form>
+            <?php } ?>
+
         </div>
     </div>
 
@@ -175,7 +170,7 @@ require_once "layout/menu.php";
                         </a>
                         <div class="title"><?= $sanPham['ten_san_pham'] ?></div>
                         <div class="price"><?= formatPrice($sanPham['gia_san_pham']) ?> VND</div>
-                      
+
                     </div>
                 <?php
                     $count++; // Tăng bộ đếm số lượng sản phẩm đã hiển thị
@@ -225,6 +220,23 @@ require_once "layout/menu.php";
             }
         });
     });
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     const sizeRadios = document.querySelectorAll('input[name="kich_co"]');
+    //     const hiddenSizeInput = document.querySelector('form[action*="thanh-toan-mua-ngay"] input[name="kich_co"]');
+
+    //     sizeRadios.forEach(radio => {
+    //         radio.addEventListener('change', () => {
+    //             if (radio.checked) {
+    //                 hiddenSizeInput.value = radio.value; // Update hidden input value
+    //             }
+    //         });
+    //     });
+    // });
+
+    // const buyNowForm = document.querySelector('.mua-hang form');
+    // buyNowForm.addEventListener('submit', () => {
+    //     document.getElementById('hidden_quantity').value = document.getElementById('cart_quantity').value;
+    // });
 </script>
 
 <?php

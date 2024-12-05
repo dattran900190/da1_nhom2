@@ -260,8 +260,8 @@
               <h3 class="my-3">Tên sản phẩm: <?= $sanpham['ten_san_pham'] ?></h3>
 
               <hr>
-              <h4 class="mt-3">Gia tiền: <small><?= $sanpham['gia_san_pham'] ?></small></h4>
-              <h4 class="mt-3">Gia khuyến mãi: <small><?= $sanpham['gia_khuyen_mai'] ?></small></h4>
+              <h4 class="mt-3">Gia tiền: <small><?= number_format($sanpham['gia_san_pham'], 0, ',', '.')  ?> VNĐ</small></h4>
+              <h4 class="mt-3">Gia khuyến mãi: <small><?=  number_format($sanpham['gia_khuyen_mai'], 0, ',', '.') ?> VNĐ</small></h4>
               <h4 class="mt-3">Số lượng: <small><?= $sanpham['so_luong'] ?></small></h4>
               <h4 class="mt-3">Ngày nhập: <small><?= $sanpham['ngay_nhap'] ?></small></h4>
               <h4 class="mt-3">Danh mục: <small><?= $sanpham['ten_danh_muc'] ?></small></h4>

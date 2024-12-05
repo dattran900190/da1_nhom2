@@ -74,13 +74,13 @@
                                             $product_total = $sanPham['don_gia'] * $sanPham['so_luong'];
                                             $tong_tien_san_pham += $product_total;
 
-                                            foreach ($maKhuyenMai as $khuyenMai) {
-                                                if ($khuyenMai['loai_khuyen_mai'] == 2) { // Percentage
-                                                    $gia_giam += ($sanPham['don_gia'] * $khuyenMai['muc_giam_gia'] / 100) * $sanPham['so_luong'];
-                                                } else { // Fixed discount
-                                                    $gia_giam += $khuyenMai['muc_giam_gia'] * $sanPham['so_luong'];
-                                                }
-                                            }
+                                            // foreach ($maKhuyenMai as $khuyenMai) {
+                                            //     if ($khuyenMai['loai_khuyen_mai'] == 2) { 
+                                            //         $gia_giam += ($sanPham['don_gia'] * $khuyenMai['muc_giam_gia'] / 100) * $sanPham['so_luong'];
+                                            //     } else { 
+                                            //         $gia_giam += $khuyenMai['muc_giam_gia'] * $sanPham['so_luong'];
+                                            //     }
+                                            // }
                                         }
 
                                         $phivanchuyen = 30000;

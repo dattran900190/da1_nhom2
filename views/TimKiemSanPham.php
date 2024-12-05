@@ -9,7 +9,7 @@ require_once "layout/menu.php";
     <div class="title-san-pham" style="padding-right: 50%;">
     <h4>Kết quả tìm kiếm cho từ khóa: "<?= htmlspecialchars($keyword, ENT_QUOTES, 'UTF-8') ?>"</h4>
     </div>
-
+<br><br>
 
     <div class="tat-ca-san-pham">
         <?php

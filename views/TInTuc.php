@@ -57,24 +57,24 @@ require_once "layout/menu.php";
         </div>
         <div class="mid">
             <div class="tin-tuc">
-                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt=""></a>
+                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/09/h5-blog-img-02.jpg" alt=""></a>
                 <div class="day"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">11/01/2024</a></div>
-                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">How to look outstanding in pastel</a> </div>
+                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Oranges And Lemons For The Fresh Start</a> </div>
             </div>
             <div class="tin-tuc">
-                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt=""></a>
+                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/09/h5-blog-img-04.jpg" alt=""></a>
                 <div class="day"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">11/01/2024</a></div>
-                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Top 10 fashion trend for summer</a> </div>
+                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Different Types Of Japanese Teapots</a> </div>
             </div>
             <div class="tin-tuc">
-                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt=""></a>
+                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/09/h5-blog-img-03.jpg" alt=""></a>
                 <div class="day"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">11/01/2024</a></div>
-                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Crazy fashion with unique moment</a></div>
+                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Let Your Hair Down And Just Have Fun</a></div>
             </div>
             <div class="tin-tuc">
-                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt=""></a>
+                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/10/slide-02.jpg" alt=""></a>
                 <div class="day"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">11/01/2024</a></div>
-                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Crazy fashion with unique moment</a></div>
+                <div class="title"><a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Everything You Need To Buy</a></div>
             </div>
         </div>
     </div>
@@ -88,18 +88,18 @@ require_once "layout/menu.php";
             <div class="main-bai-viet">
                 <div class="bai-viet">
                     <div class="anh-bai-viet">
-                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/08/h1-blog-img-06-768x1005.jpg" alt=""></a>
                     </div>
                     <div class="ngay-thang">
                         <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
                     </div>
                     <div class="title">
-                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Filming from different angles and positions</a>
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">How I’m Styling Everyday Black Outfits</a>
                     </div>
                     <div class="content">
                         <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">
-                            Eu sem integer vitae justo eget magna fermentum iaculis. Amet luctus venenatis lectus magna fringilla urna porttitor rhoncus.
-                            Diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. A condimentum vitae sapien pellentesque habitant morbi.
+                        Lorem ipsum dolor sit amet, consec tetur adip iscing elit. Donec ac lectus mi. Curab itur non ligula facilisis, ultrices ex sed, 
+                        viverra justo. Curabitur con dim entum, sem nec ornare fermentum, augue erat bibe ndum urna, vitae dignissim tellus turpis a est nus.
                         </a>
                     </div>
                     <div class="doc-them">
@@ -108,7 +108,7 @@ require_once "layout/menu.php";
                 </div>
                 <div class="bai-viet">
                     <div class="anh-bai-viet">
-                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
+                        <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/08/h1-blog-img-05.jpg" alt=""></a>
                     </div>
                     <div class="ngay-thang">
                         <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
@@ -196,7 +196,7 @@ require_once "layout/menu.php";
 
                         <div class="thong-tins">
                             <div class="thong-tin">
-                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
+                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src=https://gavino.qodeinteractive.com/wp-content/uploads/2022/08/h1-blog-img-07-768x1005.jpg" alt=""></a>
                                 <div class="content">
                                     <div class="ngay-thang">
                                         <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
@@ -207,7 +207,7 @@ require_once "layout/menu.php";
                                 </div>
                             </div>
                             <div class="thong-tin">
-                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
+                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/08/h1-blog-img-19.jpg" alt=""></a>
                                 <div class="content">
                                     <div class="ngay-thang">
                                         <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
@@ -218,7 +218,7 @@ require_once "layout/menu.php";
                                 </div>
                             </div>
                             <div class="thong-tin">
-                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
+                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/08/h1-blog-img-20.jpg" alt=""></a>
                                 <div class="content">
                                     <div class="ngay-thang">
                                         <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
@@ -229,7 +229,7 @@ require_once "layout/menu.php";
                                 </div>
                             </div>
                             <div class="thong-tin">
-                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://themewagon.github.io/kaira/images/product-item-1.jpg" alt=""></a>
+                                <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>"><img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/08/home-1-img-8.jpg" alt=""></a>
                                 <div class="content">
                                     <div class="ngay-thang">
                                         <a href="<?= BASE_URL . '?act=chi-tiet-tin-tuc' ?>">Ngày đăng: 11/11/2024</a>
@@ -268,11 +268,11 @@ require_once "layout/menu.php";
         <div class="title">TÌM HIỂU THÊM</div>
         <div class="contents">
             <div class="content">
-                <img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/08/blog-sidebarr-img.jpg" alt="">
+                <img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/08/home-1-img-2.jpg" alt="">
                 <div class="text">Nội dung content</div>
             </div>
             <div class="content">
-                <img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/08/blog-sidebarr-img.jpg" alt="">
+                <img src="https://gavino.qodeinteractive.com/wp-content/uploads/2022/08/home-1-img-3.jpg" alt="">
                 <div class="text">Nội dung content</div>
             </div>
         </div>
