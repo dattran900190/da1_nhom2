@@ -13,11 +13,19 @@ class DashboardController {
     public function index() {
 
         $listDonHang = $this->modelDonHang->getAllDetailDonHang();
+        $listAllDonHang = $this->modelDonHang->getAllDonHang();
         $listTaiKhoan = $this->modelTaiKhoan->getAllTaiKhoan();
+        $tongThuNhap = $this->modelDonHang->getTongThuNhap();
+
+        // $don_hang_id = $this->modelDonHang->getAllDonHangID();
+        // $ngayDatDonHang = $this->modelDonHang->getDetailDonHang($don_hang_id);
+        // var_dump($tongThuNhap);die();
 
         $listDetailDonHang = $this->modelDonHang->getAllDetailDonHangSanPhamBanChay();
         $listTaiKhoanKhachHang = $this->modelTaiKhoan->getTaiKhoanKhachHang(2);
-        // var_dump($listTaiKhoanKhachHang);die();
+        // var_dump($listDetailDonHang);die();
+
+        $monthFilter = isset($_GET['monthFilter']) ? $_GET['monthFilter'] : 'this';
 
 
     

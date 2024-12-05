@@ -13,6 +13,7 @@ require_once "layout/menu.php";
                     <th>Ảnh Sản Phẩm</th>
                     <th>Tên Sản Phẩm</th>
                     <th>Số Lượng</th>
+                    <th>Kích cỡ</th>
                     <th>Giá</th>
                     <th>Tổng tiền</th>
                     <th>Xoá</th>
@@ -27,7 +28,7 @@ require_once "layout/menu.php";
                             $tongTien = $gioHang['gia_khuyen_mai'] == 0 ? $gioHang['gia_san_pham'] * $gioHang['so_luong'] : $gioHang['gia_khuyen_mai'] * $gioHang['so_luong'];
                             $tongGioHang += $tongTien;
                         ?>
-                            <tr style="font-size: 15px;">
+                            <tr style="font-size: 15px; text-align: center;">
                                 <td>
                                     <img src="<?= $gioHang['hinh_anh'] ?>" alt="">
                                 </td>
@@ -42,9 +43,10 @@ require_once "layout/menu.php";
                                             <input type="text" class="form-control text-center mx-2 cart-quantity" data-id="<?= $gioHang['id'] ?>" value="<?= $gioHang['so_luong'] ?>" min="1" style="width: 60px;">
                                             <button type="button" class="btn btn-outline-secondary increase-btn" data-id="<?= $gioHang['id'] ?>">+</button>
                                         </div>
-
-
                                     </form>
+                                </td>
+                                <td style="padding-top: 10%;">
+                                    <?= $gioHang['ten_kich_co'] ?>
                                 </td>
                                 <td style="padding-top: 10%;">
                                     <p>

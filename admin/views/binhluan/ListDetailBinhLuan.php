@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS -->
     <?php
     require_once "views/layouts/libs_css.php";
     ?>
@@ -40,17 +41,15 @@
                                 <div class="col-12">
                                     <div class="d-flex align-items-lg-center flex-lg-row flex-column mb-4">
                                         <div class="flex-grow-1">
-                                            <h2 class="text-primary mb-4">Quản lý sản phẩm</h2>
+                                            <h2 class="text-primary mb-4">Quản lý bình luận</h2>
                                         </div>
                                         <div class="flex-shrink-0">
-                                            <a href="<?= BASE_URL_ADMIN ?>?act=form-them-san-pham" class="btn btn-success">
-                                                <i class="fas fa-plus"></i> Thêm mới
-                                            </a>
+                                            
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-md-6">
-                                            <input type="text" id="searchBar" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                                            <input type="text" id="searchBar" class="form-control" placeholder="Tìm kiếm bình luận...">
                                         </div>
                                     </div>
                                     <div class="table-responsive">
@@ -58,53 +57,32 @@
                                             <thead class="table-primary">
                                                 <tr>
                                                     <th>STT</th>
-                                                    <th>Tên Sản Phẩm</th>
-                                                    <th>Giá Sản PHẩm</th>
-                                                    <th>Mức giảm giá</th>
-                                                    <th>Hình ảnh</th>
-                                                    <th>Số Lượng</th>
-                                                    <th>Màu sắc</th>
-                                                    <th>Ngày Nhập</th>
-                                                    <th>Mô Tả</th>
-                                                    <th>Danh mục sản phẩm</th>
-                                                    <th>Bộ sưu tập sản phẩm</th>
-                                                    <th>Trạng Thái</th>
+                                                    <th>Mã sản phẩm</th>
+                                                    <th>Mã người dùng</th>
+                                                    <th>Nọi dung</th>
+                                                    <th>Ngày đăng</th>
+                                                    <th>Trạng thái</th>
                                                     <th>Hành động</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="promoTableBody">
-                                                <?php foreach ($listSanPham as $key => $sanpham): ?>
+                                                <?php foreach ($listBinhLuan as $key => $binhluan): ?>
                                                     <tr>
                                                         <td><?= $key + 1 ?></td>
-                                                        <td><?= $sanpham['ten_san_pham'] ?></td>
-                                                        <td><?= $sanpham['gia_san_pham'] ?></td>
-                                                        <td><?= $sanpham['gia_khuyen_mai'] ?></td>
+                                                        <td><?= $binhluan['san_pham_id'] ?></td>
+                                                        <td><?= $binhluan['tai_khoan_id'] ?></td>
+                                                        <td><?= $binhluan['noi_dung'] ?></td>
+                                                        <td><?= $binhluan['ngay_dang'] ?></td>
                                                         <td>
-                                                            <img src="<?= BASE_URL . $sanpham['hinh_anh'] ?>"
-                                                                style="width: 100px"
-                                                                alt="Hình ảnh sản phẩm">
+                                                            <span class="badge <?= $binhluan['trang_thai'] == 1 ? 'bg-success' : 'bg-danger' ?>">
+                                                                <?= $binhluan['trang_thai'] == 1 ? 'Hiện Bình luận' : 'Ẩn Bình luận' ?>
+                                                            </span>
                                                         </td>
-                                                        <td><?= $sanpham['so_luong'] ?></td>
-                                                        <td><?= $sanpham['ten_mau'] ?></td>
-                                                        <td><?= $sanpham['ngay_nhap'] ?></td>
-                                                        <td><?= $sanpham['mo_ta'] ?></td>
-                                                        <td><?= $sanpham['ten_danh_muc'] ?></td>
-                                                        <td><?= $sanpham['ten_bo_suu_tap'] ?></td>
-                                                        <td><?= $sanpham['trang_thai'] == 1 ? 'Còn hàng' : 'Hết hàng' ?></td>
-
                                                         <td>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=form-sua-san-pham&id=' . $sanpham['id'] ?>" class="btn btn-warning btn-sm">
-                                                                <i class="fas fa-edit"></i> Sửa
-                                                            </a>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-san-pham&id=' . $sanpham['id'] ?>"
-                                                                class="btn btn-danger btn-sm"
-                                                                onclick="return confirm('Bạn có đồng ý xoá hay không?')">
+                                                           
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=xoa-binh-luan&id=' . $binhluan['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
                                                                 <i class="fas fa-trash"></i> Xóa
                                                             </a>
-
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-san-pham&id=' . $sanpham['id'] ?>"
-                                                                class="btn btn-info btn-sm"><i class="bi bi-eye"></i>Xem</a>
-
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>

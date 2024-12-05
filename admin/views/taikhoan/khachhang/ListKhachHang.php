@@ -104,15 +104,15 @@
                                                         <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-tai-khoan-khach-hang&id=' . $taiKhoanKhachHang['id'] ?>" class="btn btn-warning btn-sm">
                                                               <i class="bi bi-eye-fill"></i> Chi tiết
                                                             </a>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=form-sua-tai-khoan-khach-hang&id=' . $taiKhoanKhachHang['id'] ?>" class="btn btn-warning btn-sm">
+                                                            <!-- <a href="<?= BASE_URL_ADMIN . '?act=form-sua-tai-khoan-khach-hang&id=' . $taiKhoanKhachHang['id'] ?>" class="btn btn-warning btn-sm">
                                                                 <i class="fas fa-edit"></i> Sửa
-                                                            </a>
+                                                            </a> -->
                                                             <a href="<?= BASE_URL_ADMIN . '?act=xoa-tai-khoan-khach-hang&id=' . $taiKhoanKhachHang['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý xoá hay không?')">
-                                                                <i class="fas fa-trash"></i> Xóa
+                                                            <i class="bi bi-x-octagon"></i> Cấm
                                                             </a>
-                                                             <a href="<?= BASE_URL_ADMIN . '?act=reset-password&id=' . $taiKhoanKhachHang['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý reset password hay không?')">
+                                                             <!-- <a href="<?= BASE_URL_ADMIN . '?act=reset-password&id=' . $taiKhoanKhachHang['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Bạn có đồng ý reset password hay không?')">
                                                             <i class="bi bi-x-octagon"></i> Reset
-                                                            </a>
+                                                            </a> -->
                                                         </td>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -176,22 +176,9 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> © Velzon.
-                </div>
-                <div class="col-sm-6">
-                    <div class="text-sm-end d-none d-sm-block">
-                        Design & Develop by Themesbrand
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php
+    require_once "views/layouts/footer.php";
+    ?>
 
     <!-- JAVASCRIPT -->
     <?php

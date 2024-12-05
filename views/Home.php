@@ -246,13 +246,13 @@ require_once "layout/header.php";
             <div class="content">Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</div>
         </div>
         <div class="blog">
-            <img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt="">
+            <img src="https://themewagon.github.io/kaira/images/post-image2.jpg" alt="">
             <div class="day">11/01/2024</div>
             <div class="title">Top 10 fashion trend for summer</div>
-            <div class="content">Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</div>
+            <div class="content">Turpis purus, gravida orci, fringilla dignissim lacus, turpis ut suspendisse vel tellus...</div>
         </div>
         <div class="blog">
-            <img src="https://themewagon.github.io/kaira/images/post-image1.jpg" alt="">
+            <img src="https://themewagon.github.io/kaira/images/post-image3.jpg" alt="">
             <div class="day">11/01/2024</div>
             <div class="title">Crazy fashion with unique moment</div>
             <div class="content">Dignissim lacus,turpis ut suspendisse vel tellus.Turpis purus,gravida orci,fringilla...</div>

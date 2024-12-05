@@ -111,6 +111,7 @@ match ($act) {
 
   // -------------Bình Luận ------------------
   'quan-ly-binh-luan'                            => (new QuanLyBinhLuanController())->danhSachBinhLuan(),
+  'danh-sach-binh-luan'                            => (new QuanLyBinhLuanController())->danhSachDetailBinhLuan(),
   'xoa-binh-luan'                            => (new QuanLyBinhLuanController())->deleteBinhLuan(),
   // ------------- end bình luận ------------------
 

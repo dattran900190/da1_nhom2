@@ -32,19 +32,6 @@ require_once "views/layout/css.php";
                             <label for="">Địa chỉ</label>
                             <input type="text" class="form-control" name="dia_chi_nguoi_nhan" value="<?= $user['dia_chi'] ?>" placeholder="Nhập Địa chỉ">
                         </div>
-                        <!-- <div class="mb-3">
-                            <select class="form-select form-select-sm mb-3 p-2" id="city" aria-label=".form-select-sm">
-                                <option value="" selected>Chọn tỉnh thành</option>
-                            </select>
-
-                            <select class="form-select form-select-sm mb-3 p-2" id="district" aria-label=".form-select-sm">
-                                <option value="" selected>Chọn quận huyện</option>
-                            </select>
-
-                            <select class="form-select form-select-sm p-2" id="ward" aria-label=".form-select-sm">
-                                <option value="" selected>Chọn phường xã</option>
-                            </select>
-                        </div> -->
                         <div class="form-floating">
                             <textarea class="form-control" name="ghi_chu" placeholder="Ghi chú đơn hàng (tuỳ chọn)" id="floatingTextarea2" style="height: 100px"></textarea>
                             <label for="floatingTextarea2">Ghi chú</label>

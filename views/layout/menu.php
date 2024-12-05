@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>T-SHIRT STORE</title>
 
 
     <?php
@@ -69,7 +69,7 @@
 
                             <button class="dropbtn">
 
-                                <a href="<?= BASE_URL ?>?act=login">
+                                <a href="">
                                     <span class="material-symbols-outlined">account_circle</span>
                                 </a>
                                 <a for="" style="font-size: 10px; color: black;">

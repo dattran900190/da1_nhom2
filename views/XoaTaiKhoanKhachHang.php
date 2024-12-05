@@ -29,21 +29,23 @@ require_once "layout/menu.php";
     }
 
     .delete-btn {
-      background-color: #f53d2d;
-      color: white;
-      border: none;
-      padding: 10px 20px;
+        background-color: #f53d2d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
     }
+
     .delete-btn:hover {
-      background-color: #d73227;
+        background-color: #d73227;
     }
+
     .delete-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      /* border-top: 1px solid #dee2e6; */
-      padding-top: 15px;
-      margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* border-top: 1px solid #dee2e6; */
+        padding-top: 15px;
+        margin-top: 20px;
     }
 </style>
 
@@ -53,10 +55,10 @@ require_once "layout/menu.php";
             <!-- Sidebar -->
             <div class="col-md-3">
                 <div class="profile-sidebar">
-                    <div class="d-flex align-items-center">
-                        <img src="https://via.placeholder.com/100" alt="Profile" class="profile-photo">
+                <div class="d-flex align-items-center">
+                        <img src="<?= $listTaiKhoan['anh_dai_dien'] ?>" alt="Profile" class="profile-photo">
                         <div class="ms-3">
-                            <h5>dattran9029</h5>
+                            <h5><?= $listTaiKhoan['ho_ten'] ?></h5>
                         </div>
                     </div>
                     <hr>
@@ -73,14 +75,20 @@ require_once "layout/menu.php";
                     <h4>Hồ Sơ Của Tôi</h4>
                     <p class="text-muted">Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
                     <hr>
-                    <form>
-
+                    <form action="<?= BASE_URL . '?act=xoa-tai-khoan-khach-hang' ?>" method="POST" onsubmit="return confirmDelete()">
+                        <input type="hidden" name="id" value="<?= $listTaiKhoan['id'] ?>">
                         <div class="delete-section">
                             <span>Yêu cầu xóa tài khoản</span>
-                            <button class="delete-btn">Xóa bỏ</button>
+                            <button type="submit" class="delete-btn">Xóa bỏ</button>
                         </div>
-
                     </form>
+
+                    <script>
+                        function confirmDelete() {
+                            return confirm("Bạn có chắc chắn muốn xóa tài khoản này không?");
+                        }
+                    </script>
+
                 </div>
             </div>
         </div>

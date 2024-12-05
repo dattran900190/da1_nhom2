@@ -6,10 +6,29 @@ class adminBinhLuan
     {
         $this->conn = connectDB();
     }
+    public function getAllDetailBinhLuan($id)
+    {
+        try {
+            $sql = "SELECT * FROM binh_luans WHERE san_pham_id = :san_pham_id";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([':san_pham_id' => $id]);
+            return $stmt->fetchAll();
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+
     public function getAllBinhLuan()
     {
         try {
-            $sql = "SELECT * FROM binh_luans";
+            $sql = "SELECT 
+                    san_pham_id, 
+                    san_phams.ten_san_pham,
+                    COUNT(*) AS comment_count
+                FROM binh_luans
+                INNER JOIN san_phams ON binh_luans.san_pham_id = san_phams.id
+                GROUP BY san_pham_id, san_phams.ten_san_pham";
 
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
@@ -18,6 +37,7 @@ class adminBinhLuan
             echo "CÓ LỖI: " . $e->getMessage();
         }
     }
+
     public function insertBinhLuan($id, $san_pham_id, $tai_khoan_id, $ngay_dang, $noi_dung, $trang_thai)
     {
         try {
@@ -38,20 +58,22 @@ class adminBinhLuan
         }
     }
 
-    public function getIdBinhLuan($id){
+    public function getIdBinhLuan($id)
+    {
         try {
             $sql = "SELECT * FROM binh_luans WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
-                ':id'=>$id,
+                ':id' => $id,
             ]);
             return $stmt->fetch();
         } catch (Exception $e) {
-            echo "CÓ LỖI:".$e->getMessage();
-        } 
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
     }
 
-    public function updateBinhLuan($id, $san_pham_id, $tai_khoan_id, $ngay_dang, $noi_dung, $trang_thai) {
+    public function updateBinhLuan($id, $san_pham_id, $tai_khoan_id, $ngay_dang, $noi_dung, $trang_thai)
+    {
         try {
             $sql = "UPDATE binh_luans 
             SET san_pham_id = :san_pham_id,
@@ -71,11 +93,12 @@ class adminBinhLuan
             ]);
             return true;
         } catch (Exception $e) {
-            echo "CÓ LỖI:".$e->getMessage();
-        } 
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
     }
 
-    public function deleteBinhLuan($id) {
+    public function deleteBinhLuan($id)
+    {
         try {
             $sql = "DELETE FROM binh_luans WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
@@ -84,11 +107,12 @@ class adminBinhLuan
             ]);
             return true;
         } catch (Exception $e) {
-            echo "CÓ LỖI:".$e->getMessage();
-        } 
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
     }
 
-    public function getBinhLuanFromKhachHang($id) {
+    public function getBinhLuanFromKhachHang($id)
+    {
         try {
             $sql = "SELECT binh_luans.*, san_phams.ten_san_pham 
             FROM binh_luans
@@ -101,7 +125,7 @@ class adminBinhLuan
             $stmt->execute([':id' => $id]);
             return $stmt->fetchAll();
         } catch (Exception $e) {
-            echo "CÓ LỖI:".$e->getMessage();
-        } 
+            echo "CÓ LỖI:" . $e->getMessage();
+        }
     }
 }

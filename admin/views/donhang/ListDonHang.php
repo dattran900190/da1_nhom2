@@ -74,11 +74,11 @@
                                                         <td><?= $donhang['tong_tien'] ?></td>
                                                         <td><?= $donhang['ten_trang_thai'] ?></td>
                                                         <td>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-don-hang&id_don_hang=' . $donhang['id'] ?>" class="btn btn-primary btn-sm">
-                                                                <i class="fa-solid fa-circle-info"></i> Chi tiết
-                                                            </a>
-                                                            <a href="<?= BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $donhang['id'] ?>" class="btn btn-warning btn-sm">
-                                                                <i class="fas fa-edit"></i> Sửa
+                                                            <!-- <a href="<?= BASE_URL_ADMIN . '?act=chi-tiet-don-hang&id_don_hang=' . $donhang['id'] ?>" class="btn btn-primary btn-sm">
+                                                            <i class="fas fa-edit"></i> Chi tiết
+                                                            </a> -->
+                                                            <a href="<?= BASE_URL_ADMIN . '?act=form-sua-don-hang&id_don_hang=' . $donhang['id'] ?>" class="btn btn-primary btn-sm">
+                                                            <i class="fa-solid fa-circle-info"></i> Chi tiết và Sửa trạng thái
                                                             </a>
                                                         </td>
                                                     </tr>
@@ -124,22 +124,9 @@
     </div>
 
 
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> © Velzon.
-                </div>
-                <div class="col-sm-6">
-                    <div class="text-sm-end d-none d-sm-block">
-                        Design & Develop by Themesbrand
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+     <?php
+    require_once "views/layouts/footer.php";
+    ?>
 
     <!-- JAVASCRIPT -->
     <?php

@@ -35,13 +35,17 @@ match ($act) {
     'them-lien-he'=>(new HomeController())->postAddlienHe(),
     'tin-tuc'=>(new HomeController())->tinTuc(),
     'chi-tiet-san-pham'=>(new HomeController())->chiTietSanPham(),
+    // 'mua-ngay'=>(new HomeController())->muaNgay(),
     'chi-tiet-tin-tuc'=>(new HomeController())->chiTietTinTuc(),
     'tim-kiem' => (new HomeController())->timKiem(),
+    'gui-binh-luan' => (new HomeController())->guiBinhLuan(),
+    'sua-khach-hang' => (new HomeController())->suaKhachHang(),
     
     // 'loc-san-pham' => (new HomeController())->locSanPham(),
     'chi-tiet-khach-hang'=>(new HomeController())->chiTietKhachHang(),
     'doi-mat-khau-khach-hang'=>(new HomeController())->doiMatKhauKhachHang(),
     'xoa-tai-khoan-khach-hang'=>(new HomeController())->xoaTaiKhoanKhachHang(),
+    'thong-bao-tai-khoan-da-xoa'=>(new HomeController())->xoaTaiKhoanKhachHangThongBao(),
     
 
     // -------- giỏ hàng -------
@@ -53,6 +57,7 @@ match ($act) {
 
     // -------- thanh toán ---------
     'thanh-toan'=>(new HomeController())->thanhToan(),
+    // 'thanh-toan-mua-ngay'=>(new HomeController())->thanhToanMuaNgay(),
     'xu-ly-thanh-toan'=>(new HomeController())->postThanhToan(),
     'lich-su-mua-hang'=>(new HomeController())->lichSuMuaHang(),
     'chi-tiet-mua-hang'=>(new HomeController())->chiTietMuaHang(),

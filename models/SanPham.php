@@ -80,7 +80,7 @@ class SanPham
         }
     }
 
-    
+
     // public function getSanPhamByBoSuuTap($tenBoSuuTap)
     // {
     //     $sql = "SELECT * FROM san_phams 
@@ -157,6 +157,19 @@ class SanPham
             echo "CÓ LỖI: " . $e->getMessage();
         }
     }
+    public function getSanPhamTheoGia($minPrice, $maxPrice)
+    {
+        // Sử dụng giá khuyến mãi nếu có, nếu không thì dùng giá gốc
+        $sql = "SELECT * FROM san_phams 
+                WHERE (gia_khuyen_mai BETWEEN :minPrice AND :maxPrice OR gia_san_pham BETWEEN :minPrice AND :maxPrice)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':minPrice', $minPrice, PDO::PARAM_INT);
+        $stmt->bindValue(':maxPrice', $maxPrice, PDO::PARAM_INT);
+        $stmt->execute();
+    
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
     public function getSanPhamBoSuuTap($bo_suu_tap_id)
     {
         try {
@@ -233,106 +246,153 @@ class SanPham
         }
     }
 
-
-
-    // public function filterSanPham($filters = [])
+    // public function placeOrder($san_pham_id, $so_luong)
     // {
     //     try {
-    //         // Base sql
-    //         $sql = "SELECT DISTINCT sp.*, 
-    //                     bst.ten_bo_suu_tap AS ten_bo_suu_tap, 
-    //                     dm.ten_danh_muc AS ten_danh_muc 
-    //                 FROM san_phams sp
-    //                 LEFT JOIN bo_suu_tap bst ON sp.bo_suu_tap_id = bst.id
-    //                 LEFT JOIN danh_mucs dm ON sp.danh_muc_id = dm.id
-    //                 LEFT JOIN san_pham_kich_cos ps ON sp.id = ps.san_pham_id
-    //                 LEFT JOIN kich_cos s ON ps.kich_co_id = s.id
-    //                 LEFT JOIN san_pham_maus pc ON sp.id = pc.san_pham_id
-    //                 LEFT JOIN maus c ON pc.mau_id = c.id
-    //                 WHERE 1=1";
+    //         // Start a transaction
+    //         $this->conn->beginTransaction();
 
-    //         // Add conditions dynamically based on filters
-    //         $params = [];
-    //         if (!empty($filters['kich_co'])) {
-    //             $sql .= " AND s.ten_kich_co = :kich_co";
-    //             $params[':kich_co'] = $filters['kich_co'];
-    //         }
-    //         if (!empty($filters['mau'])) {
-    //             $sql .= " AND c.ten_mau = :mau";
-    //             $params[':mau'] = $filters['mau'];
-    //         }
-    //         if (!empty($filters['price_min'])) {
-    //             $sql .= " AND sp.gia_san_pham >= :price_min";
-    //             $params[':price_min'] = $filters['price_min'];
-    //         }
-    //         if (!empty($filters['price_max'])) {
-    //             $sql .= " AND sp.gia_san_pham <= :price_max";
-    //             $params[':price_max'] = $filters['price_max'];
+    //         // Check current stock
+    //         $checkStockSql = "SELECT so_luong FROM san_phams WHERE id = :san_pham_id FOR UPDATE";
+    //         $stmt = $this->conn->prepare($checkStockSql);
+    //         $stmt->execute([':san_pham_id' => $san_pham_id]);
+    //         $product = $stmt->fetch();
+
+    //         if (!$product || $product['so_luong'] < $so_luong) {
+    //             throw new Exception("Not enough stock available for product ID: $san_pham_id");
     //         }
 
-    //         // Add sorting
-    //         if (!empty($filters['sort'])) {
-    //             if ($filters['sort'] === 'newest') {
-    //                 $sql .= " ORDER BY sp.ngay_nhap DESC";
-    //             } elseif ($filters['sort'] === 'price_asc') {
-    //                 $sql .= " ORDER BY sp.gia_san_pham ASC";
-    //             } elseif ($filters['sort'] === 'price_desc') {
-    //                 $sql .= " ORDER BY sp.gia_san_pham DESC";
-    //             }
-    //         }
+    //         // Deduct stock
+    //         $updateStockSql = "UPDATE san_phams SET so_luong = so_luong - :so_luong WHERE id = :san_pham_id";
+    //         $stmt = $this->conn->prepare($updateStockSql);
+    //         $stmt->execute([':so_luong' => $so_luong, ':san_pham_id' => $san_pham_id]);
 
-    //         // Prepare and execute the sql
-    //         $stmt = $this->conn->prepare($sql);
-    //         $stmt->execute($params);
-
-    //         return $stmt->fetchAll();
+    //         // Commit the transaction
+    //         $this->conn->commit();
+    //         return "Order placed successfully!";
     //     } catch (Exception $e) {
-    //         echo "CÓ LỖI: " . $e->getMessage();
+    //         // Roll back the transaction if something goes wrong
+    //         $this->conn->rollBack();
+    //         return "Error placing order: " . $e->getMessage();
     //     }
     // }
 
-    // public function filterProducts($filters)
-    // {
-    //     $sql = "SELECT * FROM san_phams WHERE 1=1";
+    public function getSoLuong($san_pham_id)
+    {
+        try {
+            $sql = "SELECT so_luong FROM san_phams WHERE id = :san_pham_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':san_pham_id' => $san_pham_id
+            ]);
+            return $stmt->fetchColumn(); // trả về cột số lượng
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
 
-    //     // Apply filters dynamically
-    //     if (!empty($filters['danhMucId'])) {
-    //         $sql .= " AND danh_muc_id = :danhMucId";
-    //     }
-    //     if (!empty($filters['boSuuTapId'])) {
-    //         $sql .= " AND bo_suu_tap_id = :boSuuTapId";
-    //     }
-    //     if (!empty($filters['minPrice'])) {
-    //         $sql .= " AND gia >= :minPrice";
-    //     }
-    //     if (!empty($filters['maxPrice'])) {
-    //         $sql .= " AND gia <= :maxPrice";
-    //     }
-    //     if (!empty($filters['keyword'])) {
-    //         $sql .= " AND ten_san_pham LIKE :keyword";
-    //     }
+    public function giamSoLuong($san_pham_id, $so_luong_dat)
+    {
+        try {
+            $sql = "UPDATE san_phams  SET so_luong = so_luong - :so_luong 
+                WHERE id = :san_pham_id AND so_luong >= :so_luong";
 
-    //     $stmt = $this->conn->prepare($sql);
+            $stmt = $this->conn->prepare($sql);
 
-    //     // Bind parameters to the sql
-    //     if (!empty($filters['danhMucId'])) {
-    //         $stmt->bindParam(':danhMucId', $filters['danhMucId'], PDO::PARAM_INT);
-    //     }
-    //     if (!empty($filters['boSuuTapId'])) {
-    //         $stmt->bindParam(':boSuuTapId', $filters['boSuuTapId'], PDO::PARAM_INT);
-    //     }
-    //     if (!empty($filters['minPrice'])) {
-    //         $stmt->bindParam(':minPrice', $filters['minPrice'], PDO::PARAM_INT);
-    //     }
-    //     if (!empty($filters['maxPrice'])) {
-    //         $stmt->bindParam(':maxPrice', $filters['maxPrice'], PDO::PARAM_INT);
-    //     }
-    //     if (!empty($filters['keyword'])) {
-    //         $keyword = '%' . $filters['keyword'] . '%';
-    //         $stmt->bindParam(':keyword', $keyword, PDO::PARAM_STR);
-    //     }
+            // Sử dụng bindValue để gán giá trị cho các tham số
+            // bindValue(':param_name', $value, $data_type);
+            //          :param_name: Tên tham số trong câu lệnh SQL.
+            //          $value: Giá trị bạn muốn gán cho tham số.
+            //          $data_type (tùy chọn): Loại dữ liệu của tham số (ví dụ: PDO::PARAM_INT, PDO::PARAM_STR, PDO::PARAM_BOOL, ...).
+            $stmt->bindValue(':so_luong', $so_luong_dat, PDO::PARAM_INT);
+            $stmt->bindValue(':san_pham_id', $san_pham_id, PDO::PARAM_INT);
+            $stmt->execute();
 
-    //     $stmt->execute();
-    //     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    // }
+            return true;
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+
+    public function tangSoLuong($san_pham_id, $so_luong)
+    {
+        try {
+            $sql = "UPDATE san_phams SET so_luong = so_luong + :so_luong 
+                WHERE id = :san_pham_id";
+            $stmt = $this->conn->prepare($sql);
+
+            // Sử dụng bindValue để gán giá trị cho các tham số
+            // bindValue(':param_name', $value, $data_type);
+            //          :param_name: Tên tham số trong câu lệnh SQL.
+            //          $value: Giá trị bạn muốn gán cho tham số.
+            //          $data_type (tùy chọn): Loại dữ liệu của tham số (ví dụ: PDO::PARAM_INT, PDO::PARAM_STR, PDO::PARAM_BOOL, ...).
+            $stmt->bindValue(':san_pham_id', $san_pham_id, PDO::PARAM_INT);
+            $stmt->bindValue(':so_luong', $so_luong, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return true;
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+
+    public function huyDonHang($san_pham_id, $so_luong)
+    {
+        try {
+
+            $updateStockSql = "UPDATE san_phams SET so_luong = so_luong + :so_luong WHERE id = :san_pham_id";
+            $stmt = $this->conn->prepare($updateStockSql);
+            $stmt->execute([':so_luong' => $so_luong, ':san_pham_id' => $san_pham_id]);
+
+
+            $updateOrderSql = "UPDATE don_hangs SET trang_thai_id = 11 WHERE san_pham_id = :san_pham_id";
+            $stmt = $this->conn->prepare($updateOrderSql);
+            $stmt->execute([':san_pham_id' => $san_pham_id]);
+
+
+            $this->conn->commit();
+            return "Order canceled successfully!";
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+    public function getDonHangId($donHangID)
+    {
+        try {
+            $sql = "SELECT don_hangs.*, 
+                       chi_tiet_don_hangs.san_pham_id, 
+                       chi_tiet_don_hangs.so_luong, 
+                       chi_tiet_don_hangs.don_gia, 
+                       chi_tiet_don_hangs.thanh_tien, 
+                       chi_tiet_don_hangs.kich_co 
+                FROM don_hangs 
+                LEFT JOIN chi_tiet_don_hangs ON don_hangs.id = chi_tiet_don_hangs.don_hang_id
+                WHERE don_hangs.id = :donHangID";
+
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':donHangID', $donHangID, PDO::PARAM_INT);
+            $stmt->execute();
+
+            // Lấy kết quả trực tiếp mà không cần tạo cấu trúc dữ liệu
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+
+
+    public function updateTrangThaiDonHang($san_pham_id, $trang_thai_id)
+    {
+        try {
+            $sql = "UPDATE don_hangs SET trang_thai_id = :trang_thai_id WHERE id = :san_pham_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':trang_thai_id', $trang_thai_id, PDO::PARAM_STR);
+            $stmt->bindValue(':san_pham_id', $san_pham_id, PDO::PARAM_INT);
+
+            return $stmt->execute(); // Returns true if the query was successful
+        } catch (PDOException $e) {
+            echo "CÓ LỖI: " . $e->getMessage();
+        }
+    }
+
 }
