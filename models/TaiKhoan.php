@@ -55,22 +55,24 @@ class taiKhoan
         try {
             $chuc_vu_id = 2;
             $hashedPassword = password_hash($mat_khau, PASSWORD_BCRYPT);
-            $sql = $sql = "INSERT INTO tai_khoans (ho_ten, email, mat_khau, chuc_vu_id) VALUES (:ho_ten, :email, :mat_khau, :chuc_vu_id)";
-
-
+            $sql = "INSERT INTO tai_khoans (ho_ten, email, mat_khau, chuc_vu_id) 
+                    VALUES (:ho_ten, :email, :mat_khau, :chuc_vu_id)";
+    
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([
                 ':ho_ten' => $ho_ten,
                 ':email' => $email,
                 ':mat_khau' => $hashedPassword,
-                ':chuc_vu_id' => $chuc_vu_id
+                ':chuc_vu_id' => $chuc_vu_id,
             ]);
+    
             return $this->conn->lastInsertId();
         } catch (Exception $e) {
             echo "LỖI: " . $e->getMessage();
             return false;
         }
     }
+    
     public function getIdTaiKhoan($id)
     {
         try {

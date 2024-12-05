@@ -7,7 +7,7 @@ require_once "layout/menu.php";
 <div class="main-content">
     <div class="main-gio-hang container">
         <div class="gio-hang container">
-            <h2>GIỎ HÀNG</h2>
+            <h2>LỊCH SỬ ĐẶT HÀNG</h2>
             <table class="table">
                 <thead>
                     <th>Mã đơn hàng</th>

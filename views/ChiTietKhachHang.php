@@ -67,12 +67,14 @@ require_once "layout/menu.php";
                     <p class="text-muted">Quản lý thông tin hồ sơ để bảo mật tài khoản</p>
                     <hr>
                     <h3 class="text-center">
-                    <?php if (isset($_SESSION['success'])) {
-                        echo $_SESSION['success'];
-                    }?>
+                        <?php if (isset($_SESSION['success'])) {
+                            echo $_SESSION['success'];
+                        } ?>
                     </h3>
                     <form action="<?= BASE_URL . '?act=sua-khach-hang' ?>" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="<?= $listTaiKhoan['id'] ?>">
+                        <?php if (isset($_SESSION['user_client'])) { ?>
+                            <input type="hidden" name="id" value="<?= $_SESSION['user_client_id'] ?>">
+                        <?php } ?>
                         <div class="mb-3">
                             <label for="username" class="form-label">Tên đăng nhập: <?= $listTaiKhoan['email'] ?></label>
                         </div>
@@ -124,7 +126,7 @@ require_once "layout/menu.php";
 <br>
 <br>
 
-<?php unset($_SESSION['errors'], $_SESSION['success'])?>
+<?php unset($_SESSION['errors'], $_SESSION['success']) ?>
 
 <?php
 require_once "layout/footer.php"
