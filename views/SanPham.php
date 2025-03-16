@@ -68,9 +68,9 @@ require_once "layout/menu.php";
             </div>
 
             <!-- <div class="dropdown-content">
-                <?php foreach ($listMauSanPham as $listMauSanPham): ?>
+                <?php foreach ($listMauSanPham as $MauSanPham): ?>
                     <a href="<?= BASE_URL . '?act=san-pham&mau-sac=' . urlencode($mau['id']) ?>">
-                        <?= $listMauSanPham['ten_mau'] ?>
+                        <?= $MauSanPham['ten_mau'] ?>
                     </a>
                 <?php endforeach; ?>
             </div> -->
