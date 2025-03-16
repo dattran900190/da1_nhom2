@@ -81,7 +81,6 @@ require_once "views/layout/css.php";
                         </div>
                     </div>
 
-
                 </div>
             </div>
 
@@ -101,7 +100,7 @@ require_once "views/layout/css.php";
                         <tbody>
                             <tr style="border-bottom: 1px solid #ccc; padding: 10px 0;">
                                 <td style="padding: 10px;">
-                                    <img src="<?= $sanPham['hinh_anh'] ?>" alt="Sản phẩm">
+                                    <img src="<?= $sanPham['hinh_anh'] ?>" alt="Sản phẩm" >
                                 </td>
                                 <td style="padding: 20px; line-height: 20px; font-size: 12px;">
                                     <?= $sanPham['ten_san_pham'] ?><br>
@@ -115,6 +114,8 @@ require_once "views/layout/css.php";
                     </table>
 
                 <?php endforeach; ?>
+
+
                 <hr>
                 <div class="ma-giam-gia mb-3">
                     <input type="voucher" class="form-control" id="voucher" placeholder="Nhập mã giảm giá">
