@@ -225,25 +225,7 @@ class HomeController
         exit();
     }
 
-    // public function guiBinhLuan()
-    // {
-    //     if ($_SERVER['REQUEST_METHOD'] == 'POST'  && isset($_SESSION['user_client'])) {
-    //         // Lấy ra dl
-    //         // var_dump($_SESSION['user_client']);die();
-    //         // var_dump($_POST);die();
 
-
-    //         $tai_khoan_id = $_SESSION['user_client_id'];
-    //         // var_dump($tai_khoan_id);die();
-    //         $noi_dung = $_POST['noi_dung'] ?? '';
-    //         $san_pham_id = $_POST['san_pham_id'] ?? '';
-    //         $ngay_dang = date('Y-m-d H:i:s');
-    //         $status = $this->modelTaiKhoan->binhLuan($tai_khoan_id, $san_pham_id, $noi_dung, $ngay_dang);
-    //         // var_dump($status);die();
-    //         header('Location:' . BASE_URL . '?act=chi-tiet-san-pham&id=' . $san_pham_id);
-    //         exit();
-    //     }
-    // }
     public function guiBinhLuan()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST'  && isset($_SESSION['user_client'])) {
@@ -360,70 +342,7 @@ class HomeController
         require_once './views/LienHe.php';
     }
 
-    // public function postAddLienHe()
-    // {
-    //     if (isset($_SESSION['user_client'])) {
-    //         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //             // Lấy dữ liệu từ form
-    //             $ho_ten = $_POST['ho_ten'];
-    //             $email = $_POST['email'];
-    //             $so_dien_thoai = $_POST['so_dien_thoai'];
-    //             $chu_de_lien_he = $_POST['chu_de_lien_he'];
-    //             $noi_dung = $_POST['noi_dung'];
-
-    //             // Lấy ID tài khoản từ session
-    //             $tai_khoan_id = $_SESSION['user_client_id'];
-    //             // var_dump($tai_khoan_id);die;
-    //             // var_dump($_POST);die;
-    //             // Kiểm tra dữ liệu đầu vào
-    //             $errors = [];
-    //             if (empty($ho_ten)) {
-    //                 $errors['ho_ten'] = 'Họ tên không được để trống';
-    //             }
-    //             if (empty($email)) {
-    //                 $errors['email'] = 'Email không được để trống';
-    //             }
-    //             if (empty($so_dien_thoai)) {
-    //                 $errors['so_dien_thoai'] = 'Số điện thoại không được để trống';
-    //             }
-    //             if (empty($chu_de_lien_he)) {
-    //                 $errors['chu_de_lien_he'] = 'Chủ đề liên hệ không được để trống';
-    //             }
-    //             if (empty($noi_dung)) {
-    //                 $errors['noi_dung'] = 'Nội dung không được để trống';
-    //             }
-
-    //             // Lưu lỗi vào session (nếu có)
-    //             $_SESSION['errors'] = $errors;
-
-    //             if (empty($errors) && $tai_khoan_id !== null) {
-    //                 // Nếu không có lỗi và có ID tài khoản
-    //                 $result = $this->modelLienHe->insertLienHe(
-    //                     $tai_khoan_id,
-    //                     $ho_ten,
-    //                     $email,
-    //                     $so_dien_thoai,
-    //                     $chu_de_lien_he,
-    //                     $noi_dung
-    //                 );
-
-    //                 if ($result) {
-    //                     // Thành công, chuyển hướng
-    //                     $_SESSION['flash'] = 'Thêm liên hệ thành công!';
-    //                     header('Location: ' . BASE_URL . '?act=lien-he');
-    //                     exit();
-    //                 } else {
-    //                     $_SESSION['flash'];
-    //                 }
-    //             }
-    //         }
-    //     } else {
-    //         $_SESSION['flash'] = 'Vui lòng đăng nhập trước khi gửi liên hệ!';
-    //         header('Location: ' . BASE_URL . '?act=login');
-    //         exit();
-    //     }
-    // }
-
+   
     public function postAddLienHe()
     {
         if (isset($_SESSION['user_client'])) {
@@ -492,35 +411,7 @@ class HomeController
         }
     }
 
-    // public function postLogin()
-    // {
-    //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //         $email = $_POST['email'];
-    //         $password = $_POST['password'];
 
-
-    //         // Xử lý kiểm tra thông tin đăng nhập
-    //         $user = $this->modelTaiKhoan->checkLogin($email, $password);
-
-    //         // var_dump($user);die;
-    //         if ($user && $user == $email) { // Trường hợp đăng nhập thành công
-    //             // Lưu thông tin vào session
-    //             // var_dump($user['email']);die();
-    //             $_SESSION['user_client'] = $user;
-    //             // $_SESSION['user_client_id'] = $user['id'];
-    //             header("Location: " . BASE_URL);
-    //             exit();
-    //         } else {
-    //             // Lỗi thì lưu vào session 
-    //             $_SESSION['erorrs'] = $user;
-    //             // var_dump($_SESSION['erorrs']);die();
-    //             $_SESSION['flash'] = true;
-
-    //             header("Location: " . BASE_URL . '?act=login');
-    //             exit();
-    //         }
-    //     }
-    // }
     public function postLogin()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -552,34 +443,7 @@ class HomeController
     }
 
 
-    // public function postDangKy()
-    // {
-    //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //         $ho_ten = $_POST['ho_ten'];
-    //         $email = $_POST['email'];
-    //         $mat_khau = $_POST['mat_khau'];
-
-
-    //         // Kiểm tra nếu email đã tồn tại
-    //         $existingUser = $this->modelTaiKhoan->getTaiKhoanFromEmail($email);
-    //         if ($existingUser) {
-    //             echo "<script>alert('Email đã tồn tại! Vui lòng thử lại.');</script>";
-    //             header("Location: " . BASE_URL . "?act=dang-ky");
-    //             exit();
-    //         }
-
-
-    //         // Thêm tài khoản mới
-    //         $userId = $this->modelTaiKhoan->addTaiKhoan($ho_ten, $email, $mat_khau);
-    //         if ($userId) {
-    //             echo "<script>alert('Đăng ký thành công! Vui lòng đăng nhập.');</script>";
-    //             header("Location: " . BASE_URL . "?act=login");
-    //         } else {
-    //             echo "<script>alert('Có lỗi xảy ra. Vui lòng thử lại sau.');</script>";
-    //         }
-    //     }
-    // }
-    public function dangKy()
+        public function dangKy()
     {
 
         require_once './views/auth/formRegister.php';

@@ -24,6 +24,7 @@
                 window.location.href = '<?php echo BASE_URL; ?>?act=lich-su-mua-hang';
             }
         };
+        
         setInterval(checkPaymentStatus, 5000); // Check every 5 seconds
     </script>
 </body>

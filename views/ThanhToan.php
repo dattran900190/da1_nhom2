@@ -115,8 +115,6 @@ require_once "views/layout/css.php";
                     </table>
 
                 <?php endforeach; ?>
-
-
                 <hr>
                 <div class="ma-giam-gia mb-3">
                     <input type="voucher" class="form-control" id="voucher" placeholder="Nhập mã giảm giá">
