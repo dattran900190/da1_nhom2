@@ -74,5 +74,13 @@ match ($act) {
     'dang-ky' => (new HomeController())->dangKy(),
     'check-dang-ky' => (new HomeController())->postDangKy(),
 
+    'show-qr' => (new HomeController())->showQr(),
+'check-payment-status' => (new HomeController())->checkPaymentStatus(),
+'vnpay-return' => (new HomeController())->handleVNPayReturn(),
+
 
 };
+// if (isset($_GET['act']) && $_GET['act'] == 'vnpay-return') {
+//     $checkoutController = new HomeController();
+//     $checkoutController->handleVNPayReturn();
+// }

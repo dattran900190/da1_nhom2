@@ -1,4 +1,6 @@
 <?php
+
+
 class HomeController
 {
     public $modelSanPham;
@@ -584,9 +586,10 @@ class HomeController
         deleteSessionError();
         exit();
     }
-    
+
     public function postDangKy()
     {
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $ho_ten = $_POST['ho_ten'];
             $email = $_POST['email'];
@@ -809,183 +812,6 @@ class HomeController
         }
     }
 
-    // public function thanhToanMuaNgay()
-    // {
-
-    //     $listSanPham = $this->modelSanPham->getAllProduct();
-    //     // var_dump($_POST);die();
-    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //         $productId = $_POST['id_san_pham'];
-    //         $quantity = (int)$_POST['so_luong'];
-    //         $size = $_POST['kich_co'];
-    //         $price = $_POST['gia_san_pham'];
-
-    //         if (isset($_SESSION['user_client'])) {
-    //             $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
-    //             require_once './views/ThanhToan.php';
-    //         } else {
-    //             $_SESSION['message'] = 'Bạn chưa đăng nhập.';
-    //             header('Location: ' . BASE_URL . '?act=login');
-    //             die();
-    //         }
-    //     } else {
-    //         header('Location: ' . BASE_URL);
-    //         die();
-    //     }
-    // }
-
-    // public function postThanhToan()
-    // {
-    //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //         $ten_nguoi_nhan = $_POST["ten_nguoi_nhan"];
-    //         $email_nguoi_nhan = $_POST["email_nguoi_nhan"];
-    //         $sdt_nguoi_nhan = $_POST["sdt_nguoi_nhan"];
-    //         $dia_chi_nguoi_nhan = $_POST["dia_chi_nguoi_nhan"];
-    //         $ghi_chu = $_POST["ghi_chu"];
-    //         $tong_tien = $_POST["tong_tien"];
-    //         $phuong_thuc_thanh_toan_id = $_POST["phuong_thuc_thanh_toan_id"];
-
-    //         $ngay_dat =  date('Y-m-d');
-    //         $trang_thai_id = 1;
-    //         $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
-    //         $tai_khoan_id = $user['id'];
-
-    //         $ma_don_hang = 'DH-' . rand(1000, 9999);
-
-    //         // Thêm thông tin vào db
-
-    //         $donHang = $this->modelDonHang->addDonHang(
-    //             $tai_khoan_id,
-    //             $ten_nguoi_nhan,
-    //             $email_nguoi_nhan,
-    //             $sdt_nguoi_nhan,
-    //             $dia_chi_nguoi_nhan,
-    //             $ghi_chu,
-    //             $tong_tien,
-    //             $phuong_thuc_thanh_toan_id,
-    //             $ngay_dat,
-    //             $ma_don_hang,
-    //             $trang_thai_id
-    //         );
-    //         // Lấy thông tin giỏ hàng của người dùng
-    //         $gioHang = $this->modelGioHang->getGiohangFromUser($tai_khoan_id);
-
-    //         // Lưu sản phẩm vào chi tiết đơn hàng
-    //         if ($donHang) {
-    //             $chiTietGioHang = $this->modelGioHang->getDetailGiohang($gioHang['id']);
-    //             // Thêm từng sản phẩm từ giỏ hàng vào bảng chi tiết đơn hàng
-    //             foreach ($chiTietGioHang as $item) {
-    //                 $donGia = $item['gia_khuyen_mai'] ?? $item['gia_san_pham'];
-
-    //                 $this->modelDonHang->addChiTietDonHang(
-    //                     $donHang, //ID Đơn hàng vừa tạo
-    //                     $item['san_pham_id'], // ID sản phẩm
-    //                     $donGia, // Đơn giá láy được từ sản phẩm
-    //                     $item['so_luong'], // Số lượng 
-    //                     $donGia * $item['so_luong'] // Thành tiền
-
-    //                 );
-    //             }
-
-    //             // Sau khi thêm xong phải xoá sản phẩm trong giỏ hàng đi
-    //             // Xoá toàn bộ sản phẩm trong chi tiết giỏ hàng
-    //             $this->modelGioHang->deleteDetailGioHang($gioHang['id']);
-
-    //             // Xoá thông tin giỏ hàng người dùng
-    //             $this->modelGioHang->deleteGioHang($tai_khoan_id);
-
-    //             // chuyển hướng về trang lịch sử mua hàng
-    //             header("Location: " . BASE_URL . '?act=lich-su-mua-hang');
-    //             exit;
-    //         } else {
-    //             var_dump("Lỗi đặt hàng. Vui lòng thử lại sau");
-    //             die;
-    //         }
-    //     }
-    // }
-
-    // lần trừ số lượng
-    // public function postThanhToan()
-    // {
-    //     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    //         $ten_nguoi_nhan = $_POST["ten_nguoi_nhan"];
-    //         $email_nguoi_nhan = $_POST["email_nguoi_nhan"];
-    //         $sdt_nguoi_nhan = $_POST["sdt_nguoi_nhan"];
-    //         $dia_chi_nguoi_nhan = $_POST["dia_chi_nguoi_nhan"];
-    //         $ghi_chu = $_POST["ghi_chu"];
-    //         $tong_tien = $_POST["tong_tien"];
-    //         $phuong_thuc_thanh_toan_id = $_POST["phuong_thuc_thanh_toan_id"];
-
-    //         $ngay_dat =  date('Y-m-d');
-    //         $trang_thai_id = 1;
-    //         $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
-    //         $tai_khoan_id = $user['id'];
-
-    //         $ma_don_hang = 'DH-' . rand(1000, 9999);
-
-    //         // Thêm thông tin vào db
-
-    //         $donHang = $this->modelDonHang->addDonHang(
-    //             $tai_khoan_id,
-    //             $ten_nguoi_nhan,
-    //             $email_nguoi_nhan,
-    //             $sdt_nguoi_nhan,
-    //             $dia_chi_nguoi_nhan,
-    //             $ghi_chu,
-    //             $tong_tien,
-    //             $phuong_thuc_thanh_toan_id,
-    //             $ngay_dat,
-    //             $ma_don_hang,
-    //             $trang_thai_id
-    //         );
-    //         // Lấy thông tin giỏ hàng của người dùng
-    //         $gioHang = $this->modelGioHang->getGiohangFromUser($tai_khoan_id);
-
-    //         // Lưu sản phẩm vào chi tiết đơn hàng
-    //         if ($donHang) {
-    //             $gioHang = $this->modelGioHang->getGioHangFromUser($tai_khoan_id);
-    //             $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
-
-    //             foreach ($chiTietGioHang as $item) {
-    //                 $donGia = $item['gia_khuyen_mai'] ?? $item['gia_san_pham'];
-
-    //                 // Add to order details
-    //                 $this->modelDonHang->addChiTietDonHang(
-    //                     $donHang, //ID Đơn hàng vừa tạo
-    //                     $item['san_pham_id'], // ID sản phẩm
-    //                     $donGia, // Đơn giá láy được từ sản phẩm
-    //                     $item['so_luong'], // Số lượng 
-    //                     $donGia * $item['so_luong'] // Thành tiền
-
-    //                 );
-
-
-    //                 $currentStock = $this->modelSanPham->getSoLuong($item['san_pham_id']);
-    //                 if ($currentStock < $item['so_luong']) {
-    //                     die("Not enough stock for product ID: " . $item['san_pham_id']);
-    //                 }
-    //                 // Giảm số lu
-    //                 $capNhatSoLuong = $this->modelSanPham->reduceStock($item['san_pham_id'], $item['so_luong']);
-    //                 if (!$capNhatSoLuong) {
-    //                     $currentStock = $this->modelSanPham->getSoLuong($item['san_pham_id']);
-    //                     die("Failed to update stock for product ID: " . $item['san_pham_id'] .
-    //                         ". Current stock: " . $currentStock .
-    //                         ", Requested: " . $item['so_luong']);
-    //                 }
-    //             }
-
-    //             // Clear cart after successful order placement
-    //             $this->modelGioHang->deleteDetailGioHang($gioHang['id']);
-    //             $this->modelGioHang->deleteGioHang($tai_khoan_id);
-
-    //             // Redirect to order history
-    //             header("Location: " . BASE_URL . '?act=lich-su-mua-hang');
-    //             exit;
-    //         } else {
-    //             die("Error placing the order. Please try again later.");
-    //         }
-    //     }
-    // }
 
     public function postThanhToan()
     {
@@ -997,85 +823,302 @@ class HomeController
             $ghi_chu = $_POST["ghi_chu"];
             $tong_tien = $_POST["tong_tien"];
             $phuong_thuc_thanh_toan_id = $_POST["phuong_thuc_thanh_toan_id"];
-
-            $ngay_dat =  date('Y-m-d');
+    
+            $ngay_dat = date('Y-m-d');
             $trang_thai_id = 1;
             $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
             $tai_khoan_id = $user['id'];
-
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
+    
             $ma_don_hang = 'DH-' . rand(1000, 9999);
-
-            // Thêm thông tin vào db
-
-            $donHang = $this->modelDonHang->addDonHang(
-                $tai_khoan_id,
-                $ten_nguoi_nhan,
-                $email_nguoi_nhan,
-                $sdt_nguoi_nhan,
-                $dia_chi_nguoi_nhan,
-                $ghi_chu,
-                $tong_tien,
-                $phuong_thuc_thanh_toan_id,
-                $ngay_dat,
-                $ma_don_hang,
-                $trang_thai_id
-            );
-            // Lấy thông tin giỏ hàng của người dùng
-            $gioHang = $this->modelGioHang->getGiohangFromUser($tai_khoan_id);
-
-            // Lưu sản phẩm vào chi tiết đơn hàng
-            if ($donHang) {
-                $gioHang = $this->modelGioHang->getGioHangFromUser($tai_khoan_id);
-                $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
-
-                foreach ($chiTietGioHang as $item) {
-                    $donGia = $item['gia_khuyen_mai'] != 0 ? $item['gia_khuyen_mai'] : $item['gia_san_pham'];
-
-                    $kichCo = $item['ten_kich_co'];
-
-                    // Thêm vào chi tiết đơn hàng
-                    $this->modelDonHang->addChiTietDonHang(
-                        $donHang, //ID Đơn hàng vừa tạo
-                        $item['san_pham_id'], // ID sản phẩm
-                        $donGia, // Đơn giá láy được từ sản phẩm
-                        $item['so_luong'], // Số lượng 
-                        $kichCo, // kích cỡ
-                        $donGia * $item['so_luong'] // Thành tiền
-
+    
+            // Thanh toán online (Redirect flow for VNPay)
+            if ($phuong_thuc_thanh_toan_id == 2) {
+                // Cấu hình VNPay
+                $vnp_TmnCode = '84OESO6O'; // Mã Terminal từ VNPay Sandbox
+                $vnp_HashSecret = '6G3CEOJP0X8B7IVVEHH13OSX7YHKHRG9'; // Chuỗi bí mật
+                $vnp_Url = 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html'; // URL thanh toán Sandbox
+                $vnp_ReturnUrl = BASE_URL . '?act=vnpay-return';
+    
+                $vnp_TxnRef = time(); // Mã đơn hàng (duy nhất)
+                $vnp_OrderInfo = "Thanh toán đơn hàng";
+                $vnp_OrderType = "billpayment";
+                $vnp_Amount = $tong_tien * 100; // Số tiền (VNĐ, nhân 100 lần)
+                $vnp_Locale = "vn";
+                $vnp_BankCode = "";
+                $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+                $vnp_CreateDate = date('YmdHis');
+                $vnp_ExpireDate = date('YmdHis', strtotime('+30 minutes'));
+    
+                $inputData = array(
+                    "vnp_Version" => "2.1.0",
+                    "vnp_TmnCode" => $vnp_TmnCode,
+                    "vnp_Amount" => $vnp_Amount,
+                    "vnp_Command" => "pay",
+                    "vnp_CreateDate" => $vnp_CreateDate,
+                    "vnp_CurrCode" => "VND",
+                    "vnp_IpAddr" => $vnp_IpAddr,
+                    "vnp_Locale" => $vnp_Locale,
+                    "vnp_OrderInfo" => $vnp_OrderInfo,
+                    "vnp_OrderType" => $vnp_OrderType,
+                    "vnp_ReturnUrl" => $vnp_ReturnUrl,
+                    "vnp_TxnRef" => $vnp_TxnRef,
+                    "vnp_ExpireDate" => $vnp_ExpireDate
+                );
+    
+                ksort($inputData);
+                $hashdata = urldecode(http_build_query($inputData));
+                $vnp_SecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret);
+                $vnp_Url .= '?' . http_build_query($inputData) . '&vnp_SecureHash=' . $vnp_SecureHash;
+    
+                header("Location: " . $vnp_Url);
+                exit();
+            }
+    
+            // Thanh toán bằng QR VNPay (New flow for QR payments)
+            elseif ($phuong_thuc_thanh_toan_id == 3) { // Assuming 3 is the ID for VNPay QR payment
+                // Cấu hình VNPay QR
+                $vnp_TmnCode = '84OESO6O'; // Mã Terminal từ VNPay Sandbox
+                $vnp_HashSecret = '6G3CEOJP0X8B7IVVEHH13OSX7YHKHRG9'; // Chuỗi bí mật
+                $vnp_QrUrl = 'https://sandbox.vnpayment.vn/qrpay/v2/qr/create'; // VNPay QR API URL (Sandbox)
+                $vnp_ReturnUrl = BASE_URL . '?act=vnpay-return';
+    
+                $vnp_TxnRef = time(); // Mã đơn hàng (duy nhất)
+                $vnp_OrderInfo = "Thanh toán đơn hàng bằng QR";
+                $vnp_Amount = $tong_tien * 100; // Số tiền (VNĐ, nhân 100 lần)
+                $vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
+                $vnp_CreateDate = date('YmdHis');
+                $vnp_ExpireDate = date('YmdHis', strtotime('+30 minutes'));
+    
+                $inputData = array(
+                    "vnp_Version" => "2.1.0",
+                    "vnp_TmnCode" => $vnp_TmnCode,
+                    "vnp_Amount" => $vnp_Amount,
+                    "vnp_Command" => "pay",
+                    "vnp_CreateDate" => $vnp_CreateDate,
+                    "vnp_CurrCode" => "VND",
+                    "vnp_IpAddr" => $vnp_IpAddr,
+                    "vnp_OrderInfo" => $vnp_OrderInfo,
+                    "vnp_TxnRef" => $vnp_TxnRef,
+                    "vnp_ExpireDate" => $vnp_ExpireDate,
+                    "vnp_ReturnUrl" => $vnp_ReturnUrl
+                );
+    
+                ksort($inputData);
+                $hashdata = urldecode(http_build_query($inputData));
+                $vnp_SecureHash = hash_hmac('sha512', $hashdata, $vnp_HashSecret);
+    
+                // Make API request to generate QR code
+                $vnp_QrUrl .= '?' . http_build_query($inputData) . '&vnp_SecureHash=' . $vnp_SecureHash;
+    
+                // Use cURL to call the VNPay QR API
+                $ch = curl_init($vnp_QrUrl);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_POST, true);
+                $response = curl_exec($ch);
+                curl_close($ch);
+    
+                // Decode the response
+                $responseData = json_decode($response, true);
+    
+                if ($responseData && isset($responseData['code']) && $responseData['code'] == '00') {
+                    // QR code generation successful, get the QR code URL
+                    $qrCodeUrl = $responseData['data']['qrCodeUrl'];
+    
+                    // Store order details in the database (similar to the redirect flow)
+                    $donHang = $this->modelDonHang->addDonHang(
+                        $tai_khoan_id,
+                        $ten_nguoi_nhan,
+                        $email_nguoi_nhan,
+                        $sdt_nguoi_nhan,
+                        $dia_chi_nguoi_nhan,
+                        $ghi_chu,
+                        $tong_tien,
+                        $phuong_thuc_thanh_toan_id,
+                        $ngay_dat,
+                        $ma_don_hang,
+                        $trang_thai_id
                     );
-
-
-                    $soLuongHienTai = $this->modelSanPham->getSoLuong($item['san_pham_id']);
-                    if ($soLuongHienTai < $item['so_luong']) {
-                        var_dump("Không đủ số lượng trong kho sản phẩm: " . $item['ten_san_pham']);
+    
+                    if ($donHang) {
+                        // Process cart items and update inventory (same as your existing code)
+                        $gioHang = $this->modelGioHang->getGiohangFromUser($tai_khoan_id);
+                        $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+    
+                        foreach ($chiTietGioHang as $item) {
+                            $donGia = $item['gia_khuyen_mai'] != 0 ? $item['gia_khuyen_mai'] : $item['gia_san_pham'];
+                            $kichCo = $item['ten_kich_co'];
+    
+                            $this->modelDonHang->addChiTietDonHang(
+                                $donHang,
+                                $item['san_pham_id'],
+                                $donGia,
+                                $item['so_luong'],
+                                $kichCo,
+                                $donGia * $item['so_luong']
+                            );
+    
+                            $soLuongHienTai = $this->modelSanPham->getSoLuong($item['san_pham_id']);
+                            if ($soLuongHienTai < $item['so_luong']) {
+                                var_dump("Không đủ số lượng trong kho sản phẩm: " . $item['ten_san_pham']);
+                                die();
+                            }
+    
+                            $capNhatSoLuong = $this->modelSanPham->giamSoLuong($item['san_pham_id'], $item['so_luong']);
+                            if (!$capNhatSoLuong) {
+                                var_dump("Không cập nhật được kho cho sản phẩm: " . $item['ten_san_pham']);
+                                die();
+                            }
+                        }
+    
+                        // Clear the cart
+                        $this->modelGioHang->deleteDetailGioHang($gioHang['id']);
+                        $this->modelGioHang->deleteGioHang($tai_khoan_id);
+    
+                        // Redirect to a page to display the QR code
+                        header("Location: " . BASE_URL . '?act=show-qr&qr_url=' . urlencode($qrCodeUrl) . '&order_id=' . $donHang);
+                        exit();
+                    } else {
+                        var_dump("Lỗi đặt hàng. Vui lòng thử lại sau");
                         die();
                     }
-
-                    // Giảm số lượng trên database
-                    $capNhatSoLuong = $this->modelSanPham->giamSoLuong($item['san_pham_id'], $item['so_luong']);
-
-
-                    if (!$capNhatSoLuong) {
-                        $soLuongHienTai = $this->modelSanPham->getSoLuong($item['san_pham_id']);
-                        var_dump("Không cập nhật được kho cho sản phẩm: " . $item['ten_san_pham']);
-                        die();
-                    }
+                } else {
+                    // Handle QR generation error
+                    var_dump("Lỗi tạo mã QR: " . $responseData['message']);
+                    die();
                 }
-
-                // Sau khi thêm xong phải xoá sản phẩm trong giỏ hàng đi
-                // Xoá toàn bộ sản phẩm trong chi tiết giỏ hàng
-                $this->modelGioHang->deleteDetailGioHang($gioHang['id']);
-
-                // Xoá thông tin giỏ hàng người dùng
-                $this->modelGioHang->deleteGioHang($tai_khoan_id);
-
-                header("Location: " . BASE_URL . '?act=lich-su-mua-hang');
-                exit;
-            } else {
-                var_dump("Lỗi đặt hàng. Vui lòng thử lại sau");
-                die;
+            }
+    
+            // Existing logic for other payment methods
+            else {
+                // Handle other payment methods (e.g., COD)
+                $donHang = $this->modelDonHang->addDonHang(
+                    $tai_khoan_id,
+                    $ten_nguoi_nhan,
+                    $email_nguoi_nhan,
+                    $sdt_nguoi_nhan,
+                    $dia_chi_nguoi_nhan,
+                    $ghi_chu,
+                    $tong_tien,
+                    $phuong_thuc_thanh_toan_id,
+                    $ngay_dat,
+                    $ma_don_hang,
+                    $trang_thai_id
+                );
+    
+                if ($donHang) {
+                    $gioHang = $this->modelGioHang->getGiohangFromUser($tai_khoan_id);
+                    $chiTietGioHang = $this->modelGioHang->getDetailGioHang($gioHang['id']);
+    
+                    foreach ($chiTietGioHang as $item) {
+                        $donGia = $item['gia_khuyen_mai'] != 0 ? $item['gia_khuyen_mai'] : $item['gia_san_pham'];
+                        $kichCo = $item['ten_kich_co'];
+    
+                        $this->modelDonHang->addChiTietDonHang(
+                            $donHang,
+                            $item['san_pham_id'],
+                            $donGia,
+                            $item['so_luong'],
+                            $kichCo,
+                            $donGia * $item['so_luong']
+                        );
+    
+                        $soLuongHienTai = $this->modelSanPham->getSoLuong($item['san_pham_id']);
+                        if ($soLuongHienTai < $item['so_luong']) {
+                            var_dump("Không đủ số lượng trong kho sản phẩm: " . $item['ten_san_pham']);
+                            die();
+                        }
+    
+                        $capNhatSoLuong = $this->modelSanPham->giamSoLuong($item['san_pham_id'], $item['so_luong']);
+                        if (!$capNhatSoLuong) {
+                            var_dump("Không cập nhật được kho cho sản phẩm: " . $item['ten_san_pham']);
+                            die();
+                        }
+                    }
+    
+                    $this->modelGioHang->deleteDetailGioHang($gioHang['id']);
+                    $this->modelGioHang->deleteGioHang($tai_khoan_id);
+    
+                    header("Location: " . BASE_URL . '?act=lich-su-mua-hang');
+                    exit();
+                } else {
+                    var_dump("Lỗi đặt hàng. Vui lòng thử lại sau");
+                    die();
+                }
             }
         }
+    }
+    public function showQr()
+    {
+        if (isset($_GET['qr_url']) && isset($_GET['order_id'])) {
+            $qrCodeUrl = urldecode($_GET['qr_url']);
+            $orderId = $_GET['order_id'];
+    
+            // Render a view to display the QR code
+            include_once 'views/qr_payment.php';
+        } else {
+            var_dump("Thiếu thông tin QR code hoặc mã đơn hàng");
+            die();
+        }
+    }
+
+    public function checkPaymentStatus()
+{
+    if (isset($_GET['order_id'])) {
+        $orderId = $_GET['order_id'];
+        $order = $this->modelDonHang->getDonHangById($orderId);
+
+        if ($order && $order['trang_thai_id'] == 2) { // Assuming 2 means "paid"
+            echo json_encode(['status' => 'paid']);
+        } else {
+            echo json_encode(['status' => 'pending']);
+        }
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Missing order ID']);
+    }
+    exit();
+}
+
+    public function handleVNPayReturn()
+    {
+
+        // Debug: In ra toàn bộ dữ liệu GET từ VNPay
+
+        $vnp_HashSecret = '6G3CEOJP0X8B7IVVEHH13OSX7YHKHRG9'; // Secret key của bạn
+        $inputData = $_GET;
+
+        // Lấy thông tin mã bảo mật từ VNPay
+        $secureHash = $inputData['vnp_SecureHash'];
+        unset($inputData['vnp_SecureHash']);
+
+        // Sắp xếp mảng dữ liệu theo key để tạo chuỗi hash
+        ksort($inputData);
+        $hashData = "";
+        foreach ($inputData as $key => $value) {
+            $hashData .= $key . "=" . $value . "&";
+        }
+        $hashData = rtrim($hashData, "&");
+        $generatedHash = hash_hmac('sha512', $hashData, $vnp_HashSecret);
+        
+
+
+        if ($generatedHash == $secureHash) {
+            if ($inputData['vnp_ResponseCode'] == '00') {
+                // Thanh toán thành công
+                $message = "Thanh toán thành công! Mã đơn hàng: " . $inputData['vnp_TxnRef'];
+
+                // Cập nhật trạng thái đơn hàng vào database
+                $this->modelDonHang->updateTrangThaiDonHang($inputData['vnp_TxnRef'], 2); // 2 = Đã thanh toán
+            } else {
+                // Thanh toán thất bại
+                $message = "Thanh toán thất bại! Mã lỗi: " . $inputData['vnp_ResponseCode'];
+            }
+        } else {
+            $message = "Chữ ký không hợp lệ!";
+        }
+
+        // Hiển thị thông báo cho người dùng
+        echo "<script>alert('$message'); window.location.href = '" . BASE_URL . "?act=lich-su-mua-hang';</script>";
     }
 
     public function lichSuMuaHang()
@@ -1111,45 +1154,7 @@ class HomeController
             die();
         }
     }
-    // public function chiTietMuaHang()
-    // {
-    //     if (isset($_SESSION['user_client'])) {
-    //         // Lấy ra thông tin đăng nhập để lấy ra id tài khoản để lọc ra được đơn hàng theo id đó
-    //         $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
-    //         $tai_khoan_id = $user['id'];
 
-    //         // Lấy id đơn hàng trên url 
-    //         $donHangID = $_GET['id'];
-
-    //         // Lấy ra danh sách trạng thái đơn hàng
-    //         $allTrangThaiDonHang = $this->modelDonHang->getAllTrangThaiDonHang();
-    //         $trangThaiDonHang = array_column($allTrangThaiDonHang, 'ten_trang_thai', 'id'); //array_column hàm tìm trong mảng liên hợp lấy ra all giá trị của các trường 
-
-    //         // Lấy ra danh sách trạng thái thanh toán
-    //         $allPhuongThucThanhToan = $this->modelDonHang->getAllPhuongThucThanhToanDonHang();
-    //         $phuongThucThanhToan = array_column($allPhuongThucThanhToan, 'ten_phuong_thuc', 'id'); //array_column hàm tìm trong mảng liên hợp lấy ra all giá trị của các trường 
-
-    //         // Lấy ra thông tin đơn hàng theo id
-    //         $donHang = $this->modelDonHang->getDonHangId($donHangID);
-
-    //         // Lấy thông tin sản phẩm cảu đơn hàng trong bảng chi tiết đơn hàng
-    //         $chiTietDonHang = $this->modelDonHang->getChiTietDonHangById($donHangID);
-    //         // var_dump($chiTietDonHang);die();
-
-    //         // check trường hợp điển id trên url 
-    //         if ($donHang['tai_khoan_id'] != $tai_khoan_id) {
-    //             echo 'Bạn không có quyền truy cập đơn hàng này';
-    //             exit();
-    //         }
-
-    //         require_once './views/ChiTietMuaHang.php';
-    //     } else {
-    //         $_SESSION['message'] = 'Bạn chưa đăng nhâp.';
-
-    //         header('Location: ' . BASE_URL . '?act=login');
-    //         die();
-    //     }
-    // }
 
     public function chiTietMuaHang()
     {
@@ -1189,39 +1194,7 @@ class HomeController
             die;
         }
     }
-    // public function huyDonHang()
-    // {
-    //     if (isset($_SESSION['user_client'])) {
-    //         // Lấy ra thông tin đăng nhập để lấy ra id tài khoản để lọc ra được đơn hàng theo id đó
-    //         $user = $this->modelTaiKhoan->getTaiKhoanFromEmail($_SESSION['user_client']);
-    //         $tai_khoan_id = $user['id'];
 
-    //         // Lấy id đơn hàng trên url 
-    //         $donHangID = $_GET['id'];
-
-    //         // Kiểm tra đơn hàng
-    //         $donHang = $this->modelDonHang->getDonHangId($donHangID);
-    //         if ($donHang['tai_khoan_id'] != $tai_khoan_id) {
-    //             echo 'Bạn không có quyền huỷ đơn hàng này';
-    //             exit();
-    //         }
-    //         if ($donHang['trang_thai_id'] != 1) {
-    //             echo 'Chỉ đơn hàng ở trạng thái "Chưa xác nhận" mới có thể huỷ';
-    //             exit();
-    //         }
-
-    //         // Huỷ đơn hàng
-    //         $this->modelDonHang->updateTrangThaiDonHang($donHangID, 11);
-
-    //         header('Location: ' . BASE_URL . '?act=lich-su-mua-hang');
-    //         exit();
-    //     } else {
-    //         $_SESSION['message'] = 'Bạn chưa đăng nhâp.';
-
-    //         header('Location: ' . BASE_URL . '?act=login');
-    //         die();
-    //     }
-    // }
     public function huyDonHang()
     {
         if (isset($_SESSION['user_client'])) {
@@ -1255,52 +1228,6 @@ class HomeController
         }
     }
 
-
-
-    //     public function huyDonHang()
-    // {
-    //     // Check if the request method is POST and don_hang_id is set
-    //     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['don_hang_id'])) {
-    //         $donHangId = $_POST['don_hang_id'];
-
-    //         // Retrieve the order details using the order ID
-    //         $chiTietDonHang = $this->modelDonHang->getChiTietDonHang($donHangId);
-
-    //         if ($chiTietDonHang) {
-    //             // Loop through the order details to restore stock for each product
-    //             foreach ($chiTietDonHang as $item) {
-    //                 // Attempt to restore the product stock
-    //                 $stockRestored = $this->modelSanPham->increaseStock($item['san_pham_id'], $item['so_luong']);
-    //                 if (!$stockRestored) {
-    //                     // If stock restoration fails, show an error message
-    //                     die("Failed to restore stock for product ID: " . $item['san_pham_id']);
-    //                 }
-    //             }
-
-    //             // Update the order status to 'canceled'
-    //             $orderCanceled = $this->modelDonHang->updateTrangThaiDonHang($donHangId, 'canceled');
-    //             if (!$orderCanceled) {
-    //                 // If the order status update fails, show an error message
-    //                 die("Failed to cancel the order.");
-    //             }
-
-    //             // Set success message and redirect to the order history page
-    //             $_SESSION['message'] = "Order canceled successfully.";
-    //         } else {
-    //             // If no order is found with the given ID, show an error message
-    //             $_SESSION['error'] = "Order not found.";
-    //         }
-
-    //         // Redirect to order history page
-    //         header("Location: " . BASE_URL . '?act=lich-su-mua-hang');
-    //         exit;
-    //     } else {
-    //         // If the request method is not POST, show an error message
-    //         $_SESSION['error'] = "Invalid request.";
-    //         header("Location: " . BASE_URL . '?act=lich-su-mua-hang');
-    //         exit;
-    //     }
-    // }
 
 
 
